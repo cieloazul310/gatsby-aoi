@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
   Layout,
   Article,
+  ArticleTitle,
   Section,
   SectionDivider,
   H3,
@@ -11,7 +12,8 @@ import {
 function IndexPage() {
   return (
     <Layout title="Index Page">
-      <Article>
+      <Article maxWidth="md">
+        <ArticleTitle>Gatsby Aoi Theme</ArticleTitle>
         <Section>
           <H3>Gatsby Aoi Theme</H3>
           <Paragraph>This is Gatsby Aoi Theme Demo Page.</Paragraph>

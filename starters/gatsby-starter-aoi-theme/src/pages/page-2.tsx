@@ -29,7 +29,9 @@ function Page2() {
         <SectionDivider />
         <Section>
           <Paragraph>Count is {count}</Paragraph>
-          <Button onClick={onClick}>Inremenet</Button>
+          <Button variant="contained" onClick={onClick}>
+            Inremenet
+          </Button>
         </Section>
       </Article>
     </Layout>

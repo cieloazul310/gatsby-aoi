@@ -38,7 +38,7 @@ function DrawerFooter() {
         </Typography>
       </ContentWapper>
       <ContentWapper>
-        <Typography variant="body2" color="textSecondary">
+        <Typography variant="body2" color="textSecondary" component="div">
           <Stack direction="row" justifyContent="center" spacing={1}>
             {social.mail ? (
               <MuiLink
