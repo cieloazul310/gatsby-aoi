@@ -25,6 +25,9 @@
     "typescript": "^4.5.4"
   },
   "scripts": {
+    "build:theme": "npm-run-all build:utils build:components",
+    "build:components": "yarn workspace @cieloazul310/gatsby-theme-aoi-components build",
+    "build:utils": "yarn workspace @cieloazul310/gatsby-theme-aoi-utils build",
     "dev:theme": "npm-run-all dev:components dev:utils --parallel",
     "dev:components": "yarn workspace @cieloazul310/gatsby-theme-aoi-components dev",
     "dev:utils": "yarn workspace @cieloazul310/gatsby-theme-aoi-utils dev",

@@ -29,7 +29,7 @@ export interface UseSiteMetadataQuery {
 
 export function useSiteMetadata(): UseSiteMetadataQuery['site']['siteMetadata'] {
   const { site } = useStaticQuery<UseSiteMetadataQuery>(graphql`
-    query SiteMetadataHogeHoge {
+    query {
       site {
         siteMetadata {
           title
