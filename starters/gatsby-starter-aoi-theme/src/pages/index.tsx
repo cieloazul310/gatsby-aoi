@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {
   Layout,
+  Article,
   Section,
   SectionDivider,
   H3,
@@ -10,15 +11,17 @@ import {
 function IndexPage() {
   return (
     <Layout title="Index Page">
-      <Section>
-        <H3>Gatsby Aoi Theme</H3>
-        <Paragraph>This is Gatsby Aoi Theme Demo Page.</Paragraph>
-      </Section>
-      <SectionDivider />
-      <Section>
-        <H3>Gatsby Aoi Theme</H3>
-        <Paragraph>This is Gatsby Aoi Theme Demo Page.</Paragraph>
-      </Section>
+      <Article>
+        <Section>
+          <H3>Gatsby Aoi Theme</H3>
+          <Paragraph>This is Gatsby Aoi Theme Demo Page.</Paragraph>
+        </Section>
+        <SectionDivider />
+        <Section>
+          <H3>Gatsby Aoi Theme</H3>
+          <Paragraph>This is Gatsby Aoi Theme Demo Page.</Paragraph>
+        </Section>
+      </Article>
     </Layout>
   );
 }
