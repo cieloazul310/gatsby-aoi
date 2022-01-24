@@ -12,3 +12,4 @@ export {
   useToggleDark,
   useToggleUseSystem,
 } from './ThemeStateContext';
+export { default as useUpdateOnClient } from './useUpdateOnClient';

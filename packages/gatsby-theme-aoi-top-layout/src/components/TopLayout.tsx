@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import ThemeStateProvider from './ThemeStateProvider';
@@ -6,6 +6,7 @@ import AppStateProvider from './AppStateProvider';
 import ThemeDispatchContext from '../utils/ThemeStateContext';
 import themeReducer, { PaletteType } from '../utils/ThemeState';
 import initialTheme from '../utils/theme';
+import useUpdateOnClient from '../utils/useUpdateOnClient';
 
 type TopLayoutProps = {
   children: React.ReactNode;
@@ -21,6 +22,7 @@ export default function TopLayout({
   storedItem,
   siteId,
 }: TopLayoutProps) {
+  const isClient = useUpdateOnClient();
   const defaultPaletteType = initialTheme.palette.mode;
   const storedPaletteType =
     storedItem !== null ? storedItem.paletteType : defaultPaletteType;
@@ -33,6 +35,7 @@ export default function TopLayout({
     useSystemTheme: storedUseSystemTheme || false,
   });
   const { darkMode, useSystemTheme } = themeState;
+
   let paletteType: PaletteType;
   if (useSystemTheme) {
     paletteType = prefersDarkMode ? 'dark' : 'light';
@@ -59,7 +62,7 @@ export default function TopLayout({
   });
 
   return (
-    <ThemeStateProvider paletteType={paletteType}>
+    <ThemeStateProvider paletteType={paletteType} key={isClient}>
       <ThemeDispatchContext.Provider
         // eslint-disable-next-line react/jsx-no-constructed-context-values
         value={{ state: themeState, dispatch: themeDispatch }}

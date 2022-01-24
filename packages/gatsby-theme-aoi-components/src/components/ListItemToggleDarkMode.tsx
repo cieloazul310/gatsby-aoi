@@ -13,7 +13,7 @@ import {
   useToggleDark,
   useToggleUseSystem,
 } from '@cieloazul310/gatsby-theme-aoi-top-layout/src/utils/ThemeStateContext';
-// import useUpdateOnClient from '../utils/useUpdateOnClient';
+// import { useUpdateOnClient } from '@cieloazul310/gatsby-theme-aoi-utils';
 
 interface Props {
   label?: string;

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme, lighten } from '@mui/material/styles';
@@ -35,11 +35,6 @@ function TopThemeProvider({ children, paletteType }: TopThemeProviderProps) {
       }),
     [paletteType]
   );
-
-  // take away SSR rendered mode;
-  React.useEffect(() => {
-    document.body.className = '';
-  }, []);
 
   return (
     <>
