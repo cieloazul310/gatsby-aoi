@@ -10,7 +10,10 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "src",
+    "gatsby-browser.js",
+    "gatsby-config.js",
+    "gatsby-ssr.js"
   ],
   "publishConfig": {
     "access": "public"
