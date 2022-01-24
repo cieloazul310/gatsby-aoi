@@ -14,9 +14,9 @@ function FullWidthLayout() {
     <Layout
       title="Full Width Layout"
       componentViewports={{
-        PermanentDrawer: false,
-        SwipeableDrawer: true,
-        Fab: true,
+        permanentDrawer: false,
+        swipeableDrawer: true,
+        fab: true,
       }}
     >
       <Jumbotron title="Full Width Layout" />
