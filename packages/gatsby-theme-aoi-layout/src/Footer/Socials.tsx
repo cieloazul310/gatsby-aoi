@@ -54,7 +54,7 @@ IconBox.defaultProps = {
   title: undefined,
 };
 
-function Socials(): JSX.Element {
+function Socials() {
   const {
     mail,
     github,

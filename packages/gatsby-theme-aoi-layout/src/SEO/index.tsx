@@ -12,7 +12,7 @@ interface Props {
   image?: string;
 }
 
-function SEO({ title, description, keywords, image }: Props): JSX.Element {
+function SEO({ title, description, keywords, image }: Props) {
   const siteMetadata = useSiteMetadata();
   const baseUrl = useBaseUrl();
   const images = image

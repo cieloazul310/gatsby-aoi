@@ -13,9 +13,9 @@ interface Props {
 
 function ButtonLeft({
   toggleDrawer,
-  componentViewports: { SwipeableDrawer, PermanentDrawer },
+  componentViewports: { swipeableDrawer, permanentDrawer },
 }: Props) {
-  const showMenuButton = SwipeableDrawer !== false && PermanentDrawer === false;
+  const showMenuButton = swipeableDrawer !== false && permanentDrawer === false;
   const onBackButtonClick = (event: React.MouseEvent) => {
     event.preventDefault();
     if (typeof window === 'object') window.history.back();

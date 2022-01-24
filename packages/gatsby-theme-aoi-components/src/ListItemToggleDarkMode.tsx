@@ -13,18 +13,15 @@ import {
   useToggleDark,
   useToggleUseSystem,
 } from '@cieloazul310/gatsby-theme-aoi-top-layout/src/utils/ThemeStateContext';
-// import { useUpdateOnClient } from '@cieloazul310/gatsby-theme-aoi-utils';
 
 interface Props {
   label?: string;
 }
 
 function ListItemToggleDarkMode({ label = 'Dark Mode' }: Props): JSX.Element {
-  // const isClient = useUpdateOnClient();
   const { darkMode, useSystemTheme } = useThemeContextState();
   const toggleDark = useToggleDark();
   return (
-    // key={isClient}
     <ListItem disabled={useSystemTheme}>
       <ListItemIcon>
         {darkMode ? <Bright4Icon /> : <Bright5Icon />}
@@ -52,12 +49,10 @@ export default ListItemToggleDarkMode;
 export function ListItemToggleUseSystemTheme({
   label = 'Auto Dark Mode',
 }: Props) {
-  // const isClient = useUpdateOnClient();
   const paletteType = useTheme().palette.mode;
   const { useSystemTheme } = useThemeContextState();
   const toggleUseSystemTheme = useToggleUseSystem();
   return (
-    // key={isClient}
     <ListItem>
       <ListItemIcon>
         {paletteType === 'dark' ? (

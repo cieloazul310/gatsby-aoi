@@ -9,14 +9,12 @@ import {
   useSiteMetadata,
   useSocialShare,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
-// import useUpdateOnClient from '../../utils/useUpdateOnClient';
 
 type Props = {
   title?: string;
 } & Partial<Pick<IconButtonProps, 'color'>>;
 
 function ShareButtons({ title, color = 'default' }: Props) {
-  // const isClient = useUpdateOnClient();
   const { lang, social } = useSiteMetadata();
   const twitterUrl = useSocialShare('twitter', title);
   const fbUrl = useSocialShare('facebook');
@@ -24,7 +22,6 @@ function ShareButtons({ title, color = 'default' }: Props) {
     <div>
       <Tooltip title={lang === 'ja' ? 'Twitterでシェア' : 'Share On Twitter'}>
         <IconButton
-          // key={isClient}
           color={color}
           href={twitterUrl}
           target="_blank"
@@ -36,7 +33,6 @@ function ShareButtons({ title, color = 'default' }: Props) {
       </Tooltip>
       <Tooltip title={lang === 'ja' ? 'Facebookで共有' : 'Share on Facebook'}>
         <IconButton
-          // key={isClient}
           color={color}
           href={fbUrl}
           target="_blank"

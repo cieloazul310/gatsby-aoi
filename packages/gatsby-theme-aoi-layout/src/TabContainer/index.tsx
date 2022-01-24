@@ -6,7 +6,7 @@ interface Props {
   tabSticky?: boolean;
 }
 
-function Tabs({ children, tabSticky = false }: Props): JSX.Element {
+function Tabs({ children, tabSticky = false }: Props) {
   return (
     <Box
       sx={{
