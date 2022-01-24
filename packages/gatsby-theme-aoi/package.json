@@ -1,14 +1,21 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi",
   "version": "1.3.3",
-  "description": "> TODO: description",
+  "description": "Gatsby theme for MUI",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
-  "homepage": "",
+  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "license": "ISC",
   "main": "index.ts",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "mui",
+    "material-ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/gatsby-theme-aoi"
   },
   "files": [
     "gatsby-config.js"

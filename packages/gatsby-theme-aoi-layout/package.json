@@ -1,9 +1,9 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-layout",
   "version": "1.3.3",
-  "description": "> TODO: description",
+  "description": "MUI based layout component for @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
-  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
+  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "license": "ISC",
   "main": "src/index.tsx",
   "directories": {
@@ -15,9 +15,16 @@
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "mui",
+    "material-ui"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cieloazul310/gatsby-aoi.git"
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/gatsby-theme-aoi-layout"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
