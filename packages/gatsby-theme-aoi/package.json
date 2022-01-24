@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@cieloazul310/gatsby-theme-aoi-components": "^0.0.0",
+    "@cieloazul310/gatsby-theme-aoi-layout": "^0.0.0",
     "@cieloazul310/gatsby-theme-aoi-top-layout": "^0.0.0",
     "@cieloazul310/gatsby-theme-aoi-utils": "^0.0.0",
     "gatsby-plugin-material-ui": "^4.1.0",

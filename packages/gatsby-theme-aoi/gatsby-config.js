@@ -29,6 +29,7 @@ module.exports = (options) => ({
         siteId: options.siteId,
       },
     },
+    `@cieloazul310/gatsby-theme-aoi-layout`,
     `gatsby-plugin-material-ui`,
     `gatsby-plugin-react-helmet`,
   ],

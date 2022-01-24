@@ -5,7 +5,7 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import Home from '@mui/icons-material/Home';
 import MusicNote from '@mui/icons-material/MusicNote';
 import { useLocation } from '@reach/router';
-import BottomNavItem from '../../components/BottomNavItem';
+import { BottomNavItem } from '@cieloazul310/gatsby-theme-aoi-components';
 
 function BottomNav() {
   const { pathname } = useLocation();

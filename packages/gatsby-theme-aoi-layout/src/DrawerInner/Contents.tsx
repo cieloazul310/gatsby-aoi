@@ -9,7 +9,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import SportsHandballIcon from '@mui/icons-material/SportsHandball';
 
 import { useLocation } from '@reach/router';
-import ListItemAppLink from '../../components/ListItemAppLink';
+import { ListItemAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
 
 function Contents() {
   const { pathname } = useLocation();
