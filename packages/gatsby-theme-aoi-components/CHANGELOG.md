@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.4...v1.3.5) (2022-01-24)
+
+
+### Bug Fixes
+
+* peerDependencies ([dbb072f](https://github.com/cieloazul310/gatsby-aoi/commit/dbb072fe4b94569be696be78b996575b2e88affa))
+
+
+
+
+
 ## [1.3.4](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.3...v1.3.4) (2022-01-24)
 
 
