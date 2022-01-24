@@ -1,4 +1,4 @@
-# @cieloazul310/gatsby-theme-aoi-top-layout
+# @cieloazul310/gatsby-theme-aoi
 
 > Gatsby theme for MUI
 

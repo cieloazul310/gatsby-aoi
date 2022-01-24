@@ -2,9 +2,9 @@
   "name": "gatsby-starter-aoi-theme",
   "version": "1.3.3",
   "private": true,
-  "description": "> TODO: description",
+  "description": "Gatsby starter built with @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
-  "homepage": "",
+  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "license": "ISC",
   "main": "index.js",
   "scripts": {

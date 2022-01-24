@@ -1,11 +1,21 @@
-# `gatsby-starter-aoi-theme`
+# gatsby-starter-aoi-theme
 
-> TODO: description
+> Gatsby starter built with `@cieloazul310/gatsby-theme-aoi`
 
-## Usage
+## Quick Start
 
+```shell
+curl https://codeload.github.com/cieloazul310/gatsby-aoi/tar.gz/main | tar -xz --strip=2  gatsby-aoi-main/starters/gatsby-starter-aoi-theme
+cd gatsby-starter-aoi-theme
 ```
-const gatsbyStarterAoiTheme = require('gatsby-starter-aoi-theme');
 
-// TODO: DEMONSTRATE API
+```shell
+# install
+yarn install
+
+# develop
+yarn run dev
+
+# build
+yarn run build
 ```
