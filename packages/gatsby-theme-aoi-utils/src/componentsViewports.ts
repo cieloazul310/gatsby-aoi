@@ -21,17 +21,17 @@ export type ViewDirection = 'Up' | 'Down';
 export type Viewports = Viewport | boolean;
 
 export interface ComponentViewports {
-  SwipeableDrawer: Viewports;
-  PermanentDrawer: Viewports;
-  BottomNav: Viewports;
-  Fab: Viewports;
+  swipeableDrawer: Viewports;
+  permanentDrawer: Viewports;
+  bottomNav: Viewports;
+  fab: Viewports;
 }
 
 export const defaultComponentViewports: ComponentViewports = {
-  SwipeableDrawer: 'smDown',
-  PermanentDrawer: 'mdUp',
-  BottomNav: 'xsDown',
-  Fab: 'smDown',
+  swipeableDrawer: 'smDown',
+  permanentDrawer: 'mdUp',
+  bottomNav: 'xsDown',
+  fab: 'smDown',
 };
 
 function isBreakpoint(
@@ -90,15 +90,15 @@ export function mergeViewports(
 ): ComponentViewports {
   return componentViewports
     ? {
-        SwipeableDrawer:
-          componentViewports.SwipeableDrawer ??
-          defaultComponentViewports.SwipeableDrawer,
-        PermanentDrawer:
-          componentViewports.PermanentDrawer ??
-          defaultComponentViewports.PermanentDrawer,
-        BottomNav:
-          componentViewports.BottomNav ?? defaultComponentViewports.BottomNav,
-        Fab: componentViewports.Fab ?? defaultComponentViewports.Fab,
+        swipeableDrawer:
+          componentViewports.swipeableDrawer ??
+          defaultComponentViewports.swipeableDrawer,
+        permanentDrawer:
+          componentViewports.permanentDrawer ??
+          defaultComponentViewports.permanentDrawer,
+        bottomNav:
+          componentViewports.bottomNav ?? defaultComponentViewports.bottomNav,
+        fab: componentViewports.fab ?? defaultComponentViewports.fab,
       }
     : defaultComponentViewports;
 }
@@ -125,7 +125,7 @@ export function viewportsToSxDisplay(
 /**
  * usage:
  * drawer: props =>
- *  permanentDrawerStyle(viewports.PermanentDrawer)(theme, drawerWidth)
+ *  permanentDrawerStyle(viewports.permanentDrawer)(theme, drawerWidth)
  *
  */
 

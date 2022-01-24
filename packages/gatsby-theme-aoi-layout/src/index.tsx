@@ -29,7 +29,7 @@ import BottomNav from './BottomNav';
  * default layout and breakpoints
  * Header ['xs', 'sm', 'md', 'lg', 'xl']
  * TemporaryDrawer "smDown"
- * PermanentDrawer "mdUp"
+ * permanentDrawer "mdUp"
  * BottomNav "xsDown"
  * Fav "smDown"
  *
@@ -83,14 +83,14 @@ function Layout({
       <Box
         component="nav"
         sx={{
-          ...permanentDrawerStyles(viewports.PermanentDrawer, drawerWidth),
+          ...permanentDrawerStyles(viewports.permanentDrawer, drawerWidth),
           flexShrink: 0,
         }}
       >
-        {viewports.SwipeableDrawer !== false ? (
+        {viewports.swipeableDrawer !== false ? (
           <SwipeableDrawer
             sx={{
-              display: viewportsToSxDisplay(viewports.SwipeableDrawer),
+              display: viewportsToSxDisplay(viewports.swipeableDrawer),
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',
                 width: drawerWidth,
@@ -111,10 +111,10 @@ function Layout({
             />
           </SwipeableDrawer>
         ) : null}
-        {viewports.PermanentDrawer !== false ? (
+        {viewports.permanentDrawer !== false ? (
           <Drawer
             sx={{
-              display: viewportsToSxDisplay(viewports.PermanentDrawer),
+              display: viewportsToSxDisplay(viewports.permanentDrawer),
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',
                 width: drawerWidth,
@@ -172,10 +172,10 @@ function Layout({
           componentViewports={viewports}
         />
       </AppBar>
-      {viewports.SwipeableDrawer || viewports.PermanentDrawer ? drawer : null}
+      {viewports.swipeableDrawer || viewports.permanentDrawer ? drawer : null}
       <Box
         sx={{
-          ...mainStyles(viewports.BottomNav),
+          ...mainStyles(viewports.bottomNav),
           flexGrow: 1,
           maxWidth: '100%',
           minWidth: 0,
@@ -188,11 +188,11 @@ function Layout({
         <main>{children}</main>
         <Footer />
       </Box>
-      {viewports.Fab !== false ? (
+      {viewports.fab !== false ? (
         <Box
           sx={{
-            ...fabStyles(viewports.BottomNav, theme),
-            display: viewportsToSxDisplay(viewports.Fab),
+            ...fabStyles(viewports.bottomNav, theme),
+            display: viewportsToSxDisplay(viewports.fab),
             position: 'fixed',
             right: theme.spacing(2),
             bottom: theme.spacing(2),
@@ -202,10 +202,10 @@ function Layout({
           {fab || <Fab onClick={toggleDrawer} />}
         </Box>
       ) : null}
-      {viewports.BottomNav !== false ? (
+      {viewports.bottomNav !== false ? (
         <Box
           sx={{
-            display: viewportsToSxDisplay(viewports.BottomNav),
+            display: viewportsToSxDisplay(viewports.bottomNav),
             position: 'fixed',
             left: 0,
             bottom: 0,
