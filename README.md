@@ -2,7 +2,25 @@
 
 > Gatsby theme for MUI
 
-## Usage
+## Quick Start with a starter
+
+```shell
+curl https://codeload.github.com/cieloazul310/gatsby-aoi/tar.gz/main | tar -xz --strip=2  gatsby-aoi-main/starters/gatsby-starter-aoi-theme
+cd gatsby-starter-aoi-theme
+```
+
+```shell
+# install
+yarn install
+
+# develop
+yarn run dev
+
+# build
+yarn run build
+```
+
+## Manual install
 
 ### 1. Install
 
@@ -104,4 +122,8 @@ export default function reducer(state: AppState, action: Action): AppState {
 }
 ```
 
-### Shadowing components
+### Shadowing layout components
+
+```shell
+mkdir -p src/@cieloazul310/gatsby-theme-aoi-layout
+```
