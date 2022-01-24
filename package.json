@@ -31,6 +31,11 @@
     "dev:theme": "npm-run-all dev:components dev:utils --parallel",
     "dev:components": "yarn workspace @cieloazul310/gatsby-theme-aoi-components dev",
     "dev:utils": "yarn workspace @cieloazul310/gatsby-theme-aoi-utils dev",
+    "version": "lerna version --conventional-commits",
+    "version:major": "yarn run version major",
+    "version:minor": "yarn run version minor",
+    "version:patch": "yarn run version patch",
+    "release": "lerna publish from-git",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
     "bootstrap": "lerna bootstrap"
