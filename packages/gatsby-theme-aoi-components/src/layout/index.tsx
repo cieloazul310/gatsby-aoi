@@ -5,13 +5,6 @@ import Drawer from '@mui/material/Drawer';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import LinearProgress from '@mui/material/LinearProgress';
 import { useTheme } from '@mui/material/styles';
-
-// import { useAppState } from '@cieloazul310/gatsby-theme-aoi-top-layout/src/utils/AppStateContext';
-// import { useThemeContextState } from '@cieloazul310/gatsby-theme-aoi-top-layout/src/utils/ThemeStateContext';
-import {
-  useAppState,
-  useThemeContextState,
-} from '@cieloazul310/gatsby-theme-aoi-top-layout';
 import {
   mergeViewports,
   mainStyles,
@@ -25,7 +18,7 @@ import {
 // https://www.gatsbyjs.org/docs/themes/shadowing/
 import SEO from './SEO';
 import Header from './Header';
-import Tabs from './Tabs';
+import TabContainer from './TabContainer';
 import DrawerInner from './DrawerInner';
 import Footer from './Footer';
 import Fab from './Fab';
@@ -74,9 +67,6 @@ function Layout({
   drawerWidth = 280,
 }: LayoutProps) {
   const theme = useTheme();
-  const appState = useAppState();
-  const themeState = useThemeContextState();
-  console.log(appState, themeState);
 
   const viewports = mergeViewports(componentViewports);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -192,7 +182,9 @@ function Layout({
           paddingTop: { xs: '56px', sm: '64px' },
         }}
       >
-        {tabs ? <Tabs tabSticky={tabSticky}>{tabs}</Tabs> : null}
+        {tabs ? (
+          <TabContainer tabSticky={tabSticky}>{tabs}</TabContainer>
+        ) : null}
         <main>{children}</main>
         <Footer />
       </Box>
