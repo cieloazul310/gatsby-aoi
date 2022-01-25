@@ -11,6 +11,7 @@ import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell, { TableCellProps } from '@mui/material/TableCell';
 import MuiDivider from '@mui/material/Divider';
+import { StaticImage } from 'gatsby-plugin-image';
 import {
   AppLink,
   ArticleTitle,
@@ -73,8 +74,27 @@ function Link(props: LinkProps) {
       color="secondary"
       target="_blank"
       rel="noopener noreferrer"
+      underline="hover"
       {...props}
     />
+  );
+}
+
+function Code({ children, className }: Omit<TypographyProps, 'ref'>) {
+  return (
+    <Typography
+      className={className ?? undefined}
+      variant="body2"
+      component="code"
+      fontFamily="monospace"
+      px={{ xs: 1, sm: 2 }}
+      py={1}
+      borderRadius={1}
+      bgcolor="divider"
+      display="block"
+    >
+      {children}
+    </Typography>
   );
 }
 
@@ -176,6 +196,7 @@ const components = {
   tr: TableRow,
   th: TableCellHead,
   td: TableCellBody,
+  code: Code,
   inlineCode: InlineCode,
   blockquote: Blockquote,
   hr: Divider,

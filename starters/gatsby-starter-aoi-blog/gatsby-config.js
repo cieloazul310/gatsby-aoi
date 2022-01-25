@@ -37,11 +37,33 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-remark-images`,
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: {
           default: require.resolve('./src/templates/default.tsx'),
         },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 800,
+            },
+          },
+        ],
       },
     },
   ],

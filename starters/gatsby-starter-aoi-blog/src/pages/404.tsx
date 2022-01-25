@@ -1,23 +1,25 @@
 import * as React from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
 import {
   Layout,
   Article,
   Section,
-  H3,
+  ArticleTitle,
   Paragraph,
 } from '@cieloazul310/gatsby-theme-aoi';
 
-function IndexPage() {
+function NotFoundPage() {
   return (
     <Layout title="Index Page">
-      <Article>
-        <Section>
-          <H3>404 page</H3>
+      <Section>
+        <Article>
+          <ArticleTitle>404 page</ArticleTitle>
+          <StaticImage src="../images/IMG_1568.jpeg" alt="A dinosaur" />
           <Paragraph>This is Gatsby Aoi Theme Demo Page.</Paragraph>
-        </Section>
-      </Article>
+        </Article>
+      </Section>
     </Layout>
   );
 }
 
-export default IndexPage;
+export default NotFoundPage;

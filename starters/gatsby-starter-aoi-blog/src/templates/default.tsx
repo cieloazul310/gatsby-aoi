@@ -1,16 +1,18 @@
 import * as React from 'react';
+import { PageProps } from 'gatsby';
 import { Layout, Article, Section } from '@cieloazul310/gatsby-theme-aoi';
 import { MDXProvider } from '@mdx-js/react';
+import { MDXRendererProps } from 'gatsby-plugin-mdx';
 import muiComponents from '../utils/muiComponents';
 
-interface Props {
-  children: React.ReactNode;
-  pageContext: {
-    frontmatter?: {
-      title?: string;
+type Props = Omit<PageProps, 'children'> &
+  MDXRendererProps & {
+    pageContext: {
+      frontmatter?: {
+        title?: string;
+      };
     };
   };
-}
 
 function DefaultTemplate({ children, pageContext }: Props) {
   return (
