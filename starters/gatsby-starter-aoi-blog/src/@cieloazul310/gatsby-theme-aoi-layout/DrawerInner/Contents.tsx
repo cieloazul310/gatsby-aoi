@@ -7,7 +7,6 @@ import ListItemText from '@mui/material/ListItemText';
 // icons
 import HomeIcon from '@mui/icons-material/Home';
 import ListIcon from '@mui/icons-material/List';
-import SportsHandballIcon from '@mui/icons-material/SportsHandball';
 
 import { useLocation } from '@reach/router';
 import { ListItemAppLink } from '@cieloazul310/gatsby-theme-aoi';
@@ -28,48 +27,15 @@ function Contents() {
         <ListItemText primary="Top" />
       </ListItemAppLink>
       <ListItemAppLink
-        to="/catalogue/"
+        to="/page-2/"
         button
-        selected={pathname === withPrefix('/catalogue/')}
+        selected={pathname === withPrefix('/page-2/')}
         role="menuitem"
       >
         <ListItemIcon>
           <ListIcon />
         </ListItemIcon>
-        <ListItemText primary="Catalogue" />
-      </ListItemAppLink>
-      <ListItemAppLink
-        to="/tab-page/"
-        button
-        selected={pathname === withPrefix('/tab-page/')}
-        role="menuitem"
-      >
-        <ListItemIcon>
-          <SportsHandballIcon />
-        </ListItemIcon>
-        <ListItemText primary="Tab Layout" />
-      </ListItemAppLink>
-      <ListItemAppLink
-        to="/jumbotron/"
-        button
-        selected={pathname === withPrefix('/jumbotron/')}
-        role="menuitem"
-      >
-        <ListItemIcon>
-          <SportsHandballIcon />
-        </ListItemIcon>
-        <ListItemText primary="Jumbotron Layout" />
-      </ListItemAppLink>
-      <ListItemAppLink
-        to="/without-drawer/"
-        button
-        selected={pathname === withPrefix('/without-drawer/')}
-        role="menuitem"
-      >
-        <ListItemIcon>
-          <SportsHandballIcon />
-        </ListItemIcon>
-        <ListItemText primary="Full Width Layout" />
+        <ListItemText primary="Page 2" />
       </ListItemAppLink>
     </List>
   );

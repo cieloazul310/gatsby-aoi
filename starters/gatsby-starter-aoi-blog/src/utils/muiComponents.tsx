@@ -1,13 +1,16 @@
 /* eslint react/jsx-props-no-spreading: warn */
 import * as React from 'react';
+import Paper from '@mui/material/Paper';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import MuiLink, { LinkProps } from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import TableContainer from '@mui/material/TableContainer';
 import MuiTable, { TableProps } from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
-import Divider from '@mui/material/Divider';
+import TableCell, { TableCellProps } from '@mui/material/TableCell';
+import MuiDivider from '@mui/material/Divider';
 import {
   AppLink,
   ArticleTitle,
@@ -65,7 +68,29 @@ function H6(props: Omit<TypographyProps, 'ref'>) {
 }
 
 function Link(props: LinkProps) {
-  return <MuiLink color="secondary" {...props} />;
+  return (
+    <MuiLink
+      color="secondary"
+      target="_blank"
+      rel="noopener noreferrer"
+      {...props}
+    />
+  );
+}
+
+function InlineCode({ children }: Omit<TypographyProps, 'ref'>) {
+  return (
+    <Typography
+      variant="body2"
+      component="code"
+      fontFamily="monospace"
+      px={0.5}
+      borderRadius={1}
+      bgcolor="divider"
+    >
+      {children}
+    </Typography>
+  );
 }
 
 function Ul(props: Omit<TypographyProps, 'ref'>) {
@@ -88,13 +113,49 @@ function Li(props: Omit<TypographyProps, 'ref'>) {
   return <Typography variant="body1" component="li" {...props} />;
 }
 
-function Table(props: TableProps) {
+function Divider() {
+  return <MuiDivider sx={{ pt: 4 }} />;
+}
+
+function Table({ children }: TableProps) {
   return (
     <Box py={2}>
-      <TableContainer>
-        <MuiTable {...props} />
+      <TableContainer component={Paper}>
+        <MuiTable>{children}</MuiTable>
       </TableContainer>
     </Box>
+  );
+}
+
+function TableCellHead({ children, align }: TableCellProps) {
+  return (
+    <TableCell component="th" align={align ?? undefined}>
+      {children}
+    </TableCell>
+  );
+}
+
+function TableCellBody({ children, align }: TableCellProps) {
+  return (
+    <TableCell component="td" align={align ?? undefined}>
+      {children}
+    </TableCell>
+  );
+}
+
+function Blockquote({ children }: Omit<TypographyProps, 'ref'>) {
+  return (
+    <Typography
+      component="blockquote"
+      sx={{
+        borderLeft: 2,
+        borderColor: 'text.secondary',
+        py: 2,
+        px: 2,
+      }}
+    >
+      {children}
+    </Typography>
   );
 }
 
@@ -110,9 +171,13 @@ const components = {
   ol: Ol,
   li: Li,
   table: Table,
+  thead: TableHead,
+  tbody: TableBody,
   tr: TableRow,
-  th: TableCell,
-  td: TableCell,
+  th: TableCellHead,
+  td: TableCellBody,
+  inlineCode: InlineCode,
+  blockquote: Blockquote,
   hr: Divider,
   AppLink,
 };

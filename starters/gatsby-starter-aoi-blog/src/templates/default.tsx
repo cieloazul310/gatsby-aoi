@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Layout, Article } from '@cieloazul310/gatsby-theme-aoi';
+import { Layout, Article, Section } from '@cieloazul310/gatsby-theme-aoi';
 import { MDXProvider } from '@mdx-js/react';
 import muiComponents from '../utils/muiComponents';
 
@@ -18,9 +18,11 @@ function DefaultTemplate({ children, pageContext }: Props) {
       title={pageContext.frontmatter?.title ?? 'Title'}
       componentViewports={{ bottomNav: false }}
     >
-      <Article maxWidth="md">
-        <MDXProvider components={muiComponents}>{children}</MDXProvider>
-      </Article>
+      <Section>
+        <Article maxWidth="md">
+          <MDXProvider components={muiComponents}>{children}</MDXProvider>
+        </Article>
+      </Section>
     </Layout>
   );
 }
