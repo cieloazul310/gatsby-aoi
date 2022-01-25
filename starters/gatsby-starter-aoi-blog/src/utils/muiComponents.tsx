@@ -11,7 +11,6 @@ import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell, { TableCellProps } from '@mui/material/TableCell';
 import MuiDivider from '@mui/material/Divider';
-import { StaticImage } from 'gatsby-plugin-image';
 import {
   AppLink,
   ArticleTitle,
@@ -42,16 +41,16 @@ function H4({ children }: Omit<TypographyProps, 'ref'>) {
 
 function H5(props: Omit<TypographyProps, 'ref'>) {
   return (
-    <Box pt={2} pb={1}>
-      <Typography
-        variant="body1"
-        component="h5"
-        color="text.secondary"
-        fontWeight="bold"
-        gutterBottom
-        {...props}
-      />
-    </Box>
+    <Typography
+      variant="body1"
+      component="h5"
+      color="text.secondary"
+      fontWeight="bold"
+      gutterBottom
+      pt={2}
+      pb={1}
+      {...props}
+    />
   );
 }
 
@@ -80,24 +79,6 @@ function Link(props: LinkProps) {
   );
 }
 
-function Code({ children, className }: Omit<TypographyProps, 'ref'>) {
-  return (
-    <Typography
-      className={className ?? undefined}
-      variant="body2"
-      component="code"
-      fontFamily="monospace"
-      px={{ xs: 1, sm: 2 }}
-      py={1}
-      borderRadius={1}
-      bgcolor="divider"
-      display="block"
-    >
-      {children}
-    </Typography>
-  );
-}
-
 function InlineCode({ children }: Omit<TypographyProps, 'ref'>) {
   return (
     <Typography
@@ -114,19 +95,11 @@ function InlineCode({ children }: Omit<TypographyProps, 'ref'>) {
 }
 
 function Ul(props: Omit<TypographyProps, 'ref'>) {
-  return (
-    <Box py={2} m={0}>
-      <Typography component="ul" {...props} />
-    </Box>
-  );
+  return <Typography component="ul" py={2} m={0} {...props} />;
 }
 
 function Ol(props: Omit<TypographyProps, 'ref'>) {
-  return (
-    <Box py={2} m={0}>
-      <Typography component="ol" {...props} />
-    </Box>
-  );
+  return <Typography component="ol" py={2} m={0} {...props} />;
 }
 
 function Li(props: Omit<TypographyProps, 'ref'>) {
@@ -179,6 +152,14 @@ function Blockquote({ children }: Omit<TypographyProps, 'ref'>) {
   );
 }
 
+function SubParagraph({ children }: Omit<TypographyProps, 'ref'>) {
+  return (
+    <Typography variant="body2" color="text.secondary" paragraph>
+      {children}
+    </Typography>
+  );
+}
+
 const components = {
   h2: H2,
   h3: H3,
@@ -196,11 +177,12 @@ const components = {
   tr: TableRow,
   th: TableCellHead,
   td: TableCellBody,
-  code: Code,
+  // code: Code,
   inlineCode: InlineCode,
   blockquote: Blockquote,
   hr: Divider,
   AppLink,
+  SubParagraph,
 };
 
 export default components;
