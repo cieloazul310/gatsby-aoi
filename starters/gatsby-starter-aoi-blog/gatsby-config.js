@@ -29,5 +29,20 @@ module.exports = {
         siteId: `gatsby-starter-aoi-theme`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/templates/default.tsx'),
+        },
+      },
+    },
   ],
 };
