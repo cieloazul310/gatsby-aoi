@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.5...v1.4.0) (2022-01-26)
+
+
+### Features
+
+* **components:** Update Article components ([f142d30](https://github.com/cieloazul310/gatsby-aoi/commit/f142d30d0181c618bb0642be6ada29a15383f51e))
+
+
+
+
+
 ## [1.3.5](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.4...v1.3.5) (2022-01-24)
 
 
