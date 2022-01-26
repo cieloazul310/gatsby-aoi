@@ -1,15 +1,16 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
+import Container, { ContainerProps } from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
 export type JumbotronProps = {
   title: string;
+  maxWidth?: ContainerProps['maxWidth'];
   bgImage?: string;
 };
 
-function Jumbotron({ title, bgImage }: JumbotronProps) {
+function Jumbotron({ title, maxWidth, bgImage }: JumbotronProps) {
   const { palette } = useTheme();
   return (
     <Box
@@ -50,7 +51,7 @@ function Jumbotron({ title, bgImage }: JumbotronProps) {
               : palette.getContrastText(palette.secondary.light),
           textShadow: bgImage ? '0 0 4px rgba(0, 0, 0, 0.6)' : undefined,
         }}
-        maxWidth="sm"
+        maxWidth={maxWidth ?? 'sm'}
       >
         <Typography variant="h4" component="h2">
           {title}
@@ -62,6 +63,7 @@ function Jumbotron({ title, bgImage }: JumbotronProps) {
 
 Jumbotron.defaultProps = {
   bgImage: undefined,
+  maxWidth: undefined,
 };
 
 export default Jumbotron;
