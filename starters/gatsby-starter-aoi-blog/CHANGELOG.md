@@ -5,7 +5,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.4.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.5...v1.4.0) (2022-01-26)
 
-**Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-utils
+**Note:** Version bump only for package gatsby-starter-aoi-blog
 
 
 
@@ -13,10 +13,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.3.5](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.4...v1.3.5) (2022-01-24)
 
-
-### Bug Fixes
-
-* peerDependencies ([dbb072f](https://github.com/cieloazul310/gatsby-aoi/commit/dbb072fe4b94569be696be78b996575b2e88affa))
+**Note:** Version bump only for package gatsby-starter-aoi-theme
 
 
 
@@ -35,7 +32,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.3.3](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.2...v1.3.3) (2022-01-24)
 
-**Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-utils
+**Note:** Version bump only for package gatsby-starter-aoi-theme
 
 
 
@@ -43,7 +40,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.3.2](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.1...v1.3.2) (2022-01-24)
 
-**Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-utils
+
+### Bug Fixes
+
+* package.json `files` field ([ed414c4](https://github.com/cieloazul310/gatsby-aoi/commit/ed414c46b4519a7164f15b351cede97365936a65))
 
 
 
@@ -51,7 +51,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.3.1](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.0...v1.3.1) (2022-01-24)
 
-**Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-utils
+**Note:** Version bump only for package gatsby-starter-aoi-theme
 
 
 
@@ -59,4 +59,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 1.3.0 (2022-01-24)
 
-**Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-utils
+**Note:** Version bump only for package gatsby-starter-aoi-theme
