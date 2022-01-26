@@ -19,10 +19,10 @@ function FullWidthLayout() {
         fab: true,
       }}
     >
-      <Jumbotron title="Full Width Layout" />
+      <Jumbotron title="Full Width Layout" maxWidth="md" />
       <SectionDivider />
       <Section>
-        <Article>
+        <Article maxWidth="md">
           <Paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec
             quam quis nulla dignissim finibus. Morbi aliquam quam ut efficitur

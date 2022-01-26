@@ -1,5 +1,6 @@
 /* eslint react/jsx-props-no-spreading: warn */
 import * as React from 'react';
+import { alpha } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import MuiLink, { LinkProps } from '@mui/material/Link';
@@ -10,62 +11,18 @@ import TableHead from '@mui/material/TableHead';
 import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell, { TableCellProps } from '@mui/material/TableCell';
-import MuiDivider from '@mui/material/Divider';
 import {
   AppLink,
   ArticleTitle,
-  H3 as AoiH3,
-  H4 as AoiH4,
+  H3,
+  H4,
+  H5,
+  H6,
+  Hr,
   Paragraph,
+  SubParagraph,
+  Blockquote,
 } from '@cieloazul310/gatsby-theme-aoi';
-
-function H2({ children }: TypographyProps) {
-  return <ArticleTitle>{children}</ArticleTitle>;
-}
-
-function H3({ children }: Omit<TypographyProps, 'ref'>) {
-  return (
-    <Box pt={4} pb={2}>
-      <AoiH3>{children}</AoiH3>
-    </Box>
-  );
-}
-
-function H4({ children }: Omit<TypographyProps, 'ref'>) {
-  return (
-    <Box pt={2} pb={1}>
-      <AoiH4>{children}</AoiH4>
-    </Box>
-  );
-}
-
-function H5(props: Omit<TypographyProps, 'ref'>) {
-  return (
-    <Typography
-      variant="body1"
-      component="h5"
-      color="text.secondary"
-      fontWeight="bold"
-      gutterBottom
-      pt={2}
-      pb={1}
-      {...props}
-    />
-  );
-}
-
-function H6(props: Omit<TypographyProps, 'ref'>) {
-  return (
-    <Typography
-      variant="body2"
-      component="h6"
-      color="text.secondary"
-      fontWeight="bold"
-      gutterBottom
-      {...props}
-    />
-  );
-}
 
 function Link(props: LinkProps) {
   return (
@@ -84,10 +41,12 @@ function InlineCode({ children }: Omit<TypographyProps, 'ref'>) {
     <Typography
       variant="body2"
       component="code"
-      fontFamily="monospace"
+      fontFamily="'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'monospace'"
       px={0.5}
       borderRadius={1}
-      bgcolor="divider"
+      bgcolor={({ palette }) =>
+        alpha(palette.secondary.main, palette.action.selectedOpacity)
+      }
     >
       {children}
     </Typography>
@@ -104,10 +63,6 @@ function Ol(props: Omit<TypographyProps, 'ref'>) {
 
 function Li(props: Omit<TypographyProps, 'ref'>) {
   return <Typography variant="body1" component="li" {...props} />;
-}
-
-function Divider() {
-  return <MuiDivider sx={{ pt: 4 }} />;
 }
 
 function Table({ children }: TableProps) {
@@ -136,32 +91,8 @@ function TableCellBody({ children, align }: TableCellProps) {
   );
 }
 
-function Blockquote({ children }: Omit<TypographyProps, 'ref'>) {
-  return (
-    <Typography
-      component="blockquote"
-      sx={{
-        borderLeft: 2,
-        borderColor: 'text.secondary',
-        py: 2,
-        px: 2,
-      }}
-    >
-      {children}
-    </Typography>
-  );
-}
-
-function SubParagraph({ children }: Omit<TypographyProps, 'ref'>) {
-  return (
-    <Typography variant="body2" color="text.secondary" paragraph>
-      {children}
-    </Typography>
-  );
-}
-
 const components = {
-  h2: H2,
+  h2: ArticleTitle,
   h3: H3,
   h4: H4,
   h5: H5,
@@ -177,10 +108,9 @@ const components = {
   tr: TableRow,
   th: TableCellHead,
   td: TableCellBody,
-  // code: Code,
   inlineCode: InlineCode,
   blockquote: Blockquote,
-  hr: Divider,
+  hr: Hr,
   AppLink,
   SubParagraph,
 };
