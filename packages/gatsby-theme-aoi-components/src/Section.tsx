@@ -12,5 +12,12 @@ function Section({ children }: SectionProps) {
 export default Section;
 
 export function SectionDivider() {
-  return <Box py={1} />;
+  return (
+    <Box
+      py={1}
+      bgcolor={({ palette }) =>
+        palette.mode === 'light' ? '#fafafa' : '#303030'
+      }
+    />
+  );
 }
