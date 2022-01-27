@@ -255,7 +255,9 @@ function JapaneseText() {
 function Basic({ children }: React.PropsWithChildren<unknown>) {
   return (
     <Box p={{ xs: 0, sm: 4 }} bgcolor="text.secondary">
-      <Section>{children}</Section>
+      <article>
+        <Section>{children}</Section>
+      </article>
     </Box>
   );
 }
@@ -288,7 +290,22 @@ function WithAppBar({ children }: React.PropsWithChildren<unknown>) {
       <AppBar>
         <Toolbar />
       </AppBar>
-      <Section>{children}</Section>
+      <article>
+        <Section>{children}</Section>
+        <SectionDivider />
+        <footer>
+          <Section>
+            <Article maxWidth="md">
+              <H3>Footer</H3>
+              <Paragraph>
+                Proin condimentum felis nec luctus egestas. In in sagittis
+                augue. Quisque feugiat ac diam et laoreet. Curabitur a tempus
+                arcu. Vivamus vulputate posuere vehicula.
+              </Paragraph>
+            </Article>
+          </Section>
+        </footer>
+      </article>
     </Box>
   );
 }
@@ -321,11 +338,26 @@ function WithJumbotron({ children }: React.PropsWithChildren<unknown>) {
       <AppBar>
         <Toolbar />
       </AppBar>
-      <Section>
-        <Jumbotron title="With Jumbotron" maxWidth="md" />
-      </Section>
-      <SectionDivider />
-      <Section>{children}</Section>
+      <article>
+        <header>
+          <Jumbotron title="With Jumbotron" maxWidth="md" />
+        </header>
+        <SectionDivider />
+        <Section>{children}</Section>
+        <SectionDivider />
+        <footer>
+          <Section>
+            <Article maxWidth="md">
+              <H3>Footer</H3>
+              <Paragraph>
+                Proin condimentum felis nec luctus egestas. In in sagittis
+                augue. Quisque feugiat ac diam et laoreet. Curabitur a tempus
+                arcu. Vivamus vulputate posuere vehicula.
+              </Paragraph>
+            </Article>
+          </Section>
+        </footer>
+      </article>
     </Box>
   );
 }

@@ -6,11 +6,17 @@ import Typography, { TypographyProps } from '@mui/material/Typography';
 import MuiLink, { LinkProps } from '@mui/material/Link';
 import Divider from '@mui/material/Divider';
 
+/**
+ * `<Article>`
+ *
+ * A main article component with padding-top and padding-bottom including MUI `<Container>` component.
+ * `maxWidth` is default to `'sm'`
+ */
 function Article({ children, maxWidth, ...props }: ContainerProps) {
   return (
     <Box sx={{ py: 4, wordWrap: 'break-word' }}>
       <Container maxWidth={maxWidth ?? 'sm'} {...props}>
-        <article>{children}</article>
+        {children}
       </Container>
     </Box>
   );
@@ -31,6 +37,9 @@ export function ArticleSection({ children }: Props) {
   );
 }
 
+/**
+ * `<ArticleTitle>`
+ */
 export function ArticleTitle({ children, ...props }: Props) {
   return (
     <Typography variant="h5" component="h2" align="center" mb={4} {...props}>
