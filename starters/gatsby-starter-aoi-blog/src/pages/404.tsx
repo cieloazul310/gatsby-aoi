@@ -10,7 +10,7 @@ import {
 
 function NotFoundPage() {
   return (
-    <Layout title="Index Page">
+    <Layout title="404 Page">
       <Section>
         <Article>
           <ArticleTitle>404 page</ArticleTitle>
