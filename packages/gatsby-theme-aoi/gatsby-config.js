@@ -5,22 +5,18 @@ module.exports = (options) => ({
     author: `@cieloazul310`,
     siteUrl: '',
     baseUrl: '',
-    keywords: ['Gatsby', 'TypeScript', 'Material-UI'],
+    keywords: ['Gatsby', 'TypeScript', 'MUI'],
     lang: '',
-    social: {
-      mail: '',
-      twitter: '',
-      github: '',
-      facebook: '',
-      gitlab: '',
-      linkedin: '',
-      medium: '',
-      pocket: '',
-      tumblr: '',
-      instagram: '',
-      vimeo: '',
-      youtube: '',
-    },
+    social: [
+      {
+        name: `twitter`,
+        url: `https://twitter.com/gatsbyjs`,
+      },
+      {
+        name: `github`,
+        url: `https://github.com/gatsbyjs`,
+      },
+    ],
   },
   plugins: [
     {
