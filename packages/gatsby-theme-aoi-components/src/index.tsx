@@ -30,4 +30,5 @@ export {
   ListItemToggleUseSystemTheme,
 } from './ListItemToggleDarkMode';
 export { default as Section, SectionDivider, SectionProps } from './Section';
+export { SocialIcon, SocialLink } from './Socials';
 export { default as TabPane } from './TabPane';
