@@ -4,7 +4,6 @@ export {
   useAppState,
   useDispatch,
 } from './AppStateContext';
-// export { default as theme } from './theme';
 export * from './ThemeState';
 export {
   default as ThemeStateContext,
