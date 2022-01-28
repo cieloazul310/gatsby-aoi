@@ -20,11 +20,13 @@ function DefaultTemplate({ children, pageContext }: Props) {
       title={pageContext.frontmatter?.title ?? 'Title'}
       componentViewports={{ bottomNav: false }}
     >
-      <Section>
-        <Article maxWidth="md">
-          <MDXProvider components={muiComponents}>{children}</MDXProvider>
-        </Article>
-      </Section>
+      <article>
+        <Section>
+          <Article maxWidth="md">
+            <MDXProvider components={muiComponents}>{children}</MDXProvider>
+          </Article>
+        </Section>
+      </article>
     </Layout>
   );
 }

@@ -11,3 +11,5 @@ exports.createSchemaCustomization =
   require('./gatsby-node/index').createSchemaCustomization;
 
 exports.onCreateNode = require('./gatsby-node/index').onCreateNode;
+
+exports.sourceNodes = require('./gatsby-node/index').sourceNodes;

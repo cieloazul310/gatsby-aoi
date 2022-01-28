@@ -2,12 +2,16 @@ import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import Typography from '@mui/material/Typography';
 import {
   Layout,
   Jumbotron,
   Section,
   SectionDivider,
   Article,
+  H3,
+  H4,
+  Paragraph,
 } from '@cieloazul310/gatsby-theme-aoi';
 import muiComponents from '../utils/muiComponents';
 
@@ -21,7 +25,10 @@ function BlogPostTemplate({
     frontmatter: {
       title: string;
       date: string;
-      author: string;
+      author: {
+        name: string;
+        description: string;
+      };
       categories?: string[];
       tags?: string[];
     };
@@ -34,21 +41,32 @@ function BlogPostTemplate({
 
   return (
     <Layout title={title ?? 'Title'}>
-      <Jumbotron title={title ?? 'Title'} maxWidth="md" />
-      <SectionDivider />
-      <Section>
-        <Article maxWidth="md">
-          <MDXProvider components={{ ...muiComponents }}>
-            <MDXRenderer>{mdx.body}</MDXRenderer>
-          </MDXProvider>
-        </Article>
-      </Section>
-      <SectionDivider />
-      <Section>
-        <p>{title}</p>
-        <p>{date}</p>
-        <p>{author}</p>
-      </Section>
+      <article>
+        <header>
+          <Jumbotron title={title ?? 'Title'} maxWidth="md" />
+        </header>
+        <SectionDivider />
+        <Section>
+          <Article maxWidth="md">
+            <MDXProvider components={{ ...muiComponents }}>
+              <MDXRenderer>{mdx.body}</MDXRenderer>
+            </MDXProvider>
+          </Article>
+        </Section>
+        <SectionDivider />
+        <footer>
+          <Section>
+            <Article maxWidth="md">
+              <H3>{title}</H3>
+              <Typography>Date: {date}</Typography>
+              <Typography>Categories: {categories?.join(',')}</Typography>
+              <Typography>Tags: {tags?.join(',')}</Typography>
+              <H4>Post by {author.name}</H4>
+              <Paragraph>{author.description}</Paragraph>
+            </Article>
+          </Section>
+        </footer>
+      </article>
     </Layout>
   );
 }
@@ -65,7 +83,10 @@ export const pageQuery = graphql`
         categories
         tags
         date(formatString: "YYYY-MM-DD")
-        author
+        author {
+          name
+          description
+        }
       }
     }
   }
