@@ -36,6 +36,7 @@ module.exports = {
         path: `${__dirname}/src/pages/`,
       },
     },
+    /*
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -43,6 +44,7 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
     },
+    */
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
