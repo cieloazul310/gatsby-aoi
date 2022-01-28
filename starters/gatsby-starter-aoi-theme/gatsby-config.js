@@ -5,22 +5,38 @@ module.exports = {
     author: `@cieloazul310`,
     siteUrl: 'https://cieloazul310.github.io/gatsby-starter-aoi-theme',
     baseUrl: '',
-    keywords: ['Gatsby', 'TypeScript', 'Material-UI'],
-    lang: '',
-    social: {
-      mail: '',
-      twitter: '',
-      github: '',
-      facebook: '',
-      gitlab: '',
-      linkedin: '',
-      medium: '',
-      pocket: '',
-      tumblr: '',
-      instagram: '',
-      vimeo: '',
-      youtube: '',
-    },
+    keywords: ['Gatsby', 'TypeScript', 'MUI'],
+    lang: 'ja',
+    social: [
+      {
+        name: 'twitter',
+        url: 'https://twitter.com/cieloazul310',
+      },
+      {
+        name: 'github',
+        url: 'https://github.com/cieloazul310',
+      },
+      {
+        name: 'youtube',
+        url: 'https://www.youtube.com/user/hollytube0310',
+      },
+      {
+        name: 'facebook',
+        url: 'https://www.facebook.com/hollyhock.official',
+      },
+      {
+        name: 'instagram',
+        url: 'https://www.instagram.com/mito.hollyhock.official/',
+      },
+      {
+        name: 'email',
+        url: '',
+      },
+      {
+        name: 'note',
+        url: 'https://note.com/mitohollyhock',
+      },
+    ],
   },
   plugins: [
     {
