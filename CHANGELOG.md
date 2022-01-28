@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.4.0...v1.5.0) (2022-01-28)
+
+
+### Bug Fixes
+
+* **layout:** change `<Layout>` component from default export to named export ([a0bb28a](https://github.com/cieloazul310/gatsby-aoi/commit/a0bb28a4e021f7cb9c4a6c0fdfea43dce64d4f65))
+* remove unnecessary comments ([2c89400](https://github.com/cieloazul310/gatsby-aoi/commit/2c89400a836888c25afcd582a8184eb65c132d3e))
+
+
+
+
+
 # [1.4.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.5...v1.4.0) (2022-01-26)
 
 
