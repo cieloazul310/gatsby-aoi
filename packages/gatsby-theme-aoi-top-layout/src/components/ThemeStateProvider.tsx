@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme, lighten } from '@mui/material/styles';
-import initialMuiTheme from '../utils/theme';
+import initialMuiTheme from '../theme';
 import { PaletteType } from '../utils/ThemeState';
 
 type TopThemeProviderProps = {
