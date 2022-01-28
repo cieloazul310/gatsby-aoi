@@ -51,7 +51,7 @@ export interface LayoutProps {
   fab?: React.ReactNode;
 }
 
-function Layout({
+export function Layout({
   children,
   title,
   description,
@@ -218,5 +218,3 @@ function Layout({
     </Box>
   );
 }
-
-export default Layout;
