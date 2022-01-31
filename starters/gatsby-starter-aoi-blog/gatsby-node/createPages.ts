@@ -2,18 +2,14 @@ import * as path from 'path';
 import { CreatePagesArgs } from 'gatsby';
 
 type Data = {
-  allMdx: {
+  allMdxPost: {
     posts: Array<{
       node: {
         id: string;
-        frontmatter: {
-          title: string;
-          year: string;
-          month: string;
-        };
-        fields: {
-          slug: string;
-        };
+        title: string;
+        year: string;
+        month: string;
+        slug: string;
       };
     }>;
     categories: Array<{
@@ -25,27 +21,23 @@ type Data = {
 };
 
 export default async function createPagesasync({ graphql, actions, reporter }: CreatePagesArgs) {
+  
   const { createPage } = actions;
   const result = await graphql<Data>(`
     query {
-      allMdx(
-        sort: { fields: frontmatter___date, order: DESC }
-        filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+      allMdxPost(
+        sort: { fields: date, order: DESC }
       ) {
         posts: edges {
           node {
             id
-            frontmatter {
-              title
-              year: date(formatString: "YYYY")
-              month: date(formatString: "MM")
-            }
-            fields {
-              slug
-            }
+            title
+            year: date(formatString: "YYYY")
+            month: date(formatString: "MM")
+            slug
           }
         }
-        categories: group(field: frontmatter___categories) {
+        categories: group(field: categories) {
           totalCount
           fieldValue
           field
@@ -58,14 +50,14 @@ export default async function createPagesasync({ graphql, actions, reporter }: C
   }
   if (!result.data) throw new Error('There are no posts');
   
-  const { posts, categories } = result.data.allMdx;
+  const { posts, categories } = result.data.allMdxPost;
   // generate Each post pages
   posts.forEach(({ node }, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
     const next = index === 0 ? null : posts[index - 1].node;
 
     createPage({
-      path: node.fields.slug,
+      path: node.slug,
       component: path.resolve(`./src/templates/posts.tsx`),
       context: { previous, next, id: node.id },
     });

@@ -4,6 +4,8 @@ date: 2021-12-20
 categories: ["Gatsby Theme Aoi"]
 tags: ["Gatsby", "MUI", "TypeScript"]
 author: cieloazul310
+image: ./IMG_8906.jpeg
+imageAlt: Flags
 ---
 
 Gatsby Theme AoiはMUIベースのGatsbyテーマです。
