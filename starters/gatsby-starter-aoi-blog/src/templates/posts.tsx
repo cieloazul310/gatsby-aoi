@@ -4,6 +4,10 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import Typography from '@mui/material/Typography';
+import List from '@mui/material/List';
+import ListSubheader from '@mui/material/ListSubheader';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
 import {
   Layout,
   Jumbotron,
@@ -14,14 +18,20 @@ import {
   H4,
   H5,
   Paragraph,
+  ListItemAppLink,
   AppLink,
 } from '@cieloazul310/gatsby-theme-aoi';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
+import PageNavigationContainer from '../components/PageNavigationContainer';
+import PageNavigationItem from '../components/PageNavigationItem';
 import muiComponents from '../utils/muiComponents';
 
 type PageContext = {
   id: string;
-  next: { id: string; slug: string; title: string };
-  previous: { id: string; slug: string; title: string };
+  next: { id: string; slug: string; title: string } | null;
+  previous: { id: string; slug: string; title: string } | null;
 };
 
 function BlogPostTemplate({
@@ -65,7 +75,31 @@ function BlogPostTemplate({
   const staticImage =
     image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
   return (
-    <Layout title={title ?? 'Title'} image={staticImage}>
+    <Layout
+      title={title ?? 'Title'}
+      image={staticImage}
+      componentViewports={{ bottomNav: false }}
+      drawerContents={
+        <List subheader={<ListSubheader>Navigation</ListSubheader>}>
+          {previous ? (
+            <ListItemAppLink to={previous.slug} button>
+              <ListItemIcon>
+                <ArrowBackIcon />
+              </ListItemIcon>
+              <ListItemText primary={previous.title} secondary="prev" />
+            </ListItemAppLink>
+          ) : null}
+          {next ? (
+            <ListItemAppLink to={next.slug} button>
+              <ListItemIcon>
+                <ArrowForwardIcon />
+              </ListItemIcon>
+              <ListItemText primary={next.title} secondary="next" />
+            </ListItemAppLink>
+          ) : null}
+        </List>
+      }
+    >
       <article>
         <header>
           <Jumbotron
@@ -98,20 +132,17 @@ function BlogPostTemplate({
         <SectionDivider />
         <nav>
           <Section>
-            <Article maxWidth="md">
-              {previous ? (
-                <>
-                  <H5>Previous</H5>
-                  <AppLink to={previous.slug}>{previous.title}</AppLink>
-                </>
-              ) : null}
-              {next ? (
-                <>
-                  <H5>next</H5>
-                  <AppLink to={next.slug}>{next.title}</AppLink>
-                </>
-              ) : null}
-            </Article>
+            <PageNavigationContainer>
+              <PageNavigationItem
+                to={previous?.slug ?? '#'}
+                disabled={!previous}
+              >
+                <Typography variant="body2">{previous?.title}</Typography>
+              </PageNavigationItem>
+              <PageNavigationItem to={next?.slug ?? '#'} next disabled={!next}>
+                <Typography variant="body2">{next?.title}</Typography>
+              </PageNavigationItem>
+            </PageNavigationContainer>
           </Section>
         </nav>
       </article>
