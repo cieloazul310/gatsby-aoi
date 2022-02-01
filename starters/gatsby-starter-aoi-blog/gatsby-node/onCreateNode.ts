@@ -6,6 +6,7 @@ import {
   createRemoteFileNode,
   FileSystemNode,
 } from 'gatsby-source-filesystem';
+import { Mdx } from './types';
 
 declare module 'gatsby-source-filesystem' {
   type CreateRemoteFileNodeArgsFixed = Omit<
@@ -91,30 +92,6 @@ export default async function onCreateNode({
       }
     }
   }
-  /*
-  if (isMdxNode(node) && node.frontmatter.image) {
-    console.log(node.frontmatter.image);
-    createNodeField({
-      node,
-      name: 'localFile',
-      value: node.frontmatter.image.id,
-    });
-  }
-
-  if (isMdxNode(node) && node.frontmatter.featuredImgUrl) {
-    const fileNode = await createRemoteFileNode({
-      url: node.frontmatter.featuredImgUrl, // string that points to the URL of the image
-      parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
-      createNode, // helper function in gatsby-node to generate the node
-      createNodeId, // helper function in gatsby-node to generate the node id
-      getCache,
-    });
-    // if the file was created, extend the node with "localFile"
-    if (fileNode) {
-      createNodeField({ node, name: 'localFile', value: fileNode.id });
-    }
-  }
-  */
 
   const mdxPostId = createNodeId(`${node.id} >>> MdxPost`);
 
