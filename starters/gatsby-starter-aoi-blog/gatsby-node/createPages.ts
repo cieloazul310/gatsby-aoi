@@ -93,17 +93,23 @@ export default async function createPagesasync({
 
   // generate All posts pages
   const postsPerPage = 15;
+  const basePaths = {
+    posts: '/posts',
+    category: '/category',
+  };
+
   const numPages = Math.ceil(posts.length / postsPerPage);
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `/posts` : `/posts/${i + 1}`,
-      component: path.resolve('./src/templates/posts.tsx'),
+      path: i === 0 ? basePaths.posts : `${basePaths.posts}/${i + 1}`,
+      component: path.resolve('./src/templates/all-posts.tsx'),
       context: {
         title: 'All Posts',
         limit: postsPerPage,
         skip: i * postsPerPage,
         numPages,
         currentPage: i + 1,
+        basePath: basePaths.posts,
       },
     });
   });
@@ -111,7 +117,7 @@ export default async function createPagesasync({
   categories
     .map((category) => ({
       ...category,
-      slug: `/category/${strToSlug(category.fieldValue)}`,
+      slug: `${basePaths.category}/${strToSlug(category.fieldValue)}`,
     }))
     .sort((a, b) => b.totalCount - a.totalCount)
     .forEach((category, index, arr) => {
@@ -134,6 +140,7 @@ export default async function createPagesasync({
             skip: i * postsPerPage,
             numPages,
             currentPage: i + 1,
+            basePath: basePaths.category,
           },
         });
       });

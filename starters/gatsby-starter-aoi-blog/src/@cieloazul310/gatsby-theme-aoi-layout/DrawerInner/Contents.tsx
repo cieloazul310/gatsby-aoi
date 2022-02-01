@@ -27,15 +27,15 @@ function Contents() {
         <ListItemText primary="Top" />
       </ListItemAppLink>
       <ListItemAppLink
-        to="/page-2/"
+        to="/posts/"
         button
-        selected={pathname === withPrefix('/page-2/')}
+        selected={pathname === withPrefix('/posts/')}
         role="menuitem"
       >
         <ListItemIcon>
           <ListIcon />
         </ListItemIcon>
-        <ListItemText primary="Page 2" />
+        <ListItemText primary="Posts" />
       </ListItemAppLink>
     </List>
   );

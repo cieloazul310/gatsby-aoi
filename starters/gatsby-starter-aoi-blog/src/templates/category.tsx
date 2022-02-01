@@ -11,6 +11,7 @@ import {
 } from '@cieloazul310/gatsby-theme-aoi';
 
 import Layout from '../layout';
+import Pagination from '../components/Pagination';
 import DrawerPageNavigation from '../components/DrawerPageNavigation';
 import PageNavigationContainer from '../components/PageNavigationContainer';
 import PageNavigationItem from '../components/PageNavigationItem';
@@ -44,6 +45,7 @@ type PageContext = {
   skip: number;
   numPages: number;
   currentPage: number;
+  basePath: string;
 };
 
 function CategoryTemplate({
@@ -51,7 +53,8 @@ function CategoryTemplate({
   pageContext,
 }: PageProps<PageData, PageContext>) {
   const { allMdxPost } = data;
-  const { fieldValue, previous, next } = pageContext;
+  const { fieldValue, previous, next, numPages, currentPage, basePath } =
+    pageContext;
   return (
     <Layout
       title={fieldValue}
@@ -81,6 +84,11 @@ function CategoryTemplate({
                 />
               ))}
             </List>
+            <Pagination
+              numPages={numPages}
+              currentPage={currentPage}
+              basePath={basePath}
+            />
           </Article>
         </Section>
         <SectionDivider />
