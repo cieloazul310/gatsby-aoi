@@ -9,7 +9,7 @@ import {
   // GraphQLNamedType,
   GraphQLObjectType,
 } from 'gatsby/graphql';
-import { Author, MdxPost, MdxPostBare, Mdx } from './types';
+import { Author, MdxPost, MdxPostBare, Mdx } from '../types';
 
 type GatsbyNodeModelFindArgs = {
   query?: {
@@ -59,25 +59,7 @@ type GatsbyNodeModel = {
 type GatsbyGraphQLContext = {
   nodeModel: GatsbyNodeModel;
 };
-/*
-type GatsbyResolver = {
-  type?: string | string[];
-  args?: Record<string, unknown>;
-  resolve: GraphQLFieldResolver<
-    Record<string, unknown>,
-    GatsbyGraphQLContext,
-    Record<string, unknown>
-  >;
-};
 
-type GatsbyGraphQLNamedType = GraphQLNamedType & {
-  getFields: () => {
-    [key: string]: Record<string, unknown> & {
-      resolve: GatsbyResolver;
-    };
-  };
-};
-*/
 function isString(str: unknown): str is string {
   return typeof str === 'string';
 }
@@ -96,7 +78,7 @@ async function processRelativeImage(
     return undefined;
   }
   const imagePath = slash(
-    path.join(mdxFileNode.dir, (source[type] ?? '') as string)
+    path.join(mdxFileNode.dir, (source[type as keyof MdxPostBare] ?? '') as string)
   );
 
   const fileNode = await context.nodeModel.findOne<FileSystemNode>({
@@ -230,6 +212,20 @@ export default function createSchemaCustomization({
         body: {
           type: `String!`,
           resolve: mdxResolverPassthrough(`body`),
+        },
+        excerpt: {
+          type: `String!`,
+          args: {
+            pruneLength: {
+              type: `Int`,
+              defaultValue: 140,
+            },
+            truncate: {
+              type: `Boolean`,
+              defaultValue: true,
+            }
+          },
+          resolve: mdxResolverPassthrough(`excerpt`),
         },
       },
       interfaces: [`Node`],

@@ -1,33 +1,50 @@
 import * as path from 'path';
 import { CreatePagesArgs } from 'gatsby';
+import { MdxPost } from '../types';
+
+function strToSlug(str: string) {
+  return str
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/ /g, '-')
+    .replace(/[&/\\#,+()$~%.'":*?<>{}]/g, '');
+}
 
 type Data = {
   allMdxPost: {
-    posts: Array<{
-      node: {
-        id: string;
-        title: string;
+    posts: {
+      node: Pick<MdxPost, 'id' | 'title' | 'slug'> & {
         year: string;
         month: string;
-        slug: string;
       };
-    }>;
-    categories: Array<{
+    }[];
+    categories: {
       totalCount: number;
       fieldValue: string;
       field: string;
-    }>;
+    }[];
+    tags: {
+      totalCount: number;
+      fieldValue: string;
+      field: string;
+    }[];
+    authors: {
+      totalCount: number;
+      fieldValue: string;
+      field: string;
+    }[];
   };
 };
 
-export default async function createPagesasync({ graphql, actions, reporter }: CreatePagesArgs) {
-  
+export default async function createPagesasync({
+  graphql,
+  actions,
+  reporter,
+}: CreatePagesArgs) {
   const { createPage } = actions;
   const result = await graphql<Data>(`
     query {
-      allMdxPost(
-        sort: { fields: date, order: DESC }
-      ) {
+      allMdxPost(sort: { fields: date, order: DESC }) {
         posts: edges {
           node {
             id
@@ -42,6 +59,16 @@ export default async function createPagesasync({ graphql, actions, reporter }: C
           fieldValue
           field
         }
+        tags: group(field: tags) {
+          totalCount
+          fieldValue
+          field
+        }
+        authors: group(field: author___name) {
+          totalCount
+          fieldValue
+          field
+        }
       }
     }
   `);
@@ -49,8 +76,9 @@ export default async function createPagesasync({ graphql, actions, reporter }: C
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
   if (!result.data) throw new Error('There are no posts');
+
+  const { posts, categories, tags, authors } = result.data.allMdxPost;
   
-  const { posts, categories } = result.data.allMdxPost;
   // generate Each post pages
   posts.forEach(({ node }, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
@@ -79,22 +107,23 @@ export default async function createPagesasync({ graphql, actions, reporter }: C
       },
     });
   });
-  
-  /*
+
   categories
+    .map((category) => ({
+      ...category,
+      slug: `/category/${strToSlug(category.fieldValue)}`,
+    }))
     .sort((a, b) => b.totalCount - a.totalCount)
-    .forEach((category, index) => {
+    .forEach((category, index, arr) => {
       const next =
-        index === categories.length - 1 ? null : categories[index + 1];
-      const previous = index === 0 ? null : categories[index - 1];
+        index === arr.length - 1 ? null : arr[index + 1];
+      const previous = index === 0 ? null : arr[index - 1];
+      // eslint-disable-next-line @typescript-eslint/no-shadow
       const numPages = Math.ceil(category.totalCount / postsPerPage);
 
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
-          path:
-            i === 0
-              ? `/category/${category.fieldValue}`
-              : `/category/${category.fieldValue}/${i + 1}`,
+          path: i === 0 ? `${category.slug}` : `${category.slug}/${i + 1}`,
           component: path.resolve('./src/templates/category.tsx'),
           context: {
             previous,
@@ -110,6 +139,7 @@ export default async function createPagesasync({ graphql, actions, reporter }: C
       });
     });
   
+  /*
   const authorResult = await graphql(`
     query Authors {
       allMdx(sort: { fields: frontmatter___date, order: DESC }) {
@@ -234,4 +264,4 @@ export default async function createPagesasync({ graphql, actions, reporter }: C
     });
   });
   */
-};
+}

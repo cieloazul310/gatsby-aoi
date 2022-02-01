@@ -1,5 +1,6 @@
 import { Node } from 'gatsby';
 import { FileNode } from 'gatsby-source-filesystem';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 export type Author = Node & {
   name: string;
@@ -22,9 +23,32 @@ export type MdxPost = Node & {
   image?: FileNode;
   imageAlt?: string;
   body: string;
+  excerpt: string;
 };
 
-export type MdxPostBare = Omit<MdxPost, 'author' | 'image'> & {
+export type MdxPostBrowser = Pick<MdxPost, 'id' | 'title' | 'slug' | 'date' | 'categories' | 'tags' | 'author' | 'imageAlt' | 'body' | 'excerpt'> & {
+  image?: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData;
+    };
+  };
+};
+
+export type MdxPostBare = Pick<
+  MdxPost,
+  | 'id'
+  | 'title'
+  | 'slug'
+  | 'date'
+  | 'categories'
+  | 'tags'
+  | 'imageAlt'
+  | 'body'
+  | 'excerpt'
+  | 'parent'
+  | 'children'
+  | 'internal'
+> & {
   author?: string;
   image?: string;
   image___NODE?: string;

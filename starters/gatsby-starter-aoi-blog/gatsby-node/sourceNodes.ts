@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as yaml from 'yaml';
 import { SourceNodesArgs } from 'gatsby';
-import { Author } from './types';
+import { Author } from '../types';
 
 export default function sourceNodes({
   actions,

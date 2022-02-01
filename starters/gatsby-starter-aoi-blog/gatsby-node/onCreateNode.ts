@@ -6,7 +6,7 @@ import {
   createRemoteFileNode,
   FileSystemNode,
 } from 'gatsby-source-filesystem';
-import { Mdx } from './types';
+import { Mdx } from '../types';
 
 declare module 'gatsby-source-filesystem' {
   type CreateRemoteFileNodeArgsFixed = Omit<
