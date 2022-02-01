@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import CssBaseline from '@mui/material/CssBaseline';
+import GlobalStyles from '@mui/material/GlobalStyles';
 import { ThemeProvider, createTheme, lighten } from '@mui/material/styles';
 import initialMuiTheme from '../theme';
 import { PaletteType } from '../utils/ThemeState';
@@ -49,6 +50,16 @@ function TopThemeProvider({ children, paletteType }: TopThemeProviderProps) {
       </Helmet>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <GlobalStyles
+          styles={{
+            html: {
+              backgroundColor:
+                paletteType === 'light'
+                  ? theme.palette.primary.main
+                  : undefined,
+            },
+          }}
+        />
         <CssBaseline />
         {children}
       </ThemeProvider>
