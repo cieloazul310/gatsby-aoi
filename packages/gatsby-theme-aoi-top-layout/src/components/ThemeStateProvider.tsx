@@ -50,6 +50,7 @@ function TopThemeProvider({ children, paletteType }: TopThemeProviderProps) {
       </Helmet>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
         <GlobalStyles
           styles={{
             html: {
@@ -60,7 +61,6 @@ function TopThemeProvider({ children, paletteType }: TopThemeProviderProps) {
             },
           }}
         />
-        <CssBaseline />
         {children}
       </ThemeProvider>
     </>
