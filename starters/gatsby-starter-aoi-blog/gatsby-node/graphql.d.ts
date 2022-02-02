@@ -21,7 +21,7 @@ export type GatsbyNodeModel = {
   findOne: <T extends Node>(
     args: GatsbyNodeModelFindArgs,
     pageDependencies?: PageDependencies
-  ) => Promise<T>;
+  ) => Promise<T | null>;
 
   findRootNodeAncestor: <T extends Node>(
     obj: Record<string, unknown>,

@@ -53,7 +53,8 @@ function AllPostsTemplate({
                   key={node.id}
                   to={node.slug}
                   primaryText={node.title}
-                  secondaryText={node.date}
+                  secondaryText={`${node.date} post by ${node.author?.name}`}
+                  divider
                 />
               ))}
             </List>

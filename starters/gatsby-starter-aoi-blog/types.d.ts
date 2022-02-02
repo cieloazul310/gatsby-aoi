@@ -4,12 +4,12 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 export type Author = Node & {
   name: string;
-  description: string;
+  description?: string;
   website?: string;
-  socials: Array<{
+  socials?: {
     type: string;
     value: string;
-  }>;
+  }[];
 };
 
 export type MdxPost = Node & {

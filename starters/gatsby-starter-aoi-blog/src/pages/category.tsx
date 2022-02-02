@@ -47,7 +47,7 @@ function CategoryPage({ data }: PageProps<PageData>) {
                     <ListItem>
                       <ListItemText
                         primary={
-                          <AppLink to={slug} color="inherit">
+                          <AppLink to={slug} color="inherit" fontSize="large">
                             {fieldValue}
                           </AppLink>
                         }
@@ -60,17 +60,15 @@ function CategoryPage({ data }: PageProps<PageData>) {
                           // className={classes.nested}
                           key={node.id}
                           primaryText={node.title}
-                          secondaryText={`${node.date} post by ${
-                            node.author?.name ?? 'Author'
-                          }`}
+                          secondaryText={`${node.date} post by ${node.author?.name}`}
                           to={node.slug}
-                          dense
                           divider
                         />
                       ))}
                       {totalCount > 2 ? (
                         <ListItemLink
                           // className={classes.footer}
+                          sx={{ textAlign: { xs: undefined, sm: 'right' } }}
                           primaryText="More"
                           to={slug}
                           color="secondary"

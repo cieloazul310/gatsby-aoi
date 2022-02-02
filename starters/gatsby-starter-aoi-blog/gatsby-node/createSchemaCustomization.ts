@@ -42,7 +42,7 @@ async function processRelativeImage(
       },
     },
   });
-  return fileNode;
+  return fileNode ?? undefined;
 }
 
 function mdxResolverPassthrough(
@@ -90,7 +90,7 @@ export default function createSchemaCustomization({
     }
     type Author implements Node @dontInfer {
       name: String!
-      description: String!
+      description: String
       website: String
       socials: [Social]
       posts: [MdxPost]
@@ -139,13 +139,17 @@ export default function createSchemaCustomization({
             args,
             context: GatsbyGraphQLContext,
             info
-          ) =>
-            context.nodeModel.findOne<Author>({
+          ) => {
+            const author = await context.nodeModel.findOne<Author>({
               type: 'Author',
               query: {
                 filter: { name: { eq: source.author } },
               },
-            }),
+            });
+            return author ?? {
+              name: source.author ?? 'Unknown author',
+            };
+          },
         },
         image: {
           type: `File`,
