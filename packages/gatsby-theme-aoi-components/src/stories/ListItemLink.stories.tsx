@@ -1,18 +1,18 @@
-/* eslint react/jsx-props-no-spreading: "warn" */
+/* eslint react/require-default-props: off */
+/* eslint react/jsx-props-no-spreading: off */
 import * as React from 'react';
-import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby';
+import { GatsbyLinkProps } from 'gatsby';
+import List from '@mui/material/List';
 import ListItem, { ListItemProps } from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
-import { LinkProps as MuiLinkProps } from '@mui/material/Link';
+import MuiLink, { LinkProps as MuiLinkProps } from '@mui/material/Link';
 import { Theme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-import AppLink from './AppLink';
-
-export type ListItemLinkProps<T = Record<string, unknown>> = Omit<
+type ListItemLinkProps<T = Record<string, unknown>> = Omit<
   ListItemProps,
   'ref'
 > &
@@ -42,7 +42,7 @@ function ListItemLink({
   );
 
   return isMobile || button ? (
-    <ListItemButton component={GatsbyLink} to={to} {...props}>
+    <ListItemButton href={to} {...props}>
       {avatar ? <ListItemAvatar>{avatar}</ListItemAvatar> : null}
       <ListItemText
         primary={primaryText}
@@ -59,9 +59,9 @@ function ListItemLink({
       <ListItemText
         inset={inset}
         primary={
-          <AppLink to={to} color={color}>
+          <MuiLink href={to} color={color}>
             {primaryText}
-          </AppLink>
+          </MuiLink>
         }
         secondary={secondaryText || null}
       />
@@ -72,12 +72,19 @@ function ListItemLink({
   );
 }
 
-ListItemLink.defaultProps = {
-  secondaryText: undefined,
-  inset: false,
-  avatar: undefined,
-  secondaryAction: undefined,
-  button: undefined,
+export default {
+  title: 'ListItemLink',
+  component: ListItemLink,
 };
 
-export default ListItemLink;
+export function Basic() {
+  return (
+    <List>
+      <ListItemLink to="#" primaryText="Basic" />
+      <ListItemLink to="#" primaryText="Inset" inset />
+      <ListItemLink to="#" primaryText="Always Button" button />
+      <ListItemLink to="#" primaryText="Divider" divider />
+      <ListItemLink to="#" primaryText="Basic" />
+    </List>
+  );
+}
