@@ -1,6 +1,6 @@
 import { CreateResolversArgs } from 'gatsby';
 import { GatsbyGraphQLContext } from './graphql';
-import { strToSlug } from './utils';
+import { fieldValueToSlug } from './utils';
 // import { MdxPost } from '../types';
 
 export default function gatsbyCreateResolvers({
@@ -11,11 +11,11 @@ export default function gatsbyCreateResolvers({
       slug: {
         type: `String!`,
         resolve: async (
-          source: { fieldValue: string },
+          source: { field: string; fieldValue: string },
           args: any,
           context: GatsbyGraphQLContext,
           info: any
-        ) => strToSlug(source.fieldValue),
+        ) => fieldValueToSlug(source),
       },
     },
   };

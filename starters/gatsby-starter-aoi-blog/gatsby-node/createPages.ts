@@ -1,6 +1,6 @@
 import * as path from 'path';
 import { CreatePagesArgs } from 'gatsby';
-import { strToSlug } from './utils';
+import { basePaths } from './utils';
 import { MdxPost } from '../types';
 
 type Data = {
@@ -15,16 +15,19 @@ type Data = {
       totalCount: number;
       fieldValue: string;
       field: string;
+      slug: string;
     }[];
     tags: {
       totalCount: number;
       fieldValue: string;
       field: string;
+      slug: string;
     }[];
     authors: {
       totalCount: number;
       fieldValue: string;
       field: string;
+      slug: string;
     }[];
   };
 };
@@ -51,16 +54,19 @@ export default async function createPagesasync({
           totalCount
           fieldValue
           field
+          slug
         }
         tags: group(field: tags) {
           totalCount
           fieldValue
           field
+          slug
         }
         authors: group(field: author___name) {
           totalCount
           fieldValue
           field
+          slug
         }
       }
     }
@@ -86,10 +92,12 @@ export default async function createPagesasync({
 
   // generate All posts pages
   const postsPerPage = 2;
+  /*
   const basePaths = {
     posts: '/posts',
     category: '/category',
   };
+  */
 
   const numPages = Math.ceil(posts.length / postsPerPage);
   Array.from({ length: numPages }).forEach((_, i) => {
@@ -110,7 +118,7 @@ export default async function createPagesasync({
   categories
     .map((category) => ({
       ...category,
-      slug: `${basePaths.category}/${strToSlug(category.fieldValue)}`,
+      // slug: `${basePaths.category}/${strToSlug(category.fieldValue)}`,
     }))
     .sort((a, b) => b.totalCount - a.totalCount)
     .forEach((category, index, arr) => {

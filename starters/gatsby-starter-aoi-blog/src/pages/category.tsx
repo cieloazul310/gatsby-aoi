@@ -37,17 +37,17 @@ function CategoryPage({ data }: PageProps<PageData>) {
           <Jumbotron title="Categories" maxWidth="md" />
         </header>
         <SectionDivider />
-        <Section>
-          <Article maxWidth="md">
-            <List>
-              {group
-                .sort((a, b) => b.totalCount - a.totalCount)
-                .map(({ totalCount, fieldValue, slug, edges }) => (
-                  <React.Fragment key={fieldValue}>
+        {group
+          .sort((a, b) => b.totalCount - a.totalCount)
+          .map(({ totalCount, fieldValue, slug, edges }, index) => (
+            <React.Fragment key={fieldValue}>
+              <Section>
+                <Article maxWidth="md">
+                  <List>
                     <ListItem>
                       <ListItemText
                         primary={
-                          <AppLink to={`/category/${slug}`} color="inherit">
+                          <AppLink to={slug} color="inherit">
                             {fieldValue}
                           </AppLink>
                         }
@@ -68,18 +68,21 @@ function CategoryPage({ data }: PageProps<PageData>) {
                           divider
                         />
                       ))}
-                      <ListItemLink
-                        // className={classes.footer}
-                        primaryText="More"
-                        to={`/category/${slug}`}
-                        color="secondary"
-                      />
+                      {totalCount > 2 ? (
+                        <ListItemLink
+                          // className={classes.footer}
+                          primaryText="More"
+                          to={slug}
+                          color="secondary"
+                        />
+                      ) : null}
                     </List>
-                  </React.Fragment>
-                ))}
-            </List>
-          </Article>
-        </Section>
+                  </List>
+                </Article>
+              </Section>
+              {index !== group.length - 1 ? <SectionDivider /> : null}
+            </React.Fragment>
+          ))}
       </article>
     </Layout>
   );
@@ -90,7 +93,7 @@ export default CategoryPage;
 export const query = graphql`
   query {
     allMdxPost {
-      group(field: categories, limit: 5) {
+      group(field: categories, limit: 2) {
         totalCount
         fieldValue
         field
