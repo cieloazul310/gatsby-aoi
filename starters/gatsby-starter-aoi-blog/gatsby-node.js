@@ -1,9 +1,4 @@
-require('ts-node').register({
-  compilerOptions: {
-    module: 'commonjs',
-    target: 'esnext',
-  },
-});
+require('ts-node').register();
 
 exports.createPages = require('./gatsby-node/index').createPages;
 

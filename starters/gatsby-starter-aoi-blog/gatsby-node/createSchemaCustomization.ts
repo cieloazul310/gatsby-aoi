@@ -95,6 +95,10 @@ export default function createSchemaCustomization({
       socials: [Social]
       posts: [MdxPost]
     }
+    type WithSlug @dontInfer {
+      name: String!
+      slug: String!
+    }
   `);
 
   createTypes(

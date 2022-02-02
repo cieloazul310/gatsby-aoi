@@ -1,7 +1,7 @@
 ---
 title: 野鳥観察入門
 date: 2018-12-14
-categories: ['TypeScript']
+categories: ['TypeScript', 'JavaScript']
 tags: ['野鳥観察']
 author: 那珂川緑波
 ---

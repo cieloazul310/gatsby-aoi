@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, Link as GatsbyLink, PageProps } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Typography from '@mui/material/Typography';
+import Chip from '@mui/material/Chip';
 import {
   Jumbotron,
   Section,
@@ -10,7 +11,6 @@ import {
   Article,
   H3,
   H4,
-  H5,
   Paragraph,
   AppLink,
 } from '@cieloazul310/gatsby-theme-aoi';
@@ -24,15 +24,6 @@ import { MdxPostBrowser } from '../../types';
 
 type PageData = {
   mdxPost: MdxPostBrowser;
-  allMdxPost: {
-    edges: {
-      node: {
-        id: string;
-        title: string;
-        slug: string;
-      };
-    }[];
-  };
 };
 
 type PageContext = {
@@ -45,12 +36,14 @@ function BlogPostTemplate({
   data,
   pageContext,
 }: PageProps<PageData, PageContext>) {
-  const { mdxPost, allMdxPost } = data;
+  const { mdxPost } = data;
   if (!mdxPost) return null;
-  const { title, date, author, categories, tags, image, excerpt } = mdxPost;
+  const { title, date, author, categoriesSlug, tagsSlug, image, excerpt } =
+    mdxPost;
   const { previous, next } = pageContext;
   const staticImage =
     image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
+  const bgcolor = image?.childImageSharp?.gatsbyImageData?.backgroundColor;
   return (
     <Layout
       title={title ?? 'Title'}
@@ -71,6 +64,7 @@ function BlogPostTemplate({
             title={title ?? 'Title'}
             maxWidth="md"
             bgImage={staticImage}
+            bgcolor={bgcolor}
           />
         </header>
         <SectionDivider />
@@ -87,8 +81,20 @@ function BlogPostTemplate({
             <Article maxWidth="md">
               <H3>{title}</H3>
               <Typography>Date: {date}</Typography>
-              <Typography>Categories: {categories?.join(', ')}</Typography>
-              <Typography>Tags: {tags?.join(', ')}</Typography>
+              <Typography>
+                Categories:{' '}
+                {categoriesSlug.map((category) => (
+                  <Typography key={category.name} component="span" mr={1}>
+                    <AppLink to={category.slug}>{category.name}</AppLink>
+                  </Typography>
+                ))}
+              </Typography>
+              <Typography>
+                Tags:{' '}
+                {tagsSlug.map((tag) => (
+                  <Chip key={tag.name} label={tag.name} clickable />
+                ))}
+              </Typography>
               <H4>Post by {author?.name}</H4>
               <Paragraph>{author?.description}</Paragraph>
             </Article>
@@ -124,8 +130,6 @@ export const pageQuery = graphql`
       body
       excerpt
       title
-      categories
-      tags
       date(formatString: "YYYY-MM-DD")
       author {
         name
@@ -136,14 +140,13 @@ export const pageQuery = graphql`
           gatsbyImageData(width: 600)
         }
       }
-    }
-    allMdxPost(sort: { fields: date, order: DESC }) {
-      edges {
-        node {
-          id
-          title
-          slug
-        }
+      categoriesSlug {
+        name
+        slug
+      }
+      tagsSlug {
+        name
+        slug
       }
     }
   }

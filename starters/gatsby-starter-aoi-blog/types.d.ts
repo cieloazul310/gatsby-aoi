@@ -4,6 +4,7 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 export type Author = Node & {
   name: string;
+  slug?: string;
   description?: string;
   website?: string;
   socials?: {
@@ -26,12 +27,26 @@ export type MdxPost = Node & {
   excerpt: string;
 };
 
-export type MdxPostBrowser = Pick<MdxPost, 'id' | 'title' | 'slug' | 'date' | 'categories' | 'tags' | 'author' | 'imageAlt' | 'body' | 'excerpt'> & {
+export type MdxPostBrowser = Pick<
+  MdxPost,
+  | 'id'
+  | 'title'
+  | 'slug'
+  | 'date'
+  | 'categories'
+  | 'tags'
+  | 'author'
+  | 'imageAlt'
+  | 'body'
+  | 'excerpt'
+> & {
   image?: {
     childImageSharp: {
       gatsbyImageData: IGatsbyImageData;
     };
   };
+  categoriesSlug: { name: string; slug: string }[];
+  tagsSlug: { name: string; slug: string }[];
 };
 
 export type MdxPostBare = Pick<
