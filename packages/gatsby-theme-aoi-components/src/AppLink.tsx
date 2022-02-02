@@ -33,7 +33,8 @@ function AppLink(props: AppLinkProps) {
   const {
     activeClassName = 'active',
     className: classNameProps,
-    color = 'secondary',
+    color = ({ palette }) =>
+      palette.mode === 'light' ? 'secondary.dark' : 'secondary.main',
     underline = 'hover',
     innerRef,
     naked,
