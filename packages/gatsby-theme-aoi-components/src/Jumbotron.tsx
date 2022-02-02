@@ -29,9 +29,8 @@ function Jumbotron({
         position: 'relative',
         overflow: 'hidden',
         bgcolor:
-          bgcolor ?? palette.mode === 'light'
-            ? 'secondary.light'
-            : palette.grey[800],
+          bgcolor ??
+          (palette.mode === 'light' ? 'secondary.light' : palette.grey[800]),
       }}
     >
       {bgImage ? (
