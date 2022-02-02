@@ -57,3 +57,7 @@ export function withFlexBox() {
     </Jumbotron>
   );
 }
+
+export function bgcolor() {
+  return <Jumbotron title="bgcolor" bgcolor="#f71" />;
+}
