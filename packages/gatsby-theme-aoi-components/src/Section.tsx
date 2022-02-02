@@ -15,9 +15,7 @@ export function SectionDivider() {
   return (
     <Box
       py={1}
-      bgcolor={({ palette }) =>
-        palette.mode === 'light' ? '#fafafa' : '#303030'
-      }
+      bgcolor={({ palette }) => (palette.mode === 'light' ? '#fafafa' : '#000')}
     />
   );
 }

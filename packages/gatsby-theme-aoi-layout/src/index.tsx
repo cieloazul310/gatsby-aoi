@@ -94,6 +94,8 @@ export function Layout({
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',
                 width: drawerWidth,
+                paddingTop: { xs: '56px', sm: '64px' },
+                backgroundImage: 'none',
               },
             }}
             variant="temporary"
@@ -104,11 +106,7 @@ export function Layout({
               keepMounted: true,
             }}
           >
-            <DrawerInner
-              handleDrawer={toggleDrawer}
-              contents={drawerContents}
-              title={title}
-            />
+            <DrawerInner contents={drawerContents} title={title} />
           </SwipeableDrawer>
         ) : null}
         {viewports.permanentDrawer !== false ? (
@@ -118,21 +116,18 @@ export function Layout({
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',
                 width: drawerWidth,
+                paddingTop: { xs: '56px', sm: '64px' },
               },
             }}
             variant="permanent"
             open
           >
-            <DrawerInner
-              handleDrawer={toggleDrawer}
-              contents={drawerContents}
-              title={title}
-            />
+            <DrawerInner contents={drawerContents} title={title} />
           </Drawer>
         ) : null}
       </Box>
     ),
-    [toggleDrawer, drawerOpen, drawerContents, title, viewports, drawerWidth]
+    [drawerOpen, drawerContents, title, viewports, drawerWidth]
   );
 
   return (

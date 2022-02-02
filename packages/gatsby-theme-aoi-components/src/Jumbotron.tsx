@@ -5,12 +5,20 @@ import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
 export type JumbotronProps = {
-  title: string;
+  title?: string;
   maxWidth?: ContainerProps['maxWidth'];
+  bgcolor?: string;
   bgImage?: string;
+  children?: React.ReactNode;
 };
 
-function Jumbotron({ title, maxWidth, bgImage }: JumbotronProps) {
+function Jumbotron({
+  title,
+  maxWidth,
+  bgImage,
+  bgcolor,
+  children,
+}: JumbotronProps) {
   const { palette } = useTheme();
   return (
     <Box
@@ -21,7 +29,9 @@ function Jumbotron({ title, maxWidth, bgImage }: JumbotronProps) {
         position: 'relative',
         overflow: 'hidden',
         bgcolor:
-          palette.mode === 'light' ? 'secondary.light' : palette.grey[700],
+          bgcolor ?? palette.mode === 'light'
+            ? 'secondary.light'
+            : palette.grey[800],
       }}
     >
       {bgImage ? (
@@ -53,17 +63,22 @@ function Jumbotron({ title, maxWidth, bgImage }: JumbotronProps) {
         }}
         maxWidth={maxWidth ?? 'sm'}
       >
-        <Typography variant="h4" component="h2">
-          {title}
-        </Typography>
+        {children ?? (
+          <Typography variant="h4" component="h2">
+            {title}
+          </Typography>
+        )}
       </Container>
     </Box>
   );
 }
 
 Jumbotron.defaultProps = {
+  title: undefined,
+  bgcolor: undefined,
   bgImage: undefined,
   maxWidth: undefined,
+  children: undefined,
 };
 
 export default Jumbotron;
