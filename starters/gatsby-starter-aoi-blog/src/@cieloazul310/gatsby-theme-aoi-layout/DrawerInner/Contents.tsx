@@ -37,6 +37,17 @@ function Contents() {
         </ListItemIcon>
         <ListItemText primary="Posts" />
       </ListItemAppLink>
+      <ListItemAppLink
+        to="/category/"
+        button
+        selected={pathname === withPrefix('/category/')}
+        role="menuitem"
+      >
+        <ListItemIcon>
+          <ListIcon />
+        </ListItemIcon>
+        <ListItemText primary="Category" />
+      </ListItemAppLink>
     </List>
   );
 }

@@ -1,6 +1,5 @@
 import * as path from 'path';
-import { CreateSchemaCustomizationArgs, Node } from 'gatsby';
-import { GatsbyIterable } from 'gatsby/dist/datastore/common/iterable';
+import { CreateSchemaCustomizationArgs } from 'gatsby';
 import { slash } from 'gatsby-core-utils';
 import { FileSystemNode } from 'gatsby-source-filesystem';
 import {
@@ -9,60 +8,9 @@ import {
   // GraphQLNamedType,
   GraphQLObjectType,
 } from 'gatsby/graphql';
+import { isString } from './utils';
+import { GatsbyGraphQLContext } from './graphql';
 import { Author, MdxPost, MdxPostBare, Mdx } from '../types';
-
-type GatsbyNodeModelFindArgs = {
-  query?: {
-    [key: string]: Record<string, unknown>;
-  };
-  type?: string;
-};
-type PageDependencies = { path: string; connectionType?: string };
-
-type GatsbyNodeModel = {
-  findAll: <T extends Node>(
-    args: GatsbyNodeModelFindArgs,
-    pageDependencies?: PageDependencies
-  ) => Promise<{
-    entries: GatsbyIterable<T>[];
-    totalCount: () => Promise<number>;
-  }>;
-
-  findOne: <T extends Node>(
-    args: GatsbyNodeModelFindArgs,
-    pageDependencies?: PageDependencies
-  ) => Promise<T>;
-
-  findRootNodeAncestor: <T extends Node>(
-    obj: Record<string, unknown>,
-    predicate?: (node: Node) => boolean
-  ) => T | null;
-
-  /**
-   * @deprecated
-   * Since version 4.0 - Use nodeModel.findAll() instead
-   */
-  getAllNodes: <T extends Node>(args: { type: string }) => T[];
-
-  getNodeById: <T extends Node>(
-    args: Partial<{ id: string; type: string }>,
-    pageDependencies?: PageDependencies
-  ) => T | null;
-
-  /** @deprecated */
-  runQuery: <T extends Node>(args: {
-    type: string;
-    query: { [key: string]: unknown };
-  }) => Promise<T[]>;
-};
-
-type GatsbyGraphQLContext = {
-  nodeModel: GatsbyNodeModel;
-};
-
-function isString(str: unknown): str is string {
-  return typeof str === 'string';
-}
 
 async function processRelativeImage(
   source: MdxPostBare,
@@ -78,7 +26,10 @@ async function processRelativeImage(
     return undefined;
   }
   const imagePath = slash(
-    path.join(mdxFileNode.dir, (source[type as keyof MdxPostBare] ?? '') as string)
+    path.join(
+      mdxFileNode.dir,
+      (source[type as keyof MdxPostBare] ?? '') as string
+    )
   );
 
   const fileNode = await context.nodeModel.findOne<FileSystemNode>({
@@ -94,7 +45,9 @@ async function processRelativeImage(
   return fileNode;
 }
 
-function mdxResolverPassthrough(fieldName: string): GraphQLFieldResolver<MdxPostBare, GatsbyGraphQLContext> {
+function mdxResolverPassthrough(
+  fieldName: string
+): GraphQLFieldResolver<MdxPostBare, GatsbyGraphQLContext> {
   return async (source, args, context, info) => {
     const type = info.schema.getType(`Mdx`) as GraphQLObjectType<
       Mdx,
@@ -223,7 +176,7 @@ export default function createSchemaCustomization({
             truncate: {
               type: `Boolean`,
               defaultValue: true,
-            }
+            },
           },
           resolve: mdxResolverPassthrough(`excerpt`),
         },

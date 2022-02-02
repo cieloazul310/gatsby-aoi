@@ -1,14 +1,7 @@
 import * as path from 'path';
 import { CreatePagesArgs } from 'gatsby';
+import { strToSlug } from './utils';
 import { MdxPost } from '../types';
-
-function strToSlug(str: string) {
-  return str
-    .toLowerCase()
-    .replace(/&/g, 'and')
-    .replace(/ /g, '-')
-    .replace(/[&/\\#,+()$~%.'":*?<>{}]/g, '');
-}
 
 type Data = {
   allMdxPost: {
@@ -92,7 +85,7 @@ export default async function createPagesasync({
   });
 
   // generate All posts pages
-  const postsPerPage = 15;
+  const postsPerPage = 2;
   const basePaths = {
     posts: '/posts',
     category: '/category',
@@ -140,7 +133,7 @@ export default async function createPagesasync({
             skip: i * postsPerPage,
             numPages,
             currentPage: i + 1,
-            basePath: basePaths.category,
+            basePath: category.slug,
           },
         });
       });

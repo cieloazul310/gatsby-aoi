@@ -81,6 +81,7 @@ function CategoryTemplate({
                   to={node.slug}
                   primaryText={node.title}
                   secondaryText={node.date}
+                  divider
                 />
               ))}
             </List>
