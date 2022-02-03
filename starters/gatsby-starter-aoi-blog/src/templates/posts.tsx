@@ -109,9 +109,15 @@ function BlogPostTemplate({
                 disabled={!previous}
               >
                 <Typography variant="body2">{previous?.title}</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Previous
+                </Typography>
               </PageNavigationItem>
               <PageNavigationItem to={next?.slug ?? '#'} next disabled={!next}>
                 <Typography variant="body2">{next?.title}</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Next
+                </Typography>
               </PageNavigationItem>
             </PageNavigationContainer>
           </Section>

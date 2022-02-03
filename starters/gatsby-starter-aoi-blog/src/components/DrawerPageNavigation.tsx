@@ -27,7 +27,7 @@ function DrawerPageNavigation({ previous, next }: DrawerPageNavigationProps) {
           <ListItemIcon>
             <ArrowBackIcon />
           </ListItemIcon>
-          <ListItemText primary={previous.title} secondary="prev" />
+          <ListItemText primary={previous.title} secondary="Previous" />
         </ListItemAppLink>
       ) : null}
       {next ? (
@@ -35,7 +35,7 @@ function DrawerPageNavigation({ previous, next }: DrawerPageNavigationProps) {
           <ListItemIcon>
             <ArrowForwardIcon />
           </ListItemIcon>
-          <ListItemText primary={next.title} secondary="next" />
+          <ListItemText primary={next.title} secondary="Next" />
         </ListItemAppLink>
       ) : null}
     </List>
