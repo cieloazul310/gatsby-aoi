@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { PageProps } from 'gatsby';
-import { Layout, Article, Section } from '@cieloazul310/gatsby-theme-aoi';
+import { Article, Section } from '@cieloazul310/gatsby-theme-aoi';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRendererProps } from 'gatsby-plugin-mdx';
+import Layout from '../layout';
 import muiComponents from '../utils/muiComponents';
 
 type Props = Omit<PageProps, 'children'> &
@@ -16,15 +17,14 @@ type Props = Omit<PageProps, 'children'> &
 
 function DefaultTemplate({ children, pageContext }: Props) {
   return (
-    <Layout
-      title={pageContext.frontmatter?.title ?? 'Title'}
-      componentViewports={{ bottomNav: false }}
-    >
-      <Section>
-        <Article maxWidth="md">
-          <MDXProvider components={muiComponents}>{children}</MDXProvider>
-        </Article>
-      </Section>
+    <Layout title={pageContext.frontmatter?.title ?? 'Title'}>
+      <article>
+        <Section>
+          <Article maxWidth="md">
+            <MDXProvider components={muiComponents}>{children}</MDXProvider>
+          </Article>
+        </Section>
+      </article>
     </Layout>
   );
 }

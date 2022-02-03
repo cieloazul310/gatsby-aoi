@@ -1,23 +1,23 @@
 import * as React from 'react';
 import {
   Layout,
-  Article,
   Section,
-  H3,
+  Article,
+  ArticleTitle,
   Paragraph,
 } from '@cieloazul310/gatsby-theme-aoi';
 
-function IndexPage() {
+function NotFoundPage() {
   return (
-    <Layout title="Index Page">
-      <Article>
-        <Section>
-          <H3>404 page</H3>
+    <Layout title="404 not found">
+      <Section>
+        <Article>
+          <ArticleTitle>404 not found</ArticleTitle>
           <Paragraph>This is Gatsby Aoi Theme Demo Page.</Paragraph>
-        </Section>
-      </Article>
+        </Article>
+      </Section>
     </Layout>
   );
 }
 
-export default IndexPage;
+export default NotFoundPage;
