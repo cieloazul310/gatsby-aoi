@@ -6,6 +6,11 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import LinearProgress from '@mui/material/LinearProgress';
 import { useTheme } from '@mui/material/styles';
 import {
+  Section,
+  SectionDivider,
+  Article,
+} from '@cieloazul310/gatsby-theme-aoi-components';
+import {
   mergeViewports,
   mainStyles,
   permanentDrawerStyles,
@@ -20,6 +25,7 @@ import SEO from './SEO';
 import Header from './Header';
 import TabContainer from './TabContainer';
 import DrawerInner from './DrawerInner';
+import FooterMenu from './FooterMenu';
 import Footer from './Footer';
 import Fab from './Fab';
 import BottomNav from './BottomNav';
@@ -181,7 +187,14 @@ export function Layout({
           <TabContainer tabSticky={tabSticky}>{tabs}</TabContainer>
         ) : null}
         <main>{children}</main>
-        <Footer />
+        <SectionDivider />
+        <Section>
+          <FooterMenu />
+        </Section>
+        <SectionDivider />
+        <Section>
+          <Footer />
+        </Section>
       </Box>
       {viewports.fab !== false ? (
         <Box
