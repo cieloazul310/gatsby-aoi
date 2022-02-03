@@ -3,7 +3,6 @@ import * as React from 'react';
 import { alpha } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Typography, { TypographyProps } from '@mui/material/Typography';
-import MuiLink, { LinkProps } from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import TableContainer from '@mui/material/TableContainer';
 import MuiTable, { TableProps } from '@mui/material/Table';
@@ -22,19 +21,8 @@ import {
   Paragraph,
   SubParagraph,
   Blockquote,
+  ExternalLink,
 } from '@cieloazul310/gatsby-theme-aoi';
-
-function Link(props: LinkProps) {
-  return (
-    <MuiLink
-      color="secondary"
-      target="_blank"
-      rel="noopener noreferrer"
-      underline="hover"
-      {...props}
-    />
-  );
-}
 
 function InlineCode({ children }: Omit<TypographyProps, 'ref'>) {
   return (
@@ -98,7 +86,7 @@ const components = {
   h5: H5,
   h6: H6,
   p: Paragraph,
-  a: Link,
+  a: ExternalLink,
   ul: Ul,
   ol: Ol,
   li: Li,

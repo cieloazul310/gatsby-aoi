@@ -3,7 +3,6 @@ import { graphql, PageProps } from 'gatsby';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import MuiLink from '@mui/material/Link';
 import Avatar from '@mui/material/Avatar';
 import {
   Jumbotron,
@@ -12,6 +11,7 @@ import {
   Article,
   SocialLink,
   AppLink,
+  ExternalLink,
 } from '@cieloazul310/gatsby-theme-aoi';
 import PersonIcon from '@mui/icons-material/Person';
 import Layout from '../layout';
@@ -85,9 +85,9 @@ function AuthorPage({ data }: PageProps<PageData>) {
                         </Typography>
                         {node.website ? (
                           <Typography variant="body2">
-                            <MuiLink href={node.website} color="secondary.dark">
+                            <ExternalLink href={node.website}>
                               Webサイト
-                            </MuiLink>
+                            </ExternalLink>
                           </Typography>
                         ) : null}
                       </Box>
