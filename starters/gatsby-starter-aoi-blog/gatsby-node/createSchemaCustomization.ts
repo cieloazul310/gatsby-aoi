@@ -116,6 +116,7 @@ export default function createSchemaCustomization({
       avatar: File
       description: String
       website: String
+      websiteURL: String
       socials: [Social]
       posts: [MdxPost]
     }

@@ -16,14 +16,14 @@ export type AuthorBare = Node & {
 };
 
 export type Author = Node &
-  Pick<AuthorBare, 'name' | 'description' | 'website' | 'socials'> & {
+  Pick<AuthorBare, 'name' | 'description' | 'website' | 'websiteURL' | 'socials'> & {
     slug?: string;
     avatar?: FileSystemNode;
     posts: MdxPost[];
   };
 
 export type AuthorBrowser = Node &
-  Pick<Author, 'name' | 'slug' | 'description' | 'website' | 'socials'> & {
+  Pick<Author, 'name' | 'slug' | 'description' | 'website' | 'websiteURL' | 'socials'> & {
     avatar?: {
       childImageSharp: {
         gatsbyImageData: IGatsbyImageData;
