@@ -1,11 +1,12 @@
 import { Node } from 'gatsby';
-import { FileNode } from 'gatsby-source-filesystem';
+import { FileSystemNode } from 'gatsby-source-filesystem';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
-export type Author = Node & {
+// configured in './data/authors.yml'
+export type AuthorBare = Node & {
   name: string;
-  slug?: string;
   description?: string;
+  avatar?: string;
   website?: string;
   socials?: {
     type: string;
@@ -13,70 +14,72 @@ export type Author = Node & {
   }[];
 };
 
-export type MdxPost = Node & {
+export type Author = Node &
+  Pick<AuthorBare, 'name' | 'description' | 'website' | 'socials'> & {
+    slug?: string;
+    avatar?: FileSystemNode;
+  };
+
+export type AuthorBrowser = Author;
+
+export type MdxBare = Node & {
+  frontmatter: {
+    title: string;
+    date: string;
+    categories?: string[];
+    tags?: string[];
+    author?: string;
+    image?: string;
+    imageAlt?: string;
+  };
+};
+
+export type Mdx = Node &
+  Omit<MdxBare, 'frontmatter'> & {
+    frontmatter: Omit<MdxBare['frontmatter'], 'image'> & {
+      image?: FileSystemNode;
+    };
+  };
+
+export type MdxPostBare = Node & {
   id: string;
   title: string;
   slug: string;
   date: string;
   categories?: string[];
   tags?: string[];
-  author?: Author;
-  image?: FileNode;
+  author?: string;
+  image?: string;
   imageAlt?: string;
+  image___NODE?: string;
   body: string;
   excerpt: string;
 };
 
-export type MdxPostBrowser = Pick<
-  MdxPost,
-  | 'id'
-  | 'title'
-  | 'slug'
-  | 'date'
-  | 'categories'
-  | 'tags'
-  | 'author'
-  | 'imageAlt'
-  | 'body'
-  | 'excerpt'
-> & {
-  image?: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
+export type MdxPost = Node & Pick<MdxPostBare, 'id' | 'title' | 'slug' | 'date' | 'categories' | 'tags' | 'imageAlt' | 'body' | 'excerpt'> & {
+  author?: Author;
+  image?: FileSystemNode;
+};
+
+export type MdxPostBrowser = Node &
+  Pick<
+    MdxPost,
+    | 'id'
+    | 'title'
+    | 'slug'
+    | 'date'
+    | 'categories'
+    | 'tags'
+    | 'author'
+    | 'imageAlt'
+    | 'body'
+    | 'excerpt'
+  > & {
+    image?: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData;
+      };
     };
+    categoriesSlug: { name: string; slug: string }[];
+    tagsSlug: { name: string; slug: string }[];
   };
-  categoriesSlug: { name: string; slug: string }[];
-  tagsSlug: { name: string; slug: string }[];
-};
-
-export type MdxPostBare = Pick<
-  MdxPost,
-  | 'id'
-  | 'title'
-  | 'slug'
-  | 'date'
-  | 'categories'
-  | 'tags'
-  | 'imageAlt'
-  | 'body'
-  | 'excerpt'
-  | 'parent'
-  | 'children'
-  | 'internal'
-> & {
-  author?: string;
-  image?: string;
-  image___NODE?: string;
-};
-
-export type Mdx = Node & {
-  frontmatter?: {
-    title: string;
-    date: string;
-    categories?: string[];
-    tags?: string[];
-    author?: Author;
-    image?: FileNode;
-    imageAlt?: string;
-  };
-}

@@ -31,3 +31,8 @@ export function fieldValueToSlug({
   if (field === 'author.name') return `${basePaths.author}/${strToSlug(fieldValue)}`;
   return strToSlug(fieldValue);
 }
+
+export function createSlug(type: keyof typeof basePaths, str: string) {
+  const basePath = basePaths[type];
+  return `${basePath}/${strToSlug(str)}`;
+}

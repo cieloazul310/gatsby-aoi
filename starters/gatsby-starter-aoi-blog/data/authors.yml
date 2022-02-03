@@ -21,3 +21,10 @@
 # Required
   description: 地図を作る人。暗渠に出現する。
   avatar: ../assets/IMG_1568.jpeg
+
+- name: おもち
+  description: 新通貨発行!一億水戸円!
+  avatar: https://pbs.twimg.com/profile_images/513688161809993728/SlLFpQcd_400x400.jpeg
+  socials:
+    - type: twitter
+      value: https://twitter.com/cieloazul310

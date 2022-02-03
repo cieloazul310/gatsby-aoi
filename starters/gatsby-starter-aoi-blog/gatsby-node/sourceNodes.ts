@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as yaml from 'yaml';
 import { SourceNodesArgs } from 'gatsby';
-import { Author } from '../types';
+import { AuthorBare } from '../types';
 
 export default function sourceNodes({
   actions,
@@ -11,7 +11,7 @@ export default function sourceNodes({
 }: SourceNodesArgs) {
   const { createNode } = actions;
   const authorsFile = path.resolve(__dirname, '../data/authors.yml');
-  const authors: Author[] = yaml.parse(fs.readFileSync(authorsFile, 'utf8'));
+  const authors: AuthorBare[] = yaml.parse(fs.readFileSync(authorsFile, 'utf8'));
 
   authors.forEach((author) => {
     const nodeContent = JSON.stringify(author);

@@ -1,12 +1,10 @@
 import { CreateNodeArgs, Node, GatsbyCache } from 'gatsby';
 import { createContentDigest } from 'gatsby-core-utils';
-import { ImageDataLike } from 'gatsby-plugin-image';
 import {
   createFilePath,
   createRemoteFileNode,
-  FileSystemNode,
 } from 'gatsby-source-filesystem';
-import { Mdx } from '../types';
+import { MdxBare } from '../types';
 
 declare module 'gatsby-source-filesystem' {
   type CreateRemoteFileNodeArgsFixed = Omit<
@@ -21,14 +19,7 @@ declare module 'gatsby-source-filesystem' {
   ): Promise<FileSystemNode>;
 }
 
-type MdxNode = Node & {
-  frontmatter: {
-    image?: string | null;
-    imageAlt?: string | null;
-    [key: string]: unknown;
-  };
-};
-function isMdxNode(node: Node & Record<string, unknown>): node is MdxNode {
+function isMdxNode(node: Node & Record<string, unknown>): node is MdxBare {
   return typeof node.frontmatter === 'object';
 }
 
@@ -43,12 +34,10 @@ function validURL(str: string) {
 
 export default async function onCreateNode({
   node,
-  actions: { createNode, createNodeField, createParentChildLink },
+  actions: { createNode, createParentChildLink },
   getNode,
   createNodeId,
   getCache,
-  store,
-  cache,
 }: CreateNodeArgs) {
   // you only want to operate on `Mdx` nodes. If you had content from a
   // remote CMS you could also check to see if the parent node was a

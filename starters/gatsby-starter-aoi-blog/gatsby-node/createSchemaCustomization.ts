@@ -8,14 +8,14 @@ import {
   // GraphQLNamedType,
   GraphQLObjectType,
 } from 'gatsby/graphql';
-import { isString } from './utils';
+import { isString, createSlug } from './utils';
 import { GatsbyGraphQLContext } from './graphql';
-import { Author, MdxPost, MdxPostBare, Mdx } from '../types';
+import { AuthorBare, MdxPost, MdxPostBare, Mdx } from '../types';
 
-async function processRelativeImage(
-  source: MdxPostBare,
+async function processRelativeImage<T extends Record<string, unknown>>(
+  source: T,
   context: GatsbyGraphQLContext,
-  type: string
+  type: keyof T
 ): Promise<FileSystemNode | undefined> {
   // Image is a relative path - find a corresponding file
   const mdxFileNode = context.nodeModel.findRootNodeAncestor<FileSystemNode>(
@@ -28,7 +28,7 @@ async function processRelativeImage(
   const imagePath = slash(
     path.join(
       mdxFileNode.dir,
-      (source[type as keyof MdxPostBare] ?? '') as string
+      (source[type] ?? '') as string
     )
   );
 
@@ -90,6 +90,7 @@ export default function createSchemaCustomization({
     }
     type Author implements Node @dontInfer {
       name: String!
+      slug: String
       description: String
       website: String
       socials: [Social]
@@ -108,7 +109,7 @@ export default function createSchemaCustomization({
         posts: {
           type: `[MdxPost]`,
           resolve: async (
-            source: Author,
+            source: AuthorBare,
             args,
             context: GatsbyGraphQLContext,
             info
@@ -121,6 +122,15 @@ export default function createSchemaCustomization({
             });
             return entries;
           },
+        },
+        slug: {
+          type: `String`,
+          resolve: async (
+            source: AuthorBare,
+            args,
+            context: GatsbyGraphQLContext,
+            info
+          ) => createSlug('author', source.name),
         },
       },
     })
@@ -144,15 +154,17 @@ export default function createSchemaCustomization({
             context: GatsbyGraphQLContext,
             info
           ) => {
-            const author = await context.nodeModel.findOne<Author>({
+            const author = await context.nodeModel.findOne<AuthorBare>({
               type: 'Author',
               query: {
                 filter: { name: { eq: source.author } },
               },
             });
-            return author ?? {
-              name: source.author ?? 'Unknown author',
-            };
+            return (
+              author ?? {
+                name: source.author ?? 'Unknown author',
+              }
+            );
           },
         },
         image: {

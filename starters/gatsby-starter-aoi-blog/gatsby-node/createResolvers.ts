@@ -1,6 +1,6 @@
 import { CreateResolversArgs } from 'gatsby';
 import { GatsbyGraphQLContext } from './graphql';
-import { fieldValueToSlug, basePaths, strToSlug } from './utils';
+import { fieldValueToSlug, createSlug } from './utils';
 import { MdxPost } from '../types';
 
 export default function gatsbyCreateResolvers({
@@ -29,7 +29,7 @@ export default function gatsbyCreateResolvers({
         ) =>
           source.categories?.map((name) => ({
             name,
-            slug: `${basePaths.category}/${strToSlug(name)}`,
+            slug: createSlug('category', name),
           })) ?? [],
       },
       tagsSlug: {
@@ -42,7 +42,7 @@ export default function gatsbyCreateResolvers({
         ) =>
           source.tags?.map((name) => ({
             name,
-            slug: `${basePaths.tag}/${strToSlug(name)}`,
+            slug: createSlug('tag', name)
           })) ?? [],
       },
     },

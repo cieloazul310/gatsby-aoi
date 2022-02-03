@@ -77,7 +77,7 @@ export default async function createPagesasync({
   if (!result.data) throw new Error('There are no posts');
 
   const { posts, categories, tags, authors } = result.data.allMdxPost;
-  
+
   // generate Each post pages
   posts.forEach(({ node }, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
@@ -92,12 +92,6 @@ export default async function createPagesasync({
 
   // generate All posts pages
   const postsPerPage = 2;
-  /*
-  const basePaths = {
-    posts: '/posts',
-    category: '/category',
-  };
-  */
 
   const numPages = Math.ceil(posts.length / postsPerPage);
   Array.from({ length: numPages }).forEach((_, i) => {
@@ -116,14 +110,9 @@ export default async function createPagesasync({
   });
 
   categories
-    .map((category) => ({
-      ...category,
-      // slug: `${basePaths.category}/${strToSlug(category.fieldValue)}`,
-    }))
     .sort((a, b) => b.totalCount - a.totalCount)
     .forEach((category, index, arr) => {
-      const next =
-        index === arr.length - 1 ? null : arr[index + 1];
+      const next = index === arr.length - 1 ? null : arr[index + 1];
       const previous = index === 0 ? null : arr[index - 1];
       // eslint-disable-next-line @typescript-eslint/no-shadow
       const numPages = Math.ceil(category.totalCount / postsPerPage);
@@ -146,7 +135,34 @@ export default async function createPagesasync({
         });
       });
     });
-  
+
+  tags
+    .sort((a, b) => b.totalCount - a.totalCount)
+    .forEach((tag, index, arr) => {
+      const next = index === arr.length - 1 ? null : arr[index + 1];
+      const previous = index === 0 ? null : arr[index - 1];
+      // eslint-disable-next-line @typescript-eslint/no-shadow
+      const numPages = Math.ceil(tag.totalCount / postsPerPage);
+
+      Array.from({ length: numPages }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? `${tag.slug}` : `${tag.slug}/${i + 1}`,
+          component: path.resolve('./src/templates/tag.tsx'),
+          context: {
+            previous,
+            next,
+            type: 'Tag',
+            fieldValue: tag.fieldValue,
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            numPages,
+            currentPage: i + 1,
+            basePath: tag.slug,
+          },
+        });
+      });
+    });
+
   /*
   const authorResult = await graphql(`
     query Authors {
