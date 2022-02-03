@@ -5,7 +5,7 @@ import SportsHandballIcon from '@mui/icons-material/SportsHandball';
 export type Menu = {
   title: string;
   path: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 };
 
 const menu: Menu[] = [
