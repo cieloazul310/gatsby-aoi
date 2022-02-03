@@ -24,7 +24,7 @@ function FooterMenu() {
     <Container maxWidth="md" disableGutters>
       <Grid container component="nav" alignItems="center">
         {menu.map(({ title, path, icon }) => (
-          <FooterMenuItem key={path} path={path} title={title} icon={icon} />
+          <FooterMenuItem key={title} path={path} title={title} icon={icon} />
         ))}
       </Grid>
     </Container>
