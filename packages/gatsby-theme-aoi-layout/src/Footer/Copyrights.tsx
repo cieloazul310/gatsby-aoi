@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-// import MuiLink from '@mui/material/Link';
 import { ExternalLink } from '@cieloazul310/gatsby-theme-aoi-components';
 import { useSiteMetadata } from '@cieloazul310/gatsby-theme-aoi-utils';
 
@@ -30,7 +29,7 @@ function Copyrights() {
         <Typography variant="body2" component="small">
           © {new Date().getFullYear()} {author} All rights reserved. Built with
           {` `}
-          <ExternalLink href="https://www.gatsbyjs.org">Gatsby</ExternalLink>
+          <ExternalLink href="https://www.gatsbyjs.com/">Gatsby</ExternalLink>
         </Typography>
       </CopyrightsContent>
     </div>
