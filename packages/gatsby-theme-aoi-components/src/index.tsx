@@ -19,6 +19,7 @@ export {
   Hr,
 } from './Article';
 export { default as BottomNavItem } from './BottomNavItem';
+export { default as ExternalLink, ExternalLinkProps } from './ExternalLink';
 export { default as Jumbotron, JumbotronProps } from './Jumbotron';
 export {
   default as ListItemAppLink,
