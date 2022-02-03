@@ -3,7 +3,8 @@
 # Required
   description: 水戸ホーリーホックが好きです。
   avatar: ./assets/IMG_5963.jpeg
-  website: https://cieloazul310.github.io
+  website: 水戸地図
+  websiteURL: https://cieloazul310.github.io
   socials:
     - name: github
       url: https://github.com/cieloazul310
@@ -14,7 +15,8 @@
 - name: 那珂川緑波
 # Required
   description: 自称都市計画郷土史家。趣味は道に迷うこと。
-  website: https://310city.blogspot.com
+  website: 水戸時層学会
+  websiteURL: https://310city.blogspot.com
 
 # Required
 - name: 久保青水
@@ -23,7 +25,7 @@
   avatar: ./assets/IMG_1568.jpeg
 
 - name: おもち
-  description: 新通貨発行!一億水戸円!
+  description: ただずっとほか三十二時間へ知れまでしか生れだとして重大ですお話と教えと、自分がそのうちとんだためが評してならないものまし。もちろんに自己で空腹ならます一一字今をあらて、何か読むたがいるございとともにのがそう断っなかっ事ですて、そのうちなり旨に変則たて、もとより根へ信じて云ってやりますあり。
   avatar: https://pbs.twimg.com/profile_images/513688161809993728/SlLFpQcd_400x400.jpeg
   socials:
     - name: twitter

@@ -8,6 +8,7 @@ export type AuthorBare = Node & {
   description?: string;
   avatar?: string;
   website?: string;
+  websiteURL?: string;
   socials?: {
     name: string;
     url: string;
@@ -22,12 +23,13 @@ export type Author = Node &
   };
 
 export type AuthorBrowser = Node &
-  Pick<Author, 'name' | 'description' | 'website' | 'socials' | 'posts'> & {
+  Pick<Author, 'name' | 'slug' | 'description' | 'website' | 'socials'> & {
     avatar?: {
       childImageSharp: {
         gatsbyImageData: IGatsbyImageData;
       };
     };
+    posts: MdxPostBrowser[];
   };
 
 export type MdxBare = Node & {
@@ -77,7 +79,6 @@ export type MdxPostBrowser = Node &
     | 'date'
     | 'categories'
     | 'tags'
-    | 'author'
     | 'imageAlt'
     | 'body'
     | 'excerpt'
@@ -87,6 +88,7 @@ export type MdxPostBrowser = Node &
         gatsbyImageData: IGatsbyImageData;
       };
     };
+    author: AuthorBrowser;
     categoriesSlug: { name: string; slug: string }[];
     tagsSlug: { name: string; slug: string }[];
   };
