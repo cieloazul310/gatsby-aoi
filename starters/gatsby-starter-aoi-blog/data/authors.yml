@@ -5,10 +5,10 @@
   avatar: ./assets/IMG_5963.jpeg
   website: https://cieloazul310.github.io
   socials:
-    - type: github
-      value: https://github.com/cieloazul310
-    - type: twitter
-      value: https://twitter.com/cieloazul310
+    - name: github
+      url: https://github.com/cieloazul310
+    - name: twitter
+      url: https://twitter.com/cieloazul310
 
 # Required
 - name: 那珂川緑波
@@ -26,5 +26,5 @@
   description: 新通貨発行!一億水戸円!
   avatar: https://pbs.twimg.com/profile_images/513688161809993728/SlLFpQcd_400x400.jpeg
   socials:
-    - type: twitter
-      value: https://twitter.com/cieloazul310
+    - name: twitter
+      url: https://twitter.com/cieloazul310

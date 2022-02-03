@@ -14,6 +14,7 @@ export default function sourceNodes({
 }: SourceNodesArgs) {
   const { createNode } = actions;
   const authorsFile = path.resolve(__dirname, '../data/authors.yml');
+  const dir = path.dirname(authorsFile);
   const authors: AuthorBare[] = yaml.parse(
     fs.readFileSync(authorsFile, 'utf8')
   );
@@ -21,6 +22,7 @@ export default function sourceNodes({
   authors.forEach(async (author) => {
     const data: Record<string, unknown> = {
       ...author,
+      dir,
       slug: createSlug('author', author.name),
     };
     const nodeId = createNodeId(`author-${author.name}`);

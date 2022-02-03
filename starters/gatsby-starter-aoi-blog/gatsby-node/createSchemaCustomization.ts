@@ -8,14 +8,14 @@ import {
   // GraphQLNamedType,
   GraphQLObjectType,
 } from 'gatsby/graphql';
-import { isString, createSlug } from './utils';
+import { isString } from './utils';
 import { GatsbyGraphQLContext } from './graphql';
 import { AuthorBare, MdxPost, MdxPostBare, Mdx } from '../types';
 
-async function processRelativeImage<T extends Record<string, unknown>>(
-  source: T,
+async function processMdxPostRelativeImage(
+  source: MdxPostBare,
   context: GatsbyGraphQLContext,
-  type: keyof T
+  type: keyof MdxPostBare
 ): Promise<FileSystemNode | undefined> {
   // Image is a relative path - find a corresponding file
   const mdxFileNode = context.nodeModel.findRootNodeAncestor<FileSystemNode>(
@@ -65,6 +65,28 @@ function mdxResolverPassthrough(
   };
 }
 
+async function processAuthorRelativeImage(
+  source: AuthorBare & { dir: string },
+  context: GatsbyGraphQLContext,
+  type: keyof AuthorBare
+) {
+  const { dir } = source;
+  const imagePath = slash(
+    path.join(dir, (source[type] ?? '') as string)
+  );
+  const fileNode = await context.nodeModel.findOne<FileSystemNode>({
+    type: `File`,
+    query: {
+      filter: {
+        absolutePath: {
+          eq: imagePath,
+        },
+      },
+    },
+  });
+  return fileNode ?? undefined;
+}
+
 export default function createSchemaCustomization({
   actions,
   schema,
@@ -85,8 +107,8 @@ export default function createSchemaCustomization({
       imageAlt: String
     }
     type Social @dontInfer {
-      type: String!
-      value: String!
+      name: String!
+      url: String!
     }
     type Author implements Node @dontInfer {
       name: String!
@@ -124,19 +146,10 @@ export default function createSchemaCustomization({
             return entries;
           },
         },
-        slug: {
-          type: `String`,
-          resolve: async (
-            source: AuthorBare,
-            args,
-            context: GatsbyGraphQLContext,
-            info
-          ) => createSlug('author', source.name),
-        },
         avatar: {
           type: `File`,
           resolve: async (
-            source: AuthorBare,
+            source: AuthorBare & { image___NODE?: string, dir: string },
             args,
             context: GatsbyGraphQLContext,
             info
@@ -144,9 +157,9 @@ export default function createSchemaCustomization({
             if (source.image___NODE && isString(source.image___NODE)) {
               return context.nodeModel.getNodeById({ id: source.image___NODE });
             }
-            return processRelativeImage(source, context, `avatar`);
+            return processAuthorRelativeImage(source, context, `avatar`);
           },
-        }
+        },
       },
     })
   );
@@ -185,7 +198,7 @@ export default function createSchemaCustomization({
         image: {
           type: `File`,
           resolve: async (
-            source: MdxPostBare,
+            source: MdxPostBare & { image___NODE?: string },
             args,
             context: GatsbyGraphQLContext,
             info
@@ -193,7 +206,7 @@ export default function createSchemaCustomization({
             if (source.image___NODE && isString(source.image___NODE)) {
               return context.nodeModel.getNodeById({ id: source.image___NODE });
             }
-            return processRelativeImage(source, context, `image`);
+            return processMdxPostRelativeImage(source, context, `image`);
           },
         },
         imageAlt: { type: `String` },

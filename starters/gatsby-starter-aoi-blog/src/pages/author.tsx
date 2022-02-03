@@ -25,13 +25,13 @@ function AuthorPage({ data }: PageProps<PageData>) {
     <Layout title="Authors">
       <article>
         <header>
-          <Jumbotron title="Authors" />
+          <Jumbotron title="Authors" maxWidth="md" />
         </header>
         <SectionDivider />
         {edges.map(({ node }, index) => (
           <React.Fragment key={node.name}>
             <Section>
-              <Article>
+              <Article maxWidth="md">
                 <Avatar
                   sx={{ width: 112, height: 112 }}
                   src={
@@ -42,6 +42,11 @@ function AuthorPage({ data }: PageProps<PageData>) {
                     node.avatar?.childImageSharp.gatsbyImageData.images.fallback
                       ?.srcSet
                   }
+                  sizes={
+                    node.avatar?.childImageSharp.gatsbyImageData.images.fallback
+                      ?.sizes
+                  }
+                  alt={node.name}
                 >
                   <PersonIcon />
                 </Avatar>
@@ -64,10 +69,17 @@ export const query = graphql`
       edges {
         node {
           name
+          slug
+          description
+          website
           avatar {
             childImageSharp {
               gatsbyImageData(width: 200)
             }
+          }
+          socials {
+            name
+            url
           }
         }
       }

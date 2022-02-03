@@ -24,7 +24,7 @@ export type GatsbyNodeModel = {
   ) => Promise<T | null>;
 
   findRootNodeAncestor: <T extends Node>(
-    obj: Record<string, unknown>,
+    source: Node,
     predicate?: (node: Node) => boolean
   ) => T | null;
 
