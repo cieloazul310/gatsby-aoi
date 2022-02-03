@@ -91,6 +91,7 @@ export default function createSchemaCustomization({
     type Author implements Node @dontInfer {
       name: String!
       slug: String
+      avatar: File
       description: String
       website: String
       socials: [Social]
@@ -132,6 +133,20 @@ export default function createSchemaCustomization({
             info
           ) => createSlug('author', source.name),
         },
+        avatar: {
+          type: `File`,
+          resolve: async (
+            source: AuthorBare,
+            args,
+            context: GatsbyGraphQLContext,
+            info
+          ) => {
+            if (source.image___NODE && isString(source.image___NODE)) {
+              return context.nodeModel.getNodeById({ id: source.image___NODE });
+            }
+            return processRelativeImage(source, context, `avatar`);
+          },
+        }
       },
     })
   );

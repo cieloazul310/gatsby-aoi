@@ -20,7 +20,14 @@ export type Author = Node &
     avatar?: FileSystemNode;
   };
 
-export type AuthorBrowser = Author;
+export type AuthorBrowser = Node &
+  Pick<Author, 'name' | 'description' | 'website' | 'socials'> & {
+    avatar?: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData;
+      };
+    };
+  };
 
 export type MdxBare = Node & {
   frontmatter: {

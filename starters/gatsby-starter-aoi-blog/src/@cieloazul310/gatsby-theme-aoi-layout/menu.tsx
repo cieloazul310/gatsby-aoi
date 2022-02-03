@@ -38,8 +38,7 @@ const menu = [
   },
   {
     title: 'Author',
-    // path: '/author/,
-    path: '/',
+    path: '/author/',
     icon: <AuthorIcon />,
   },
 ];

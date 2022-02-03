@@ -4,6 +4,7 @@ import {
   createFilePath,
   createRemoteFileNode,
 } from 'gatsby-source-filesystem';
+import { validURL } from './utils';
 import { MdxBare } from '../types';
 
 declare module 'gatsby-source-filesystem' {
@@ -21,15 +22,6 @@ declare module 'gatsby-source-filesystem' {
 
 function isMdxNode(node: Node & Record<string, unknown>): node is MdxBare {
   return typeof node.frontmatter === 'object';
-}
-
-function validURL(str: string) {
-  try {
-    const url = new URL(str);
-    return true;
-  } catch {
-    return false;
-  }
 }
 
 export default async function onCreateNode({

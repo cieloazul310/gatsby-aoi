@@ -10,6 +10,15 @@ export function isString(str: unknown): str is string {
   return typeof str === 'string';
 }
 
+export function validURL(str: string) {
+  try {
+    const url = new URL(str);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export const basePaths = {
   posts: '/posts',
   category: '/category',

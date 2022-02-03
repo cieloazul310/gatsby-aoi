@@ -2,7 +2,7 @@
 - name: cieloazul310
 # Required
   description: 水戸ホーリーホックが好きです。
-  avatar: ../assets/IMG_5963.jpeg
+  avatar: ./assets/IMG_5963.jpeg
   website: https://cieloazul310.github.io
   socials:
     - type: github
@@ -20,7 +20,7 @@
 - name: 久保青水
 # Required
   description: 地図を作る人。暗渠に出現する。
-  avatar: ../assets/IMG_1568.jpeg
+  avatar: ./assets/IMG_1568.jpeg
 
 - name: おもち
   description: 新通貨発行!一億水戸円!
