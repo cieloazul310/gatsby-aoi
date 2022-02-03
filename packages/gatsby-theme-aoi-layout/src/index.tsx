@@ -141,6 +141,7 @@ export function Layout({
       sx={{
         display: 'flex',
         flexGrow: 1,
+        minHeight: '100vh',
       }}
     >
       <SEO
