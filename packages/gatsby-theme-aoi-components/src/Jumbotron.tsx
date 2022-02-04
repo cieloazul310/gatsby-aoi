@@ -42,7 +42,10 @@ function Jumbotron({
             width: '100%',
             height: '100%',
             background: bgImage ? `url(${bgImage}) center / cover` : undefined,
-            filter: 'blur(4px) brightness(0.9)',
+            filter: (theme) =>
+              `blur(4px) brightness(${
+                theme.palette.mode === 'light' ? 0.7 : 0.5
+              })`,
             transform: 'scale(1.1)',
           }}
         />
