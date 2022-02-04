@@ -21,8 +21,9 @@ type AuthorBoxProps = {
     | 'websiteURL'
     | 'socials'
     | 'slug'
-    | 'posts'
-  >;
+  > & {
+    posts?: Pick<NonNullable<AuthorBrowser['posts']>, 'totalCount'>;
+  };
 };
 
 function AuthorBox({ author }: AuthorBoxProps) {
@@ -44,7 +45,7 @@ function AuthorBox({ author }: AuthorBoxProps) {
           }
           alt={author.name}
         >
-          <PersonIcon fontSize="large" />
+          <PersonIcon sx={{ fontSize: 100 }} />
         </Avatar>
       </Box>
       <Box

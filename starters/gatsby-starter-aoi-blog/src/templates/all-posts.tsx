@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
-import List from '@mui/material/List';
 import {
   Jumbotron,
   Section,
   SectionDivider,
   Article,
-  ListItemLink,
 } from '@cieloazul310/gatsby-theme-aoi';
 
 import Layout from '../layout';
+import MdxPostEdgesList from '../components/MdxPostList';
 import Pagination from '../components/Pagination';
 
 import { MdxPostBrowser } from '../../types';
@@ -37,27 +36,18 @@ function AllPostsTemplate({
 }: PageProps<PageData, PageContext>) {
   const { allMdxPost } = data;
   const { currentPage, numPages, basePath } = pageContext;
+  const title = `All Posts (${currentPage}/${numPages})`;
 
   return (
-    <Layout title="All Posts">
+    <Layout title={title}>
       <article>
         <header>
-          <Jumbotron title="All Posts" maxWidth="md" />
+          <Jumbotron title={title} maxWidth="md" />
         </header>
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            <List>
-              {allMdxPost.edges.map(({ node }) => (
-                <ListItemLink
-                  key={node.id}
-                  to={node.slug}
-                  primaryText={node.title}
-                  secondaryText={`${node.date} post by ${node.author?.name}`}
-                  divider
-                />
-              ))}
-            </List>
+            <MdxPostEdgesList edges={allMdxPost.edges} />
             <Pagination
               numPages={numPages}
               currentPage={currentPage}

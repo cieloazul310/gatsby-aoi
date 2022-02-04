@@ -7,10 +7,10 @@ import {
   Section,
   SectionDivider,
   Article,
-  ListItemLink,
 } from '@cieloazul310/gatsby-theme-aoi';
 
 import Layout from '../layout';
+import MdxPostEdgesList from '../components/MdxPostList';
 import Pagination from '../components/Pagination';
 import DrawerPageNavigation from '../components/DrawerPageNavigation';
 import PageNavigationContainer from '../components/PageNavigationContainer';
@@ -66,21 +66,13 @@ function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
     >
       <article>
         <header>
-          <Jumbotron title={fieldValue} maxWidth="md" />
+          <Jumbotron title={`#${fieldValue}`} maxWidth="md" />
         </header>
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
             <List>
-              {allMdxPost.edges.map(({ node }) => (
-                <ListItemLink
-                  key={node.id}
-                  to={node.slug}
-                  primaryText={node.title}
-                  secondaryText={node.date}
-                  divider
-                />
-              ))}
+              <MdxPostEdgesList edges={allMdxPost.edges} />
             </List>
             <Pagination
               numPages={numPages}

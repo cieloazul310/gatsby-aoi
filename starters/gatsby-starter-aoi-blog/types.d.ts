@@ -98,3 +98,13 @@ export type MdxPostBrowser = Node &
     categoriesSlug: { name: string; slug: string }[];
     tagsSlug: { name: string; slug: string }[];
   };
+
+type MdxPostMonth = {
+  id: string;
+  year: string;
+  month: string;
+  basePath: string;
+  gte: string;
+  lt: string;
+  totalCount: number;
+};

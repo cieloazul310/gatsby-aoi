@@ -14,7 +14,6 @@ import Pagination from '../components/Pagination';
 import DrawerPageNavigation from '../components/DrawerPageNavigation';
 import PageNavigationContainer from '../components/PageNavigationContainer';
 import PageNavigationItem from '../components/PageNavigationItem';
-
 import { MdxPostBrowser } from '../../types';
 
 type PageData = {
@@ -27,19 +26,24 @@ type PageData = {
 
 type PageContext = {
   previous: {
-    slug: string;
+    id: string;
+    year: string;
+    month: string;
+    basePath: string;
     totalCount: number;
-    fieldValue: string;
-    field: string;
   } | null;
   next: {
-    slug: string;
+    id: string;
+    year: string;
+    month: string;
+    basePath: string;
     totalCount: number;
-    fieldValue: string;
-    field: string;
   } | null;
   type: string;
-  fieldValue: string;
+  year: string;
+  month: string;
+  gte: string;
+  lt: string;
   limit: number;
   skip: number;
   numPages: number;
@@ -47,14 +51,14 @@ type PageContext = {
   basePath: string;
 };
 
-function CategoryTemplate({
+function ArchiveTemplate({
   data,
   pageContext,
 }: PageProps<PageData, PageContext>) {
   const { allMdxPost } = data;
-  const { fieldValue, previous, next, numPages, currentPage, basePath } =
+  const { previous, next, year, month, currentPage, numPages, basePath } =
     pageContext;
-  const title = `${fieldValue} (${currentPage}/${numPages})`;
+  const title = `${year}/${month} (${currentPage}/${numPages})`;
 
   return (
     <Layout
@@ -62,9 +66,18 @@ function CategoryTemplate({
       drawerContents={
         <DrawerPageNavigation
           previous={
-            previous ? { to: previous.slug, title: previous.fieldValue } : null
+            previous
+              ? {
+                  to: previous.basePath,
+                  title: `${previous.year}/${previous.month}`,
+                }
+              : null
           }
-          next={next ? { to: next.slug, title: next.fieldValue } : null}
+          next={
+            next
+              ? { to: next.basePath, title: `${next.year}/${next.month}` }
+              : null
+          }
         />
       }
     >
@@ -88,13 +101,17 @@ function CategoryTemplate({
           <Section>
             <PageNavigationContainer>
               <PageNavigationItem
-                to={previous?.slug ?? '#'}
+                to={previous?.basePath ?? '#'}
                 disabled={!previous}
               >
-                <Typography variant="body2">{previous?.fieldValue}</Typography>
+                <Typography variant="body2">{`${previous?.year}/${previous?.month}`}</Typography>
               </PageNavigationItem>
-              <PageNavigationItem to={next?.slug ?? '#'} next disabled={!next}>
-                <Typography variant="body2">{next?.fieldValue}</Typography>
+              <PageNavigationItem
+                to={next?.basePath ?? '#'}
+                next
+                disabled={!next}
+              >
+                <Typography variant="body2">{`${next?.year}/${next?.month}`}</Typography>
               </PageNavigationItem>
             </PageNavigationContainer>
           </Section>
@@ -104,12 +121,12 @@ function CategoryTemplate({
   );
 }
 
-export default CategoryTemplate;
+export default ArchiveTemplate;
 
 export const query = graphql`
-  query Category($fieldValue: String!, $skip: Int!, $limit: Int!) {
+  query Archive($gte: Date!, $lt: Date!, $skip: Int!, $limit: Int!) {
     allMdxPost(
-      filter: { categories: { eq: $fieldValue } }
+      filter: { date: { gte: $gte, lt: $lt } }
       sort: { fields: date, order: DESC }
       limit: $limit
       skip: $skip

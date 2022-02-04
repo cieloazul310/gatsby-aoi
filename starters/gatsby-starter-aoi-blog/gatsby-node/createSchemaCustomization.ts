@@ -128,6 +128,15 @@ export default function createSchemaCustomization({
       name: String!
       slug: String!
     }
+    type MdxPostMonth {
+      id: String!
+      year: String!
+      month: String!
+      basePath: String!
+      gte: String!
+      lt: String!
+      totalCount: Int!
+    }
   `);
 
   createTypes(
