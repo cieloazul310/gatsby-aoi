@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Container, { ContainerProps } from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { useTheme } from '@mui/material/styles';
+import { useTheme, alpha } from '@mui/material/styles';
 
 export type JumbotronProps = {
   title?: string;
@@ -10,6 +10,7 @@ export type JumbotronProps = {
   bgcolor?: string;
   bgImage?: string;
   children?: React.ReactNode;
+  gradient?: boolean;
 };
 
 function Jumbotron({
@@ -18,6 +19,7 @@ function Jumbotron({
   bgImage,
   bgcolor,
   children,
+  gradient = true,
 }: JumbotronProps) {
   const { palette } = useTheme();
   return (
@@ -31,6 +33,13 @@ function Jumbotron({
         bgcolor:
           bgcolor ??
           (palette.mode === 'light' ? 'secondary.light' : palette.grey[800]),
+        backgroundImage:
+          !bgImage && !bgcolor && gradient
+            ? `linear-gradient(135deg, ${alpha(
+                palette.primary.main,
+                0.25
+              )}, rgba(255, 255, 255, 0.1))`
+            : undefined,
       }}
     >
       {bgImage ? (
@@ -42,7 +51,10 @@ function Jumbotron({
             width: '100%',
             height: '100%',
             background: bgImage ? `url(${bgImage}) center / cover` : undefined,
-            filter: 'blur(4px) brightness(0.9)',
+            filter: (theme) =>
+              `blur(4px) brightness(${
+                theme.palette.mode === 'light' ? 0.7 : 0.5
+              })`,
             transform: 'scale(1.1)',
           }}
         />
@@ -77,6 +89,7 @@ Jumbotron.defaultProps = {
   bgcolor: undefined,
   bgImage: undefined,
   maxWidth: undefined,
+  gradient: true,
   children: undefined,
 };
 
