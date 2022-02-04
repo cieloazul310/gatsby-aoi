@@ -19,7 +19,10 @@ export type Author = Node &
   Pick<AuthorBare, 'name' | 'description' | 'website' | 'websiteURL' | 'socials'> & {
     slug?: string;
     avatar?: FileSystemNode;
-    posts: MdxPost[];
+    posts?: {
+      posts: MdxPost[];
+      totalCount: number;
+    };
   };
 
 export type AuthorBrowser = Node &
@@ -29,7 +32,10 @@ export type AuthorBrowser = Node &
         gatsbyImageData: IGatsbyImageData;
       };
     };
-    posts: MdxPostBrowser[];
+    posts?: {
+      posts: MdxPostBrowser[],
+      totalCount: number;
+    };
   };
 
 export type MdxBare = Node & {

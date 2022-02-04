@@ -110,6 +110,10 @@ export default function createSchemaCustomization({
       name: String!
       url: String!
     }
+    type AuthorMdxPosts @dontInfer {
+      posts: [MdxPost]!
+      totalCount: Int!
+    }
     type Author implements Node @dontInfer {
       name: String!
       slug: String
@@ -118,7 +122,7 @@ export default function createSchemaCustomization({
       website: String
       websiteURL: String
       socials: [Social]
-      posts: [MdxPost]
+      posts: AuthorMdxPosts
     }
     type WithSlug @dontInfer {
       name: String!
@@ -131,26 +135,29 @@ export default function createSchemaCustomization({
       name: `Author`,
       fields: {
         posts: {
-          type: `[MdxPost]`,
+          type: `AuthorMdxPosts`,
           resolve: async (
             source: AuthorBare,
             args,
             context: GatsbyGraphQLContext,
             info
           ) => {
-            const { entries } = await context.nodeModel.findAll<MdxPost>({
+            const { entries, totalCount } = await context.nodeModel.findAll<MdxPost>({
               type: `MdxPost`,
               query: {
                 filter: { author: { name: { eq: source.name } } },
               },
             });
-            return entries;
+            return {
+              posts: entries,
+              totalCount: await totalCount(),
+            };
           },
         },
         avatar: {
           type: `File`,
           resolve: async (
-            source: AuthorBare & { image___NODE?: string, dir: string },
+            source: AuthorBare & { image___NODE?: string; dir: string },
             args,
             context: GatsbyGraphQLContext,
             info

@@ -44,7 +44,7 @@ function AuthorBox({ author }: AuthorBoxProps) {
           }
           alt={author.name}
         >
-          <PersonIcon />
+          <PersonIcon fontSize="large" />
         </Avatar>
       </Box>
       <Box
@@ -81,7 +81,7 @@ function AuthorBox({ author }: AuthorBoxProps) {
           <Box textAlign={{ xs: 'right', sm: 'left' }}>
             {author.slug ? (
               <AppLink to={author.slug} variant="body2">
-                {author.name}の記事一覧 ({author.posts.length})
+                {author.name}の記事一覧 ({author.posts?.totalCount})
               </AppLink>
             ) : null}
           </Box>

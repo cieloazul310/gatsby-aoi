@@ -161,7 +161,7 @@ export const pageQuery = graphql`
           url
         }
         posts {
-          id
+          totalCount
         }
       }
       image {

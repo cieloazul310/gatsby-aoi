@@ -58,7 +58,9 @@ export default AuthorPage;
 
 export const query = graphql`
   query {
-    allAuthor(sort: { fields: name, order: DESC }) {
+    allAuthor(
+      sort: { fields: [posts___totalCount, name], order: [DESC, ASC] }
+    ) {
       edges {
         node {
           name
@@ -76,7 +78,7 @@ export const query = graphql`
             url
           }
           posts {
-            id
+            totalCount
           }
         }
       }
