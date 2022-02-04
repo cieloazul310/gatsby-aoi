@@ -171,6 +171,7 @@ export default function createSchemaCustomization({
             context: GatsbyGraphQLContext,
             info
           ) => {
+            if (!source.avatar) return null;
             if (source.image___NODE && isString(source.image___NODE)) {
               return context.nodeModel.getNodeById({ id: source.image___NODE });
             }
