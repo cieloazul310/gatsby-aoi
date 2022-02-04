@@ -16,20 +16,26 @@ export type AuthorBare = Node & {
 };
 
 export type Author = Node &
-  Pick<AuthorBare, 'name' | 'description' | 'website' | 'socials'> & {
+  Pick<AuthorBare, 'name' | 'description' | 'website' | 'websiteURL' | 'socials'> & {
     slug?: string;
     avatar?: FileSystemNode;
-    posts: MdxPost[];
+    posts?: {
+      posts: MdxPost[];
+      totalCount: number;
+    };
   };
 
 export type AuthorBrowser = Node &
-  Pick<Author, 'name' | 'slug' | 'description' | 'website' | 'socials'> & {
+  Pick<Author, 'name' | 'slug' | 'description' | 'website' | 'websiteURL' | 'socials'> & {
     avatar?: {
       childImageSharp: {
         gatsbyImageData: IGatsbyImageData;
       };
     };
-    posts: MdxPostBrowser[];
+    posts?: {
+      posts: MdxPostBrowser[],
+      totalCount: number;
+    };
   };
 
 export type MdxBare = Node & {
@@ -92,3 +98,13 @@ export type MdxPostBrowser = Node &
     categoriesSlug: { name: string; slug: string }[];
     tagsSlug: { name: string; slug: string }[];
   };
+
+type MdxPostMonth = {
+  id: string;
+  year: string;
+  month: string;
+  basePath: string;
+  gte: string;
+  lt: string;
+  totalCount: number;
+};

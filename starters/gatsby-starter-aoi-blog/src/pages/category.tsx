@@ -12,7 +12,8 @@ import {
   ListItemLink,
 } from '@cieloazul310/gatsby-theme-aoi';
 import Layout from '../layout';
-import { MdxPost } from '../../types';
+import MdxPostEdgesList from '../components/MdxPostList';
+import { MdxPostBrowser } from '../../types';
 
 type PageData = {
   allMdxPost: {
@@ -22,7 +23,7 @@ type PageData = {
       field: string;
       slug: string;
       edges: {
-        node: Pick<MdxPost, 'id' | 'title' | 'date' | 'slug' | 'author'>;
+        node: Pick<MdxPostBrowser, 'id' | 'title' | 'date' | 'slug' | 'author'>;
       }[];
     }[];
   };
@@ -47,27 +48,22 @@ function CategoryPage({ data }: PageProps<PageData>) {
                     <ListItem>
                       <ListItemText
                         primary={
-                          <AppLink to={slug} color="inherit" fontSize="large">
+                          <AppLink
+                            to={slug}
+                            color="inherit"
+                            fontSize="large"
+                            fontWeight="bold"
+                          >
                             {fieldValue}
                           </AppLink>
                         }
                         secondary={`${totalCount} posts`}
                       />
                     </ListItem>
+                    <MdxPostEdgesList edges={edges} />
                     <List>
-                      {edges.map(({ node }) => (
-                        <ListItemLink
-                          // className={classes.nested}
-                          key={node.id}
-                          primaryText={node.title}
-                          secondaryText={`${node.date} post by ${node.author?.name}`}
-                          to={node.slug}
-                          divider
-                        />
-                      ))}
                       {totalCount > 2 ? (
                         <ListItemLink
-                          // className={classes.footer}
                           sx={{ textAlign: { xs: undefined, sm: 'right' } }}
                           primaryText="More"
                           to={slug}

@@ -14,7 +14,7 @@ export type GatsbyNodeModel = {
     args: GatsbyNodeModelFindArgs,
     pageDependencies?: PageDependencies
   ) => Promise<{
-    entries: GatsbyIterable<T>[];
+    entries: GatsbyIterable<T>;
     totalCount: () => Promise<number>;
   }>;
 

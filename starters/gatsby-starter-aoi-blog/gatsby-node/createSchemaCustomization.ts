@@ -110,18 +110,32 @@ export default function createSchemaCustomization({
       name: String!
       url: String!
     }
+    type AuthorMdxPosts @dontInfer {
+      posts: [MdxPost]!
+      totalCount: Int!
+    }
     type Author implements Node @dontInfer {
       name: String!
       slug: String
       avatar: File
       description: String
       website: String
+      websiteURL: String
       socials: [Social]
-      posts: [MdxPost]
+      posts: AuthorMdxPosts
     }
     type WithSlug @dontInfer {
       name: String!
       slug: String!
+    }
+    type MdxPostMonth {
+      id: String!
+      year: String!
+      month: String!
+      basePath: String!
+      gte: String!
+      lt: String!
+      totalCount: Int!
     }
   `);
 
@@ -130,30 +144,34 @@ export default function createSchemaCustomization({
       name: `Author`,
       fields: {
         posts: {
-          type: `[MdxPost]`,
+          type: `AuthorMdxPosts`,
           resolve: async (
             source: AuthorBare,
             args,
             context: GatsbyGraphQLContext,
             info
           ) => {
-            const { entries } = await context.nodeModel.findAll<MdxPost>({
+            const { entries, totalCount } = await context.nodeModel.findAll<MdxPost>({
               type: `MdxPost`,
               query: {
                 filter: { author: { name: { eq: source.name } } },
               },
             });
-            return entries;
+            return {
+              posts: entries,
+              totalCount: await totalCount(),
+            };
           },
         },
         avatar: {
           type: `File`,
           resolve: async (
-            source: AuthorBare & { image___NODE?: string, dir: string },
+            source: AuthorBare & { image___NODE?: string; dir: string },
             args,
             context: GatsbyGraphQLContext,
             info
           ) => {
+            if (!source.avatar) return null;
             if (source.image___NODE && isString(source.image___NODE)) {
               return context.nodeModel.getNodeById({ id: source.image___NODE });
             }

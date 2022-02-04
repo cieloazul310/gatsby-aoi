@@ -7,10 +7,10 @@ import {
   Section,
   SectionDivider,
   Article,
-  ListItemLink,
 } from '@cieloazul310/gatsby-theme-aoi';
 
 import Layout from '../layout';
+import MdxPostEdgesList from '../components/MdxPostList';
 import Pagination from '../components/Pagination';
 import DrawerPageNavigation from '../components/DrawerPageNavigation';
 import PageNavigationContainer from '../components/PageNavigationContainer';
@@ -46,12 +46,20 @@ type PageContext = {
   numPages: number;
   currentPage: number;
   basePath: string;
+  totalCount: string;
 };
 
 function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
   const { allMdxPost } = data;
-  const { fieldValue, previous, next, numPages, currentPage, basePath } =
-    pageContext;
+  const {
+    fieldValue,
+    previous,
+    next,
+    numPages,
+    currentPage,
+    basePath,
+    totalCount,
+  } = pageContext;
   return (
     <Layout
       title={fieldValue}
@@ -66,21 +74,18 @@ function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
     >
       <article>
         <header>
-          <Jumbotron title={fieldValue} maxWidth="md" />
+          <Jumbotron maxWidth="md">
+            <Typography variant="h4" component="h2" gutterBottom>
+              {`#${fieldValue}`}
+            </Typography>
+            <Typography>{totalCount} posts</Typography>
+          </Jumbotron>
         </header>
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
             <List>
-              {allMdxPost.edges.map(({ node }) => (
-                <ListItemLink
-                  key={node.id}
-                  to={node.slug}
-                  primaryText={node.title}
-                  secondaryText={node.date}
-                  divider
-                />
-              ))}
+              <MdxPostEdgesList edges={allMdxPost.edges} />
             </List>
             <Pagination
               numPages={numPages}

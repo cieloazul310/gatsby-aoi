@@ -1,21 +1,18 @@
 import * as React from 'react';
-import { graphql, Link as GatsbyLink, PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Typography from '@mui/material/Typography';
-import Chip from '@mui/material/Chip';
 import {
   Jumbotron,
   Section,
   SectionDivider,
   Article,
-  H3,
-  H4,
-  Paragraph,
   AppLink,
 } from '@cieloazul310/gatsby-theme-aoi';
 
 import Layout from '../layout';
+import AuthorBox from '../components/AuthorBox';
 import DrawerPageNavigation from '../components/DrawerPageNavigation';
 import PageNavigationContainer from '../components/PageNavigationContainer';
 import PageNavigationItem from '../components/PageNavigationItem';
@@ -60,12 +57,13 @@ function BlogPostTemplate({
     >
       <article>
         <header>
-          <Jumbotron
-            title={title ?? 'Title'}
-            maxWidth="md"
-            bgImage={staticImage}
-            bgcolor={bgcolor}
-          />
+          <Jumbotron maxWidth="md" bgImage={staticImage} bgcolor={bgcolor}>
+            <Typography>{date}</Typography>
+            <Typography variant="h4" component="h2" gutterBottom>
+              {title}
+            </Typography>
+            <Typography>post by {author.name}</Typography>
+          </Jumbotron>
         </header>
         <SectionDivider />
         <Section>
@@ -79,24 +77,33 @@ function BlogPostTemplate({
         <footer>
           <Section>
             <Article maxWidth="md">
-              <H3>{title}</H3>
+              <Typography variant="h6" gutterBottom>
+                {title}
+              </Typography>
               <Typography>Date: {date}</Typography>
-              <Typography>
+              <Typography>Post by {author.name}</Typography>
+              <Typography variant="body2">
                 Categories:{' '}
                 {categoriesSlug.map((category) => (
-                  <Typography key={category.name} component="span" mr={1}>
-                    <AppLink to={category.slug}>{category.name}</AppLink>
-                  </Typography>
+                  <AppLink key={category.name} to={category.slug} mr={1}>
+                    {category.name}
+                  </AppLink>
                 ))}
               </Typography>
-              <Typography>
+              <Typography variant="body2">
                 Tags:{' '}
                 {tagsSlug.map((tag) => (
-                  <Chip key={tag.name} label={tag.name} clickable />
+                  <AppLink key={tag.name} to={tag.slug} mr={1}>
+                    #{tag.name}
+                  </AppLink>
                 ))}
               </Typography>
-              <H4>Post by {author?.name}</H4>
-              <Paragraph>{author?.description}</Paragraph>
+            </Article>
+          </Section>
+          <SectionDivider />
+          <Section>
+            <Article maxWidth="md">
+              <AuthorBox author={author} />
             </Article>
           </Section>
         </footer>
@@ -139,7 +146,22 @@ export const pageQuery = graphql`
       date(formatString: "YYYY-MM-DD")
       author {
         name
+        slug
         description
+        website
+        websiteURL
+        avatar {
+          childImageSharp {
+            gatsbyImageData(width: 200)
+          }
+        }
+        socials {
+          name
+          url
+        }
+        posts {
+          totalCount
+        }
       }
       image {
         childImageSharp {

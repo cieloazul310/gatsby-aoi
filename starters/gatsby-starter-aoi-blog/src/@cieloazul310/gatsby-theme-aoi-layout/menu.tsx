@@ -22,8 +22,7 @@ const menu = [
   },
   {
     title: 'Archive',
-    // path: '/archive/,
-    path: '/',
+    path: '/archive/',
     icon: <ArchiveIcon />,
   },
   {

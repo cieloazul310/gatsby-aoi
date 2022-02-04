@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
-import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
 import {
   Jumbotron,
   Section,
   SectionDivider,
   Article,
-  ListItemLink,
 } from '@cieloazul310/gatsby-theme-aoi';
 
 import Layout from '../layout';
+import MdxPostEdgesList from '../components/MdxPostList';
 import Pagination from '../components/Pagination';
 
 import { MdxPostBrowser } from '../../types';
@@ -29,6 +29,7 @@ type PageContext = {
   numPages: number;
   currentPage: number;
   basePath: string;
+  totalCount: number;
 };
 
 function AllPostsTemplate({
@@ -36,28 +37,23 @@ function AllPostsTemplate({
   pageContext,
 }: PageProps<PageData, PageContext>) {
   const { allMdxPost } = data;
-  const { currentPage, numPages, basePath } = pageContext;
+  const { currentPage, numPages, basePath, totalCount } = pageContext;
 
   return (
     <Layout title="All Posts">
       <article>
         <header>
-          <Jumbotron title="All Posts" maxWidth="md" />
+          <Jumbotron maxWidth="md">
+            <Typography variant="h4" component="h2" gutterBottom>
+              All Posts
+            </Typography>
+            <Typography>{`Total ${totalCount ?? 0} posts`}</Typography>
+          </Jumbotron>
         </header>
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            <List>
-              {allMdxPost.edges.map(({ node }) => (
-                <ListItemLink
-                  key={node.id}
-                  to={node.slug}
-                  primaryText={node.title}
-                  secondaryText={`${node.date} post by ${node.author?.name}`}
-                  divider
-                />
-              ))}
-            </List>
+            <MdxPostEdgesList edges={allMdxPost.edges} />
             <Pagination
               numPages={numPages}
               currentPage={currentPage}

@@ -28,13 +28,15 @@ function PageNavigationItem({
           borderRight: { xs: 'none', sm: undefined },
           transition: (theme) => theme.transitions.create('background'),
           '&:hover': {
-            bgcolor: (theme) =>
-              theme.palette.grey[theme.palette.mode === 'light' ? 100 : 700],
+            bgcolor: ({ palette }) =>
+              palette.grey[palette.mode === 'light' ? 100 : 900],
           },
         },
         '&.Mui-disabled': {
-          bgcolor: (theme) =>
-            theme.palette.grey[theme.palette.mode === 'light' ? 100 : 800],
+          bgcolor: ({ palette }) =>
+            palette.mode === 'light'
+              ? palette.grey[100]
+              : palette.background.default,
         },
       }}
       disabled={disabled}

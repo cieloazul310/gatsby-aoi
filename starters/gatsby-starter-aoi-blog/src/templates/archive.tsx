@@ -14,8 +14,14 @@ import Pagination from '../components/Pagination';
 import DrawerPageNavigation from '../components/DrawerPageNavigation';
 import PageNavigationContainer from '../components/PageNavigationContainer';
 import PageNavigationItem from '../components/PageNavigationItem';
-
 import { MdxPostBrowser } from '../../types';
+
+function createTitleString(year: string, month: string) {
+  return `${new Date(`${year}-${month}`).toLocaleString('en-us', {
+    year: 'numeric',
+    month: 'short',
+  })}`;
+}
 
 type PageData = {
   allMdxPost: {
@@ -27,19 +33,24 @@ type PageData = {
 
 type PageContext = {
   previous: {
-    slug: string;
+    id: string;
+    year: string;
+    month: string;
+    basePath: string;
     totalCount: number;
-    fieldValue: string;
-    field: string;
   } | null;
   next: {
-    slug: string;
+    id: string;
+    year: string;
+    month: string;
+    basePath: string;
     totalCount: number;
-    fieldValue: string;
-    field: string;
   } | null;
   type: string;
-  fieldValue: string;
+  year: string;
+  month: string;
+  gte: string;
+  lt: string;
   limit: number;
   skip: number;
   numPages: number;
@@ -48,30 +59,41 @@ type PageContext = {
   totalCount: number;
 };
 
-function CategoryTemplate({
+function ArchiveTemplate({
   data,
   pageContext,
 }: PageProps<PageData, PageContext>) {
   const { allMdxPost } = data;
   const {
-    fieldValue,
     previous,
     next,
-    numPages,
+    year,
+    month,
     currentPage,
+    numPages,
     basePath,
     totalCount,
   } = pageContext;
+  const title = createTitleString(year, month);
+  const previousTitle = previous
+    ? createTitleString(previous.year, previous.month)
+    : '';
+  const nextTitle = next ? createTitleString(next.year, next.month) : '';
 
   return (
     <Layout
-      title={fieldValue}
+      title={title}
       drawerContents={
         <DrawerPageNavigation
           previous={
-            previous ? { to: previous.slug, title: previous.fieldValue } : null
+            previous
+              ? {
+                  to: previous.basePath,
+                  title: previousTitle,
+                }
+              : null
           }
-          next={next ? { to: next.slug, title: next.fieldValue } : null}
+          next={next ? { to: next.basePath, title: nextTitle } : null}
         />
       }
     >
@@ -79,7 +101,7 @@ function CategoryTemplate({
         <header>
           <Jumbotron maxWidth="md">
             <Typography variant="h4" component="h2" gutterBottom>
-              {fieldValue}
+              {title}
             </Typography>
             <Typography>{totalCount} posts</Typography>
           </Jumbotron>
@@ -100,13 +122,17 @@ function CategoryTemplate({
           <Section>
             <PageNavigationContainer>
               <PageNavigationItem
-                to={previous?.slug ?? '#'}
+                to={previous?.basePath ?? '#'}
                 disabled={!previous}
               >
-                <Typography variant="body2">{previous?.fieldValue}</Typography>
+                <Typography variant="body2">{previousTitle}</Typography>
               </PageNavigationItem>
-              <PageNavigationItem to={next?.slug ?? '#'} next disabled={!next}>
-                <Typography variant="body2">{next?.fieldValue}</Typography>
+              <PageNavigationItem
+                to={next?.basePath ?? '#'}
+                next
+                disabled={!next}
+              >
+                <Typography variant="body2">{nextTitle}</Typography>
               </PageNavigationItem>
             </PageNavigationContainer>
           </Section>
@@ -116,12 +142,12 @@ function CategoryTemplate({
   );
 }
 
-export default CategoryTemplate;
+export default ArchiveTemplate;
 
 export const query = graphql`
-  query Category($fieldValue: String!, $skip: Int!, $limit: Int!) {
+  query Archive($gte: Date!, $lt: Date!, $skip: Int!, $limit: Int!) {
     allMdxPost(
-      filter: { categories: { eq: $fieldValue } }
+      filter: { date: { gte: $gte, lt: $lt } }
       sort: { fields: date, order: DESC }
       limit: $limit
       skip: $skip
