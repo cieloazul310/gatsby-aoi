@@ -28,7 +28,7 @@ export function withChildren() {
 
 export function withFlexBox() {
   return (
-    <Jumbotron maxWidth="md">
+    <Jumbotron maxWidth="md" gradient={false}>
       <Box
         sx={{
           flexGrow: 1,
