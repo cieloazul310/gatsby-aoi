@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql, Link as GatsbyLink, PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Typography from '@mui/material/Typography';
@@ -8,7 +8,6 @@ import {
   Section,
   SectionDivider,
   Article,
-  H4,
   AppLink,
 } from '@cieloazul310/gatsby-theme-aoi';
 
@@ -83,7 +82,7 @@ function BlogPostTemplate({
               </Typography>
               <Typography>Date: {date}</Typography>
               <Typography>Post by {author.name}</Typography>
-              <Typography>
+              <Typography variant="body2">
                 Categories:{' '}
                 {categoriesSlug.map((category) => (
                   <AppLink key={category.name} to={category.slug} mr={1}>
@@ -91,7 +90,7 @@ function BlogPostTemplate({
                   </AppLink>
                 ))}
               </Typography>
-              <Typography>
+              <Typography variant="body2">
                 Tags:{' '}
                 {tagsSlug.map((tag) => (
                   <AppLink key={tag.name} to={tag.slug} mr={1}>

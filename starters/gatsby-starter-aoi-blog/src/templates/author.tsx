@@ -48,6 +48,7 @@ type PageContext = {
   numPages: number;
   currentPage: number;
   basePath: string;
+  totalCount: number;
 };
 
 function AuthorTemplate({
@@ -55,9 +56,8 @@ function AuthorTemplate({
   pageContext,
 }: PageProps<PageData, PageContext>) {
   const { author, allMdxPost } = data;
-  const { fieldValue, previous, next, numPages, currentPage, basePath } =
+  const { previous, next, numPages, currentPage, basePath, totalCount } =
     pageContext;
-  const title = `${author.name} (${currentPage}/${numPages})`;
   const bgImage =
     author.avatar?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
   const bgcolor =
@@ -65,7 +65,7 @@ function AuthorTemplate({
 
   return (
     <Layout
-      title={title}
+      title={author.name}
       drawerContents={
         <DrawerPageNavigation
           previous={
@@ -79,12 +79,12 @@ function AuthorTemplate({
     >
       <article>
         <header>
-          <Jumbotron
-            title={title}
-            maxWidth="md"
-            bgImage={bgImage}
-            bgcolor={bgcolor}
-          />
+          <Jumbotron maxWidth="md" bgImage={bgImage} bgcolor={bgcolor}>
+            <Typography variant="h4" component="h2" gutterBottom>
+              {author.name}
+            </Typography>
+            <Typography>{totalCount} posts</Typography>
+          </Jumbotron>
         </header>
         <SectionDivider />
         <Section>

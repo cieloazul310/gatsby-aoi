@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
+import List from '@mui/material/List';
 import {
   Jumbotron,
   Section,
   SectionDivider,
   Article,
-  AppLink,
+  ListItemLink,
 } from '@cieloazul310/gatsby-theme-aoi';
 import Layout from '../layout';
 import { MdxPostMonth } from '../../types';
@@ -25,11 +26,17 @@ function ArchivePage({ data }: PageProps<PageData>) {
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            {months.map(({ basePath, year, month }) => (
-              <AppLink key={basePath} to={basePath}>
-                {`${year}年${month}月`}
-              </AppLink>
-            ))}
+            <List>
+              {months.map(({ basePath, year, month, totalCount }, index) => (
+                <ListItemLink
+                  key={basePath}
+                  to={basePath}
+                  primaryText={`${year}年${month}月`}
+                  secondaryText={`${totalCount} posts`}
+                  divider={index !== months.length - 1}
+                />
+              ))}
+            </List>
           </Article>
         </Section>
       </article>

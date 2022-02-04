@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
+import Typography from '@mui/material/Typography';
 import {
   Jumbotron,
   Section,
@@ -28,6 +29,7 @@ type PageContext = {
   numPages: number;
   currentPage: number;
   basePath: string;
+  totalCount: number;
 };
 
 function AllPostsTemplate({
@@ -35,14 +37,18 @@ function AllPostsTemplate({
   pageContext,
 }: PageProps<PageData, PageContext>) {
   const { allMdxPost } = data;
-  const { currentPage, numPages, basePath } = pageContext;
-  const title = `All Posts (${currentPage}/${numPages})`;
+  const { currentPage, numPages, basePath, totalCount } = pageContext;
 
   return (
-    <Layout title={title}>
+    <Layout title="All Posts">
       <article>
         <header>
-          <Jumbotron title={title} maxWidth="md" />
+          <Jumbotron maxWidth="md">
+            <Typography variant="h4" component="h2" gutterBottom>
+              All Posts
+            </Typography>
+            <Typography>{`Total ${totalCount ?? 0} posts`}</Typography>
+          </Jumbotron>
         </header>
         <SectionDivider />
         <Section>

@@ -23,6 +23,7 @@ type Data = {
       field: string;
       slug: string;
     }[];
+    totalCount: number;
   };
   allAuthor: {
     authors: {
@@ -68,6 +69,7 @@ export default async function createPagesasync({
           field
           slug
         }
+        totalCount
       }
       allAuthor(
         sort: { fields: [posts___totalCount, name], order: [DESC, ASC] }
@@ -127,6 +129,7 @@ export default async function createPagesasync({
         numPages,
         currentPage: i + 1,
         basePath: basePaths.posts,
+        totalCount: result.data?.allMdxPost.totalCount,
       },
     });
   });
@@ -154,6 +157,7 @@ export default async function createPagesasync({
             numPages,
             currentPage: i + 1,
             basePath: category.slug,
+            totalCount: category.totalCount,
           },
         });
       });
@@ -182,6 +186,7 @@ export default async function createPagesasync({
             numPages,
             currentPage: i + 1,
             basePath: tag.slug,
+            totalCount: tag.totalCount,
           },
         });
       });
@@ -193,7 +198,7 @@ export default async function createPagesasync({
     const next = index === arr.length - 1 ? null : arr[index + 1];
     const previous = index === 0 ? null : arr[index - 1];
     // eslint-disable-next-line @typescript-eslint/no-shadow
-    const numPages = Math.ceil(node.posts.totalCount / postsPerPage);
+    const numPages = Math.ceil(node.posts.totalCount / postsPerPage) || 1;
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
@@ -209,6 +214,7 @@ export default async function createPagesasync({
           numPages,
           currentPage: i + 1,
           basePath: node.slug,
+          totalCount: node.posts.totalCount,
         },
       });
     });
@@ -232,6 +238,7 @@ export default async function createPagesasync({
           month,
           gte,
           lt,
+          totalCount,
           limit: postsPerPage,
           skip: i * postsPerPage,
           numPages,

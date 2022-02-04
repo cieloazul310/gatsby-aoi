@@ -16,6 +16,13 @@ import PageNavigationContainer from '../components/PageNavigationContainer';
 import PageNavigationItem from '../components/PageNavigationItem';
 import { MdxPostBrowser } from '../../types';
 
+function createTitleString(year: string, month: string) {
+  return `${new Date(`${year}-${month}`).toLocaleString('en-us', {
+    year: 'numeric',
+    month: 'short',
+  })}`;
+}
+
 type PageData = {
   allMdxPost: {
     edges: {
@@ -49,6 +56,7 @@ type PageContext = {
   numPages: number;
   currentPage: number;
   basePath: string;
+  totalCount: number;
 };
 
 function ArchiveTemplate({
@@ -56,9 +64,21 @@ function ArchiveTemplate({
   pageContext,
 }: PageProps<PageData, PageContext>) {
   const { allMdxPost } = data;
-  const { previous, next, year, month, currentPage, numPages, basePath } =
-    pageContext;
-  const title = `${year}/${month} (${currentPage}/${numPages})`;
+  const {
+    previous,
+    next,
+    year,
+    month,
+    currentPage,
+    numPages,
+    basePath,
+    totalCount,
+  } = pageContext;
+  const title = createTitleString(year, month);
+  const previousTitle = previous
+    ? createTitleString(previous.year, previous.month)
+    : '';
+  const nextTitle = next ? createTitleString(next.year, next.month) : '';
 
   return (
     <Layout
@@ -69,21 +89,22 @@ function ArchiveTemplate({
             previous
               ? {
                   to: previous.basePath,
-                  title: `${previous.year}/${previous.month}`,
+                  title: previousTitle,
                 }
               : null
           }
-          next={
-            next
-              ? { to: next.basePath, title: `${next.year}/${next.month}` }
-              : null
-          }
+          next={next ? { to: next.basePath, title: nextTitle } : null}
         />
       }
     >
       <article>
         <header>
-          <Jumbotron title={title} maxWidth="md" />
+          <Jumbotron maxWidth="md">
+            <Typography variant="h4" component="h2" gutterBottom>
+              {title}
+            </Typography>
+            <Typography>{totalCount} posts</Typography>
+          </Jumbotron>
         </header>
         <SectionDivider />
         <Section>
@@ -104,14 +125,14 @@ function ArchiveTemplate({
                 to={previous?.basePath ?? '#'}
                 disabled={!previous}
               >
-                <Typography variant="body2">{`${previous?.year}/${previous?.month}`}</Typography>
+                <Typography variant="body2">{previousTitle}</Typography>
               </PageNavigationItem>
               <PageNavigationItem
                 to={next?.basePath ?? '#'}
                 next
                 disabled={!next}
               >
-                <Typography variant="body2">{`${next?.year}/${next?.month}`}</Typography>
+                <Typography variant="body2">{nextTitle}</Typography>
               </PageNavigationItem>
             </PageNavigationContainer>
           </Section>

@@ -27,26 +27,25 @@ type AuthorBoxProps = {
 };
 
 function AuthorBox({ author }: AuthorBoxProps) {
+  const avatar = (
+    <Avatar
+      sx={{ width: 112, height: 112 }}
+      src={author.avatar?.childImageSharp.gatsbyImageData.images.fallback?.src}
+      srcSet={
+        author.avatar?.childImageSharp.gatsbyImageData.images.fallback?.srcSet
+      }
+      sizes={
+        author.avatar?.childImageSharp.gatsbyImageData.images.fallback?.sizes
+      }
+      alt={author.name}
+    >
+      <PersonIcon sx={{ fontSize: 100 }} />
+    </Avatar>
+  );
   return (
     <Box display="flex" flexDirection="row">
       <Box display="flex" alignItems="center" justifyContent="center">
-        <Avatar
-          sx={{ width: 112, height: 112 }}
-          src={
-            author.avatar?.childImageSharp.gatsbyImageData.images.fallback?.src
-          }
-          srcSet={
-            author.avatar?.childImageSharp.gatsbyImageData.images.fallback
-              ?.srcSet
-          }
-          sizes={
-            author.avatar?.childImageSharp.gatsbyImageData.images.fallback
-              ?.sizes
-          }
-          alt={author.name}
-        >
-          <PersonIcon sx={{ fontSize: 100 }} />
-        </Avatar>
+        {author.slug ? <AppLink to={author.slug}>{avatar}</AppLink> : avatar}
       </Box>
       <Box
         flexGrow={1}

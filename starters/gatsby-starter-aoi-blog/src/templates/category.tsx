@@ -45,6 +45,7 @@ type PageContext = {
   numPages: number;
   currentPage: number;
   basePath: string;
+  totalCount: number;
 };
 
 function CategoryTemplate({
@@ -52,13 +53,19 @@ function CategoryTemplate({
   pageContext,
 }: PageProps<PageData, PageContext>) {
   const { allMdxPost } = data;
-  const { fieldValue, previous, next, numPages, currentPage, basePath } =
-    pageContext;
-  const title = `${fieldValue} (${currentPage}/${numPages})`;
+  const {
+    fieldValue,
+    previous,
+    next,
+    numPages,
+    currentPage,
+    basePath,
+    totalCount,
+  } = pageContext;
 
   return (
     <Layout
-      title={title}
+      title={fieldValue}
       drawerContents={
         <DrawerPageNavigation
           previous={
@@ -70,7 +77,12 @@ function CategoryTemplate({
     >
       <article>
         <header>
-          <Jumbotron title={title} maxWidth="md" />
+          <Jumbotron maxWidth="md">
+            <Typography variant="h4" component="h2" gutterBottom>
+              {fieldValue}
+            </Typography>
+            <Typography>{totalCount} posts</Typography>
+          </Jumbotron>
         </header>
         <SectionDivider />
         <Section>
