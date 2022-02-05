@@ -18,6 +18,8 @@ function ShareButtons({ title, color = 'default' }: Props) {
   const { lang, social } = useSiteMetadata();
   const twitterUrl = useSocialShare('twitter', title);
   const fbUrl = useSocialShare('facebook');
+  const github: typeof social[number] | undefined =
+    social[social.map(({ name }) => name).indexOf('github')];
   return (
     <div>
       <Tooltip title={lang === 'ja' ? 'Twitterでシェア' : 'Share On Twitter'}>
@@ -42,11 +44,11 @@ function ShareButtons({ title, color = 'default' }: Props) {
           <FacebookIcon />
         </IconButton>
       </Tooltip>
-      {social.github ? (
+      {github ? (
         <Tooltip title="GitHub">
           <IconButton
             color={color}
-            href={`https://github.com/${social.github}`}
+            href={github.url}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"

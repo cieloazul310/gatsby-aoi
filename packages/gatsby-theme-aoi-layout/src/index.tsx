@@ -8,7 +8,6 @@ import { useTheme } from '@mui/material/styles';
 import {
   Section,
   SectionDivider,
-  Article,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import {
   mergeViewports,
