@@ -66,6 +66,7 @@ function AuthorTemplate({
   return (
     <Layout
       title={author.name}
+      image={bgImage}
       drawerContents={
         <DrawerPageNavigation
           previous={

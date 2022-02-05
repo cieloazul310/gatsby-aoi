@@ -1,10 +1,12 @@
+const pathPrefix = '/gatsby-aoi';
+
 module.exports = {
-  // pathPrefix: '/gatsby-starter-aoi-theme',
+  pathPrefix,
   siteMetadata: {
     title: 'Gatsby Theme Aoi',
     description: 'TypeScript based Gatsby Theme for MUI (Material-UI).',
     author: `@cieloazul310`,
-    siteUrl: 'https://cieloazul310.github.io/gatsby-starter-aoi-theme',
+    siteUrl: `https://cieloazul310.github.io${pathPrefix}`,
     keywords: ['Gatsby', 'TypeScript', 'MUI'],
     lang: 'en',
     social: [

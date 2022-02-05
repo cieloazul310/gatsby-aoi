@@ -15,17 +15,12 @@ interface Props {
 function SEO({ title, description, keywords, image }: Props) {
   const siteMetadata = useSiteMetadata();
   const baseUrl = useBaseUrl();
-  console.log(baseUrl);
-  if (image) {
-    console.log([baseUrl, image].join('/'));
-    console.log([siteMetadata.siteUrl, image].join('/'));
-  }
 
   const images = image
     ? [
         {
           name: 'og:image',
-          content: [siteMetadata.siteUrl, image].join('/'),
+          content: [baseUrl, image].join('/'),
         },
       ]
     : [];
