@@ -15,23 +15,24 @@ interface Props {
 function SEO({ title, description, keywords, image }: Props) {
   const siteMetadata = useSiteMetadata();
   const baseUrl = useBaseUrl();
+
   const images = image
     ? [
         {
           name: 'og:image',
-          content: `${baseUrl}${image}`,
+          content: [baseUrl, image].join('/'),
         },
       ]
     : [];
   return (
     <Helmet
-      htmlAttributes={{ lang: siteMetadata.lang || 'en' }}
+      htmlAttributes={{ lang: siteMetadata.lang ?? 'en' }}
       title={title || siteMetadata.title}
       titleTemplate={`%s | ${siteMetadata.title}`}
       meta={[
         {
           name: 'description',
-          content: description || siteMetadata.description,
+          content: description ?? siteMetadata.description,
         },
         {
           name: 'keywords',
@@ -45,11 +46,11 @@ function SEO({ title, description, keywords, image }: Props) {
         },
         {
           name: 'og:title',
-          content: title || siteMetadata.title,
+          content: title ?? siteMetadata.title,
         },
         {
           name: 'og:description',
-          content: description || siteMetadata.description,
+          content: description ?? siteMetadata.description,
         },
         { name: 'twitter:card', content: 'summary' },
         {
@@ -64,7 +65,7 @@ function SEO({ title, description, keywords, image }: Props) {
         },
         {
           name: 'twitter:description',
-          content: description || siteMetadata.description,
+          content: description ?? siteMetadata.description,
         },
         ...images,
       ]}

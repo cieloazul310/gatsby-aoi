@@ -1,10 +1,13 @@
+// const pathPrefix = '/gatsby-aoi';
+
 module.exports = {
+  // pathPrefix,
   siteMetadata: {
     title: `Gatsby Theme Aoi Blog`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@cieloazul310`,
-    siteUrl: 'https://cieloazul310.github.io/gatsby-starter-aoi-theme',
-    baseUrl: '',
+    // siteUrl: `https://cieloazul310.github.io${pathPrefix}`,
+    siteUrl: 'https://gatsby-theme-aoi.netlify.app',
     keywords: ['Gatsby', 'TypeScript', 'MUI'],
     lang: 'ja',
     social: [
