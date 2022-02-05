@@ -6,6 +6,11 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import LinearProgress from '@mui/material/LinearProgress';
 import { useTheme } from '@mui/material/styles';
 import {
+  Section,
+  SectionDivider,
+  Article,
+} from '@cieloazul310/gatsby-theme-aoi-components';
+import {
   mergeViewports,
   mainStyles,
   permanentDrawerStyles,
@@ -20,6 +25,7 @@ import SEO from './SEO';
 import Header from './Header';
 import TabContainer from './TabContainer';
 import DrawerInner from './DrawerInner';
+import FooterMenu from './FooterMenu';
 import Footer from './Footer';
 import Fab from './Fab';
 import BottomNav from './BottomNav';
@@ -51,7 +57,7 @@ export interface LayoutProps {
   fab?: React.ReactNode;
 }
 
-function Layout({
+export function Layout({
   children,
   title,
   description,
@@ -94,6 +100,8 @@ function Layout({
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',
                 width: drawerWidth,
+                paddingTop: { xs: '56px', sm: '64px' },
+                backgroundImage: 'none',
               },
             }}
             variant="temporary"
@@ -104,11 +112,7 @@ function Layout({
               keepMounted: true,
             }}
           >
-            <DrawerInner
-              handleDrawer={toggleDrawer}
-              contents={drawerContents}
-              title={title}
-            />
+            <DrawerInner contents={drawerContents} title={title} />
           </SwipeableDrawer>
         ) : null}
         {viewports.permanentDrawer !== false ? (
@@ -118,21 +122,18 @@ function Layout({
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',
                 width: drawerWidth,
+                paddingTop: { xs: '56px', sm: '64px' },
               },
             }}
             variant="permanent"
             open
           >
-            <DrawerInner
-              handleDrawer={toggleDrawer}
-              contents={drawerContents}
-              title={title}
-            />
+            <DrawerInner contents={drawerContents} title={title} />
           </Drawer>
         ) : null}
       </Box>
     ),
-    [toggleDrawer, drawerOpen, drawerContents, title, viewports, drawerWidth]
+    [drawerOpen, drawerContents, title, viewports, drawerWidth]
   );
 
   return (
@@ -140,6 +141,7 @@ function Layout({
       sx={{
         display: 'flex',
         flexGrow: 1,
+        minHeight: '100vh',
       }}
     >
       <SEO
@@ -186,7 +188,14 @@ function Layout({
           <TabContainer tabSticky={tabSticky}>{tabs}</TabContainer>
         ) : null}
         <main>{children}</main>
-        <Footer />
+        <SectionDivider />
+        <Section>
+          <FooterMenu />
+        </Section>
+        <SectionDivider />
+        <Section>
+          <Footer />
+        </Section>
       </Box>
       {viewports.fab !== false ? (
         <Box
@@ -218,5 +227,3 @@ function Layout({
     </Box>
   );
 }
-
-export default Layout;

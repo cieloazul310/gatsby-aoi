@@ -2,15 +2,25 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Container, { ContainerProps } from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { useTheme } from '@mui/material/styles';
+import { useTheme, alpha } from '@mui/material/styles';
 
 export type JumbotronProps = {
-  title: string;
+  title?: string;
   maxWidth?: ContainerProps['maxWidth'];
+  bgcolor?: string;
   bgImage?: string;
+  children?: React.ReactNode;
+  gradient?: boolean;
 };
 
-function Jumbotron({ title, maxWidth, bgImage }: JumbotronProps) {
+function Jumbotron({
+  title,
+  maxWidth,
+  bgImage,
+  bgcolor,
+  children,
+  gradient = true,
+}: JumbotronProps) {
   const { palette } = useTheme();
   return (
     <Box
@@ -21,7 +31,15 @@ function Jumbotron({ title, maxWidth, bgImage }: JumbotronProps) {
         position: 'relative',
         overflow: 'hidden',
         bgcolor:
-          palette.mode === 'light' ? 'secondary.light' : palette.grey[700],
+          bgcolor ??
+          (palette.mode === 'light' ? 'secondary.light' : palette.grey[800]),
+        backgroundImage:
+          !bgImage && !bgcolor && gradient
+            ? `linear-gradient(135deg, ${alpha(
+                palette.primary.main,
+                0.25
+              )}, rgba(255, 255, 255, 0.1))`
+            : undefined,
       }}
     >
       {bgImage ? (
@@ -33,7 +51,10 @@ function Jumbotron({ title, maxWidth, bgImage }: JumbotronProps) {
             width: '100%',
             height: '100%',
             background: bgImage ? `url(${bgImage}) center / cover` : undefined,
-            filter: 'blur(4px) brightness(0.9)',
+            filter: (theme) =>
+              `blur(4px) brightness(${
+                theme.palette.mode === 'light' ? 0.7 : 0.5
+              })`,
             transform: 'scale(1.1)',
           }}
         />
@@ -53,17 +74,23 @@ function Jumbotron({ title, maxWidth, bgImage }: JumbotronProps) {
         }}
         maxWidth={maxWidth ?? 'sm'}
       >
-        <Typography variant="h4" component="h2">
-          {title}
-        </Typography>
+        {children ?? (
+          <Typography variant="h4" component="h2">
+            {title}
+          </Typography>
+        )}
       </Container>
     </Box>
   );
 }
 
 Jumbotron.defaultProps = {
+  title: undefined,
+  bgcolor: undefined,
   bgImage: undefined,
   maxWidth: undefined,
+  gradient: true,
+  children: undefined,
 };
 
 export default Jumbotron;

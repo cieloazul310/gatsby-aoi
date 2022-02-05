@@ -19,6 +19,7 @@ export {
   Hr,
 } from './Article';
 export { default as BottomNavItem } from './BottomNavItem';
+export { default as ExternalLink, ExternalLinkProps } from './ExternalLink';
 export { default as Jumbotron, JumbotronProps } from './Jumbotron';
 export {
   default as ListItemAppLink,
@@ -30,4 +31,5 @@ export {
   ListItemToggleUseSystemTheme,
 } from './ListItemToggleDarkMode';
 export { default as Section, SectionDivider, SectionProps } from './Section';
+export { SocialIcon, SocialLink } from './Socials';
 export { default as TabPane } from './TabPane';

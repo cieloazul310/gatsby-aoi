@@ -3,24 +3,19 @@ module.exports = (options) => ({
     title: `Gatsby Theme Aoi`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@cieloazul310`,
-    siteUrl: '',
-    baseUrl: '',
-    keywords: ['Gatsby', 'TypeScript', 'Material-UI'],
+    siteUrl: 'https://gatsby-theme-aoi.netlify.app',
+    keywords: ['Gatsby', 'TypeScript', 'MUI'],
     lang: '',
-    social: {
-      mail: '',
-      twitter: '',
-      github: '',
-      facebook: '',
-      gitlab: '',
-      linkedin: '',
-      medium: '',
-      pocket: '',
-      tumblr: '',
-      instagram: '',
-      vimeo: '',
-      youtube: '',
-    },
+    social: [
+      {
+        name: `twitter`,
+        url: `https://twitter.com/gatsbyjs`,
+      },
+      {
+        name: `github`,
+        url: `https://github.com/gatsbyjs`,
+      },
+    ],
   },
   plugins: [
     {

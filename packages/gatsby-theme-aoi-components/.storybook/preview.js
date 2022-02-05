@@ -1,8 +1,7 @@
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider as Emotion10ThemeProvider } from 'emotion-theming';
-// import { muiTheme } from 'storybook-addon-material-ui5';
-import theme from '@cieloazul310/gatsby-theme-aoi-top-layout/src/utils/theme';
+import theme from '@cieloazul310/gatsby-theme-aoi-top-layout/src/theme';
 
 const withThemeProvider = (Story, context) => {
   return (

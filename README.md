@@ -65,12 +65,12 @@ export default Page;
 ### Customizing MUI theme
 
 ```shell
-mkdir -p src/@cieloazul310/gatsby-theme-aoi-top-layout/utils
-touch src/@cieloazul310/gatsby-theme-aoi-top-layout/utils/theme.ts
+mkdir -p src/@cieloazul310/gatsby-theme-aoi-top-layout
+touch src/@cieloazul310/gatsby-theme-aoi-top-layout/theme.ts
 ```
 
 ```typescript
-// src/@cieloazul310/gatsby-theme-aoi-top-layout/utils/theme.ts
+// src/@cieloazul310/gatsby-theme-aoi-top-layout/theme.ts
 import { teal, orange } from '@mui/material/colors';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 

@@ -4,39 +4,47 @@ import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-// icons
-import HomeIcon from '@mui/icons-material/Home';
-import SportsHandballIcon from '@mui/icons-material/SportsHandball';
-
 import { useLocation } from '@reach/router';
 import { ListItemAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
+
+import menu, { Menu } from '../menu';
+
+type ContentsItemProps = Menu & {
+  currentPathname: string;
+};
+
+function ContentsItem({
+  title,
+  path,
+  icon,
+  currentPathname,
+}: ContentsItemProps) {
+  return (
+    <ListItemAppLink
+      to={path}
+      button
+      selected={currentPathname === withPrefix(path)}
+      role="menuitem"
+    >
+      <ListItemIcon>{icon}</ListItemIcon>
+      <ListItemText primary={title} />
+    </ListItemAppLink>
+  );
+}
 
 function Contents() {
   const { pathname } = useLocation();
   return (
     <List subheader={<ListSubheader>Contents</ListSubheader>} role="menu">
-      <ListItemAppLink
-        to="/"
-        button
-        selected={pathname === withPrefix('/')}
-        role="menuitem"
-      >
-        <ListItemIcon>
-          <HomeIcon />
-        </ListItemIcon>
-        <ListItemText primary="Top" />
-      </ListItemAppLink>
-      <ListItemAppLink
-        to="/page-2/"
-        button
-        selected={pathname === withPrefix('/page-2/')}
-        role="menuitem"
-      >
-        <ListItemIcon>
-          <SportsHandballIcon />
-        </ListItemIcon>
-        <ListItemText primary="Page-2" />
-      </ListItemAppLink>
+      {menu.map(({ title, path, icon }) => (
+        <ContentsItem
+          key={title}
+          title={title}
+          path={path}
+          currentPathname={pathname}
+          icon={icon}
+        />
+      ))}
     </List>
   );
 }

@@ -2,19 +2,6 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Button from '@mui/material/Button';
-/*
-import Layout from 'gatsby-theme-aoi/src/layout';
-import Jumbotron from 'gatsby-theme-aoi/src/components/Jumbotron';
-import TabPane from 'gatsby-theme-aoi/src/layout/TabPane';
-import Section, {
-  SectionDivider,
-} from 'gatsby-theme-aoi/src/components/Section';
-import Article, {
-  ArticleSection,
-  Paragraph,
-} from 'gatsby-theme-aoi/src/components/Article';
-import { AppLinkButton } from 'gatsby-theme-aoi/src/components/AppLink';
-*/
 import {
   Layout,
   Jumbotron,
@@ -22,7 +9,6 @@ import {
   Section,
   SectionDivider,
   Article,
-  ArticleSection,
   Paragraph,
   AppLinkButton,
 } from '@cieloazul310/gatsby-theme-aoi';
@@ -48,26 +34,30 @@ function TabPage() {
       }
     >
       <TabPane index={0} currentTab={tab}>
-        <Jumbotron title="Tab Layout Page" />
-        <SectionDivider />
-        <Section>
-          <Article>
-            <ArticleSection>
+        <article>
+          <header>
+            <Jumbotron title="Tab Layout Page" />
+          </header>
+          <SectionDivider />
+          <Section>
+            <Article>
               <Paragraph>It works great with react-swipeable-views.</Paragraph>
               <Button color="secondary" onClick={handleTabIndex(1)}>
                 Go to Tab-2
               </Button>
-            </ArticleSection>
-            <AppLinkButton to="/">Back to top</AppLinkButton>
-          </Article>
-        </Section>
+              <AppLinkButton to="/">Back to top</AppLinkButton>
+            </Article>
+          </Section>
+        </article>
       </TabPane>
       <TabPane index={1} currentTab={tab}>
-        <Jumbotron title="Tab 2" />
-        <SectionDivider />
-        <Section>
-          <Article>
-            <ArticleSection>
+        <article>
+          <header>
+            <Jumbotron title="Tab 2" />
+          </header>
+          <SectionDivider />
+          <Section>
+            <Article>
               <Paragraph>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
                 nec quam quis nulla dignissim finibus. Morbi aliquam quam ut
@@ -89,16 +79,18 @@ function TabPage() {
                 Go to Tab-3
               </Button>
               <AppLinkButton to="/">Back to top</AppLinkButton>
-            </ArticleSection>
-          </Article>
-        </Section>
+            </Article>
+          </Section>
+        </article>
       </TabPane>
       <TabPane index={2} currentTab={tab}>
-        <Jumbotron title="Tab 3" />
-        <SectionDivider />
-        <Section>
-          <Article>
-            <ArticleSection>
+        <article>
+          <header>
+            <Jumbotron title="Tab 3" />
+          </header>
+          <SectionDivider />
+          <Section>
+            <Article>
               <Paragraph>
                 Lorem Ipsum，也称乱数假文或者哑元文本，
                 是印刷及排版领域所常用的虚拟文字。由于曾经一台匿名的打印机刻意打乱了一盒印刷字体从而造出一本字体样品书，Lorem
@@ -110,9 +102,9 @@ function TabPage() {
                 Go to Tab-1
               </Button>
               <AppLinkButton to="/">Back to top</AppLinkButton>
-            </ArticleSection>
-          </Article>
-        </Section>
+            </Article>
+          </Section>
+        </article>
       </TabPane>
     </Layout>
   );

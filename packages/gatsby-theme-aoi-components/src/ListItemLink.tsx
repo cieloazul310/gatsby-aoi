@@ -28,7 +28,7 @@ export type ListItemLinkProps<T = Record<string, unknown>> = Omit<
 
 function ListItemLink({
   color = 'inherit',
-  button = false,
+  button = undefined,
   inset = false,
   to,
   primaryText,
@@ -38,7 +38,7 @@ function ListItemLink({
   ...props
 }: ListItemLinkProps) {
   const isMobile = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down('xs')
+    theme.breakpoints.only('xs')
   );
 
   return isMobile || button ? (
@@ -77,7 +77,7 @@ ListItemLink.defaultProps = {
   inset: false,
   avatar: undefined,
   secondaryAction: undefined,
-  button: false,
+  button: undefined,
 };
 
 export default ListItemLink;

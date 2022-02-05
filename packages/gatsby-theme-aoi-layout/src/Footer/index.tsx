@@ -1,15 +1,15 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
+import { Article } from '@cieloazul310/gatsby-theme-aoi-components';
 import Socials from './Socials';
 import Copyrights from './Copyrights';
 
-function Footer(): JSX.Element {
+function Footer() {
   return (
     <footer>
-      <Box py={2}>
+      <Article>
         <Socials />
         <Copyrights />
-      </Box>
+      </Article>
     </footer>
   );
 }
