@@ -18,11 +18,6 @@ import {
 
 import Layout from '../layout';
 import AuthorBox from '../components/AuthorBox';
-/*
-import DrawerPageNavigation from '../components/DrawerPageNavigation';
-import PageNavigationContainer from '../components/PageNavigationContainer';
-import PageNavigationItem from '../components/PageNavigationItem';
-*/
 import muiComponents from '../utils/muiComponents';
 import { MdxPostBrowser } from '../../types';
 

@@ -17,12 +17,6 @@ import {
 
 import Layout from '../layout';
 import MdxPostEdgesList from '../components/MdxPostList';
-/*
-import Pagination from '../components/Pagination';
-import DrawerPageNavigation from '../components/DrawerPageNavigation';
-import PageNavigationContainer from '../components/PageNavigationContainer';
-import PageNavigationItem from '../components/PageNavigationItem';
-*/
 import { MdxPostBrowser } from '../../types';
 
 type PageData = {

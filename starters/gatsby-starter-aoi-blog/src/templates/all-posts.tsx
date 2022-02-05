@@ -11,7 +11,6 @@ import { Pagination } from '@cieloazul310/gatsby-theme-aoi-blog-components';
 
 import Layout from '../layout';
 import MdxPostEdgesList from '../components/MdxPostList';
-// import Pagination from '../components/Pagination';
 
 import { MdxPostBrowser } from '../../types';
 
