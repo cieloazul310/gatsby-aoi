@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: warn */
+/* eslint @typescript-eslint/no-var-requires: warn */
 require('ts-node').register();
 
 exports.createPages = require('./gatsby-node/index').createPages;
