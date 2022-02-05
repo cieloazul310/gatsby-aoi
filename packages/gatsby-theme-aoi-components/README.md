@@ -1,6 +1,6 @@
 # @cieloazul310/gatsby-theme-aoi-components
 
-> A components libary for [@cieloazul310/gatsby-theme-aoi] built with [MUI]
+> A components libary for [`@cieloazul310/gatsby-theme-aoi`] built with [MUI]
 
 ## Components
 

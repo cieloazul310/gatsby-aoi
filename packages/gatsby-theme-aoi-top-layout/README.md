@@ -1,6 +1,6 @@
 # @cieloazul310/gatsby-theme-aoi-top-layout
 
-> A plugin for [@cieloazul310/gatsby-theme-aoi]
+> A plugin for [`@cieloazul310/gatsby-theme-aoi`]
 
 ## React hooks
 

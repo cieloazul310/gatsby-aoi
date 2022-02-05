@@ -14,19 +14,19 @@ Main package `@cieloazul310/gatsby-theme-aoi` includes a following component.
 
 #### `LayoutProps`
 
-**children (Required)**: `React.ReactNode`
-**title?**: `string`
-**description?**: `string`
-**keywords?**: `string[]`
-**image?**: `string`
-**loading?**: `boolean`
-**componentViewports?**: `Partial<ComponentViewports>`
-**drawerWidth?**: `number`
-**tabSticky?**: `boolean`
-**drawerContents?**: `React.ReactNode`
-**tabs?**: `React.ReactNode`
-**bottomNavigation?**: `React.ReactNode`
-**fab?**: `React.ReactNode`
+- **children (Required)**: `React.ReactNode`
+- **title?**: `string`
+- **description?**: `string`
+- **keywords?**: `string[]`
+- **image?**: `string`
+- **loading?**: `boolean`
+- **componentViewports?**: `Partial<ComponentViewports>`
+- **drawerWidth?**: `number`
+- **tabSticky?**: `boolean`
+- **drawerContents?**: `React.ReactNode`
+- **tabs?**: `React.ReactNode`
+- **bottomNavigation?**: `React.ReactNode`
+- **fab?**: `React.ReactNode`
 
 #### `ComponentViewports`
 
