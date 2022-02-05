@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import {
   useSiteMetadata,
-  useBaseUrl,
+  useAbsoluteUrl,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
 
 interface Props {
@@ -14,13 +14,13 @@ interface Props {
 
 function SEO({ title, description, keywords, image }: Props) {
   const siteMetadata = useSiteMetadata();
-  const baseUrl = useBaseUrl();
+  const imageUrl = useAbsoluteUrl(image);
 
-  const images = image
+  const images = imageUrl
     ? [
         {
           name: 'og:image',
-          content: [baseUrl, image].join('/'),
+          content: imageUrl,
         },
       ]
     : [];

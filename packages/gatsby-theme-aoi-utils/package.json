@@ -53,5 +53,9 @@
     "@mui/system": "^5.0.0",
     "gatsby": "^3.0.0 || ^4.0.0",
     "react": "^16.8.6 || ^17.0.0"
+  },
+  "dependencies": {
+    "@types/url-join": "^4.0.1",
+    "url-join": "^4.0.1"
   }
 }
