@@ -11,6 +11,13 @@
 Gatsby テーマについて  
 <https://gatsbyjs.com/docs/themes/>
 
+[![npm version](https://badge.fury.io/js/@cieloazul310%2Fgatsby-theme-aoi.svg)](https://badge.fury.io/js/@cieloazul310%2Fgatsby-theme-aoi) [![Netlify Status](https://api.netlify.com/api/v1/badges/7e344c36-1d49-4331-8bfe-e29709401c91/deploy-status)](https://app.netlify.com/sites/gatsby-theme-aoi/deploys)
+
+1. インストール方法
+2. レイアウトを使う
+3. コンポーネントを使う
+4. Shadowing
+
 ## 1. インストール方法
 
 **[Gatsby スターター]を使う方法**と、**マニュアルでインストールする方法**が選べます。
@@ -20,8 +27,8 @@ Gatsby テーマについて
 Gatsby Theme Aoi を使った Gatsby スターターを使うと、複雑な設定をすることなく Gatsby Theme Aoi を使うことができます。
 Gatsby Theme Aoi には、以下の2つのスターターがあります。
 
-- **Gatsby Starter Aoi Theme**: Gatsby Theme Aoi を使ったシンプルなスターター
-- **Gatsby Starter Aoi Blog**: Gatsby Theme Aoi を使ったブログスターター
+- **Gatsby Starter Aoi Theme**: 最低限の機能を持ったシンプルなスターター
+- **Gatsby Starter Aoi Blog**: ブログスターター
 
 #### Gatsby Starter Aoi Theme
 

@@ -7,6 +7,13 @@
 - Dark mode
 - Global state for application
 
+[![npm version](https://badge.fury.io/js/@cieloazul310%2Fgatsby-theme-aoi.svg)](https://badge.fury.io/js/@cieloazul310%2Fgatsby-theme-aoi) [![Netlify Status](https://api.netlify.com/api/v1/badges/7e344c36-1d49-4331-8bfe-e29709401c91/deploy-status)](https://app.netlify.com/sites/gatsby-theme-aoi/deploys)
+
+1. インストール方法
+2. レイアウトを使う
+3. コンポーネントを使う
+4. Shadowing
+
 ## Install
 
 ### Quick Start with starters
@@ -37,7 +44,7 @@ cd gatsby-starter-aoi-blog
 See:  
 <https://github.com/cieloazul310/gatsby-aoi/tree/main/starters/gatsby-starter-aoi-blog>
 
-Blog Starter Demo
+Blog Starter Demo  
 <https://gatsby-theme-aoi.netlify.app/>
 
 ```shell
