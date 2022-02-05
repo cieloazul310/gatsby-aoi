@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-import { ListItemAppLink } from '@cieloazul310/gatsby-theme-aoi';
+import { ListItemAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
 
 type DrawerPageNavigationProps = {
   previous?: {
