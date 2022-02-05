@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.5.0...v1.6.0) (2022-02-05)
+
+
+### Features
+
+* **top-layout:** add background color to `<html>` ([69fcb75](https://github.com/cieloazul310/gatsby-aoi/commit/69fcb752e7ccc2fa7d56de66785c6980cbc631ef))
+
+
+
+
+
 # [1.5.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.4.0...v1.5.0) (2022-01-28)
 
 

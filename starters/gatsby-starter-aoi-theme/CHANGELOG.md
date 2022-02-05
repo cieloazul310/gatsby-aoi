@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.5.0...v1.6.0) (2022-02-05)
+
+**Note:** Version bump only for package gatsby-starter-aoi-theme
+
+
+
+
+
 # [1.5.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.4.0...v1.5.0) (2022-01-28)
 
 **Note:** Version bump only for package gatsby-starter-aoi-theme

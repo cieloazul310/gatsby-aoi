@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.5.0...v1.6.0) (2022-02-05)
+
+
+### Bug Fixes
+
+* **layout:** `<FooterMenu>` key ([0cb10b5](https://github.com/cieloazul310/gatsby-aoi/commit/0cb10b5a255f0e7ee007102c43e253fca01a73fb))
+* **layout:** fix divider style ([c11c198](https://github.com/cieloazul310/gatsby-aoi/commit/c11c198270d940e3d6de23e6a48a6329ffb35449))
+
+
+### Features
+
+* **layout:** Add `<FooterMenu>` ([be93153](https://github.com/cieloazul310/gatsby-aoi/commit/be931535c2c1fa9cefdb767b9800d5a56a166d17))
+* **layout:** Add `minHeight` to `<Layout>` root ([e166798](https://github.com/cieloazul310/gatsby-aoi/commit/e166798b513a7a4c2eefe5d09ff476f516d83b06))
+
+
+
+
+
 # [1.5.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.4.0...v1.5.0) (2022-01-28)
 
 
