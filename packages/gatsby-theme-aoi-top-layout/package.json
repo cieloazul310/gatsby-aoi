@@ -30,6 +30,7 @@
     "access": "public"
   },
   "scripts": {
+    "eslint": "eslint src/",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {

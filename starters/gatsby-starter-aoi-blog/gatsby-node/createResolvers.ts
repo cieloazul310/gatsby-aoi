@@ -4,7 +4,6 @@ import { fieldValueToSlug, createSlug, basePaths } from './utils';
 import { MdxPost, MdxPostMonth } from '../types';
 
 function mdxPostToMonths(posts: MdxPost[]): MdxPostMonth[] {
-  
   const months = posts
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .reduce<Omit<MdxPostMonth, 'gte' | 'lt'>[]>((accum, { date }) => {

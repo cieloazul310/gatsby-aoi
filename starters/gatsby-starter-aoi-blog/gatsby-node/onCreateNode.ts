@@ -1,9 +1,6 @@
 import { CreateNodeArgs, Node, GatsbyCache } from 'gatsby';
 import { createContentDigest } from 'gatsby-core-utils';
-import {
-  createFilePath,
-  createRemoteFileNode,
-} from 'gatsby-source-filesystem';
+import { createFilePath, createRemoteFileNode } from 'gatsby-source-filesystem';
 import { validURL } from './utils';
 import { MdxBare } from '../types';
 

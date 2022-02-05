@@ -101,7 +101,7 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
-  "include": ["./src/**/*", "./gatsby-*/**/*"],
+  "include": ["./src/**/*", "./gatsby-*/**/*", "gatsby-*.js", "index.js", ".eslintrc.js"],
   "ts-node": {
     "transpileOnly": true,
     "files": true,
