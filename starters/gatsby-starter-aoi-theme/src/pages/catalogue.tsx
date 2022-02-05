@@ -1,13 +1,6 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-/*
-import {
-  faCreativeCommons,
-  faReact,
-  faNodeJs,
-} from '@fortawesome/free-brands-svg-icons';
-*/
 import {
   Layout,
   Jumbotron,
@@ -23,6 +16,7 @@ import {
   useToggleUseSystem,
   useThemeContextState,
 } from '@cieloazul310/gatsby-theme-aoi';
+
 import {
   useAppState,
   useDispatch,
@@ -79,58 +73,24 @@ function Catalogue() {
             <Article>
               <ArticleTitle>Components</ArticleTitle>
               <H3>AppLink</H3>
-              <Paragraph>
-                Gatsby Link composed to MuiLink
-                <br />
-                <Stack spacing={2} direction="row">
-                  <AppLink to="/">This is AppLink</AppLink>
-                  <AppLink to="/" color="primary">
-                    App Link Color Primary
-                  </AppLink>
-                </Stack>
-              </Paragraph>
+              <Paragraph>Gatsby Link composed to MuiLink</Paragraph>
+              <Stack spacing={2} direction="row">
+                <AppLink to="/">This is AppLink</AppLink>
+                <AppLink to="/" color="primary">
+                  App Link Color Primary
+                </AppLink>
+              </Stack>
               <H3>AppLinkButton</H3>
-              <Paragraph>
-                Gatsby Link composed to MuiButton
-                <br />
-                <Stack spacing={2} direction="row">
-                  <AppLinkButton to="/">This is AppLinkButton</AppLinkButton>
-                  <AppLinkButton to="/" color="primary">
-                    AppLinkButton Color Primary
-                  </AppLinkButton>
-                  <AppLinkButton variant="contained" to="/">
-                    AppLinkButton Contained
-                  </AppLinkButton>
-                </Stack>
-              </Paragraph>
-              {/*
-          <ArticleSection>
-            <H3>FabIcon</H3>
-            <Paragraph>
-              Enable to use{' '}
-              <MuiLink
-                href="https://fontawesome.com/"
-                color="secondary"
-                target="blank"
-                rel="noopener noreferrer"
-              >
-                Font-Awasome
-              </MuiLink>{' '}
-              Icons as a Material Icon Component.
-            </Paragraph>
-            <Paragraph>
-              <AutoMargin>
-                <FabIcon icon={faReact} />
-              </AutoMargin>
-              <AutoMargin>
-                <FabIcon icon={faNodeJs} color="primary" />
-              </AutoMargin>
-              <AutoMargin>
-                <FabIcon icon={faCreativeCommons} color="secondary" />
-              </AutoMargin>
-            </Paragraph>
-          </ArticleSection>
-*/}
+              <Paragraph>Gatsby Link composed to MuiButton</Paragraph>
+              <Stack spacing={2} direction="column" maxWidth={300}>
+                <AppLinkButton to="/">This is AppLinkButton</AppLinkButton>
+                <AppLinkButton to="/" color="primary">
+                  Primary
+                </AppLinkButton>
+                <AppLinkButton variant="contained" to="/">
+                  Contained
+                </AppLinkButton>
+              </Stack>
             </Article>
           </Section>
         </section>
@@ -154,17 +114,13 @@ function Catalogue() {
                 Count: {count}
               </Paragraph>
               <H3>useDispatch</H3>
-              <Paragraph>
-                Returns dispatch of App State.
-                <br />
-                <Button variant="contained" onClick={increment}>
-                  Increment
-                </Button>
-              </Paragraph>
+              <Paragraph>Returns dispatch of App State.</Paragraph>
+              <Button variant="contained" onClick={increment}>
+                Increment
+              </Button>
               <H3>useThemeContextState</H3>
+              <Paragraph>Returns theme Context State.</Paragraph>
               <Paragraph>
-                Returns theme Context State.
-                <br />
                 darkMode: {`${darkMode}`}
                 <br />
                 useSystemTheme: {`${useSystemTheme}`}
@@ -172,20 +128,18 @@ function Catalogue() {
               <H3>useToggleDark</H3>
               <Paragraph>
                 Returns callback to toggle lightmode / darkmode state.
-                <br />
-                <Button variant="contained" onClick={toggleDark}>
-                  Toggle Dark
-                </Button>
               </Paragraph>
+              <Button variant="contained" onClick={toggleDark}>
+                Toggle Dark
+              </Button>
               <H3>useToggleUseSystem</H3>
               <Paragraph>
                 Returns callback to toggle useSystemTheme (enable auto dark
                 mode) state.
-                <br />
-                <Button variant="contained" onClick={toggleUseSystem}>
-                  Toggle Use System Theme
-                </Button>
               </Paragraph>
+              <Button variant="contained" onClick={toggleUseSystem}>
+                Toggle Use System Theme
+              </Button>
             </Article>
           </Section>
         </section>

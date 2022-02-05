@@ -27,14 +27,17 @@ function IndexPage() {
             <ArticleTitle>Features</ArticleTitle>
             <Typography component="ul" paragraph>
               <Typography component="li">TypeScript</Typography>
-              <Typography component="li">Material-UI</Typography>
+              <Typography component="li">MUI</Typography>
               <Typography component="li">
                 Mobile friendlly responsive UI layout
               </Typography>
               <Typography component="li">
-                Holding App State / Count: {count}
+                MUI components composed with Gatsby routing
               </Typography>
-              <Typography component="li">Dark Mode</Typography>
+              <Typography component="li">
+                Holding global app state / Count: {count}
+              </Typography>
+              <Typography component="li">Dark mode</Typography>
             </Typography>
             <H3>Layouts</H3>
             <Typography component="ul" paragraph>
@@ -49,7 +52,7 @@ function IndexPage() {
                 Full Width <AppLink to="/without-drawer/">Example</AppLink>
               </Typography>
             </Typography>
-            <AppLinkButton to="/page-2/">Go to Page 2</AppLinkButton>
+            <AppLinkButton to="/catalogue/">Browse Catalogue</AppLinkButton>
           </Article>
         </Section>
       </article>

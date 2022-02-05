@@ -37,8 +37,8 @@ curl https://codeload.github.com/cieloazul310/gatsby-aoi/tar.gz/main | tar -xz -
 cd gatsby-starter-aoi-theme
 ```
 
-Gatsby Starter Aoi Themeのデモサイト  
-<>
+Gatsby Starter Aoi Theme のデモサイト  
+<https://cieloazul310.github.io/gatsby-aoi>
 
 #### Gatsby Starter Aoi Blog
 
