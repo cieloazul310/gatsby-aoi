@@ -1,12 +1,12 @@
 module.exports = {
+  // pathPrefix: '/gatsby-starter-aoi-theme',
   siteMetadata: {
-    title: `Gatsby Theme Aoi`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: 'Gatsby Theme Aoi',
+    description: 'TypeScript based Gatsby Theme for MUI (Material-UI).',
     author: `@cieloazul310`,
     siteUrl: 'https://cieloazul310.github.io/gatsby-starter-aoi-theme',
-    baseUrl: '',
     keywords: ['Gatsby', 'TypeScript', 'MUI'],
-    lang: 'ja',
+    lang: 'en',
     social: [
       {
         name: 'twitter',
