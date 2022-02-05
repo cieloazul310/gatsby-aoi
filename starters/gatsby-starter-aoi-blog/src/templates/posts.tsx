@@ -10,12 +10,19 @@ import {
   Article,
   AppLink,
 } from '@cieloazul310/gatsby-theme-aoi';
+import {
+  DrawerPageNavigation,
+  PageNavigationContainer,
+  PageNavigationItem,
+} from '@cieloazul310/gatsby-theme-aoi-blog-components';
 
 import Layout from '../layout';
 import AuthorBox from '../components/AuthorBox';
+/*
 import DrawerPageNavigation from '../components/DrawerPageNavigation';
 import PageNavigationContainer from '../components/PageNavigationContainer';
 import PageNavigationItem from '../components/PageNavigationItem';
+*/
 import muiComponents from '../utils/muiComponents';
 import { MdxPostBrowser } from '../../types';
 

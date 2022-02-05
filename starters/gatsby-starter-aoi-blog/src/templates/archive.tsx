@@ -7,13 +7,21 @@ import {
   SectionDivider,
   Article,
 } from '@cieloazul310/gatsby-theme-aoi';
+import {
+  Pagination,
+  DrawerPageNavigation,
+  PageNavigationContainer,
+  PageNavigationItem,
+} from '@cieloazul310/gatsby-theme-aoi-blog-components';
 
 import Layout from '../layout';
 import MdxPostEdgesList from '../components/MdxPostList';
+/*
 import Pagination from '../components/Pagination';
 import DrawerPageNavigation from '../components/DrawerPageNavigation';
 import PageNavigationContainer from '../components/PageNavigationContainer';
 import PageNavigationItem from '../components/PageNavigationItem';
+*/
 import { MdxPostBrowser } from '../../types';
 
 function createTitleString(year: string, month: string) {
