@@ -1,6 +1,7 @@
+import useAbsoluteUrl from './useAbsoluteUrl';
 import useBaseUrl from './useBaseUrl';
 import useSocialShare from './useSocialShare';
 
 export * from './componentsViewports';
 export * from './graphql-hooks';
-export { useBaseUrl, useSocialShare };
+export { useAbsoluteUrl, useBaseUrl, useSocialShare };
