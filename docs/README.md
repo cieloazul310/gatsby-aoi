@@ -4,9 +4,9 @@
 
 - MUI で構成されたレイアウト
 - MUI コンポーネントに Gatsby のルーティングを実装したコンポーネント
-- `<MuiThemeProvider>` の設定不要
+- MUI や emotion の設定不要
 - ダークモードを実装
-- サイトを包括したステート実装
+- サイトを包括したステートの実装
 
 Gatsby テーマについて  
 <https://gatsbyjs.com/docs/themes/>

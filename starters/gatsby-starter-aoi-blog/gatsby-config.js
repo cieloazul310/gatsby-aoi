@@ -1,5 +1,4 @@
 module.exports = {
-  // pathPrefix,
   siteMetadata: {
     title: `Gatsby Theme Aoi Blog`,
     description: `Gatsby Theme Aoi starter for blog.`,
@@ -91,6 +90,7 @@ module.exports = {
               maxWidth: 800,
             },
           },
+          `gatsby-remark-embed-snippet`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {

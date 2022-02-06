@@ -14,11 +14,12 @@ import {
   DrawerPageNavigation,
   PageNavigationContainer,
   PageNavigationItem,
+  muiComponents,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
 
 import Layout from '../layout';
 import AuthorBox from '../components/AuthorBox';
-import muiComponents from '../utils/muiComponents';
+import shortcodes from '../shortcodes';
 import { MdxPostBrowser } from '../../types';
 
 type PageData = {
@@ -70,7 +71,7 @@ function BlogPostTemplate({
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            <MDXProvider components={{ ...muiComponents }}>
+            <MDXProvider components={{ ...muiComponents, ...shortcodes }}>
               <MDXRenderer>{mdxPost.body}</MDXRenderer>
             </MDXProvider>
           </Article>

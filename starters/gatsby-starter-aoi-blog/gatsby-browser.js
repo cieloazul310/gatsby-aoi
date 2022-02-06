@@ -1,1 +1,1 @@
-require('prismjs/themes/prism-okaidia.css');
+require('prism-themes/themes/prism-vsc-dark-plus.css');

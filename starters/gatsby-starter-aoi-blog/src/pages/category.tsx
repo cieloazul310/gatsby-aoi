@@ -86,7 +86,7 @@ export default CategoryPage;
 
 export const query = graphql`
   query {
-    allMdxPost {
+    allMdxPost(sort: { fields: date, order: DESC }) {
       group(field: categories, limit: 2) {
         totalCount
         fieldValue
