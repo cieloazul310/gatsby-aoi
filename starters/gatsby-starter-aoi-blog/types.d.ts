@@ -16,7 +16,10 @@ export type AuthorBare = Node & {
 };
 
 export type Author = Node &
-  Pick<AuthorBare, 'name' | 'description' | 'website' | 'websiteURL' | 'socials'> & {
+  Pick<
+    AuthorBare,
+    'name' | 'description' | 'website' | 'websiteURL' | 'socials'
+  > & {
     slug?: string;
     avatar?: FileSystemNode;
     posts?: {
@@ -26,14 +29,17 @@ export type Author = Node &
   };
 
 export type AuthorBrowser = Node &
-  Pick<Author, 'name' | 'slug' | 'description' | 'website' | 'websiteURL' | 'socials'> & {
+  Pick<
+    Author,
+    'name' | 'slug' | 'description' | 'website' | 'websiteURL' | 'socials'
+  > & {
     avatar?: {
       childImageSharp: {
         gatsbyImageData: IGatsbyImageData;
       };
     };
     posts?: {
-      posts: MdxPostBrowser[],
+      posts: MdxPostBrowser[];
       totalCount: number;
     };
   };
@@ -71,10 +77,22 @@ export type MdxPostBare = Node & {
   excerpt: string;
 };
 
-export type MdxPost = Node & Pick<MdxPostBare, 'id' | 'title' | 'slug' | 'date' | 'categories' | 'tags' | 'imageAlt' | 'body' | 'excerpt'> & {
-  author?: Author;
-  image?: FileSystemNode;
-};
+export type MdxPost = Node &
+  Pick<
+    MdxPostBare,
+    | 'id'
+    | 'title'
+    | 'slug'
+    | 'date'
+    | 'categories'
+    | 'tags'
+    | 'imageAlt'
+    | 'body'
+    | 'excerpt'
+  > & {
+    author?: Author;
+    image?: FileSystemNode;
+  };
 
 export type MdxPostBrowser = Node &
   Pick<

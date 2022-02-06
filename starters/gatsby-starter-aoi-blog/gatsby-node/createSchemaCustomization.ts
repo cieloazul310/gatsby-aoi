@@ -26,10 +26,7 @@ async function processMdxPostRelativeImage(
     return undefined;
   }
   const imagePath = slash(
-    path.join(
-      mdxFileNode.dir,
-      (source[type] ?? '') as string
-    )
+    path.join(mdxFileNode.dir, (source[type] ?? '') as string)
   );
 
   const fileNode = await context.nodeModel.findOne<FileSystemNode>({
@@ -71,9 +68,7 @@ async function processAuthorRelativeImage(
   type: keyof AuthorBare
 ) {
   const { dir } = source;
-  const imagePath = slash(
-    path.join(dir, (source[type] ?? '') as string)
-  );
+  const imagePath = slash(path.join(dir, (source[type] ?? '') as string));
   const fileNode = await context.nodeModel.findOne<FileSystemNode>({
     type: `File`,
     query: {
@@ -151,12 +146,13 @@ export default function createSchemaCustomization({
             context: GatsbyGraphQLContext,
             info
           ) => {
-            const { entries, totalCount } = await context.nodeModel.findAll<MdxPost>({
-              type: `MdxPost`,
-              query: {
-                filter: { author: { name: { eq: source.name } } },
-              },
-            });
+            const { entries, totalCount } =
+              await context.nodeModel.findAll<MdxPost>({
+                type: `MdxPost`,
+                query: {
+                  filter: { author: { name: { eq: source.name } } },
+                },
+              });
             return {
               posts: entries,
               totalCount: await totalCount(),

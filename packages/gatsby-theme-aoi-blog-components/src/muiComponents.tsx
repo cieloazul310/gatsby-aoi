@@ -22,7 +22,7 @@ import {
   SubParagraph,
   Blockquote,
   ExternalLink,
-} from '@cieloazul310/gatsby-theme-aoi';
+} from '@cieloazul310/gatsby-theme-aoi-components';
 
 function InlineCode({ children }: Omit<TypographyProps, 'ref'>) {
   return (

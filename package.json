@@ -36,6 +36,7 @@
     "deploy:starter": "npx gh-pages -d starters/gatsby-starter-aoi-theme/public",
     "release": "lerna publish from-git",
     "prepare": "husky install",
+    "eslint": "lerna run eslint",
     "lint-staged": "lint-staged",
     "bootstrap": "lerna bootstrap"
   },

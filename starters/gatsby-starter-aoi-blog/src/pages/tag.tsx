@@ -51,7 +51,7 @@ export default TagPage;
 
 export const query = graphql`
   query {
-    allMdxPost {
+    allMdxPost(sort: { fields: date, order: DESC }) {
       group(field: tags) {
         totalCount
         fieldValue

@@ -31,7 +31,7 @@
     "build": "rimraf lib && tsc",
     "dev": "tsc -w",
     "prepare": "npm run build",
-    "storybook": "start-storybook -p 6006"
+    "eslint": "eslint src/"
   },
   "bugs": {
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"

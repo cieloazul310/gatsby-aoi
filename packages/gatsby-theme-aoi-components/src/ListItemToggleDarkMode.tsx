@@ -14,11 +14,7 @@ import {
   useToggleUseSystem,
 } from '@cieloazul310/gatsby-theme-aoi-top-layout/src/utils/ThemeStateContext';
 
-interface Props {
-  label?: string;
-}
-
-function ListItemToggleDarkMode({ label = 'Dark Mode' }: Props): JSX.Element {
+function ListItemToggleDarkMode({ label = 'Dark Mode' }: { label?: string }) {
   const { darkMode, useSystemTheme } = useThemeContextState();
   const toggleDark = useToggleDark();
   return (
@@ -31,6 +27,7 @@ function ListItemToggleDarkMode({ label = 'Dark Mode' }: Props): JSX.Element {
         <Switch
           disabled={useSystemTheme}
           edge="end"
+          color="secondary"
           onChange={toggleDark}
           checked={darkMode}
           inputProps={{ 'aria-labelledby': 'switch-list-label-darkmode' }}
@@ -48,7 +45,9 @@ export default ListItemToggleDarkMode;
 
 export function ListItemToggleUseSystemTheme({
   label = 'Auto Dark Mode',
-}: Props) {
+}: {
+  label?: string;
+}) {
   const paletteType = useTheme().palette.mode;
   const { useSystemTheme } = useThemeContextState();
   const toggleUseSystemTheme = useToggleUseSystem();
@@ -65,6 +64,7 @@ export function ListItemToggleUseSystemTheme({
       <ListItemSecondaryAction>
         <Switch
           edge="end"
+          color="secondary"
           onChange={toggleUseSystemTheme}
           checked={useSystemTheme}
           inputProps={{

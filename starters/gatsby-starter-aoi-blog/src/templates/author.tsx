@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
 import {
   Jumbotron,
   Section,
   SectionDivider,
   Article,
+  Paragraph,
+  ExternalLink,
+  SocialLink,
 } from '@cieloazul310/gatsby-theme-aoi';
 import {
   Pagination,
@@ -89,6 +93,28 @@ function AuthorTemplate({
             <Typography>{totalCount} posts</Typography>
           </Jumbotron>
         </header>
+        <SectionDivider />
+        <Section>
+          <Article maxWidth="md">
+            <Paragraph>
+              {author.description}
+              <br />
+              {author.websiteURL ? (
+                <>
+                  Website:{' '}
+                  <ExternalLink href={author.websiteURL}>
+                    {author.website}
+                  </ExternalLink>
+                </>
+              ) : null}
+            </Paragraph>
+            <Stack spacing={1} direction="row">
+              {author.socials?.map(({ name, url }) => (
+                <SocialLink key={name} name={name} url={url} fontSize="large" />
+              ))}
+            </Stack>
+          </Article>
+        </Section>
         <SectionDivider />
         <Section>
           <Article maxWidth="md">

@@ -31,7 +31,8 @@
   "scripts": {
     "build": "rimraf lib && tsc",
     "dev": "tsc -w",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "eslint": "eslint src/"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.10.0",

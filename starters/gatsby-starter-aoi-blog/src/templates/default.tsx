@@ -1,10 +1,16 @@
 import * as React from 'react';
 import { PageProps } from 'gatsby';
-import { Article, Section } from '@cieloazul310/gatsby-theme-aoi';
+import {
+  Article,
+  Section,
+  SectionDivider,
+  Jumbotron,
+} from '@cieloazul310/gatsby-theme-aoi';
+import { muiComponents } from '@cieloazul310/gatsby-theme-aoi-blog-components';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRendererProps } from 'gatsby-plugin-mdx';
 import Layout from '../layout';
-import muiComponents from '../utils/muiComponents';
+import shortcodes from '../shortcodes';
 
 type Props = Omit<PageProps, 'children'> &
   MDXRendererProps & {
@@ -19,9 +25,23 @@ function DefaultTemplate({ children, pageContext }: Props) {
   return (
     <Layout title={pageContext.frontmatter?.title ?? 'Title'}>
       <article>
+        <header>
+          <Jumbotron
+            maxWidth="md"
+            title={pageContext.frontmatter?.title ?? 'Title'}
+          />
+        </header>
+        <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            <MDXProvider components={muiComponents}>{children}</MDXProvider>
+            <MDXProvider
+              components={{
+                ...muiComponents,
+                ...shortcodes,
+              }}
+            >
+              {children}
+            </MDXProvider>
           </Article>
         </Section>
       </article>

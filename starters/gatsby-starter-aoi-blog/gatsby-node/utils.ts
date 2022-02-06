@@ -35,9 +35,9 @@ export function fieldValueToSlug({
 }) {
   if (field === 'categories')
     return `${basePaths.category}/${strToSlug(fieldValue)}`;
-  if (field === 'tags')
-    return `${basePaths.tag}/${strToSlug(fieldValue)}`;
-  if (field === 'author.name') return `${basePaths.author}/${strToSlug(fieldValue)}`;
+  if (field === 'tags') return `${basePaths.tag}/${strToSlug(fieldValue)}`;
+  if (field === 'author.name')
+    return `${basePaths.author}/${strToSlug(fieldValue)}`;
   return strToSlug(fieldValue);
 }
 

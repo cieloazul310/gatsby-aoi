@@ -66,6 +66,7 @@ function AuthorBox({ author }: AuthorBoxProps) {
           <Typography variant="body2">{author.description}</Typography>
           {author.websiteURL ? (
             <Typography variant="body2">
+              Website:{' '}
               <ExternalLink href={author.websiteURL}>
                 {author.website}
               </ExternalLink>
