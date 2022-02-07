@@ -30,7 +30,7 @@
     "dev:watch": "ts-node-dev --files --respawn src/index.ts new post typescript-example -a cieloazul310",
     "prepare": "npm run build",
     "eslint": "eslint src/",
-    "test": "node lib/index.js new post 'Love Psychedelico'"
+    "test": "node lib/index.js"
   },
   "bugs": {
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
