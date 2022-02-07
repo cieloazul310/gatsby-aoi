@@ -6,9 +6,11 @@
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
   "main": "lib/index.js",
+  "bin": {
+    "gatsby-aoi-blog": "bin/gatsby-aoi-blog"
+  },
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
     "lib",
@@ -25,10 +27,10 @@
   "scripts": {
     "build": "rimraf lib && tsc",
     "dev": "ts-node --files src/index.ts",
-    "dev:watch": "ts-node-dev --files --respawn src/index.ts new typescript-example -a cieloazul310",
+    "dev:watch": "ts-node-dev --files --respawn src/index.ts new post typescript-example -a cieloazul310",
     "prepare": "npm run build",
     "eslint": "eslint src/",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "node lib/index.js new post 'Love Psychedelico'"
   },
   "bugs": {
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
