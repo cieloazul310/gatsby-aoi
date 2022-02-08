@@ -6,7 +6,9 @@ tags: []
 author: cieloazul310
 ---
 
-Gatsby Theme Aoi では、MUI で構成されたシンプルなレイアウトコンポーネント (Aoi レイアウト) を利用できます。
+import { AppLink } from '@cieloazul310/gatsby-theme-aoi';
+
+Gatsby Theme Aoi では、[MUI] で構成されたシンプルなレイアウトコンポーネント (Aoi レイアウト) を利用できます。
 
 ### 基本的な使い方
 
@@ -18,9 +20,11 @@ Aoi レイアウトは `@cieloazul310/gatsby-theme-aoi` からインポートで
 
 `embed:ExampleCode-2.tsx`
 
-Aoi レイアウトに含まれる [Drawer](https://mui.com/components/drawers/)、[BottomNavigation](https://mui.com/components/bottom-navigation/)、[Fab](https://mui.com/components/floating-action-button/) は、props から表示を制御できます。
+Aoi レイアウトには MUI の [Drawer](https://mui.com/components/drawers/)、[BottomNavigation](https://mui.com/components/bottom-navigation/)、[Fab](https://mui.com/components/floating-action-button/) が含まれています。
 
-#### componentViewports
+これらのコンポーネントは、props から画面サイズに応じて表示を制御できます。上記の例では、PermanentDrawer を全ての画面サイズで非表示に、SwipeableDrawer を全ての画面サイズで使えるように、Fab も全ての画面サイズで表示するように設定しています。
+
+#### componentViewports の値
 
 | key             | default    |
 |-----------------|------------|
@@ -29,14 +33,16 @@ Aoi レイアウトに含まれる [Drawer](https://mui.com/components/drawers/)
 | bottomNav       | `'xsDown'` |
 | fab             | `'smDown'` |
 
+viewports の値には `boolean` 型を取ることができます。
+
 ### Aoi レイアウトのカスタマイズ
 
-[Gatsby テーマ] の [Shadowing] 機能を使うと、Aoi レイアウトを部分的に改造することができます。例えば、
+[Gatsby テーマ] の [Shadowing] 機能を使うと、Aoi レイアウトを部分的に改造することができます。
 
 ### 次
 
-<AppLink to="/posts/2022/01/gatsby-theme-aoi-getting-started">
-  Gatsby Theme Aoi のインストールへ
+<AppLink to="/posts/2022/01/gatsby-theme-aoi-using-components">
+  Gatsby Theme Aoi のコンポーネントを使う
 </AppLink>
 
 [Gatsby]: https://gatsbyjs.com/ "Gatsby"
