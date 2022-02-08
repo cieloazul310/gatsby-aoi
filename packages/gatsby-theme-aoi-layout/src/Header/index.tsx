@@ -40,6 +40,7 @@ function Header({
         variant="h6"
         component="h1"
         color="inherit"
+        fontSize={{ xs: 'body1.fontSize', sm: 'h6.fontSize' }}
       >
         {title ?? siteMetadata.title}
       </Typography>
