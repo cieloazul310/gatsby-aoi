@@ -10,7 +10,40 @@ imageAlt:
 
 import { AppLink } from '@cieloazul310/gatsby-theme-aoi';
 
-Gatsby Theme Aoi では MUI ベース作成したコンポーネント (Aoi コンポーネント) を利用できます。
-Aoi コンポーネントには、例えば、MUI の Link コンポーネントに Gatsby Link コンポーネントを実装した `<AppLink>` などがあります。
+Gatsby Theme Aoi では MUI ベースで作成されたコンポーネント (Aoi コンポーネント) を利用できます。
+Aoi コンポーネントには、MUI の Link コンポーネントである [`MuiLink`] に [`Gatsby Link`] コンポーネントを実装した `AppLink` などがあります。
 
-<AppLink to="/posts">App Link Example</AppLink>
+### 使い方
+
+Aoi コンポーネントも Aoi レイアウトと同様に `@cieloazul310/gatsby-theme-aoi` からインポートできます。
+
+`embed:ExampleCode-1.tsx`
+
+<AppLink to="/examples/page-03">
+  上記のコードで作成したデモページ
+</AppLink>
+
+API リファレンスへ
+
+### `AppLink` コンポーネント
+
+`embed:ExampleCode-2.tsx`
+
+<AppLink to="/examples/page-04">
+  上記のコードで作成したデモページ
+</AppLink>
+
+上のデモページでは、`Gatsby Link`, `MuiLink`, `AppLink` のスタイリングと動作を検証できます。
+
+`AppLink` は [`Gatsby Link`] に [`MuiLink`] コンポーネントを合成したものです。通常、Gatsby サイト内でのページ遷移は `<a>` タグではなく `Gatsby Link` を使います。`Gatsby Link` の機能で Gatsby サイト内での高速なページ遷移が可能になります。
+
+Gatsby Theme Aoi の制作にあたって参考にしてきた Gatsby + MUI のプロジェクトでは必ず Gatsby Link と MUI Link を合成したコンポーネントを作成しています。
+
+Routing libraries / MUI  
+<https://mui.com/guides/routing/>
+
+Link.js / MUI Gatsby example  
+<https://github.com/mui/material-ui/blob/master/examples/gatsby/src/components/Link.js>
+
+[`Gatsby Link`]: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/ "Gatsby Link API"
+[`MuiLink`]: https://mui.com/components/links/ "Links"

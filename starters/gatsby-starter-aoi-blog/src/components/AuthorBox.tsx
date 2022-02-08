@@ -81,7 +81,7 @@ function AuthorBox({ author }: AuthorBoxProps) {
           </Stack>
           <Box textAlign={{ xs: 'right', sm: 'left' }}>
             {author.slug ? (
-              <AppLink to={author.slug} variant="body2">
+              <AppLink to={author.slug}>
                 {author.name}の記事一覧 ({author.posts?.totalCount})
               </AppLink>
             ) : null}

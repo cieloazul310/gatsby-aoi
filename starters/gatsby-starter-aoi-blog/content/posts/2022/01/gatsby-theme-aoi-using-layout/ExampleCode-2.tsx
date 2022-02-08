@@ -1,7 +1,6 @@
-// ex. src/pages/page-2.tsx
-
+// ex. src/pages/examples/page-02.tsx
 import * as React from 'react';
-import { Layout } from '@cieloazul310/gatsby-theme-aoi';
+import { Layout, AppLink } from '@cieloazul310/gatsby-theme-aoi';
 
 function FullWidthPage() {
   return (
@@ -14,6 +13,11 @@ function FullWidthPage() {
       }}
     >
       <p>Hello, Aoi Layout!</p>
+      <p>
+        <AppLink to="/posts/2022/01/gatsby-theme-aoi-using-layout">
+          元のページに戻る
+        </AppLink>
+      </p>
     </Layout>
   );
 }

@@ -85,7 +85,7 @@ function BlogPostTemplate({
               </Typography>
               <Typography>Date: {date}</Typography>
               <Typography>Post by {author.name}</Typography>
-              <Typography variant="body2">
+              <Typography>
                 Categories:{' '}
                 {categoriesSlug.map((category) => (
                   <AppLink key={category.name} to={category.slug} mr={1}>
@@ -93,14 +93,15 @@ function BlogPostTemplate({
                   </AppLink>
                 ))}
               </Typography>
-              <Typography variant="body2">
-                Tags:{' '}
-                {tagsSlug.map((tag) => (
-                  <AppLink key={tag.name} to={tag.slug} mr={1}>
-                    #{tag.name}
-                  </AppLink>
-                ))}
-              </Typography>
+              {tagsSlug.length ? (
+                <Typography>
+                  {tagsSlug.map((tag) => (
+                    <AppLink key={tag.name} to={tag.slug} mr={1}>
+                      #{tag.name}
+                    </AppLink>
+                  ))}
+                </Typography>
+              ) : null}
             </Article>
           </Section>
           <SectionDivider />
