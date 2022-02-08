@@ -66,13 +66,28 @@ function Content() {
         Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
         vulputate posuere vehicula.
       </Paragraph>
+      <Paragraph>
+        Proin condimentum felis nec luctus egestas. In in sagittis augue.
+        Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
+        vulputate posuere vehicula.
+      </Paragraph>
       <H4>H4</H4>
       <Paragraph>
         Proin condimentum felis nec luctus egestas. In in sagittis augue.
         Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
         vulputate posuere vehicula.
       </Paragraph>
+      <Paragraph>
+        Proin condimentum felis nec luctus egestas. In in sagittis augue.
+        Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
+        vulputate posuere vehicula.
+      </Paragraph>
       <H5>H5</H5>
+      <Paragraph>
+        Proin condimentum felis nec luctus egestas. In in sagittis augue.
+        Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
+        vulputate posuere vehicula.
+      </Paragraph>
       <Paragraph>
         Proin condimentum felis nec luctus egestas. In in sagittis augue.
         Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
@@ -220,9 +235,15 @@ function JapaneseText() {
       <Paragraph>
         茶は薬用として始まり後飲料となる。シナにおいては八世紀に高雅な遊びの一つとして詩歌の域に達した。十五世紀に至り日本はこれを高めて一種の審美的宗教、すなわち茶道にまで進めた。茶道は日常生活の俗事の中に存する美しきものを崇拝することに基づく一種の儀式であって、純粋と調和、相互愛の神秘、社会秩序のローマン主義を諄々と教えるものである。茶道の要義は「不完全なもの」を崇拝するにある。いわゆる人生というこの不可解なもののうちに、何か可能なものを成就しようとするやさしい企てであるから。
       </Paragraph>
+      <Paragraph>
+        茶は薬用として始まり後飲料となる。シナにおいては八世紀に高雅な遊びの一つとして詩歌の域に達した。十五世紀に至り日本はこれを高めて一種の審美的宗教、すなわち茶道にまで進めた。
+      </Paragraph>
       <H4>岡倉天心</H4>
       <Paragraph>
         茶の原理は普通の意味でいう単なる審美主義ではない。というのは、倫理、宗教と合して、天人に関するわれわれのいっさいの見解を表わしているものであるから。それは衛生学である、清潔をきびしく説くから。それは経済学である、というのは、複雑なぜいたくというよりもむしろ単純のうちに慰安を教えるから。それは精神幾何学である、なんとなれば、宇宙に対するわれわれの比例感を定義するから。それはあらゆるこの道の信者を趣味上の貴族にして、東洋民主主義の真精神を表わしている。
+      </Paragraph>
+      <Paragraph>
+        茶は薬用として始まり後飲料となる。シナにおいては八世紀に高雅な遊びの一つとして詩歌の域に達した。十五世紀に至り日本はこれを高めて一種の審美的宗教、すなわち茶道にまで進めた。
       </Paragraph>
       <H5>第一章 人情の碗</H5>
       <Paragraph>
