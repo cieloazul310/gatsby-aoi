@@ -5,6 +5,7 @@ import Container, { ContainerProps } from '@mui/material/Container';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import MuiLink, { LinkProps } from '@mui/material/Link';
 import Divider from '@mui/material/Divider';
+import { alpha } from '@mui/material/styles';
 
 /**
  * `<Article>`
@@ -157,4 +158,35 @@ export function Blockquote({ children, ...props }: Props) {
 
 export function Hr() {
   return <Divider sx={{ my: 8 }} />;
+}
+
+export function InlineCode({ children }: Omit<TypographyProps, 'ref'>) {
+  return (
+    <Typography
+      variant="body2"
+      component="code"
+      fontFamily="'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'monospace'"
+      px={0.5}
+      borderRadius={1}
+      bgcolor={({ palette }) =>
+        alpha(palette.secondary.main, palette.action.selectedOpacity)
+      }
+    >
+      {children}
+    </Typography>
+  );
+}
+
+export function Ul(props: Omit<TypographyProps, 'ref'>) {
+  return <Typography component="ul" py={2} m={0} {...props} />;
+}
+
+export function Ol(props: Omit<TypographyProps, 'ref'>) {
+  return <Typography component="ol" py={2} m={0} {...props} />;
+}
+
+export function Li(props: Omit<TypographyProps, 'ref'>) {
+  return (
+    <Typography variant="body1" component="li" lineHeight={1.8} {...props} />
+  );
 }
