@@ -1,8 +1,6 @@
 /* eslint react/jsx-props-no-spreading: warn */
 import * as React from 'react';
-import { alpha } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import Typography, { TypographyProps } from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TableContainer from '@mui/material/TableContainer';
 import MuiTable, { TableProps } from '@mui/material/Table';
@@ -22,36 +20,11 @@ import {
   SubParagraph,
   Blockquote,
   ExternalLink,
+  InlineCode,
+  Ul,
+  Ol,
+  Li,
 } from '@cieloazul310/gatsby-theme-aoi-components';
-
-function InlineCode({ children }: Omit<TypographyProps, 'ref'>) {
-  return (
-    <Typography
-      variant="body2"
-      component="code"
-      fontFamily="'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'monospace'"
-      px={0.5}
-      borderRadius={1}
-      bgcolor={({ palette }) =>
-        alpha(palette.secondary.main, palette.action.selectedOpacity)
-      }
-    >
-      {children}
-    </Typography>
-  );
-}
-
-function Ul(props: Omit<TypographyProps, 'ref'>) {
-  return <Typography component="ul" py={2} m={0} {...props} />;
-}
-
-function Ol(props: Omit<TypographyProps, 'ref'>) {
-  return <Typography component="ol" py={2} m={0} {...props} />;
-}
-
-function Li(props: Omit<TypographyProps, 'ref'>) {
-  return <Typography variant="body1" component="li" {...props} />;
-}
 
 function Table({ children }: TableProps) {
   return (
