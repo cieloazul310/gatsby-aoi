@@ -50,7 +50,7 @@ export function ArticleTitle({ children, ...props }: Props) {
 
 export function Paragraph({ children, ...props }: Props) {
   return (
-    <Typography variant="body1" paragraph {...props}>
+    <Typography variant="body1" paragraph lineHeight={1.8} {...props}>
       {children}
     </Typography>
   );
@@ -58,7 +58,13 @@ export function Paragraph({ children, ...props }: Props) {
 
 export function SubParagraph({ children, ...props }: Props) {
   return (
-    <Typography variant="body2" color="text.secondary" paragraph {...props}>
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      paragraph
+      lineHeight={1.8}
+      {...props}
+    >
       {children}
     </Typography>
   );
@@ -78,7 +84,7 @@ export function H4({ children, ...props }: Props) {
       variant="body1"
       component="h4"
       mt="2em"
-      gutterBottom
+      mb="1.2em"
       fontWeight="bold"
       {...props}
     >
@@ -94,7 +100,8 @@ export function H5({ children, ...props }: Props) {
       component="h5"
       color="text.secondary"
       fontWeight="bold"
-      gutterBottom
+      mt="2em"
+      mb="1em"
       {...props}
     >
       {children}
@@ -109,7 +116,8 @@ export function H6({ children, ...props }: Props) {
       component="h6"
       color="text.secondary"
       fontWeight="bold"
-      gutterBottom
+      mt="2em"
+      mb="1em"
       {...props}
     >
       {children}
