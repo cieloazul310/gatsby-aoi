@@ -6,14 +6,6 @@ const theme = createTheme({
     primary: blue,
     secondary: red,
   },
-  typography: {
-    body1: {
-      lineHeight: 1.8,
-    },
-    body2: {
-      lineHeight: 1.8,
-    },
-  },
 });
 
 export default responsiveFontSizes(theme);
