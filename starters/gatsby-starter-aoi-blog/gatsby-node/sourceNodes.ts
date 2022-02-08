@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as yaml from 'yaml';
 import { SourceNodesArgs } from 'gatsby';
-import { createFilePath, createRemoteFileNode } from 'gatsby-source-filesystem';
+import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import { createSlug, validURL } from './utils';
 import { AuthorBare } from '../types';
 
@@ -13,7 +13,7 @@ export default function sourceNodes({
   getCache,
 }: SourceNodesArgs) {
   const { createNode } = actions;
-  const authorsFile = path.resolve(__dirname, '../data/authors.yml');
+  const authorsFile = path.resolve(__dirname, '../content/authors.yml');
   const dir = path.dirname(authorsFile);
   const authors: AuthorBare[] = yaml.parse(
     fs.readFileSync(authorsFile, 'utf8')

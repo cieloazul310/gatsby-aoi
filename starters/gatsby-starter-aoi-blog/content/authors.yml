@@ -2,7 +2,7 @@
 - name: cieloazul310
 # Required
   description: TypeScript, Data Visualization, GIS, React などを勉強中。
-  avatar: ./assets/IMG_5963.jpeg
+  avatar: ./images/IMG_5963.jpeg
   website: 水戸地図
   websiteURL: https://cieloazul310.github.io
   socials:
@@ -22,7 +22,7 @@
 - name: 久保青水
 # Required
   description: 地図を作る人。暗渠によく出現する。
-  avatar: ./assets/IMG_1568.jpeg
+  avatar: ./images/IMG_1568.jpeg
 
 - name: おもち
   description: 水戸ホーリーホックが好きです。

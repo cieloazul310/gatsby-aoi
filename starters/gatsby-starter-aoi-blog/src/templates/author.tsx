@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
+import Avatar from '@mui/material/Avatar';
 import {
   Jumbotron,
   Section,
@@ -19,6 +21,7 @@ import {
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
 
 import Layout from '../layout';
+import { AuthorIcon } from '../icons';
 import MdxPostEdgesList from '../components/MdxPostList';
 import { MdxPostBrowser, AuthorBrowser } from '../../types';
 
@@ -87,10 +90,38 @@ function AuthorTemplate({
       <article>
         <header>
           <Jumbotron maxWidth="md" bgImage={bgImage} bgcolor={bgcolor}>
-            <Typography variant="h4" component="h2" gutterBottom>
-              {author.name}
-            </Typography>
-            <Typography>{totalCount} posts</Typography>
+            <Box display="flex" flexDirection="row" alignItems="center">
+              <Box pr={{ xs: 2, sm: 4 }}>
+                <Avatar
+                  sx={{
+                    width: { xs: 112, sm: 144 },
+                    height: { xs: 112, sm: 144 },
+                  }}
+                  src={
+                    author.avatar?.childImageSharp.gatsbyImageData.images
+                      .fallback?.src
+                  }
+                  srcSet={
+                    author.avatar?.childImageSharp.gatsbyImageData.images
+                      .fallback?.srcSet
+                  }
+                  sizes={
+                    author.avatar?.childImageSharp.gatsbyImageData.images
+                      .fallback?.sizes
+                  }
+                  alt={author.name}
+                >
+                  <AuthorIcon sx={{ fontSize: { xs: 100, sm: 132 } }} />
+                </Avatar>
+              </Box>
+              <Box>
+                <Typography>Author</Typography>
+                <Typography variant="h4" component="h2" gutterBottom>
+                  {author.name}
+                </Typography>
+                <Typography>{totalCount} posts</Typography>
+              </Box>
+            </Box>
           </Jumbotron>
         </header>
         <SectionDivider />

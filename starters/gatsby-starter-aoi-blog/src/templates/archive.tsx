@@ -102,6 +102,7 @@ function ArchiveTemplate({
       <article>
         <header>
           <Jumbotron maxWidth="md">
+            <Typography>Archive</Typography>
             <Typography variant="h4" component="h2" gutterBottom>
               {title}
             </Typography>
