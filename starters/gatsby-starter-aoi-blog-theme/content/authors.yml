@@ -1,0 +1,32 @@
+# Required
+- name: cieloazul310
+# Required
+  description: TypeScript, Data Visualization, GIS, React などを勉強中。
+  avatar: ./images/IMG_5963.jpeg
+  website: 水戸地図
+  websiteURL: https://cieloazul310.github.io
+  socials:
+    - name: github
+      url: https://github.com/cieloazul310
+    - name: twitter
+      url: https://twitter.com/cieloazul310
+
+# Required
+- name: 那珂川緑波
+# Required
+  description: 自称都市計画郷土史家。趣味は道に迷うこと。
+  website: 水戸時層学会
+  websiteURL: https://310city.blogspot.com
+
+# Required
+- name: 久保青水
+# Required
+  description: 地図を作る人。暗渠によく出現する。
+  avatar: ./images/IMG_1568.jpeg
+
+- name: おもち
+  description: 水戸ホーリーホックが好きです。
+  avatar: https://pbs.twimg.com/profile_images/513688161809993728/SlLFpQcd_400x400.jpeg
+  socials:
+    - name: twitter
+      url: https://twitter.com/cieloazul310

@@ -1,0 +1,44 @@
+---
+title: Gatsby Theme Aoi Blog CLI
+date: 2022-02-07T09:06:13.954Z
+categories: ["Gatsby Theme Aoi Blog"]
+tags: ["CLI", "nodejs"]
+author: cieloazul310
+image: 
+imageAlt: 
+---
+
+Gatsby Theme Aoi Blog のための CLI パッケージを作成しました。
+
+### 動機
+
+[Gatsby] には [Hugo] のように記事を投稿するコマンドはありません。投稿日時から `/2022/02/${slug}` のようにディレクトリを作成し、Hugo の [Archetypes](https://gohugo.io/content-management/archetypes/) のように Markdown ファイルの雛形を作成する機能が欲しいと思いました。
+
+### 使い方
+
+```shell
+# 1. install
+yarn install --dev @cieloazul310/gatsby-theme-aoi-blog-cli
+# 2. set script
+npm set-script gatsby-aoi-blog "gatsby-aoi-blog"
+# 3. create new post
+yarn run gatsby-aoi-blog new post "Article Title"
+```
+
+#### 引数
+
+- `-a`, `--author`: 記事の投稿者を指定
+- `-d`, `--date`: 記事の日時を指定
+- `--canonical`: URL を正規化する (ex. `/2022/02/new-post/index.md`)
+- `--mdx`: MDX ファイルを作成 (ex. `new-post.mdx`)
+
+### 開発
+
+[Commander.js](https://www.npmjs.com/package/commander) で作成しました。
+
+### 
+
+[Gatsby]: https://gatsbyjs.com/ "Gatsby"
+[MUI]: https://mui.org/ "MUI"
+[TypeScript]: https://typescriptlang.org/ "TypeScript"
+[Hugo]: https://gohugo.io/ "Hugo"
