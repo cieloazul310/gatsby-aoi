@@ -115,7 +115,7 @@ export default async function createPagesasync({
   });
 
   // generate All posts pages
-  const postsPerPage = 2;
+  const postsPerPage = 15;
 
   const numPages = Math.ceil(posts.length / postsPerPage);
   Array.from({ length: numPages }).forEach((_, i) => {

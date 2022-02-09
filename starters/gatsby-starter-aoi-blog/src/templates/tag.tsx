@@ -76,6 +76,7 @@ function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
       <article>
         <header>
           <Jumbotron maxWidth="md">
+            <Typography>Tag</Typography>
             <Typography variant="h4" component="h2" gutterBottom>
               {`#${fieldValue}`}
             </Typography>

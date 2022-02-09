@@ -8,7 +8,7 @@ import {
   AppLink,
   ExternalLink,
 } from '@cieloazul310/gatsby-theme-aoi';
-import PersonIcon from '@mui/icons-material/Person';
+import { AuthorIcon } from '../icons';
 import { AuthorBrowser } from '../../types';
 
 type AuthorBoxProps = {
@@ -39,7 +39,7 @@ function AuthorBox({ author }: AuthorBoxProps) {
       }
       alt={author.name}
     >
-      <PersonIcon sx={{ fontSize: 100 }} />
+      <AuthorIcon sx={{ fontSize: 100 }} />
     </Avatar>
   );
   return (
@@ -81,7 +81,7 @@ function AuthorBox({ author }: AuthorBoxProps) {
           </Stack>
           <Box textAlign={{ xs: 'right', sm: 'left' }}>
             {author.slug ? (
-              <AppLink to={author.slug} variant="body2">
+              <AppLink to={author.slug}>
                 {author.name}の記事一覧 ({author.posts?.totalCount})
               </AppLink>
             ) : null}

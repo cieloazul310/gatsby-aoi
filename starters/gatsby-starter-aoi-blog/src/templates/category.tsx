@@ -79,6 +79,7 @@ function CategoryTemplate({
       <article>
         <header>
           <Jumbotron maxWidth="md">
+            <Typography>Category</Typography>
             <Typography variant="h4" component="h2" gutterBottom>
               {fieldValue}
             </Typography>
