@@ -1,0 +1,57 @@
+---
+title: Gatsby Theme Aoi で MUI テーマを設定する
+date: 2022-01-30T00:00:00.000Z
+categories: ["Gatsby Theme Aoi"]
+tags: []
+author: cieloazul310
+image: 
+imageAlt: 
+---
+
+import { AppLink } from '@cieloazul310/gatsby-theme-aoi';
+
+MUI にはサイト全体に統一的なスタイルを施すためのテーマ機能があります。
+この記事では Gatsby Theme Aoi で MUI テーマを編集する方法を説明します。前回と同じように [Gatsby テーマ]の [Shadowing] という機能で実装します。
+
+Theming  
+<https://mui.com/customization/theming/>
+
+### MUI テーマファイルを作成
+
+Gatsby プロジェクトの `src` ディレクトリに、`@cieloazul310/gatsby-theme-aoi-top-layout` というディレクトリを作成し、`theme.ts` を作成します。Gatsby Theme Aoi のスターターを使っている場合は既にファイルが存在しているはずです。
+
+```shell
+mkdir src/@cieloazul310/gatsby-theme-aoi-top-layout
+touch src/@cieloazul310/gatsby-theme-aoi-top-layout/theme.ts
+```
+
+Gatsby プロジェクトは以下のような構成になります。
+
+```txt
+.
+├── gatsby-config.js
+├── package.json
+└── src
+    ├── @cieloazul310
+    │   ├── gatsby-theme-aoi-layout
+    │   │   └── menu.tsx
+    │   └── gatsby-theme-aoi-top-layout
+    │       └── theme.ts
+    └── pages
+        ├── 404.tsx
+        ├── index.tsx
+        └── page-2.tsx
+```
+
+### MUI テーマファイルの中身
+
+`embed:theme.ts`
+
+[Gatsby]: https://gatsbyjs.com/ "Gatsby"
+[MUI]: https://mui.org/ "MUI"
+[TypeScript]: https://typescriptlang.org/ "TypeScript"
+
+[Gatsby テーマ]: https://gatsbyjs.com/docs/themes/ "Themes"
+[Gatsby スターター]: https://www.gatsbyjs.com/docs/starters/ "Gatsby Starters"
+[Shadowing]: https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/ "Shadowing in Gatsby Themes"
+[Gatsby Link]: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/ "Gatsby Link API"

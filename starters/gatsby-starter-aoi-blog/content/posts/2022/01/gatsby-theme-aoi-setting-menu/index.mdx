@@ -37,16 +37,27 @@ Gatsby プロジェクトは以下のような構成になります。
         └── page-2.tsx
 ```
 
-`src` ディレクトリ傘下に Gatsby テーマパッケージ名のディレクトリを作成する。これが Gatsby テーマの Shadowing の第一歩です。
-
 ### Menu ファイルの中身
+
+以下は作成した `./src/@cieloazul310/gatsby-theme-aoi-layout/menu.tsx` の例です。
 
 `embed:ExampleCode-1.tsx`
 
-上のファイルは実際このサイトで使われている `menu.tsx` です。
+これは実際にこのサイトで使われている `menu.tsx` です。
 `title`, `path`, `icon` というプロパティを持つオブジェクトの配列を作成し、デフォルトエクスポートすることで、Aoi レイアウト内のメニューコンポーネントに反映することができます。
 
-初めて Shadowing に触れる人は少し不思議に思われると思います。何故なら、この `menu.tsx` をインポートしている他のファイルが存在していないからです。
+### Shadowing 第一歩
+
+これは Gatsby テーマの Shadowing という機能を使っています。
+Shadowing とは、`node_modules` にインストールされている特定のパッケージの `src` ディレクトリに含まれるファイルを独自の実装に置き換えることです。
+
+今回の例では、  
+`./src/@cieloazul310/gatsby-theme-aoi-layout/menu.tsx`  
+というファイルが、  
+`./node_modules/@cieloazul310/gatsby-theme-aoi-layout/src/menu.tsx`  
+として機能しています。
+
+`@cieloazul310/gatsby-theme-aoi-layout` というパッケージは、`@cieloazul310/gatsby-theme-aoi` に含まれている
 
 [Gatsby]: https://gatsbyjs.com/ "Gatsby"
 [MUI]: https://mui.org/ "MUI"
