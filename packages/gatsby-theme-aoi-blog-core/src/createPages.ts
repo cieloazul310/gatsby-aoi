@@ -1,5 +1,10 @@
 import { CreatePagesArgs } from 'gatsby';
-import { withDefaults, MdxPost, MdxPostMonth, ThemeOptions } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import {
+  withDefaults,
+  MdxPost,
+  MdxPostMonth,
+  ThemeOptions,
+} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 type Data = {
   allMdxPost: {
@@ -107,7 +112,9 @@ export default async function createPagesasync(
 
     createPage({
       path: node.slug,
-      component: require.resolve('@cieloazul310/gatsby-theme-aoi-blog-templates/src/posts.tsx'),
+      component: require.resolve(
+        '@cieloazul310/gatsby-theme-aoi-blog-templates/src/posts.tsx'
+      ),
       context: { previous, next, id: node.id },
     });
   });
@@ -205,7 +212,9 @@ export default async function createPagesasync(
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `${node.slug}` : `${node.slug}/${i + 1}`,
-        component: require.resolve('@cieloazul310/gatsby-theme-aoi-blog-templates/src/author.tsx'),
+        component: require.resolve(
+          '@cieloazul310/gatsby-theme-aoi-blog-templates/src/author.tsx'
+        ),
         context: {
           previous: previous?.node.name,
           next: next?.node.name,

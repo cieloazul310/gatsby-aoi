@@ -1,16 +1,19 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-core",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "> TODO: description",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
   "main": "index.js",
   "files": [
-    "gatsby-node",
+    "lib",
     "gatsby-config.js",
     "gatsby-node.js"
   ],
+  "directories": {
+    "lib": "lib"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -20,7 +23,8 @@
     "directory": "packages/gatsby-theme-aoi-blog-core"
   },
   "scripts": {
-    "eslint": "eslint gatsby-node/",
+    "build": "rimraf lib && tsc",
+    "eslint": "eslint src/",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
@@ -50,7 +54,6 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1",
-    "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
   "dependencies": {
