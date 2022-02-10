@@ -3,9 +3,15 @@ import * as path from 'path';
 import * as yaml from 'yaml';
 import { SourceNodesArgs } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
-import { withDefaults, createSlug, validURL, AuthorBare, ThemeOptions } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import {
+  withDefaults,
+  createSlug,
+  validURL,
+  AuthorBare,
+  ThemeOptions,
+} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
-export default function sourceNodes(
+export default async function sourceNodes(
   { actions, createNodeId, createContentDigest, getCache }: SourceNodesArgs,
   themeOptions: ThemeOptions
 ) {
@@ -20,44 +26,46 @@ export default function sourceNodes(
     fs.readFileSync(authorsFile, 'utf8')
   );
 
-  authors.forEach(async (author) => {
-    const data: Record<string, unknown> = {
-      ...author,
-      dir,
-      slug: createSlug(basePaths.author, author.name),
-    };
-    const nodeId = createNodeId(`author-${author.name}`);
-    const { avatar } = author;
-    if (avatar) {
-      if (validURL(avatar)) {
-        const remoteFileNode = await createRemoteFileNode({
-          url: avatar,
-          parentNodeId: nodeId,
-          createNode,
-          createNodeId,
-          getCache,
-        });
-        if (remoteFileNode) {
-          data.image___NODE = remoteFileNode.id;
+  await Promise.all(
+    authors.map(async (author) => {
+      const data: Record<string, unknown> = {
+        ...author,
+        dir,
+        slug: createSlug(basePaths.author, author.name),
+      };
+      const nodeId = createNodeId(`author-${author.name}`);
+      const { avatar } = author;
+      if (avatar) {
+        if (validURL(avatar)) {
+          const remoteFileNode = await createRemoteFileNode({
+            url: avatar,
+            parentNodeId: nodeId,
+            createNode,
+            createNodeId,
+            getCache,
+          });
+          if (remoteFileNode) {
+            data.image___NODE = remoteFileNode.id;
+          }
         }
       }
-    }
 
-    const nodeContent = JSON.stringify(data);
+      const nodeContent = JSON.stringify(data);
 
-    const nodeMeta = {
-      id: nodeId,
-      parent: null,
-      children: [],
-      internal: {
-        type: `Author`,
-        mediaType: `text/html`,
-        content: nodeContent,
-        contentDigest: createContentDigest(data),
-      },
-    };
+      const nodeMeta = {
+        id: nodeId,
+        parent: null,
+        children: [],
+        internal: {
+          type: `Author`,
+          mediaType: `text/html`,
+          content: nodeContent,
+          contentDigest: createContentDigest(data),
+        },
+      };
 
-    const node = { ...data, ...nodeMeta };
-    createNode(node);
-  });
+      const node = { ...data, ...nodeMeta };
+      createNode(node);
+    })
+  );
 }
