@@ -41,6 +41,7 @@
     "@mui/material": "^5.3.0",
     "gatsby": "^4.5.4",
     "gatsby-plugin-image": "^2.5.2",
+    "gatsby-plugin-twitter": "^4.7.0",
     "gatsby-remark-embed-snippet": "^7.6.0",
     "gatsby-remark-prismjs": "^6.5.0",
     "prism-themes": "^1.9.0",
