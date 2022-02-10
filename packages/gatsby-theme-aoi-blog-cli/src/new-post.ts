@@ -1,9 +1,12 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { isString, strToSlug } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import {
+  isString,
+  isBoolean,
+  strToSlug,
+} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import findArchetypes from './findArchetypes';
 import archetypesToMd from './archetypeToMd';
-import { isBoolean } from './utils';
 
 function parseDate(dateString?: string | unknown) {
   if (!dateString || !isString(dateString)) return new Date();

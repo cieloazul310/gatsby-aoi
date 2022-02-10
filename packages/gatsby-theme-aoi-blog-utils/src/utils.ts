@@ -12,13 +12,17 @@ export function isString(str: unknown): str is string {
   return typeof str === 'string';
 }
 
+export function isBoolean(bool: unknown): bool is boolean {
+  return typeof bool === 'boolean';
+}
+
 export function validURL(str: string) {
   try {
     const url = new URL(str);
     /**
      * avoid ts6133
      */
-    if (!url) throw new Error();
+    if (!url) return false;
     return true;
   } catch {
     return false;

@@ -96,18 +96,6 @@ export default function createSchemaCustomization(
   const { createTypes } = actions;
 
   createTypes(`
-    type Mdx implements Node { 
-      frontmatter: MdxFrontmatter
-    }
-    type MdxFrontmatter @dontInfer {
-      title: String!
-      date: Date @dateformat
-      categories: [String]
-      tags: [String] 
-      author: String
-      image: File
-      imageAlt: String
-    }
     type Social @dontInfer {
       name: String!
       url: String!
