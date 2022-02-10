@@ -2,14 +2,14 @@ import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import List from '@mui/material/List';
 import {
+  Layout,
   Jumbotron,
   Section,
   SectionDivider,
   Article,
   ListItemLink,
 } from '@cieloazul310/gatsby-theme-aoi';
-import Layout from '../layout';
-import { MdxPostMonth } from '../../types';
+import { MdxPostMonth } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
   months: MdxPostMonth[];
@@ -18,7 +18,7 @@ type PageData = {
 function ArchivePage({ data }: PageProps<PageData>) {
   const { months } = data;
   return (
-    <Layout title="Archive">
+    <Layout title="Archive" componentViewports={{ bottomNav: false }}>
       <article>
         <header>
           <Jumbotron title="Archive" maxWidth="md" />
