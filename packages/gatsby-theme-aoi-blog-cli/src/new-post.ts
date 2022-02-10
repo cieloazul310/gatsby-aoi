@@ -1,8 +1,9 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import { isString, strToSlug } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import findArchetypes from './findArchetypes';
 import archetypesToMd from './archetypeToMd';
-import { isString, isBoolean } from './utils';
+import { isBoolean } from './utils';
 
 function parseDate(dateString?: string | unknown) {
   if (!dateString || !isString(dateString)) return new Date();
@@ -12,13 +13,6 @@ function dateToDirname(date: Date) {
   const year = date.getFullYear();
   const month = date.getMonth();
   return `/${year}/${(month + 1).toString().padStart(2, '0')}`;
-}
-function strToSlug(str: string) {
-  return str
-    .toLowerCase()
-    .replace(/&/g, 'and')
-    .replace(/ /g, '-')
-    .replace(/[&/\\#,+()$~%.'":*?<>{}]/g, '');
 }
 
 type NewPostOptions = {

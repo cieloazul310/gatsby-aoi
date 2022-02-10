@@ -1,7 +1,6 @@
 import * as path from 'path';
 import { CreatePagesArgs } from 'gatsby';
-import withDefaults from '../utils/default-options';
-import { MdxPost, MdxPostMonth, ThemeOptions } from '../types';
+import { withDefaults, MdxPost, MdxPostMonth, ThemeOptions } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 type Data = {
   allMdxPost: {

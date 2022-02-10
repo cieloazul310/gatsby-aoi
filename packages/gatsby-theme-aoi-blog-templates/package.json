@@ -1,17 +1,17 @@
 {
-  "name": "@cieloazul310/gatsby-theme-aoi-blog-core",
+  "name": "@cieloazul310/gatsby-theme-aoi-blog-templates",
   "version": "1.6.1",
   "description": "> TODO: description",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
-  "main": "types.d.ts",
-  "types": "types.d.ts",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
   "files": [
-    "gatsby-node",
-    "utils",
-    "gatsby-config.js",
-    "gatsby-node.js"
+    "lib"
   ],
   "publishConfig": {
     "access": "public"
@@ -21,21 +21,11 @@
     "url": "git+https://github.com/cieloazul310/gatsby-aoi.git"
   },
   "scripts": {
-    "eslint": "eslint gatsby-node/",
+    "eslint": "eslint src/",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
-  },
-  "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "^1.6.1",
-    "@cieloazul310/gatsby-theme-aoi-blog-components": "^1.6.1",
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^1.6.1",
-    "@mui/icons-material": "^5.0.0",
-    "@mui/material": "^5.0.0",
-    "gatsby": "^4.0.0",
-    "react": "^16.8.6 || ^17.0.0",
-    "react-dom": "^16.8.6 || ^17.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.10.0",
@@ -50,22 +40,24 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1",
-    "ts-node": "^10.4.0",
+    "react": "^17.0.2",
     "typescript": "^4.5.4"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "^1.6.1",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^1.6.1",
+    "@cieloazul310/gatsby-theme-aoi-components": "^1.6.0",
+    "@cieloazul310/gatsby-theme-aoi-layout": "^1.6.0",
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@mui/icons-material": "^5.0.0",
+    "@mui/material": "^5.0.0",
     "@types/mdx-js__react": "^1.5.5",
-    "@types/prismjs": "^1.26.0",
-    "gatsby-core-utils": "^3.6.0",
-    "gatsby-plugin-image": "^2.5.2",
+    "gatsby": "^3.0.0 || ^4.0.0",
     "gatsby-plugin-mdx": "^3.5.2",
-    "gatsby-plugin-sharp": "^4.5.2",
-    "gatsby-remark-images": "^6.5.2",
-    "gatsby-remark-responsive-iframe": "^5.5.0",
-    "gatsby-source-filesystem": "^4.5.2",
-    "gatsby-transformer-sharp": "^4.5.0",
-    "yaml": "^1.10.2"
+    "react": "^16.8.6 || ^17.0.0",
+    "react-helmet": "^6.1.0"
   }
 }

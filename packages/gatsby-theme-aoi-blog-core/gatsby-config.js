@@ -1,7 +1,7 @@
 /* eslint @typescript-eslint/no-var-requires: off */
 /* eslint react/function-component-definition: off */
 const path = require('path');
-const withDefaults = require('./utils/default-options');
+const { withDefaults } = require('@cieloazul310/gatsby-theme-aoi-blog-utils');
 
 module.exports = (themeOptions) => {
   const options = withDefaults(themeOptions);
@@ -26,20 +26,6 @@ module.exports = (themeOptions) => {
       ],
     },
     plugins: [
-      {
-        resolve: `@cieloazul310/gatsby-theme-aoi`,
-        options: {
-          siteId: `gatsby-starter-aoi-theme`,
-        },
-      },
-      /*
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          path: `/src/pages/`,
-        },
-      },
-      */
       {
         resolve: `gatsby-source-filesystem`,
         options: {

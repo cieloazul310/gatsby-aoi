@@ -2,9 +2,7 @@ import * as path from 'path';
 import { CreateNodeArgs, Node, GatsbyCache } from 'gatsby';
 import { createContentDigest } from 'gatsby-core-utils';
 import { createFilePath, createRemoteFileNode } from 'gatsby-source-filesystem';
-import withDefaults from '../utils/default-options';
-import { validURL } from './utils';
-import { MdxBare, ThemeOptions } from '../types';
+import { withDefaults, validURL, MdxBare, ThemeOptions } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 declare module 'gatsby-source-filesystem' {
   type CreateRemoteFileNodeArgsFixed = Omit<

@@ -1,4 +1,8 @@
-module.exports = function withDefaults(themeOptions) {
+import { ThemeOptions } from './types';
+
+export default function withDefaults(
+  themeOptions: Partial<ThemeOptions>
+): ThemeOptions {
   const postsPerPage = themeOptions.postsPerPage || 15;
   const basePaths = {
     posts: themeOptions.basePaths?.posts ?? '/posts',

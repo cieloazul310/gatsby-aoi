@@ -1,21 +1,17 @@
 {
-  "name": "@cieloazul310/gatsby-theme-aoi-blog-cli",
+  "name": "@cieloazul310/gatsby-theme-aoi-blog-utils",
   "version": "1.6.1",
   "description": "> TODO: description",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
   "main": "lib/index.js",
-  "bin": {
-    "gatsby-aoi-blog": "bin/gatsby-aoi-blog"
-  },
+  "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib"
   },
   "files": [
-    "lib",
-    "bin",
-    "archetypes.md"
+    "lib"
   ],
   "publishConfig": {
     "access": "public"
@@ -26,33 +22,34 @@
   },
   "scripts": {
     "build": "rimraf lib && tsc",
-    "dev": "ts-node --files src/index.ts",
-    "dev:watch": "ts-node-dev --files --respawn src/index.ts new post typescript-example -a cieloazul310",
+    "dev": "tsc -w",
     "prepare": "npm run build",
-    "eslint": "eslint src/",
-    "test": "node lib/index.js"
+    "eslint": "eslint src/"
   },
   "bugs": {
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
+  "peerDependencies": {
+    "gatsby": "^4.0.0",
+    "gatsby-plugin-image": "^2.5.2",
+    "gatsby-source-filesystem": "^4.5.2"
+  },
   "devDependencies": {
-    "@types/node": "^17.0.15",
-    "@typescript-eslint/eslint-plugin": "^5.10.2",
-    "@typescript-eslint/parser": "^5.10.2",
-    "eslint": "^8.8.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "eslint": "^8.7.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^16.1.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-graphql": "^4.0.0",
     "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "gatsby": "^4.0.0",
+    "gatsby-plugin-image": "^2.5.2",
+    "gatsby-source-filesystem": "^4.5.2",
     "prettier": "^2.5.1",
-    "ts-node": "^10.4.0",
-    "ts-node-dev": "^1.1.8",
-    "typescript": "^4.5.5"
-  },
-  "dependencies": {
-    "commander": "^9.0.0"
-  },
-  "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "1.6.1"
+    "typescript": "^4.5.4"
   }
 }

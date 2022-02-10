@@ -1,8 +1,13 @@
 import { CreateResolversArgs } from 'gatsby';
-import { GatsbyGraphQLContext } from './graphql';
-import withDefaults from '../utils/default-options';
-import { fieldValueToSlug, createSlug } from './utils';
-import { MdxPost, MdxPostMonth, ThemeOptions } from '../types';
+import {
+  withDefaults,
+  fieldValueToSlug,
+  createSlug,
+  MdxPost,
+  MdxPostMonth,
+  ThemeOptions,
+  GatsbyGraphQLContext,
+} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 function mdxPostToMonths(
   posts: MdxPost[],
