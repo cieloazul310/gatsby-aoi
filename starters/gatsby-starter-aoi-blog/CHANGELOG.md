@@ -3,90 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.6.1](https://github.com/cieloazul310/gatsby-aoi/compare/v1.6.0...v1.6.1) (2022-02-05)
+# [1.7.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.6.1...v1.7.0) (2022-02-10)
 
 
 ### Bug Fixes
 
-* Create `tsconfig.eslint.json` to each packages ([752b203](https://github.com/cieloazul310/gatsby-aoi/commit/752b2030108281d36086fc7041dbe965b1046bcb))
+* **blog-core:** change sourceNodes to async ([422aa4a](https://github.com/cieloazul310/gatsby-aoi/commit/422aa4a1ce75e033e338db8066a0e9a3632391b8))
+* eslint configure ([ca538e2](https://github.com/cieloazul310/gatsby-aoi/commit/ca538e2dec5079cf94524a95315c84e37395c21f))
 
 
+### Features
 
-
-
-# [1.6.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.5.0...v1.6.0) (2022-02-05)
-
-**Note:** Version bump only for package gatsby-starter-aoi-blog
-
-
-
-
-
-# [1.5.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.4.0...v1.5.0) (2022-01-28)
-
-
-### Bug Fixes
-
-* remove unnecessary comments ([2c89400](https://github.com/cieloazul310/gatsby-aoi/commit/2c89400a836888c25afcd582a8184eb65c132d3e))
-
-
-
-
-
-# [1.4.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.5...v1.4.0) (2022-01-26)
-
-**Note:** Version bump only for package gatsby-starter-aoi-blog
-
-
-
-
-
-## [1.3.5](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.4...v1.3.5) (2022-01-24)
-
-**Note:** Version bump only for package gatsby-starter-aoi-theme
-
-
-
-
-
-## [1.3.4](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.3...v1.3.4) (2022-01-24)
-
-
-### Bug Fixes
-
-* update package.json ([e59f201](https://github.com/cieloazul310/gatsby-aoi/commit/e59f20160e16ba76b45e64ce85a5985af5666ff6))
-
-
-
-
-
-## [1.3.3](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.2...v1.3.3) (2022-01-24)
-
-**Note:** Version bump only for package gatsby-starter-aoi-theme
-
-
-
-
-
-## [1.3.2](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.1...v1.3.2) (2022-01-24)
-
-
-### Bug Fixes
-
-* package.json `files` field ([ed414c4](https://github.com/cieloazul310/gatsby-aoi/commit/ed414c46b4519a7164f15b351cede97365936a65))
-
-
-
-
-
-## [1.3.1](https://github.com/cieloazul310/gatsby-aoi/compare/v1.3.0...v1.3.1) (2022-01-24)
-
-**Note:** Version bump only for package gatsby-starter-aoi-theme
-
-
-
-
-
-# 1.3.0 (2022-01-24)
-
-**Note:** Version bump only for package gatsby-starter-aoi-theme
+* **blog-components:** Add `muiComponents` ([5e1e608](https://github.com/cieloazul310/gatsby-aoi/commit/5e1e608449a35074a4beb317cb7a25ade72ac8bd))

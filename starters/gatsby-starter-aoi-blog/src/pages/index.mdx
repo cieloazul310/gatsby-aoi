@@ -4,19 +4,34 @@ date: 2022-01-25
 ---
 
 import { graphql } from 'gatsby';
-import MdxPostEdgesList from '../components/MdxPostList';
+import { MdxPostEdgesList } from '@cieloazul310/gatsby-theme-aoi-blog';
 
-## Introduction
+Gatsby Theme Aoi Blog は、**Gatsby Theme Aoi** で作成された [Gatsby スターター][Gatsby Starters]です。Gatsby Theme Aoi は [MUI] (Material-UI) で構成された [Gatsby テーマ][Gatsby Themes] です。Gatsby Theme Aoi には以下のような特徴があります。
 
-![Hello, World!](../images/IMG_7450.jpeg)
-
-Gatsby Theme Aoi Blog
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat. Duis viverra elit eu diam tincidunt lobortis. Proin lorem justo, faucibus et mollis ut, lobortis nec nisi. Ut nisi mauris, varius nec metus id, rhoncus scelerisque nisl. Morbi leo urna, pretium quis maximus ut, suscipit at arcu. Maecenas ultrices, risus ac mattis malesuada, risus risus aliquet ex, ac condimentum ex enim eget libero. Sed fermentum rutrum urna, vitae suscipit nunc tempus eget. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse luctus mattis dui, quis eleifend enim convallis eget. Phasellus nec luctus leo. Proin condimentum felis nec luctus egestas. In in sagittis augue. Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus vulputate posuere vehicula.
+- [Gatsby] v4、[MUI] v5 に対応
+- [MUI] で構成されたシンプルなレイアウト
+- [MUI] コンポーネントに [Gatsby のルーティング][Gatsby Link]を実装したコンポーネント
+- [MUI] や [emotion] の設定不要
+- ダークモードを実装
+- サイトを包括したステートの実装
 
 ### Recent posts
 
 <MdxPostEdgesList edges={props.data.allMdxPost.edges} />
+
+[Gatsby]: https://www.gatsbyjs.com/ "Gatsby"
+[MUI]: https://mui.org/ "MUI"
+[emotion]: https://emotion.sh/ "Emotion" 
+
+[Gatsby Themes]: https://gatsbyjs.com/docs/themes/ "Themes"
+[Gatsby Starters]: https://www.gatsbyjs.com/docs/starters/ "Gatsby Starters"
+[Gatsby Link]: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/ "Gatsby Link API"
+
+[`@cieloazul310/gatsby-theme-aoi`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi
+[`@cieloazul310/gatsby-theme-aoi-components`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-components
+[`@cieloazul310/gatsby-theme-aoi-layout`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-layout
+[`@cieloazul310/gatsby-theme-aoi-top-layout`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-top-layout
+[`@cieloazul310/gatsby-theme-aoi-utils`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-utils
 
 export const query = graphql`
   query {

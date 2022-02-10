@@ -1,12 +1,13 @@
 # Gatsby Theme Aoi
 
-**Gatsby Theme Aoi** は、[MUI] (Material-UI) で構成された [Gatsby] テーマです。Gatsby Theme Aoi には以下のような特徴があります。
+**Gatsby Theme Aoi** は、@cieloazul310 が作成した [**Gatsby テーマ**][Gatsby テーマ]です。Gatsby Theme Aoi には以下のような機能があります。
 
-- MUI で構成されたレイアウト
-- MUI コンポーネントに Gatsby のルーティングを実装したコンポーネント
-- `<MuiThemeProvider>` の設定不要
+- MUI v5 に対応
+- MUI や emotion の設定不要
+- レスポンシブで拡張性のあるレイアウト (Aoi レイアウト)
+- 独自のコンポーネント
+- サイト全体のグローバルな state を実装 (App State)
 - ダークモードを実装
-- サイトを包括したステート実装
 
 Gatsby テーマについて  
 <https://gatsbyjs.com/docs/themes/>
@@ -69,7 +70,7 @@ yarn run build
 yarn add @cieloazul310/gatsby-theme-aoi
 ```
 
-以下の peer dependencies パッケージをインストール  
+以下の peerDependencies パッケージをインストール  
 [`@mui/material`](https://www.npmjs.com/package/@mui/material) [`@mui/icons-material`](https://www.npmjs.com/package/@mui/icons-material) [`@emotion/react`](https://www.npmjs.com/package/@emotion/react) [`@emotion/styled`](https://www.npmjs.com/package/@emotion/styled)
 
 ```shell

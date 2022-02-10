@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.6.1...v1.7.0) (2022-02-10)
+
+
+### Bug Fixes
+
+* **blog-core:** change sourceNodes to async ([422aa4a](https://github.com/cieloazul310/gatsby-aoi/commit/422aa4a1ce75e033e338db8066a0e9a3632391b8))
+* **blog-utils:** fix validUrl ([8368a6a](https://github.com/cieloazul310/gatsby-aoi/commit/8368a6aad98ff6a9b5d69d018ca3a40f7c0fd98e))
+* eslint configure ([ca538e2](https://github.com/cieloazul310/gatsby-aoi/commit/ca538e2dec5079cf94524a95315c84e37395c21f))
+* **layout:** Header contents alignment ([2f2e4e8](https://github.com/cieloazul310/gatsby-aoi/commit/2f2e4e844047727c1ad0ca24d9016425c5b97dbf))
+* **theme:** fix eslint ([7f9da57](https://github.com/cieloazul310/gatsby-aoi/commit/7f9da57cf32fea8ef9c0413b0babc804e9438d14))
+
+
+### Features
+
+* **blog-components:** Add `muiComponents` ([5e1e608](https://github.com/cieloazul310/gatsby-aoi/commit/5e1e608449a35074a4beb317cb7a25ade72ac8bd))
+* **blog-template:** author pages get previous/next author's avatar ([d2426e1](https://github.com/cieloazul310/gatsby-aoi/commit/d2426e1ffca0af2ba3ef7e3c918a3ba05ecf18e2))
+* **blog:** create packages ([984f10d](https://github.com/cieloazul310/gatsby-aoi/commit/984f10dbd6bd7479e57dbd2f2435f20727fbec7c))
+* **components:** Add `<InlineCode>`, `<Ul>`, `<Ol>` and `<Li>` ([b7bc4a3](https://github.com/cieloazul310/gatsby-aoi/commit/b7bc4a3a001812443ceee2abbf7c81014af6cb37))
+* **components:** Add line-height to `<Paragraph>` and `<SubParagraph>`, and add widen margin-bottom of `<H4>`, `<H5>` and `<H6>` ([09a7faf](https://github.com/cieloazul310/gatsby-aoi/commit/09a7faf1bb293061beda49261de48daab3b21f63))
+
+
+
+
+
 ## [1.6.1](https://github.com/cieloazul310/gatsby-aoi/compare/v1.6.0...v1.6.1) (2022-02-05)
 
 

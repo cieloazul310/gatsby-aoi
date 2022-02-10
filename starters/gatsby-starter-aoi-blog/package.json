@@ -1,8 +1,8 @@
 {
   "name": "gatsby-starter-aoi-blog",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "private": true,
-  "description": "Gatsby blog starter built with @cieloazul310/gatsby-theme-aoi",
+  "description": "Gatsby blog theme starter built with @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "license": "ISC",
@@ -12,6 +12,9 @@
     "dev": "gatsby develop -o",
     "clean": "gatsby clean",
     "serve": "gatsby serve -o",
+    "post": "gatsby-aoi-blog new post --mdx --canonical",
+    "eslint": "eslint src/",
+    "prettier": "prettier \"{src,gatsby-node,content}/**/*.{js,jsx,ts,tsx}\" --parser typescript --write",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {
@@ -27,34 +30,24 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1",
-    "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "^1.6.1",
-    "@cieloazul310/gatsby-theme-aoi-blog-components": "^1.6.1",
+    "@cieloazul310/gatsby-theme-aoi": "^1.7.0",
+    "@cieloazul310/gatsby-theme-aoi-blog": "^1.7.0",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@mdx-js/mdx": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
     "@mui/icons-material": "^5.3.0",
     "@mui/material": "^5.3.0",
-    "@types/mdx-js__react": "^1.5.5",
-    "@types/react-helmet": "^6.1.5",
     "gatsby": "^4.5.4",
-    "gatsby-core-utils": "^3.6.0",
     "gatsby-plugin-image": "^2.5.2",
-    "gatsby-plugin-mdx": "^3.5.2",
-    "gatsby-plugin-sharp": "^4.5.2",
-    "gatsby-remark-images": "^6.5.2",
+    "gatsby-plugin-twitter": "^4.7.0",
+    "gatsby-remark-embed-snippet": "^7.6.0",
     "gatsby-remark-prismjs": "^6.5.0",
-    "gatsby-remark-responsive-iframe": "^5.5.0",
-    "gatsby-source-filesystem": "^4.5.2",
-    "gatsby-transformer-sharp": "^4.5.0",
+    "prism-themes": "^1.9.0",
     "prismjs": "^1.26.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-helmet": "^6.1.0",
-    "yaml": "^1.10.2"
+    "react-helmet": "^6.1.0"
   }
 }

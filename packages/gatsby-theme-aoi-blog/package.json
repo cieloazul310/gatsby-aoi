@@ -1,0 +1,61 @@
+{
+  "name": "@cieloazul310/gatsby-theme-aoi-blog",
+  "version": "1.7.0",
+  "description": "> TODO: description",
+  "author": "cieloazul310 <cieloazul310@gmail.com>",
+  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
+  "license": "ISC",
+  "main": "index.ts",
+  "bin": {
+    "gatsby-aoi-blog": "./cli.js"
+  },
+  "files": [
+    "index.ts",
+    "gatsby-config.js",
+    "cli.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/gatsby-theme-aoi-blog"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
+  },
+  "peerDependencies": {
+    "@cieloazul310/gatsby-theme-aoi": "^1.6.1",
+    "@mui/icons-material": "^5.0.0",
+    "@mui/material": "^5.0.0",
+    "gatsby": "^4.0.0",
+    "react": "^16.8.6 || ^17.0.0",
+    "react-dom": "^16.8.6 || ^17.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-graphql": "^4.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@cieloazul310/gatsby-theme-aoi-blog-cli": "^1.7.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "^1.7.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-core": "^1.7.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^1.7.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^1.7.0"
+  }
+}

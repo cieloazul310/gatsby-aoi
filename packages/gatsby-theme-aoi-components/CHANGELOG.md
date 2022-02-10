@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.6.1...v1.7.0) (2022-02-10)
+
+
+### Bug Fixes
+
+* eslint configure ([ca538e2](https://github.com/cieloazul310/gatsby-aoi/commit/ca538e2dec5079cf94524a95315c84e37395c21f))
+
+
+### Features
+
+* **blog-components:** Add `muiComponents` ([5e1e608](https://github.com/cieloazul310/gatsby-aoi/commit/5e1e608449a35074a4beb317cb7a25ade72ac8bd))
+* **components:** Add `<InlineCode>`, `<Ul>`, `<Ol>` and `<Li>` ([b7bc4a3](https://github.com/cieloazul310/gatsby-aoi/commit/b7bc4a3a001812443ceee2abbf7c81014af6cb37))
+* **components:** Add line-height to `<Paragraph>` and `<SubParagraph>`, and add widen margin-bottom of `<H4>`, `<H5>` and `<H6>` ([09a7faf](https://github.com/cieloazul310/gatsby-aoi/commit/09a7faf1bb293061beda49261de48daab3b21f63))
+
+
+
+
+
 ## [1.6.1](https://github.com/cieloazul310/gatsby-aoi/compare/v1.6.0...v1.6.1) (2022-02-05)
 
 

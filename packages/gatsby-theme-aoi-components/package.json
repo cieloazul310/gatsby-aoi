@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-components",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "MUI based components for @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
@@ -31,6 +31,7 @@
     "build": "rimraf lib && tsc",
     "dev": "tsc -w",
     "prepare": "npm run build",
+    "eslint": "eslint src/",
     "storybook": "start-storybook -p 6006"
   },
   "devDependencies": {

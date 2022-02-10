@@ -15,6 +15,7 @@ function ButtonRight({ title }: Props) {
       <Box
         sx={{
           padding: 1.5,
+          mr: -1.5,
           display: { xs: 'block', md: 'none' },
         }}
       >
@@ -22,7 +23,7 @@ function ButtonRight({ title }: Props) {
           sx={{
             width: 24,
             height: 24,
-            marginRight: -1.5,
+            mr: -1.5,
           }}
         />
       </Box>

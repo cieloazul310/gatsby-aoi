@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.6.1...v1.7.0) (2022-02-10)
+
+
+### Bug Fixes
+
+* **theme:** fix eslint ([7f9da57](https://github.com/cieloazul310/gatsby-aoi/commit/7f9da57cf32fea8ef9c0413b0babc804e9438d14))
+
+
+### Features
+
+* **blog-components:** Add `muiComponents` ([5e1e608](https://github.com/cieloazul310/gatsby-aoi/commit/5e1e608449a35074a4beb317cb7a25ade72ac8bd))
+
+
+
+
+
 ## [1.6.1](https://github.com/cieloazul310/gatsby-aoi/compare/v1.6.0...v1.6.1) (2022-02-05)
 
 **Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi

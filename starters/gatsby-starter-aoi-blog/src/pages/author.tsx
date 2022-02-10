@@ -1,14 +1,13 @@
 import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import {
+  Layout,
   Jumbotron,
   Section,
   SectionDivider,
   Article,
 } from '@cieloazul310/gatsby-theme-aoi';
-import Layout from '../layout';
-import AuthorBox from '../components/AuthorBox';
-import { AuthorBrowser } from '../../types';
+import { AuthorBox, AuthorBrowser } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
   allAuthor: {
@@ -31,7 +30,7 @@ type PageData = {
 function AuthorPage({ data }: PageProps<PageData>) {
   const { edges } = data.allAuthor;
   return (
-    <Layout title="Authors">
+    <Layout title="Authors" componentViewports={{ bottomNav: false }}>
       <article>
         <header>
           <Jumbotron title="Authors" maxWidth="md" />

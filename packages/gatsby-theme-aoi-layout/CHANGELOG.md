@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.6.1...v1.7.0) (2022-02-10)
+
+
+### Bug Fixes
+
+* eslint configure ([ca538e2](https://github.com/cieloazul310/gatsby-aoi/commit/ca538e2dec5079cf94524a95315c84e37395c21f))
+* **layout:** Header contents alignment ([2f2e4e8](https://github.com/cieloazul310/gatsby-aoi/commit/2f2e4e844047727c1ad0ca24d9016425c5b97dbf))
+
+
+
+
+
 ## [1.6.1](https://github.com/cieloazul310/gatsby-aoi/compare/v1.6.0...v1.6.1) (2022-02-05)
 
 

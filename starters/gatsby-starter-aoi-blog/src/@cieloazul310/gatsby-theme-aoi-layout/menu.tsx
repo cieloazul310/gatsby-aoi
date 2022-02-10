@@ -36,7 +36,7 @@ const menu = [
     icon: <TagIcon />,
   },
   {
-    title: 'Author',
+    title: 'Authors',
     path: '/author/',
     icon: <AuthorIcon />,
   },

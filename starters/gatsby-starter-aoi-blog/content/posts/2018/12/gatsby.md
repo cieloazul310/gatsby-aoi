@@ -1,9 +1,14 @@
 ---
-title: Gatsby入門
+title: YouTube embed preview
 date: 2018-12-24
-categories: ['TypeScript']
-tags: ['Gatsby']
+categories: ['Markdown Preview']
+tags: ['Markdown', 'MDX', 'New Order', 'YouTube']
 author: cieloazul310
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+This page is a preeview of embedding `<iframe>` element with [gatsby-remark-responsive-iframe].
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xxDv_RTdLQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+
+[gatsby-remark-responsive-iframe]: https://www.gatsbyjs.com/plugins/gatsby-remark-responsive-iframe/ "gatsby-remark-responsive-iframe"

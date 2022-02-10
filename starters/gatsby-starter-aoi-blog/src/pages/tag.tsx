@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import {
+  Layout,
   Section,
   SectionDivider,
   Jumbotron,
   Article,
   AppLink,
 } from '@cieloazul310/gatsby-theme-aoi';
-import Layout from '../layout';
 
 type PageData = {
   allMdxPost: {
@@ -23,7 +23,7 @@ type PageData = {
 function TagPage({ data }: PageProps<PageData>) {
   const { group } = data.allMdxPost;
   return (
-    <Layout title="Tags">
+    <Layout title="Tags" componentViewports={{ bottomNav: false }}>
       <article>
         <header>
           <Jumbotron title="Tags" maxWidth="md" />
@@ -51,7 +51,7 @@ export default TagPage;
 
 export const query = graphql`
   query {
-    allMdxPost {
+    allMdxPost(sort: { fields: date, order: DESC }) {
       group(field: tags) {
         totalCount
         fieldValue

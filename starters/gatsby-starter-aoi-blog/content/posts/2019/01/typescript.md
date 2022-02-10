@@ -1,5 +1,5 @@
 ---
-title: TypeScript入門
+title: Guest author preview
 date: 2019-01-10
 categories: ['JavaScript']
 tags: ['TypeScript']

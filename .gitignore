@@ -132,3 +132,5 @@ dist
 # build
 packages/*/lib
 starters/*/public
+
+starters/cli-test

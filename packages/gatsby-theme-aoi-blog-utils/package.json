@@ -1,0 +1,56 @@
+{
+  "name": "@cieloazul310/gatsby-theme-aoi-blog-utils",
+  "version": "1.7.0",
+  "description": "> TODO: description",
+  "author": "cieloazul310 <cieloazul310@gmail.com>",
+  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/gatsby-theme-aoi-blog-utils"
+  },
+  "scripts": {
+    "build": "rimraf lib && tsc",
+    "dev": "tsc -w",
+    "prepare": "npm run build",
+    "eslint": "eslint src/"
+  },
+  "bugs": {
+    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
+  },
+  "peerDependencies": {
+    "gatsby": "^4.0.0",
+    "gatsby-plugin-image": "^2.5.2",
+    "gatsby-source-filesystem": "^4.5.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-graphql": "^4.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "gatsby": "^4.0.0",
+    "gatsby-plugin-image": "^2.5.2",
+    "gatsby-source-filesystem": "^4.5.2",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
+  }
+}

@@ -7,15 +7,17 @@ import { useTheme, alpha } from '@mui/material/styles';
 export type JumbotronProps = {
   title?: string;
   maxWidth?: ContainerProps['maxWidth'];
+  height?: number;
   bgcolor?: string;
   bgImage?: string;
-  children?: React.ReactNode;
   gradient?: boolean;
+  children?: React.ReactNode;
 };
 
 function Jumbotron({
   title,
   maxWidth,
+  height,
   bgImage,
   bgcolor,
   children,
@@ -25,14 +27,18 @@ function Jumbotron({
   return (
     <Box
       sx={{
-        height: 240,
+        height: height ?? 240,
         display: 'flex',
         justifyContent: 'center',
         position: 'relative',
         overflow: 'hidden',
-        bgcolor:
-          bgcolor ??
-          (palette.mode === 'light' ? 'secondary.light' : palette.grey[800]),
+        bgcolor: (theme) => {
+          if (bgcolor) return bgcolor;
+          if (bgImage) return undefined;
+          return theme.palette.mode === 'light'
+            ? 'secondary.light'
+            : theme.palette.grey[800];
+        },
         backgroundImage:
           !bgImage && !bgcolor && gradient
             ? `linear-gradient(135deg, ${alpha(
@@ -55,13 +61,13 @@ function Jumbotron({
               `blur(4px) brightness(${
                 theme.palette.mode === 'light' ? 0.7 : 0.5
               })`,
-            transform: 'scale(1.1)',
+            transform: 'scale(1.2)',
           }}
         />
       ) : null}
       <Container
         sx={{
-          height: 240,
+          height: height ?? 240,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -89,6 +95,7 @@ Jumbotron.defaultProps = {
   bgcolor: undefined,
   bgImage: undefined,
   maxWidth: undefined,
+  height: undefined,
   gradient: true,
   children: undefined,
 };

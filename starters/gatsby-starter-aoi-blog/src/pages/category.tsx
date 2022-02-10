@@ -4,6 +4,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import {
+  Layout,
   Section,
   SectionDivider,
   Jumbotron,
@@ -11,9 +12,10 @@ import {
   AppLink,
   ListItemLink,
 } from '@cieloazul310/gatsby-theme-aoi';
-import Layout from '../layout';
-import MdxPostEdgesList from '../components/MdxPostList';
-import { MdxPostBrowser } from '../../types';
+import {
+  MdxPostEdgesList,
+  MdxPostBrowser,
+} from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
   allMdxPost: {
@@ -32,7 +34,7 @@ type PageData = {
 function CategoryPage({ data }: PageProps<PageData>) {
   const { group } = data.allMdxPost;
   return (
-    <Layout title="Categories">
+    <Layout title="Categories" componentViewports={{ bottomNav: false }}>
       <article>
         <header>
           <Jumbotron title="Categories" maxWidth="md" />
@@ -86,7 +88,7 @@ export default CategoryPage;
 
 export const query = graphql`
   query {
-    allMdxPost {
+    allMdxPost(sort: { fields: date, order: DESC }) {
       group(field: categories, limit: 2) {
         totalCount
         fieldValue
