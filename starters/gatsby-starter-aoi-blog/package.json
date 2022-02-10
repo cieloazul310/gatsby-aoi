@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-aoi-blog-theme",
+  "name": "gatsby-starter-aoi-blog",
   "version": "1.6.1",
   "private": true,
   "description": "Gatsby blog theme starter built with @cieloazul310/gatsby-theme-aoi",
@@ -18,7 +18,6 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-cli": "^1.6.1",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "eslint": "^8.7.0",
@@ -40,12 +39,10 @@
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.3.0",
     "@mui/material": "^5.3.0",
-    "@types/react-helmet": "^6.1.5",
     "gatsby": "^4.5.4",
     "gatsby-plugin-image": "^2.5.2",
     "gatsby-remark-embed-snippet": "^7.6.0",
     "gatsby-remark-prismjs": "^6.5.0",
-    "gatsby-source-filesystem": "^4.5.2",
     "prism-themes": "^1.9.0",
     "prismjs": "^1.26.0",
     "react": "^17.0.2",

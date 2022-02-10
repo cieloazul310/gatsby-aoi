@@ -16,7 +16,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cieloazul310/gatsby-aoi.git"
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/gatsby-theme-aoi-blog-core"
   },
   "scripts": {
     "eslint": "eslint gatsby-node/",
