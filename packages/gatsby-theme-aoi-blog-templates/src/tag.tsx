@@ -1,22 +1,23 @@
 import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import Typography from '@mui/material/Typography';
+import List from '@mui/material/List';
 import {
   Jumbotron,
   Section,
   SectionDivider,
   Article,
-} from '@cieloazul310/gatsby-theme-aoi';
+} from '@cieloazul310/gatsby-theme-aoi-components';
 import {
   Pagination,
   DrawerPageNavigation,
   PageNavigationContainer,
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
+import { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
-import Layout from '../layout';
-import MdxPostEdgesList from '../components/MdxPostList';
-import { MdxPostBrowser } from '../../types';
+import Layout from './layout';
+import MdxPostEdgesList from './components/MdxPostList';
 
 type PageData = {
   allMdxPost: {
@@ -46,13 +47,10 @@ type PageContext = {
   numPages: number;
   currentPage: number;
   basePath: string;
-  totalCount: number;
+  totalCount: string;
 };
 
-function CategoryTemplate({
-  data,
-  pageContext,
-}: PageProps<PageData, PageContext>) {
+function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
   const { allMdxPost } = data;
   const {
     fieldValue,
@@ -63,7 +61,6 @@ function CategoryTemplate({
     basePath,
     totalCount,
   } = pageContext;
-
   return (
     <Layout
       title={fieldValue}
@@ -79,9 +76,9 @@ function CategoryTemplate({
       <article>
         <header>
           <Jumbotron maxWidth="md">
-            <Typography>Category</Typography>
+            <Typography>Tag</Typography>
             <Typography variant="h4" component="h2" gutterBottom>
-              {fieldValue}
+              {`#${fieldValue}`}
             </Typography>
             <Typography>{totalCount} posts</Typography>
           </Jumbotron>
@@ -89,7 +86,9 @@ function CategoryTemplate({
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            <MdxPostEdgesList edges={allMdxPost.edges} />
+            <List>
+              <MdxPostEdgesList edges={allMdxPost.edges} />
+            </List>
             <Pagination
               numPages={numPages}
               currentPage={currentPage}
@@ -118,12 +117,12 @@ function CategoryTemplate({
   );
 }
 
-export default CategoryTemplate;
+export default TagTemplate;
 
 export const query = graphql`
-  query Category($fieldValue: String!, $skip: Int!, $limit: Int!) {
+  query Tag($fieldValue: String!, $skip: Int!, $limit: Int!) {
     allMdxPost(
-      filter: { categories: { eq: $fieldValue } }
+      filter: { tags: { eq: $fieldValue } }
       sort: { fields: date, order: DESC }
       limit: $limit
       skip: $skip

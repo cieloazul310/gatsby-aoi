@@ -35,8 +35,7 @@
   },
   "dependencies": {
     "@cieloazul310/gatsby-theme-aoi": "^1.6.1",
-    "@cieloazul310/gatsby-theme-aoi-blog-components": "^1.6.1",
-    "@cieloazul310/gatsby-theme-aoi-blog-core": "^1.6.1",
+    "@cieloazul310/gatsby-theme-aoi-blog": "^1.6.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.3.0",

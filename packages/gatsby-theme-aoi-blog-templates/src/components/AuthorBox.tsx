@@ -7,9 +7,9 @@ import {
   SocialLink,
   AppLink,
   ExternalLink,
-} from '@cieloazul310/gatsby-theme-aoi';
+} from '@cieloazul310/gatsby-theme-aoi-components';
+import { AuthorBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import { AuthorIcon } from '../icons';
-import { AuthorBrowser } from '../../types';
 
 type AuthorBoxProps = {
   author: Pick<

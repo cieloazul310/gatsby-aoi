@@ -12,18 +12,21 @@ import {
   Paragraph,
   ExternalLink,
   SocialLink,
-} from '@cieloazul310/gatsby-theme-aoi';
+} from '@cieloazul310/gatsby-theme-aoi-components';
 import {
   Pagination,
   DrawerPageNavigation,
   PageNavigationContainer,
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
+import {
+  MdxPostBrowser,
+  AuthorBrowser,
+} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
-import Layout from '../layout';
-import { AuthorIcon } from '../icons';
-import MdxPostEdgesList from '../components/MdxPostList';
-import { MdxPostBrowser, AuthorBrowser } from '../../types';
+import Layout from './layout';
+import { AuthorIcon } from './icons';
+import MdxPostEdgesList from './components/MdxPostList';
 
 type PageData = {
   author: Pick<

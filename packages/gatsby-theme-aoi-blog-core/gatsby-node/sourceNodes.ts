@@ -3,9 +3,7 @@ import * as path from 'path';
 import * as yaml from 'yaml';
 import { SourceNodesArgs } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
-import withDefaults from '../utils/default-options';
-import { createSlug, validURL } from './utils';
-import { AuthorBare, ThemeOptions } from '../types';
+import { withDefaults, createSlug, validURL, AuthorBare, ThemeOptions } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 export default function sourceNodes(
   { actions, createNodeId, createContentDigest, getCache }: SourceNodesArgs,

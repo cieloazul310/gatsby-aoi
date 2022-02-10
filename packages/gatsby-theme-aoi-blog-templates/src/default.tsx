@@ -5,12 +5,12 @@ import {
   Section,
   SectionDivider,
   Jumbotron,
-} from '@cieloazul310/gatsby-theme-aoi';
+} from '@cieloazul310/gatsby-theme-aoi-components';
 import { muiComponents } from '@cieloazul310/gatsby-theme-aoi-blog-components';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRendererProps } from 'gatsby-plugin-mdx';
-import Layout from '../layout';
-import shortcodes from '../shortcodes';
+import Layout from './layout';
+import shortcodes from './shortcodes';
 
 type Props = Omit<PageProps, 'children'> &
   MDXRendererProps & {

@@ -7,9 +7,7 @@ import {
   SectionDivider,
   Article,
 } from '@cieloazul310/gatsby-theme-aoi';
-import AuthorBox from '@cieloazul310/gatsby-theme-aoi-blog-core/src/components/AuthorBox';
-import { AuthorBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-core';
-// import AuthorBox from '../components/AuthorBox';
+import { AuthorBox, AuthorBrowser } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
   allAuthor: {

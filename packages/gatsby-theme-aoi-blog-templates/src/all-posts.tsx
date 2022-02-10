@@ -6,13 +6,12 @@ import {
   Section,
   SectionDivider,
   Article,
-} from '@cieloazul310/gatsby-theme-aoi';
+} from '@cieloazul310/gatsby-theme-aoi-components';
 import { Pagination } from '@cieloazul310/gatsby-theme-aoi-blog-components';
+import { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
-import Layout from '../layout';
-import MdxPostEdgesList from '../components/MdxPostList';
-
-import { MdxPostBrowser } from '../../types';
+import Layout from './layout';
+import MdxPostEdgesList from './components/MdxPostList';
 
 type PageData = {
   allMdxPost: {

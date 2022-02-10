@@ -7,10 +7,16 @@ import {
   GraphQLResolveInfo,
   GraphQLObjectType,
 } from 'gatsby/graphql';
-import withDefaults from '../utils/default-options';
-import { isString } from './utils';
-import { GatsbyGraphQLContext } from './graphql';
-import { AuthorBare, MdxPost, MdxPostBare, MdxNode, ThemeOptions } from '../types';
+import {
+  withDefaults,
+  isString,
+  AuthorBare,
+  MdxPost,
+  MdxPostBare,
+  MdxNode,
+  ThemeOptions,
+  GatsbyGraphQLContext,
+} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 async function processMdxPostRelativeImage(
   source: MdxPostBare,
