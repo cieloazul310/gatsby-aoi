@@ -12,10 +12,10 @@ import {
   AppLink,
   ListItemLink,
 } from '@cieloazul310/gatsby-theme-aoi';
-import MdxPostEdgesList from '@cieloazul310/gatsby-theme-aoi-blog-core/src/components/MdxPostList';
-import { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-core';
-// import MdxPostEdgesList from '../components/MdxPostList';
-// import { MdxPostBrowser } from '../../types';
+import {
+  MdxPostEdgesList,
+  MdxPostBrowser,
+} from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
   allMdxPost: {

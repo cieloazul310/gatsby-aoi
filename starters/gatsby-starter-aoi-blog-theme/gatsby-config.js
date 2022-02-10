@@ -45,7 +45,7 @@ module.exports = {
       },
     },
     {
-      resolve: `@cieloazul310/gatsby-theme-aoi-blog-core`,
+      resolve: `@cieloazul310/gatsby-theme-aoi-blog`,
       options: {
         assetPath: `content/images`,
         gatsbyRemarkPlugins: [

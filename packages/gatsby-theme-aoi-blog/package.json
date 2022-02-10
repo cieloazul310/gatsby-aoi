@@ -6,8 +6,13 @@
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
   "main": "index.ts",
+  "bin": {
+    "gatsby-aoi-blog": "./cli.js"
+  },
   "files": [
-    "lib"
+    "index.ts",
+    "gatsby-config.js",
+    "cli.js"
   ],
   "publishConfig": {
     "access": "public"
@@ -42,6 +47,7 @@
     "@cieloazul310/gatsby-theme-aoi-blog-cli": "^1.6.1",
     "@cieloazul310/gatsby-theme-aoi-blog-components": "^1.6.1",
     "@cieloazul310/gatsby-theme-aoi-blog-core": "^1.6.1",
-    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^1.6.1"
+    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^1.6.1",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^1.6.1"
   }
 }

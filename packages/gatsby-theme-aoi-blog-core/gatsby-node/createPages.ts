@@ -1,4 +1,4 @@
-import * as path from 'path';
+// import * as path from 'path';
 import { CreatePagesArgs } from 'gatsby';
 import { withDefaults, MdxPost, MdxPostMonth, ThemeOptions } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
@@ -108,7 +108,8 @@ export default async function createPagesasync(
 
     createPage({
       path: node.slug,
-      component: path.resolve(__dirname, `../src/templates/posts.tsx`),
+      // component: path.resolve(__dirname, `../src/templates/posts.tsx`),
+      component: require.resolve('@cieloazul310/gatsby-theme-aoi-blog-templates/src/posts.tsx'),
       context: { previous, next, id: node.id },
     });
   });
@@ -120,7 +121,10 @@ export default async function createPagesasync(
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? basePaths.posts : `${basePaths.posts}/${i + 1}`,
-      component: path.resolve(__dirname, '../src/templates/all-posts.tsx'),
+      // component: path.resolve(__dirname, '../src/templates/all-posts.tsx'),
+      component: require.resolve(
+        '@cieloazul310/gatsby-theme-aoi-blog-templates/src/all-posts.tsx'
+      ),
       context: {
         title: 'All Posts',
         limit: postsPerPage,
@@ -145,7 +149,10 @@ export default async function createPagesasync(
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
           path: i === 0 ? `${category.slug}` : `${category.slug}/${i + 1}`,
-          component: path.resolve(__dirname, '../src/templates/category.tsx'),
+          // component: path.resolve(__dirname, '../src/templates/category.tsx'),
+          component: require.resolve(
+            '@cieloazul310/gatsby-theme-aoi-blog-templates/src/category.tsx'
+          ),
           context: {
             previous,
             next,
@@ -174,7 +181,10 @@ export default async function createPagesasync(
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
           path: i === 0 ? `${tag.slug}` : `${tag.slug}/${i + 1}`,
-          component: path.resolve(__dirname, '../src/templates/tag.tsx'),
+          // component: path.resolve(__dirname, '../src/templates/tag.tsx'),
+          component: require.resolve(
+            '@cieloazul310/gatsby-theme-aoi-blog-templates/src/tag.tsx'
+          ),
           context: {
             previous,
             next,
@@ -202,7 +212,8 @@ export default async function createPagesasync(
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `${node.slug}` : `${node.slug}/${i + 1}`,
-        component: path.resolve(__dirname, '../src/templates/author.tsx'),
+        // component: path.resolve(__dirname, '../src/templates/author.tsx'),
+        component: require.resolve('@cieloazul310/gatsby-theme-aoi-blog-templates/src/author.tsx'),
         context: {
           previous,
           next,
@@ -228,7 +239,10 @@ export default async function createPagesasync(
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? basePath : `${basePath}/${i + 1}`,
-        component: path.resolve(__dirname, '../src/templates/archive.tsx'),
+        // component: path.resolve(__dirname, '../src/templates/archive.tsx'),
+        component: require.resolve(
+          '@cieloazul310/gatsby-theme-aoi-blog-templates/src/archive.tsx'
+        ),
         context: {
           previous,
           next,

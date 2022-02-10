@@ -9,7 +9,7 @@ import {
   Article,
   ListItemLink,
 } from '@cieloazul310/gatsby-theme-aoi';
-import { MdxPostMonth } from '@cieloazul310/gatsby-theme-aoi-blog-core';
+import { MdxPostMonth } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
   months: MdxPostMonth[];

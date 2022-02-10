@@ -48,7 +48,7 @@ module.exports = (themeOptions) => {
         options: {
           extensions: [`.mdx`, `.md`],
           defaultLayouts: {
-            default: require.resolve('./src/templates/default.tsx'),
+            default: require.resolve('@cieloazul310/gatsby-theme-aoi-blog-templates/src/default.tsx'),
           },
           gatsbyRemarkPlugins: [
             {
