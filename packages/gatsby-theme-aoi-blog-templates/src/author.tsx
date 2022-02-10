@@ -38,21 +38,13 @@ type PageData = {
       node: Pick<MdxPostBrowser, 'id' | 'title' | 'slug' | 'date' | 'author'>;
     }[];
   };
+  previous: (Pick<AuthorBrowser, 'name' | 'avatar'> & { slug: string }) | null;
+  next: (Pick<AuthorBrowser, 'name' | 'avatar'> & { slug: string }) | null;
 };
 
 type PageContext = {
-  previous: {
-    node: {
-      slug: string;
-      name: string;
-    };
-  } | null;
-  next: {
-    node: {
-      slug: string;
-      name: string;
-    };
-  } | null;
+  previous: string | null;
+  next: string | null;
   type: string;
   fieldValue: string;
   limit: number;
@@ -67,9 +59,8 @@ function AuthorTemplate({
   data,
   pageContext,
 }: PageProps<PageData, PageContext>) {
-  const { author, allMdxPost } = data;
-  const { previous, next, numPages, currentPage, basePath, totalCount } =
-    pageContext;
+  const { author, allMdxPost, previous, next } = data;
+  const { numPages, currentPage, basePath, totalCount } = pageContext;
   const bgImage =
     author.avatar?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
   const bgcolor =
@@ -82,11 +73,9 @@ function AuthorTemplate({
       drawerContents={
         <DrawerPageNavigation
           previous={
-            previous
-              ? { to: previous.node.slug, title: previous.node.name }
-              : null
+            previous ? { to: previous.slug, title: previous.name } : null
           }
-          next={next ? { to: next.node.slug, title: next.node.name } : null}
+          next={next ? { to: next.slug, title: next.name } : null}
         />
       }
     >
@@ -165,17 +154,57 @@ function AuthorTemplate({
           <Section>
             <PageNavigationContainer>
               <PageNavigationItem
-                to={previous?.node.slug ?? '#'}
+                to={previous?.slug ?? '#'}
                 disabled={!previous}
               >
-                <Typography variant="body2">{previous?.node.name}</Typography>
+                <Box display="flex" flexDirection="row" alignItems="center">
+                  <Avatar
+                    sx={{ mr: 2 }}
+                    src={
+                      previous?.avatar?.childImageSharp.gatsbyImageData.images
+                        .fallback?.src
+                    }
+                    srcSet={
+                      previous?.avatar?.childImageSharp.gatsbyImageData.images
+                        .fallback?.srcSet
+                    }
+                    sizes={
+                      previous?.avatar?.childImageSharp.gatsbyImageData.images
+                        .fallback?.sizes
+                    }
+                    alt={previous?.name}
+                  >
+                    <AuthorIcon />
+                  </Avatar>
+                  <Typography variant="body2">{previous?.name}</Typography>
+                </Box>
               </PageNavigationItem>
-              <PageNavigationItem
-                to={next?.node.slug ?? '#'}
-                next
-                disabled={!next}
-              >
-                <Typography variant="body2">{next?.node.name}</Typography>
+              <PageNavigationItem to={next?.slug ?? '#'} next disabled={!next}>
+                <Box
+                  display="flex"
+                  flexDirection="row-reverse"
+                  alignItems="center"
+                >
+                  <Avatar
+                    sx={{ ml: 2 }}
+                    src={
+                      next?.avatar?.childImageSharp.gatsbyImageData.images
+                        .fallback?.src
+                    }
+                    srcSet={
+                      next?.avatar?.childImageSharp.gatsbyImageData.images
+                        .fallback?.srcSet
+                    }
+                    sizes={
+                      next?.avatar?.childImageSharp.gatsbyImageData.images
+                        .fallback?.sizes
+                    }
+                    alt={next?.name}
+                  >
+                    <AuthorIcon />
+                  </Avatar>
+                  <Typography variant="body2">{next?.name}</Typography>
+                </Box>
               </PageNavigationItem>
             </PageNavigationContainer>
           </Section>
@@ -188,7 +217,13 @@ function AuthorTemplate({
 export default AuthorTemplate;
 
 export const query = graphql`
-  query Author($fieldValue: String!, $skip: Int!, $limit: Int!) {
+  query Author(
+    $fieldValue: String!
+    $skip: Int!
+    $limit: Int!
+    $previous: String
+    $next: String
+  ) {
     author(name: { eq: $fieldValue }) {
       avatar {
         childImageSharp {
@@ -221,6 +256,24 @@ export const query = graphql`
           }
         }
       }
+    }
+    previous: author(name: { eq: $previous }) {
+      avatar {
+        childImageSharp {
+          gatsbyImageData(width: 400)
+        }
+      }
+      name
+      slug
+    }
+    next: author(name: { eq: $next }) {
+      avatar {
+        childImageSharp {
+          gatsbyImageData(width: 400)
+        }
+      }
+      name
+      slug
     }
   }
 `;

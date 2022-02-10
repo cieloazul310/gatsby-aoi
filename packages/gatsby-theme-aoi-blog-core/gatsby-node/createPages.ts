@@ -207,8 +207,8 @@ export default async function createPagesasync(
         path: i === 0 ? `${node.slug}` : `${node.slug}/${i + 1}`,
         component: require.resolve('@cieloazul310/gatsby-theme-aoi-blog-templates/src/author.tsx'),
         context: {
-          previous,
-          next,
+          previous: previous?.node.name,
+          next: next?.node.name,
           type: 'Author',
           fieldValue: node.name,
           limit: postsPerPage,
