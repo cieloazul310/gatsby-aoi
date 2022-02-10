@@ -2,7 +2,12 @@ import * as path from 'path';
 import { CreateNodeArgs, Node, GatsbyCache } from 'gatsby';
 import { createContentDigest } from 'gatsby-core-utils';
 import { createFilePath, createRemoteFileNode } from 'gatsby-source-filesystem';
-import { withDefaults, validURL, MdxBare, ThemeOptions } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import {
+  withDefaults,
+  validURL,
+  MdxBare,
+  ThemeOptions,
+} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 declare module 'gatsby-source-filesystem' {
   type CreateRemoteFileNodeArgsFixed = Omit<
@@ -21,13 +26,16 @@ function isMdxNode(node: Node & Record<string, unknown>): node is MdxBare {
   return typeof node.frontmatter === 'object';
 }
 
-export default async function onCreateNode({
-  node,
-  actions: { createNode, createParentChildLink },
-  getNode,
-  createNodeId,
-  getCache,
-}: CreateNodeArgs, themeOptions: ThemeOptions) {
+export default async function onCreateNode(
+  {
+    node,
+    actions: { createNode, createParentChildLink },
+    getNode,
+    createNodeId,
+    getCache,
+  }: CreateNodeArgs,
+  themeOptions: ThemeOptions
+) {
   const options = withDefaults(themeOptions);
 
   // you only want to operate on `Mdx` nodes. If you had content from a

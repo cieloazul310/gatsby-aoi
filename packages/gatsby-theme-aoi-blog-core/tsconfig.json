@@ -1,12 +1,21 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["./src/**/*", "./utils/**/*", "./gatsby-*/**/*", "gatsby-*.js", "index.js", ".eslintrc.js"],
-  "ts-node": {
-    "transpileOnly": true,
-    "files": true,
-    "compilerOptions": {
-      "module": "commonjs",
-      "target": "esnext",
-    }
-  }
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "lib",
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "skipLibCheck": true,
+    "strictBindCallApply": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "declaration": true
+  },
+  "include": ["./src/**/*"],
 }

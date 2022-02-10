@@ -1,14 +1,15 @@
-/* eslint import/no-extraneous-dependencies: warn */
 /* eslint @typescript-eslint/no-var-requires: warn */
-require('ts-node').register();
 
-exports.createPages = require('./gatsby-node/index').createPages;
+const {
+  createPages,
+  createResolvers,
+  createSchemaCustomization,
+  onCreateNode,
+  sourceNodes,
+} = require('./lib');
 
-exports.createResolvers = require('./gatsby-node/index').createResolvers;
-
-exports.createSchemaCustomization =
-  require('./gatsby-node/index').createSchemaCustomization;
-
-exports.onCreateNode = require('./gatsby-node/index').onCreateNode;
-
-exports.sourceNodes = require('./gatsby-node/index').sourceNodes;
+exports.createPages = createPages;
+exports.createResolvers = createResolvers;
+exports.createSchemaCustomization = createSchemaCustomization;
+exports.onCreateNode = onCreateNode;
+exports.sourceNodes = sourceNodes;
