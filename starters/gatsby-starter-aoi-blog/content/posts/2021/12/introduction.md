@@ -1,7 +1,7 @@
 ---
 title: Gatsby Theme Aoiについて
 date: 2021-12-20
-categories: ["Gatsby Theme Aoi"]
+categories: []
 tags: ["Gatsby", "MUI", "TypeScript"]
 author: cieloazul310
 image: ./IMG_8906.jpeg
