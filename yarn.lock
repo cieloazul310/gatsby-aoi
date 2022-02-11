@@ -9664,7 +9664,7 @@ gatsby-react-router-scroll@^5.7.0:
     "@babel/runtime" "^7.15.4"
     prop-types "^15.7.2"
 
-gatsby-remark-embed-snippet@^7.6.0:
+gatsby-remark-embed-snippet@^7.7.0:
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/gatsby-remark-embed-snippet/-/gatsby-remark-embed-snippet-7.7.0.tgz#9e67e8439ff3ed2d30ee384ba737c85ef119f5c0"
   integrity sha512-4Uxm3V9VRr/2tMCFOB9UlhMFekj0691exF5xriOfwYP3OSetgar5mUxVYqpTMMRyYJ20Nu8+9HheUmpPAZhjuQ==
@@ -9691,7 +9691,7 @@ gatsby-remark-images@^6.5.2:
     unist-util-select "^3.0.4"
     unist-util-visit-parents "^3.1.1"
 
-gatsby-remark-prismjs@^6.5.0:
+gatsby-remark-prismjs@^6.7.0:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-6.7.0.tgz#3f38b3ccec8976279af7508b37ee17fe2dd50af6"
   integrity sha512-+ZpB5HYZuQI6rT2b9N2AXi8XQ/Q3sSAeHW1EMJigcaL5syzkVeD9PssKGfvC+1r224xnUBTR/9QkdDcCNqPNMA==

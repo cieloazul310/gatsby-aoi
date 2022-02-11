@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/cieloazul310/gatsby-aoi/compare/v1.7.1...v1.7.2) (2022-02-11)
+
+
+### Bug Fixes
+
+* **blog-cli:** packages version ([46a2a8d](https://github.com/cieloazul310/gatsby-aoi/commit/46a2a8d5a08fa1e13bfa55a94ae3027746d50ed0))
+
+
+
+
+
 ## [1.7.1](https://github.com/cieloazul310/gatsby-aoi/compare/v1.7.0...v1.7.1) (2022-02-10)
 
 **Note:** Version bump only for package gatsby-starter-aoi-blog
