@@ -1,23 +1,25 @@
 import * as React from 'react';
-import { withPrefix } from 'gatsby';
 import BottomNavigation from '@mui/material/BottomNavigation';
-// icons
-import Home from '@mui/icons-material/Home';
-import MusicNote from '@mui/icons-material/MusicNote';
-import { useLocation } from '@reach/router';
-import { BottomNavItem } from '@cieloazul310/gatsby-theme-aoi-components';
+import { BottomNavigationAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
+import { usePathnameWithoutPrefix } from '@cieloazul310/gatsby-theme-aoi-utils';
+import bottomNavMenu from '../bottomnav-menu';
 
 function BottomNav() {
-  const { pathname } = useLocation();
-
+  const pathname = usePathnameWithoutPrefix();
   return (
     <BottomNavigation
       sx={{ borderTop: 1, borderColor: 'divider' }}
-      value={pathname.replace(withPrefix('/'), '/')}
+      value={pathname}
       showLabels
     >
-      <BottomNavItem label="Top" value="/" icon={<Home />} />
-      <BottomNavItem label="Page2" value="/page-2/" icon={<MusicNote />} />
+      {bottomNavMenu.map(({ title, path, icon }) => (
+        <BottomNavigationAppLink
+          key={path}
+          value={path}
+          label={title}
+          icon={icon}
+        />
+      ))}
     </BottomNavigation>
   );
 }

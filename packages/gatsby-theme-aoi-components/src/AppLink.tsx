@@ -3,6 +3,9 @@ import * as React from 'react';
 import { Link as GatsbyLink, GatsbyLinkProps, withPrefix } from 'gatsby';
 import MuiLink, { LinkProps as MuiLinkProps } from '@mui/material/Link';
 import Button, { ButtonProps } from '@mui/material/Button';
+import BottomNavigationAction, {
+  BottomNavigationActionProps,
+} from '@mui/material/BottomNavigationAction';
 import { useLocation } from '@reach/router';
 import clsx from 'clsx';
 
@@ -90,6 +93,25 @@ export function AppLinkButton(props: AppLinkButtonProps) {
       to={to}
       ref={innerRef}
       color={color}
+      {...other}
+    />
+  );
+}
+
+export type BottomNavigationAppLinkProps = ButtonPropsBase &
+  Omit<GatsbyLinkComposedProps, 'to'> &
+  Omit<BottomNavigationActionProps, 'ref'>;
+
+export function BottomNavigationAppLink(props: BottomNavigationAppLinkProps) {
+  const { label, icon, showLabel, innerRef, value, ...other } = props;
+  return (
+    <BottomNavigationAction
+      label={label}
+      ref={innerRef}
+      component={GatsbyLinkComposed}
+      to={value}
+      icon={icon}
+      showLabel={showLabel}
       {...other}
     />
   );

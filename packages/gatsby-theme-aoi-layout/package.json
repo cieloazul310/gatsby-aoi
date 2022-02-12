@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-layout",
-  "version": "1.7.1",
+  "version": "2.0.0",
   "description": "MUI based layout component for @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
@@ -53,9 +53,9 @@
     "typescript": "^4.5.4"
   },
   "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-components": "^1.6.0",
-    "@cieloazul310/gatsby-theme-aoi-top-layout": "^1.6.0",
-    "@cieloazul310/gatsby-theme-aoi-utils": "^1.6.0",
+    "@cieloazul310/gatsby-theme-aoi-components": "^2.0.0",
+    "@cieloazul310/gatsby-theme-aoi-top-layout": "^2.0.0",
+    "@cieloazul310/gatsby-theme-aoi-utils": "^2.0.0",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.0.0",
