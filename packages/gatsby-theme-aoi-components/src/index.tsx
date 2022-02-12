@@ -3,6 +3,7 @@ export {
   AppLinkButton,
   AppLinkProps,
   AppLinkButtonProps,
+  BottomNavigationAppLink,
 } from './AppLink';
 export {
   default as Article,
@@ -22,7 +23,6 @@ export {
   Ol,
   Li,
 } from './Article';
-export { default as BottomNavItem } from './BottomNavItem';
 export { default as ExternalLink, ExternalLinkProps } from './ExternalLink';
 export { default as Jumbotron, JumbotronProps } from './Jumbotron';
 export {
