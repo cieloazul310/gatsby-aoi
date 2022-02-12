@@ -1,0 +1,80 @@
+---
+title: Gatsby Theme Aoi で App State を設定する
+date: 2022-01-31T00:00:00.000Z
+categories: ["Gatsby Theme Aoi"]
+tags: []
+author: Unknown author
+image: 
+imageAlt: 
+---
+
+import { AppLink } from '@cieloazul310/gatsby-theme-aoi';
+
+Gatsby Theme Aoi には Gatsby サイト全体で保持されるグローバルな state である App State を設定できます。この機能も前回同様、[Gatsby テーマ]の [Shadowing] で実装します。
+
+### App State ファイルを作成
+
+```tsx
+```
+
+### App State を使う
+
+```tsx
+// ./src/pages/index.tsx
+import { useAppState } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext.tsx';
+
+function IndexPage() {
+  const appState = useAppState();
+
+  return (
+    <Layout>
+      <h1>App State Example</h1>
+      <p>current count is {appState.count}</p>
+    </Layout>
+  );
+}
+
+export default IndexPage;
+```
+
+### App State を更新する
+
+```tsx
+// ./src/pages/index.tsx
+import { useAppState, useDispatch } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext.tsx';
+
+function IndexPage() {
+  const appState = useAppState();
+  const dispatch = useDispatch();
+  const increment = () => {
+    dispatch({ type: 'INCREMENT' });
+  };
+  const decrement = () => {
+    dispatch({ type: 'DECREMENT' });
+  };
+
+  return (
+    <Layout>
+      <h1>App State Example</h1>
+      <p>current count is {appState.count}</p>
+      <button onClick={increment}>
+        Increment
+      </button>
+      <button onClick={decrement}>
+        Decrement
+      </button>
+    </Layout>
+  );
+}
+
+export default IndexPage;
+```
+
+[Gatsby]: https://gatsbyjs.com/ "Gatsby"
+[MUI]: https://mui.org/ "MUI"
+[TypeScript]: https://typescriptlang.org/ "TypeScript"
+
+[Gatsby テーマ]: https://gatsbyjs.com/docs/themes/ "Themes"
+[Gatsby スターター]: https://www.gatsbyjs.com/docs/starters/ "Gatsby Starters"
+[Shadowing]: https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/ "Shadowing in Gatsby Themes"
+[Gatsby Link]: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/ "Gatsby Link API"
