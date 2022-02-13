@@ -45,7 +45,28 @@ Gatsby プロジェクトは以下のような構成になります。
 
 ### MUI テーマファイルの中身
 
+以下のファイルは実際にこのサイトで使われているテーマです。[パレット](https://mui.com/customization/palette/)の設定とフォントサイズの設定をしています。
+
+[responsiveFontSizes](https://mui.com/customization/typography/#responsive-font-sizes) というヘルパー関数は、見出しに使われる文字サイズを画面の横幅に応じて自動で設定してくれます。このサイトでは、その他に `typography.body1` と `typography.body2` という本文で使われる文字サイズを、`xs` サイズ (横幅 600px 未満)のときに縮小しています。日本語のフォントは欧文フォントよりも大きく見えるため、小さい文字サイズが適当かもしれません。
+
+```tsx
+const theme = createTheme({
+  typography: {
+    // In Chinese and Japanese the characters are usually larger,
+    // so a smaller fontsize may be appropriate.
+    fontSize: 12,
+  },
+});
+```
+https://mui.com/customization/typography/#font-size
+
 `embed:theme.ts`
+
+テーマの設定について詳しくは MUI 公式のドキュメントを参照ください。
+
+Theming  
+<https://mui.com/customization/theming/>
+
 
 [Gatsby]: https://gatsbyjs.com/ "Gatsby"
 [MUI]: https://mui.org/ "MUI"
