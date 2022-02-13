@@ -4,10 +4,7 @@ const toPath = (filePath) => path.join(process.cwd(), filePath);
 
 module.exports = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: [
-    '@storybook/addon-essentials',
-    // 'storybook-addon-material-ui5',
-  ],
+  addons: ['@storybook/addon-essentials'],
   webpackFinal: async (config) => {
     return {
       ...config,
