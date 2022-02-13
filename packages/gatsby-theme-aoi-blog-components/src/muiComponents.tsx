@@ -24,6 +24,10 @@ import {
   Ul,
   Ol,
   Li,
+  ErrorMessage,
+  Warning,
+  Info,
+  Success,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 
 function Table({ children }: TableProps) {
@@ -74,6 +78,10 @@ const components = {
   hr: Hr,
   AppLink,
   SubParagraph,
+  ErrorMessage,
+  Warning,
+  Info,
+  Success,
 };
 
 export default components;

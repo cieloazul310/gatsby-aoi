@@ -190,3 +190,63 @@ export function Li(props: Omit<TypographyProps, 'ref'>) {
     <Typography variant="body1" component="li" lineHeight={1.8} {...props} />
   );
 }
+
+export function ErrorMessage(props: Omit<TypographyProps, 'ref'>) {
+  return (
+    <Typography
+      variant="body2"
+      paragraph
+      bgcolor={({ palette }) =>
+        alpha(palette.error.light, palette.action.disabledOpacity)
+      }
+      p={2}
+      borderRadius={2}
+      {...props}
+    />
+  );
+}
+
+export function Warning(props: Omit<TypographyProps, 'ref'>) {
+  return (
+    <Typography
+      variant="body2"
+      paragraph
+      bgcolor={({ palette }) =>
+        alpha(palette.warning.light, palette.action.disabledOpacity)
+      }
+      p={2}
+      borderRadius={2}
+      {...props}
+    />
+  );
+}
+
+export function Info(props: Omit<TypographyProps, 'ref'>) {
+  return (
+    <Typography
+      variant="body2"
+      paragraph
+      bgcolor={({ palette }) =>
+        alpha(palette.info.light, palette.action.disabledOpacity)
+      }
+      p={2}
+      borderRadius={2}
+      {...props}
+    />
+  );
+}
+
+export function Success(props: Omit<TypographyProps, 'ref'>) {
+  return (
+    <Typography
+      variant="body2"
+      paragraph
+      bgcolor={({ palette }) =>
+        alpha(palette.success.light, palette.action.disabledOpacity)
+      }
+      p={2}
+      borderRadius={2}
+      {...props}
+    />
+  );
+}
