@@ -7,10 +7,7 @@ import Article, {
   Ul,
   Ol,
   Li,
-  ErrorMessage,
-  Warning,
-  Info,
-  Success,
+  Alert,
 } from '../Article';
 
 export default {
@@ -29,34 +26,34 @@ export function Shortcodes() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
       </Paragraph>
-      <ErrorMessage>
+      <Alert severity="error" title="Not found">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
-      </ErrorMessage>
+      </Alert>
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
       </Paragraph>
-      <Warning>
+      <Alert severity="warning">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
-      </Warning>
+      </Alert>
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
       </Paragraph>
-      <Info>
+      <Alert severity="info" title="hoge">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
-      </Info>
+      </Alert>
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
       </Paragraph>
-      <Success>
+      <Alert severity="success">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
-      </Success>
+      </Alert>
       <SubParagraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
