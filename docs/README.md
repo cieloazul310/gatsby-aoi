@@ -93,7 +93,7 @@ module.exports = {
 }
 ```
 
-## 2. レイアウトを使う
+## 2. レイアウトを使う (Gatsby Theme Aoi Layout)
 
 Gatsby Theme Aoi Layout は、MUI の `<AppBar>`, `<Drawer>`, `<BottomNavigation>`, `<Fab>` を組み込んだレイアウトです。
 
@@ -110,9 +110,9 @@ function Page() {
 export default Page;
 ```
 
-詳細は [`@cieloazul310/gatsby-theme-aoi-layout`] へ
+詳細は [Gatsby Theme Aoi Layout API リファレンス](gatsby-theme-aoi-layout.md) へ
 
-## 3. コンポーネントを使う
+## 3. コンポーネントを使う (Gatsby Theme Aoi Components)
 
 ```tsx
 import {
@@ -166,7 +166,7 @@ MUI の Link コンポーネントに、[Gatsby Link] の機能を加えたコ�
 
 記事のためのレイアウトコンポーネント。通常、`<Section>` 内で使用。
 
-詳細は [`@cieloazul310/gatsby-theme-aoi-components`] へ
+詳細は [Gatsby Theme Aoi Components API リファレンス](gatsby-theme-aoi-components.md) へ
 
 ## 4. Shadowing
 
@@ -258,7 +258,7 @@ Gatsbyプロジェクトは以下のようなディレクトリ構成になる
     └── pages
 ```
 
-### MUI テーマを変更する
+### MUI テーマを変更する (Gatsby Theme Aoi Top Layout)
 
 Shadowing で [MUI テーマ](https://mui.com/customization/theming/)を変更します。
 
@@ -279,7 +279,7 @@ const theme = createTheme({
 export default responsiveFontSizes(theme);
 ```
 
-### AppState を作成する
+### AppState を作成する (Gatsby Theme Aoi Top Layout)
 
 `src/@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppState.ts`
 
@@ -317,7 +317,7 @@ export default function reducer(state: AppState, action: Action): AppState {
 }
 ```
 
-### AppState を使用する
+### AppState を使用する (Gatsby Theme Aoi Top Layout)
 
 [`AppStateContext.tsx`](https://github.com/cieloazul310/gatsby-aoi/blob/main/packages/gatsby-theme-aoi-top-layout/src/utils/AppStateContext.tsx)をコピーし、`src/@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext.tsx` 貼り付けると、TypeScript で型が崩れることなく `AppState` を使用できます。
 
@@ -345,7 +345,9 @@ function Page() {
 export default Page;
 ```
 
-### メニューを作成する
+詳細は [Gatsby Theme Aoi Top Layout API リファレンス](gatsby-theme-aoi-top-layout.md) へ
+
+### メニューを作成する (Gatsby Theme Aoi Layout)
 
 `src/@cieloazul310/gatsby-theme-aoi-layout/menu.tsx`
 
@@ -370,6 +372,8 @@ const menu: Menu[] = [
 
 export default menu;
 ```
+
+詳細は [Gatsby Theme Aoi Layout API リファレンス](gatsby-theme-aoi-layout.md) へ
 
 ## Gatsby Theme Aoi packages
 
