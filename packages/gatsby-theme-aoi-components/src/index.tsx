@@ -22,10 +22,7 @@ export {
   Ul,
   Ol,
   Li,
-  ErrorMessage,
-  Warning,
-  Info,
-  Success,
+  Alert,
 } from './Article';
 export { default as ExternalLink, ExternalLinkProps } from './ExternalLink';
 export { default as Jumbotron, JumbotronProps } from './Jumbotron';
