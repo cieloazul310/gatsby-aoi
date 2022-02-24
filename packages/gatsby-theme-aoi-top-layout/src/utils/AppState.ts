@@ -1,8 +1,14 @@
+import * as React from 'react';
+
 export type AppState = {
   // noop
 };
 
 export const initialAppState: AppState = {};
+
+export function useInitialAppState(isMobile: boolean) {
+  return initialAppState;
+}
 
 export type Action = { type: 'RESET' } | { type: 'ECHO' };
 
