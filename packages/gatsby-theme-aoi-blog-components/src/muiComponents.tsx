@@ -24,6 +24,7 @@ import {
   Ul,
   Ol,
   Li,
+  Alert,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 
 function Table({ children }: TableProps) {
@@ -74,6 +75,7 @@ const components = {
   hr: Hr,
   AppLink,
   SubParagraph,
+  Alert,
 };
 
 export default components;

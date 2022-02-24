@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cieloazul310/gatsby-aoi/compare/v2.0.0...v2.1.0) (2022-02-24)
+
+
+### Features
+
+* **blog-components:** Add `<ErrorMessage>`, `<Warnig>`, `<Info>` and `<Success>` components ([731a85a](https://github.com/cieloazul310/gatsby-aoi/commit/731a85afdb86a0eb76e6e9bc4cc581b0d667df11))
+
+
+
+
+
 # [2.0.0](https://github.com/cieloazul310/gatsby-aoi/compare/v1.7.2...v2.0.0) (2022-02-12)
 
 **Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-blog-components

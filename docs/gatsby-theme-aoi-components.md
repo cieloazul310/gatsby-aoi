@@ -1,6 +1,6 @@
-# @cieloazul310/gatsby-theme-aoi-components
+# Gatsby Theme Aoi Components API
 
-> A components libary for [`@cieloazul310/gatsby-theme-aoi`] built with [MUI]
+Gatsby Theme Aoi Components は Gatsby Theme Aoi のためのコンポーネントパッケージです。
 
 [![npm version](https://badge.fury.io/js/@cieloazul310%2Fgatsby-theme-aoi-components.svg)](https://badge.fury.io/js/@cieloazul310%2Fgatsby-theme-aoi-components)
 
@@ -10,11 +10,13 @@
 import { AppLink } from '@cieloazul310/gatsby-theme-aoi';
 ```
 
+全てのコンポーネントは `@cieloazul310/gatsby-theme-aoi` からインポートできます。
+
 ## Components
 
 ### `<AppLink>`
 
-[Gatsby Link] + MUI [`Link`](https://mui.com/components/links/)
+[Gatsby Link] を MUI [`Link`](https://mui.com/components/links/) でスタイリングしたコンポーネント
 
 #### Example Code
 
@@ -34,7 +36,7 @@ MUI `Link` Props
 
 ### `<AppLinkButton>`
 
-[Gatsby Link] + MUI [`Button`](https://mui.com/components/buttons/)
+[Gatsby Link] を MUI [`Button`](https://mui.com/components/buttons/) でスタイリングしたコンポーネント
 
 #### Example Code
 
@@ -54,7 +56,7 @@ MUI `Button` Props
 
 ### `<BottomNavigationAppLink>`
 
-[Gatsby Link] + MUI [`BottomNavigationAction`](https://mui.com/api/bottom-navigation-action/)
+[Gatsby Link] を MUI [`BottomNavigationAction`](https://mui.com/api/bottom-navigation-action/) でスタイリングしたコンポーネント
 
 #### Example Code
 
@@ -89,7 +91,7 @@ function BottomNav() {
 MUI `BottomNavigationAction` Props  
 <https://mui.com/api/bottom-navigation-action/>
 
-NOTE: Gatsby Link's `to` prop is same to `value` prop.
+NOTE: Gatsby Link の `to` prop は `value` prop と同一の値を取ります.
 
 Source: <https://github.com/cieloazul310/gatsby-aoi/blob/main/packages/gatsby-theme-aoi-components/src/AppLink.tsx>
 
@@ -97,7 +99,7 @@ Source: <https://github.com/cieloazul310/gatsby-aoi/blob/main/packages/gatsby-th
 
 ### `<Article>`
 
-For article
+記事のためのコンポーネント
 
 #### Props
 
@@ -112,7 +114,7 @@ MUI `Container` Props
 
 ### `<ArticleTitle>`
 
-`<h2>`
+記事のタイトルのためのコンポーネント。`<h2>`
 
 #### Props
 
@@ -120,6 +122,8 @@ MUI `Typography` Props
 <https://mui.com/api/typography/>
 
 ### `<Paragraph>`
+
+段落のためのコンポーネント
 
 equivalent to:  
 `<Typography variant="body1" paragraph>`
@@ -131,6 +135,8 @@ MUI `Typography` Props
 
 ### `<SubParagraph>`
 
+小さい文字で構成された段落のためのコンポーネント
+
 equivalent to:  
 `<Typography variant="body2" paragraph>`
 
@@ -141,7 +147,7 @@ MUI `Typography` Props
 
 ### `<H3>`
 
-`<h3>` for Gatsby Theme Aoi
+Gatsby Theme Aoi のための `<h3>` コンポーネント
 
 #### Props
 
@@ -150,7 +156,7 @@ MUI `Typography` Props
 
 ### `<H4>`
 
-`<h4>` for Gatsby Theme Aoi
+Gatsby Theme Aoi のための `<h4>` コンポーネント
 
 #### Props
 
@@ -159,7 +165,7 @@ MUI `Typography` Props
 
 ### `<H5>`
 
-`<h5>` for Gatsby Theme Aoi
+Gatsby Theme Aoi のための `<h5>` コンポーネント
 
 #### Props
 
@@ -168,7 +174,7 @@ MUI `Typography` Props
 
 ### `<H6>`
 
-`<h6>` for Gatsby Theme Aoi
+Gatsby Theme Aoi のための `<h6>` コンポーネント
 
 #### Props
 
@@ -177,7 +183,7 @@ MUI `Typography` Props
 
 ### `<Blockquote>`
 
-`<blockquote>` for Gatsby Theme Aoi
+Gatsby Theme Aoi のための `<blockquote>` コンポーネント
 
 #### Props
 
@@ -186,11 +192,11 @@ MUI `Typography` Props
 
 ### `<Hr>`
 
-MUI `Divider` with margin-top and margin-bottom
+MUI の `Divider` に margin-top and margin-bottom を与えたコンポーネント
 
 ### `<InlineCode>`
 
-`<code>` for Gatsby Theme Aoi
+Gatsby Theme Aoi のための `<code>` コンポーネント
 
 #### Props
 
@@ -199,7 +205,7 @@ MUI `Typography` Props
 
 ### `<Ul>`
 
-`<ul>` for Gatsby Theme Aoi
+Gatsby Theme Aoi のための `<ul>` コンポーネント
 
 #### Props
 
@@ -208,7 +214,7 @@ MUI `Typography` Props
 
 ### `<Ol>`
 
-`<ol>` for Gatsby Theme Aoi
+Gatsby Theme Aoi のための `<ol>` コンポーネント
 
 #### Props
 
@@ -217,7 +223,7 @@ MUI `Typography` Props
 
 ### `<Li>`
 
-`<li>` for Gatsby Theme Aoi
+Gatsby Theme Aoi のための `<li>` コンポーネント
 
 #### Props
 
@@ -226,7 +232,7 @@ MUI `Typography` Props
 
 ### `<Alert>`
 
-Simplified MUI `<Alert>`
+MUI の `<Alert>` を簡略化したもの。
 
 #### Props
 
@@ -256,7 +262,7 @@ Source: <https://github.com/cieloazul310/gatsby-aoi/blob/main/packages/gatsby-th
 
 ### `<ExternalLink>`
 
-MUI [`Link`](https://mui.com/components/links/) with `target="_blank" rel="noopener noreferrer"`
+デフォルトで `target="_blank" rel="noopener noreferrer"` の値がついた MUI [`Link`](https://mui.com/components/links/) コンポーネント
 
 #### Example Code
 
@@ -272,7 +278,7 @@ Source: <https://github.com/cieloazul310/gatsby-aoi/blob/main/packages/gatsby-th
 
 ### `<Jumbotron>`
 
-Jumbotorn like Bootstrap
+Bootstarp の Jumbotron のようなコンポーネント
 
 #### Example Code
 
@@ -294,15 +300,15 @@ Jumbotorn like Bootstrap
 
 #### Props
 
-| name        | Type              | Default     |
-|-------------|-------------------|-------------|
-| `children?` | `React.ReactNode` | `undefined` |
-| `title?`    | `string`          | `undefined` |
-| `maxWidth?` | `Breakpoints`     | `undefined` |
-| `height?`   | `number`          | `undefined` |
-| `bgColor?`  | `string`          | `undefined` |
-| `bgImage?`  | `string`          | `undefined` |
-| `gradient?` | `boolean`         | `undefined` |
+| name        | Type              | Default     | Description      |
+|-------------|-------------------|-------------|------------------|
+| `children?` | `React.ReactNode` | `undefined` | 子要素 |
+| `title?`    | `string`          | `undefined` | タイトル (`children` がある場合は非表示) |
+| `maxWidth?` | `Breakpoints`     | `undefined` | コンテナーの `maxWidth` |
+| `height?`   | `number`          | `undefined` | 高さ           |
+| `bgColor?`  | `string`          | `undefined` | 背景色 |
+| `bgImage?`  | `string`          | `undefined` | 背景画像 |
+| `gradient?` | `boolean`         | `undefined` | 背景色のグラデーションエフェクト |
 
 Source: <https://github.com/cieloazul310/gatsby-aoi/blob/main/packages/gatsby-theme-aoi-components/src/Jumbotron.tsx>
 
@@ -310,7 +316,7 @@ Source: <https://github.com/cieloazul310/gatsby-aoi/blob/main/packages/gatsby-th
 
 ### `<ListItemAppLink>`
 
-[Gatsby Link] + MUI [`ListItem`](https://mui.com/components/links/)
+[Gatsby Link] を MUI [`ListItem`](https://mui.com/components/links/) でスタイリングしたコンポーネント
 
 #### Example Code
 
@@ -340,8 +346,7 @@ Source: <https://github.com/cieloazul310/gatsby-aoi/blob/main/packages/gatsby-th
 ### `<ListItemLink>`
 
 [Gatsby Link] を装飾した Gatsby Theme Aoi 独自のコンポーネント。
-`xs` size: Button,
-`sm` size `ListItem` の `primaryText` がリンクになる。
+`xs` サイズではボタンに、`sm` サイズ以上では `ListItem` の `primaryText` がリンクになる。
 
 #### Example Code
 
@@ -444,7 +449,6 @@ MUI Icon にソーシャルアイコンを設定したコンポーネント
 | name   | Type              |
 |--------|-------------------|
 | `name` | `'email' | 'twitter' | 'facebook' | 'github' | 'instagram' | 'youtube' | 'linkedin' | string` |
-
 &  
 `IconProps`: <https://mui.com/api/icon/>
 
@@ -530,31 +534,8 @@ function Page() {
 | `children` | `React.ReactNode` | **Requried** |
 | `renderNeightbor?` | `boolean` | `false` |
 
-## Gatsby Theme Aoi packages
+Source: <https://github.com/cieloazul310/gatsby-aoi/blob/main/packages/gatsby-theme-aoi-components/src/TabPane.tsx>
 
-- [`@cieloazul310/gatsby-theme-aoi`]
-- [`@cieloazul310/gatsby-theme-aoi-components`]
-- [`@cieloazul310/gatsby-theme-aoi-layout`]
-- [`@cieloazul310/gatsby-theme-aoi-top-layout`]
-- [`@cieloazul310/gatsby-theme-aoi-utils`]
-
-## References
-
-- [Gatsby]
-- [MUI]
-- [gatsby-plugin-material-ui](https://github.com/hupe1980/gatsby-plugin-material-ui)
-- [gatsby-theme-material-ui](https://github.com/hupe1980/gatsby-theme-material-ui)
-
-[Gatsby]: https://www.gatsbyjs.com/ "Gatsby"
-[MUI]: https://mui.org/ "MUI"
-
-[Gatsby Themes]: https://gatsbyjs.com/docs/themes/ "Themes"
-[Gatsby Starters]: https://www.gatsbyjs.com/docs/starters/ "Gatsby Starters"
-[Shadowing]: https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/ "Shadowing in Gatsby Themes"
 [Gatsby Link]: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/ "Gatsby Link API"
-
-[`@cieloazul310/gatsby-theme-aoi`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi
-[`@cieloazul310/gatsby-theme-aoi-components`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-components
-[`@cieloazul310/gatsby-theme-aoi-layout`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-layout
-[`@cieloazul310/gatsby-theme-aoi-top-layout`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-top-layout
-[`@cieloazul310/gatsby-theme-aoi-utils`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-utils
+[`Typography`]: https://mui.com/components/typography/ "Typography"
+[MUI `Typography` Props]: https://mui.com/api/typography/
