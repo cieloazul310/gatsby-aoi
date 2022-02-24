@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Typography from '@mui/material/Typography';
 import {
   Layout,
   Article,
@@ -8,6 +7,8 @@ import {
   Section,
   SectionDivider,
   H3,
+  Ul,
+  Li,
   AppLink,
   AppLinkButton,
 } from '@cieloazul310/gatsby-theme-aoi';
@@ -25,33 +26,27 @@ function IndexPage() {
         <Section>
           <Article>
             <ArticleTitle>Features</ArticleTitle>
-            <Typography component="ul" paragraph>
-              <Typography component="li">TypeScript</Typography>
-              <Typography component="li">MUI</Typography>
-              <Typography component="li">
-                Mobile friendlly responsive UI layout
-              </Typography>
-              <Typography component="li">
-                MUI components composed with Gatsby routing
-              </Typography>
-              <Typography component="li">
-                Holding global app state / Count: {count}
-              </Typography>
-              <Typography component="li">Dark mode</Typography>
-            </Typography>
+            <Ul>
+              <Li>TypeScript</Li>
+              <Li>MUI</Li>
+              <Li>Mobile friendlly responsive UI layout</Li>
+              <Li>MUI components composed with Gatsby routing</Li>
+              <Li>Holding global app state / Count: {count}</Li>
+              <Li>Dark mode</Li>
+            </Ul>
             <H3>Layouts</H3>
-            <Typography component="ul" paragraph>
-              <Typography component="li">Simple with Drawer</Typography>
-              <Typography component="li">
+            <Ul>
+              <Li>Simple with Drawer</Li>
+              <Li>
                 Tab Layout <AppLink to="/tab-page/">Example</AppLink>
-              </Typography>
-              <Typography component="li">
+              </Li>
+              <Li>
                 Jumbotron <AppLink to="/jumbotron/">Example</AppLink>
-              </Typography>
-              <Typography component="li">
+              </Li>
+              <Li>
                 Full Width <AppLink to="/without-drawer/">Example</AppLink>
-              </Typography>
-            </Typography>
+              </Li>
+            </Ul>
             <AppLinkButton to="/catalogue/">Browse Catalogue</AppLinkButton>
           </Article>
         </Section>
