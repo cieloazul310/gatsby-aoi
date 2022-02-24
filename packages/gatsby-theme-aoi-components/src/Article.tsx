@@ -4,6 +4,8 @@ import Box from '@mui/material/Box';
 import Container, { ContainerProps } from '@mui/material/Container';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import MuiLink, { LinkProps } from '@mui/material/Link';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 import Divider from '@mui/material/Divider';
 import { alpha } from '@mui/material/styles';
 
@@ -178,11 +180,11 @@ export function InlineCode({ children }: Omit<TypographyProps, 'ref'>) {
 }
 
 export function Ul(props: Omit<TypographyProps, 'ref'>) {
-  return <Typography component="ul" py={2} m={0} {...props} />;
+  return <Typography component="ul" mt={2} mb={4} mx={0} {...props} />;
 }
 
 export function Ol(props: Omit<TypographyProps, 'ref'>) {
-  return <Typography component="ol" py={2} m={0} {...props} />;
+  return <Typography component="ol" mt={2} mb={4} mx={0} {...props} />;
 }
 
 export function Li(props: Omit<TypographyProps, 'ref'>) {
@@ -190,3 +192,20 @@ export function Li(props: Omit<TypographyProps, 'ref'>) {
     <Typography variant="body1" component="li" lineHeight={1.8} {...props} />
   );
 }
+
+export function Alert({
+  children,
+  title,
+  ...props
+}: AlertProps & { title?: React.ReactNode }) {
+  return (
+    <MuiAlert {...props} sx={{ ...props.sx, my: 4 }}>
+      {title ? <AlertTitle>{title}</AlertTitle> : null}
+      {children}
+    </MuiAlert>
+  );
+}
+
+Alert.defaultProps = {
+  title: undefined,
+};

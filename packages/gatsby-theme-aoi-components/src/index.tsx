@@ -22,6 +22,7 @@ export {
   Ul,
   Ol,
   Li,
+  Alert,
 } from './Article';
 export { default as ExternalLink, ExternalLinkProps } from './ExternalLink';
 export { default as Jumbotron, JumbotronProps } from './Jumbotron';

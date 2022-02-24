@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Divider from '@mui/material/Divider';
 import Jumbotron from '../Jumbotron';
 import Section, { SectionDivider } from '../Section';
 import Article, {
@@ -115,102 +113,6 @@ function Content() {
   );
 }
 
-function MuiContent() {
-  return (
-    <Article maxWidth="md">
-      <Typography variant="h2" gutterBottom>
-        Article Title
-      </Typography>
-      <Typography variant="h3" gutterBottom>
-        H3
-      </Typography>
-      <Typography paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
-        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
-        Duis viverra elit eu diam tincidunt lobortis. Proin lorem justo,
-        faucibus et mollis ut, lobortis nec nisi. Ut nisi mauris, varius nec
-        metus id, rhoncus scelerisque nisl. Morbi leo urna, pretium quis maximus
-        ut, suscipit at arcu. Maecenas ultrices, risus ac mattis malesuada,
-        risus risus aliquet ex, ac condimentum ex enim eget libero. Sed
-        fermentum rutrum urna, vitae suscipit nunc tempus eget. Orci varius
-        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Suspendisse luctus mattis dui, quis eleifend enim convallis eget.
-        Phasellus nec luctus leo. Proin condimentum felis nec luctus egestas. In
-        in sagittis augue. Quisque feugiat ac diam et laoreet. Curabitur a
-        tempus arcu. Vivamus vulputate posuere vehicula.
-      </Typography>
-      <Typography variant="h3" gutterBottom>
-        H3
-      </Typography>
-      <Typography paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
-        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
-        Duis viverra elit eu diam tincidunt lobortis. Proin lorem justo,
-        faucibus et mollis ut, lobortis nec nisi. Ut nisi mauris, varius nec
-        metus id, rhoncus scelerisque nisl. Morbi leo urna, pretium quis maximus
-        ut, suscipit at arcu. Maecenas ultrices, risus ac mattis malesuada,
-        risus risus aliquet ex, ac condimentum ex enim eget libero.
-      </Typography>
-      <Typography variant="h4" gutterBottom>
-        H4
-      </Typography>
-      <Typography paragraph>
-        Sed fermentum rutrum urna, vitae suscipit nunc tempus eget. Orci varius
-        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Suspendisse luctus mattis dui, quis eleifend enim convallis eget.
-        Phasellus nec luctus leo.
-      </Typography>
-      <Divider />
-      <Typography variant="h3" gutterBottom>
-        H3
-      </Typography>
-      <Typography paragraph>
-        Proin condimentum felis nec luctus egestas. In in sagittis augue.
-        Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
-        vulputate posuere vehicula.
-      </Typography>
-      <Typography variant="h4" gutterBottom>
-        H4
-      </Typography>
-      <Typography paragraph>
-        Proin condimentum felis nec luctus egestas. In in sagittis augue.
-        Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
-        vulputate posuere vehicula.
-      </Typography>
-      <Typography variant="h5" gutterBottom>
-        H5
-      </Typography>
-      <Typography paragraph>
-        Proin condimentum felis nec luctus egestas. In in sagittis augue.
-        Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
-        vulputate posuere vehicula.
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        H6
-      </Typography>
-      <Typography variant="body2" paragraph>
-        Proin condimentum felis nec luctus egestas. In in sagittis augue.
-        Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
-        vulputate posuere vehicula.
-      </Typography>
-      <Typography variant="h4" gutterBottom>
-        H4
-      </Typography>
-      <Typography component="blockquote">
-        Sed fermentum rutrum urna, vitae suscipit nunc tempus eget. Orci varius
-        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Suspendisse luctus mattis dui, quis eleifend enim convallis eget.
-        Phasellus nec luctus leo.
-      </Typography>
-      <Typography paragraph>
-        Proin condimentum felis nec luctus egestas. In in sagittis augue.
-        Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
-        vulputate posuere vehicula.
-      </Typography>
-    </Article>
-  );
-}
-
 function JapaneseText() {
   return (
     <Article maxWidth="md">
@@ -290,13 +192,6 @@ export function BasicContent() {
     </Basic>
   );
 }
-export function BasicMuiContent() {
-  return (
-    <Basic>
-      <MuiContent />
-    </Basic>
-  );
-}
 export function BasicJapaneseText() {
   return (
     <Basic>
@@ -335,13 +230,6 @@ export function WithAppBarContent() {
   return (
     <WithAppBar>
       <Content />
-    </WithAppBar>
-  );
-}
-export function WithAppBarMuiContent() {
-  return (
-    <WithAppBar>
-      <MuiContent />
     </WithAppBar>
   );
 }
@@ -387,13 +275,6 @@ export function WithJumbotronContent() {
   return (
     <WithJumbotron>
       <Content />
-    </WithJumbotron>
-  );
-}
-export function WithJumbotronMuiContent() {
-  return (
-    <WithJumbotron>
-      <MuiContent />
     </WithJumbotron>
   );
 }

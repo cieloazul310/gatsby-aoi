@@ -1,0 +1,73 @@
+---
+title: Gatsby Theme Aoi のパッケージ紹介
+date: 2022-02-01T00:00:00.000Z
+categories: ["Gatsby Theme Aoi"]
+tags: []
+author: cieloazul310
+image: 
+imageAlt: 
+---
+
+import { AppLink } from '@cieloazul310/gatsby-theme-aoi';
+
+Gatsby Theme Aoi は複数のパッケージのバンドルです。npm で [`@cieloazul310/gatsby-theme-aoi`] をインストールすると、以下のパッケージも同時にインストールされます。
+
+- [`@cieloazul310/gatsby-theme-aoi-components`]
+- [`@cieloazul310/gatsby-theme-aoi-layout`]
+- [`@cieloazul310/gatsby-theme-aoi-top-layout`]
+- [`@cieloazul310/gatsby-theme-aoi-utils`]
+
+ただしこれらのパッケージに含まれるレイアウトやコンポーネントは、全て `@cieloazul310/gatsby-theme-aoi` をエントリーポイントとして利用できます。したがって、これらのパッケージ名はテーマの設定やメニューの設定など [Shadowing] をする場合のみで目にすることになるでしょう。
+
+また、これらのパッケージは個別にインストールが可能です。
+
+```shell
+yarn add @cieloazul310/gatsby-theme-aoi-components
+```
+
+```tsx
+import { AppLink } from '@cieloazul310/gatsby-theme-aoi-components';
+```
+
+[hupe1980/gatsby-theme-material-ui](https://github.com/hupe1980/gatsby-theme-material-ui) のパッケージ構成を参考にしています。
+
+### @cieloazul310/gatsby-theme-aoi-components
+
+Gatsby Theme Aoi で使用される React コンポーネントのパッケージです。
+
+<https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-components>
+
+### @cieloazul310/gatsby-theme-aoi-layout
+
+Shadowing 可能なパッケージです。
+
+<https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-layout>
+
+### @cieloazul310/gatsby-theme-aoi-top-layout
+
+Shadowing 可能なパッケージです。
+
+<https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-top-layout>
+
+### @cieloazul310/gatsby-theme-aoi-utils
+
+主に Gatsby Theme Aoi 内で使用しているフックを提供しています。
+
+`useAbsoluteUrl` `useBaseUrl` `useSiteMetadata` `useSocialShare` `usePathnameWithoutPrefix`
+
+<https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-utils>
+
+[Gatsby]: https://gatsbyjs.com/ "Gatsby"
+[MUI]: https://mui.org/ "MUI"
+[TypeScript]: https://typescriptlang.org/ "TypeScript"
+
+[Gatsby テーマ]: https://gatsbyjs.com/docs/themes/ "Themes"
+[Gatsby スターター]: https://www.gatsbyjs.com/docs/starters/ "Gatsby Starters"
+[Shadowing]: https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/ "Shadowing in Gatsby Themes"
+[Gatsby Link]: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/ "Gatsby Link API"
+
+[`@cieloazul310/gatsby-theme-aoi`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi
+[`@cieloazul310/gatsby-theme-aoi-components`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-components
+[`@cieloazul310/gatsby-theme-aoi-layout`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-layout
+[`@cieloazul310/gatsby-theme-aoi-top-layout`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-top-layout
+[`@cieloazul310/gatsby-theme-aoi-utils`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-utils

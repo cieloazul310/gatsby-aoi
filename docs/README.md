@@ -1,6 +1,10 @@
 # Gatsby Theme Aoi
 
-**Gatsby Theme Aoi** は、@cieloazul310 が作成した [**Gatsby テーマ**][Gatsby テーマ]です。Gatsby Theme Aoi には以下のような機能があります。
+**Gatsby Theme Aoi** は、@cieloazul310 が作成した [**Gatsby テーマ**][Gatsby テーマ]です。
+
+[![npm version](https://badge.fury.io/js/@cieloazul310%2Fgatsby-theme-aoi.svg)](https://badge.fury.io/js/@cieloazul310%2Fgatsby-theme-aoi) [![Netlify Status](https://api.netlify.com/api/v1/badges/7e344c36-1d49-4331-8bfe-e29709401c91/deploy-status)](https://app.netlify.com/sites/gatsby-theme-aoi/deploys)
+
+Gatsby Theme Aoi には以下のような機能があります。
 
 - MUI v5 に対応
 - MUI や emotion の設定不要
@@ -12,12 +16,11 @@
 Gatsby テーマについて  
 <https://gatsbyjs.com/docs/themes/>
 
-[![npm version](https://badge.fury.io/js/@cieloazul310%2Fgatsby-theme-aoi.svg)](https://badge.fury.io/js/@cieloazul310%2Fgatsby-theme-aoi) [![Netlify Status](https://api.netlify.com/api/v1/badges/7e344c36-1d49-4331-8bfe-e29709401c91/deploy-status)](https://app.netlify.com/sites/gatsby-theme-aoi/deploys)
+Gatsby Theme Aoi デモ  
+<https://cieloazul310.github.io/gatsby-aoi>
 
-1. インストール方法
-2. レイアウトを使う
-3. コンポーネントを使う
-4. Shadowing
+Gatsby Theme Aoi Blog デモ  
+<https://gatsby-theme-aoi.netlify.app/>
 
 ## 1. インストール方法
 
@@ -25,13 +28,13 @@ Gatsby テーマについて
 
 ### Gatsby スターターを使う
 
-Gatsby Theme Aoi を使った Gatsby スターターを使うと、複雑な設定をすることなく Gatsby Theme Aoi を使うことができます。
+Gatsby Theme Aoi を使った Gatsby スターターを使うと、複雑な設定をすることなく MUI コンポーネントや Gatsby Theme Aoi コンポーネント を使うことができます。  
 Gatsby Theme Aoi には、以下の2つのスターターがあります。
 
-- **Gatsby Starter Aoi Theme**: 最低限の機能を持ったシンプルなスターター
-- **Gatsby Starter Aoi Blog**: ブログスターター
+1. **Gatsby Starter Aoi Theme**: 最低限の機能を持ったシンプルなスターター
+2. **Gatsby Starter Aoi Blog**: ブログスターター
 
-#### Gatsby Starter Aoi Theme
+#### 1. Gatsby Starter Aoi Theme
 
 ```shell
 curl https://codeload.github.com/cieloazul310/gatsby-aoi/tar.gz/main | tar -xz --strip=2  gatsby-aoi-main/starters/gatsby-starter-aoi-theme
@@ -41,7 +44,7 @@ cd gatsby-starter-aoi-theme
 Gatsby Starter Aoi Theme のデモサイト  
 <https://cieloazul310.github.io/gatsby-aoi>
 
-#### Gatsby Starter Aoi Blog
+#### 2. Gatsby Starter Aoi Blog
 
 ```shell
 curl https://codeload.github.com/cieloazul310/gatsby-aoi/tar.gz/main | tar -xz --strip=2  gatsby-aoi-main/starters/gatsby-starter-aoi-blog
@@ -70,7 +73,7 @@ yarn run build
 yarn add @cieloazul310/gatsby-theme-aoi
 ```
 
-以下の peerDependencies パッケージをインストール  
+以下の peerDependencies パッケージが必要です。  
 [`@mui/material`](https://www.npmjs.com/package/@mui/material) [`@mui/icons-material`](https://www.npmjs.com/package/@mui/icons-material) [`@emotion/react`](https://www.npmjs.com/package/@emotion/react) [`@emotion/styled`](https://www.npmjs.com/package/@emotion/styled)
 
 ```shell
@@ -93,7 +96,7 @@ module.exports = {
 }
 ```
 
-## 2. レイアウトを使う
+## 2. レイアウトを使う (Gatsby Theme Aoi Layout)
 
 Gatsby Theme Aoi Layout は、MUI の `<AppBar>`, `<Drawer>`, `<BottomNavigation>`, `<Fab>` を組み込んだレイアウトです。
 
@@ -110,9 +113,9 @@ function Page() {
 export default Page;
 ```
 
-詳細は [`@cieloazul310/gatsby-theme-aoi-layout`] へ
+詳細は [Gatsby Theme Aoi Layout API リファレンス](gatsby-theme-aoi-layout.md) へ
 
-## 3. コンポーネントを使う
+## 3. コンポーネントを使う (Gatsby Theme Aoi Components)
 
 ```tsx
 import {
@@ -166,7 +169,7 @@ MUI の Link コンポーネントに、[Gatsby Link] の機能を加えたコ�
 
 記事のためのレイアウトコンポーネント。通常、`<Section>` 内で使用。
 
-詳細は [`@cieloazul310/gatsby-theme-aoi-components`] へ
+詳細は [Gatsby Theme Aoi Components API リファレンス](gatsby-theme-aoi-components.md) へ
 
 ## 4. Shadowing
 
@@ -181,10 +184,10 @@ Shadowing は Gatsby テーマ内の実装を、 Gatsby プロジェクト内で
 
 例えば、Gatsby Theme Aoi の `<Layout>` コンポーネントの一部だけを変更したいとします。`<Layout>` コンポーネントは [`@cieloazul310/gatsby-theme-aoi-layout`] で定義されているので、[`@cieloazul310/gatsby-theme-aoi-layout`] が **Shadowing の対象**ということになります。
 
-Shadowing の対象の `src` ディレクトリは以下のような構成になっています。
+Shadowing の対象である `gatsby-theme-aoi-layout` の `src` ディレクトリは以下のような構成になっています。
 
 ```txt
-.
+src
 ├── BottomNav
 │   └── index.tsx
 ├── DrawerInner
@@ -216,11 +219,13 @@ Shadowing の対象の `src` ディレクトリは以下のような構成にな
 
 <https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-layout/src>
 
-例えば、`/SEO/index.tsx` を変更したいとき、Gatsby プロジェクト内に、
+例えば、Aoi レイアウトの `/SEO/index.tsx` を修正したい場合、Gatsby プロジェクト内に、
 
 `${your_gatsby_project}/src/@cieloazul310/gatsby-theme-aoi-layout/SEO/index.tsx`
 
-を作成すると、対象のファイルを上書きすることができます。
+を作成するだけで、対象のファイルを上書きすることができます。
+
+上記の例をまとめると、
 
 - Shadowing 対象パッケージ: [`@cieloazul310/gatsby-theme-aoi-layout`]
 - Shadowing 対象ファイル: `src/SEO/index.tsx`
@@ -238,7 +243,7 @@ Shadowing の対象の `src` ディレクトリは以下のような構成にな
 
 Gatsby Theme Aoi では [`@cieloazul310/gatsby-theme-aoi-layout`] と [`@cieloazul310/gatsby-theme-aoi-top-layout`] が Shadowing 可能なパッケージです。
 
-Gatsbyプロジェクトは以下のようなディレクトリ構成になる
+これから説明する Shadowing の例では、Gatsby プロジェクトは以下のようなディレクトリ構成になります。
 
 ```txt
 .
@@ -258,14 +263,15 @@ Gatsbyプロジェクトは以下のようなディレクトリ構成になる
     └── pages
 ```
 
-### MUI テーマを変更する
+### MUI テーマを変更する (Gatsby Theme Aoi Top Layout)
 
-Shadowing で [MUI テーマ](https://mui.com/customization/theming/)を変更します。
+Shadowing で [MUI テーマ](https://mui.com/customization/theming/)を変更する例です。
 
 `src/@cieloazul310/gatsby-theme-aoi-top-layout/theme.ts`
 
 ```typescript
 // src/@cieloazul310/gatsby-theme-aoi-top-layout/theme.ts
+
 import { teal, orange } from '@mui/material/colors';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
@@ -279,7 +285,7 @@ const theme = createTheme({
 export default responsiveFontSizes(theme);
 ```
 
-### AppState を作成する
+### App State を作成する (Gatsby Theme Aoi Top Layout)
 
 `src/@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppState.ts`
 
@@ -317,7 +323,7 @@ export default function reducer(state: AppState, action: Action): AppState {
 }
 ```
 
-### AppState を使用する
+### App State を使用する (Gatsby Theme Aoi Top Layout)
 
 [`AppStateContext.tsx`](https://github.com/cieloazul310/gatsby-aoi/blob/main/packages/gatsby-theme-aoi-top-layout/src/utils/AppStateContext.tsx)をコピーし、`src/@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext.tsx` 貼り付けると、TypeScript で型が崩れることなく `AppState` を使用できます。
 
@@ -345,7 +351,9 @@ function Page() {
 export default Page;
 ```
 
-### メニューを作成する
+詳細は [Gatsby Theme Aoi Top Layout API リファレンス](gatsby-theme-aoi-top-layout.md) へ
+
+### メニューを作成する (Gatsby Theme Aoi Layout)
 
 `src/@cieloazul310/gatsby-theme-aoi-layout/menu.tsx`
 
@@ -370,6 +378,8 @@ const menu: Menu[] = [
 
 export default menu;
 ```
+
+詳細は [Gatsby Theme Aoi Layout API リファレンス](gatsby-theme-aoi-layout.md) へ
 
 ## Gatsby Theme Aoi packages
 
