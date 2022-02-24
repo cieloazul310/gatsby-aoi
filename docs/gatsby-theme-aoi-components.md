@@ -10,7 +10,7 @@ Gatsby Theme Aoi Components は Gatsby Theme Aoi のためのコンポーネン�
 import { AppLink } from '@cieloazul310/gatsby-theme-aoi';
 ```
 
-全てのコンポーネントは `@cieloazul310/gatsby-theme-aoi` からインポートできます；
+全てのコンポーネントは `@cieloazul310/gatsby-theme-aoi` からインポートできます。
 
 ## Components
 
@@ -114,7 +114,7 @@ MUI `Container` Props
 
 ### `<ArticleTitle>`
 
-記事のタイトルのためのコンポーネント。`<h2>`に
+記事のタイトルのためのコンポーネント。`<h2>`
 
 #### Props
 
@@ -165,7 +165,7 @@ MUI `Typography` Props
 
 ### `<H5>`
 
-Gatsby Theme Aoi のための  `<h5>` コンポーネント
+Gatsby Theme Aoi のための `<h5>` コンポーネント
 
 #### Props
 
@@ -174,7 +174,7 @@ MUI `Typography` Props
 
 ### `<H6>`
 
-Gatsby Theme Aoi のための  `<h6>` コンポーネント
+Gatsby Theme Aoi のための `<h6>` コンポーネント
 
 #### Props
 
@@ -183,7 +183,7 @@ MUI `Typography` Props
 
 ### `<Blockquote>`
 
-Gatsby Theme Aoi のための  `<blockquote>` コンポーネント
+Gatsby Theme Aoi のための `<blockquote>` コンポーネント
 
 #### Props
 
@@ -196,7 +196,7 @@ MUI の `Divider` に margin-top and margin-bottom を与えたコンポーネ�
 
 ### `<InlineCode>`
 
-Gatsby Theme Aoi のための  `<code>` コンポーネントz
+Gatsby Theme Aoi のための `<code>` コンポーネント
 
 #### Props
 
@@ -205,7 +205,7 @@ MUI `Typography` Props
 
 ### `<Ul>`
 
-Gatsby Theme Aoi のための  `<ul>` コンポーネント
+Gatsby Theme Aoi のための `<ul>` コンポーネント
 
 #### Props
 
@@ -223,7 +223,7 @@ MUI `Typography` Props
 
 ### `<Li>`
 
-Gatsby Theme Aoi のための  `<li>` コンポーネント
+Gatsby Theme Aoi のための `<li>` コンポーネント
 
 #### Props
 
