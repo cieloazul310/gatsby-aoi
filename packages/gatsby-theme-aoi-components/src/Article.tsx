@@ -179,17 +179,40 @@ export function InlineCode({ children }: Omit<TypographyProps, 'ref'>) {
   );
 }
 
-export function Ul(props: Omit<TypographyProps, 'ref'>) {
-  return <Typography component="ul" mt={2} mb={4} mx={0} {...props} />;
-}
-
-export function Ol(props: Omit<TypographyProps, 'ref'>) {
-  return <Typography component="ol" mt={2} mb={4} mx={0} {...props} />;
-}
-
-export function Li(props: Omit<TypographyProps, 'ref'>) {
+export function Ul({ variant, ...props }: Omit<TypographyProps, 'ref'>) {
   return (
-    <Typography variant="body1" component="li" lineHeight={1.8} {...props} />
+    <Typography
+      component="ul"
+      mt={2}
+      mb={3}
+      mx={0}
+      variant={variant ?? 'inherit'}
+      {...props}
+    />
+  );
+}
+
+export function Ol({ variant, ...props }: Omit<TypographyProps, 'ref'>) {
+  return (
+    <Typography
+      component="ol"
+      mt={2}
+      mb={3}
+      mx={0}
+      variant={variant ?? 'inherit'}
+      {...props}
+    />
+  );
+}
+
+export function Li({ variant, ...props }: Omit<TypographyProps, 'ref'>) {
+  return (
+    <Typography
+      variant={variant ?? 'inherit'}
+      component="li"
+      lineHeight={1.8}
+      {...props}
+    />
   );
 }
 
