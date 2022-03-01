@@ -3,14 +3,15 @@ import Box from '@mui/material/Box';
 import Container, { ContainerProps } from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { useTheme, alpha } from '@mui/material/styles';
+import { AliasesCSSProperties } from '@mui/system';
 
 export type JumbotronProps = {
   title?: string;
   maxWidth?: ContainerProps['maxWidth'];
   height?: number;
-  bgcolor?: string;
+  bgcolor?: AliasesCSSProperties['bgcolor'];
   bgImage?: string;
-  gradient?: boolean;
+  disableGradient?: boolean;
   children?: React.ReactNode;
 };
 
@@ -21,7 +22,7 @@ function Jumbotron({
   bgImage,
   bgcolor,
   children,
-  gradient = true,
+  disableGradient = false,
 }: JumbotronProps) {
   const { palette } = useTheme();
   return (
@@ -40,7 +41,7 @@ function Jumbotron({
             : theme.palette.grey[800];
         },
         backgroundImage:
-          !bgImage && !bgcolor && gradient
+          !bgImage && !disableGradient
             ? `linear-gradient(135deg, ${alpha(
                 palette.primary.main,
                 0.25
@@ -96,7 +97,7 @@ Jumbotron.defaultProps = {
   bgImage: undefined,
   maxWidth: undefined,
   height: undefined,
-  gradient: true,
+  disableGradient: false,
   children: undefined,
 };
 
