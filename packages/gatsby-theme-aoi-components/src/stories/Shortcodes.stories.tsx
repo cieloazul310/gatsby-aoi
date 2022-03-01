@@ -79,6 +79,24 @@ export function Shortcodes() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
       </Paragraph>
+      <Ul variant="body2">
+        <Li>Lorem ipsum dolor sit amet</Li>
+        <Li>Duis nec quam quis nulla</Li>
+      </Ul>
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
+        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
+      </Paragraph>
+      <Alert severity="warning" title="hoge">
+        <Ul>
+          <Li>Lorem ipsum dolor sit amet</Li>
+          <Li>Duis nec quam quis nulla</Li>
+        </Ul>
+      </Alert>
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
+        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
+      </Paragraph>
     </Article>
   );
 }
