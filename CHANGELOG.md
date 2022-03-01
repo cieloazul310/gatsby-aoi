@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/cieloazul310/gatsby-aoi/compare/v2.1.0...v2.1.1) (2022-03-01)
+
+
+### Features
+
+* **components:** Set `<Ul>` `<Ol>` `<Li>` variant default props to `inherit`. ([e04acf1](https://github.com/cieloazul310/gatsby-aoi/commit/e04acf157b649f7b3e263325a1b43b1df89b8646))
+
+
+
+
+
 # [2.1.0](https://github.com/cieloazul310/gatsby-aoi/compare/v2.0.0...v2.1.0) (2022-02-24)
 
 
