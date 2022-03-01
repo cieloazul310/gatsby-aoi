@@ -15,13 +15,22 @@ import { alpha } from '@mui/material/styles';
  * A main article component with padding-top and padding-bottom including MUI `<Container>` component.
  * `maxWidth` is default to `'sm'`
  */
-function Article({ children, maxWidth, ...props }: ContainerProps) {
+function Article({
+  children,
+  maxWidth,
+  variant,
+  ...props
+}: ContainerProps & Pick<TypographyProps, 'variant'>) {
   return (
-    <Box sx={{ py: 4, wordWrap: 'break-word' }}>
+    <Typography
+      sx={{ py: 4, wordWrap: 'break-word' }}
+      component="div"
+      variant={variant ?? 'body1'}
+    >
       <Container maxWidth={maxWidth ?? 'sm'} {...props}>
         {children}
       </Container>
-    </Box>
+    </Typography>
   );
 }
 
@@ -53,7 +62,7 @@ export function ArticleTitle({ children, ...props }: Props) {
 
 export function Paragraph({ children, ...props }: Props) {
   return (
-    <Typography variant="body1" paragraph lineHeight={1.8} {...props}>
+    <Typography variant="inherit" paragraph lineHeight={1.8} {...props}>
       {children}
     </Typography>
   );
@@ -145,6 +154,7 @@ export function Link({ children, href, ...props }: LinkProps) {
 export function Blockquote({ children, ...props }: Props) {
   return (
     <Typography
+      variant="inherit"
       component="blockquote"
       borderLeft={2}
       borderColor="text.secondary"
