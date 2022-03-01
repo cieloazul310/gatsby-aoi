@@ -11,6 +11,7 @@ import {
   Article,
   Paragraph,
   AppLinkButton,
+  Alert,
 } from '@cieloazul310/gatsby-theme-aoi';
 
 function TabPage() {
@@ -98,6 +99,11 @@ function TabPage() {
                 Ipsum段落的纸张，从而广泛普及了它的使用。最近，计算机桌面出版软件”Aldus
                 PageMaker”也通过同样的方式使Lorem Ipsum落入大众的视野。
               </Paragraph>
+              <Alert title="Lorem Ipsum">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                nec quam quis nulla dignissim finibus. Morbi aliquam quam ut
+                efficitur feugiat. Duis viverra elit eu diam tincidunt lobortis.
+              </Alert>
               <Button color="secondary" onClick={handleTabIndex(0)}>
                 Go to Tab-1
               </Button>
