@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/cieloazul310/gatsby-aoi/compare/v2.1.2...v2.1.3) (2022-03-20)
+
+
+### Features
+
+* **blog-components:** `<DrawerPageNavigation>` props `secondaryText`, `title` and `linkProps` ([2053c42](https://github.com/cieloazul310/gatsby-aoi/commit/2053c424e6440c4236cbfd03e37580a0f740c92c))
+
+
+
+
+
 ## [2.1.1](https://github.com/cieloazul310/gatsby-aoi/compare/v2.1.0...v2.1.1) (2022-03-01)
 
 **Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-blog-components
