@@ -6,36 +6,56 @@ import ListItemText from '@mui/material/ListItemText';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-import { ListItemAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
+import {
+  ListItemAppLink,
+  ListItemAppLinkProps,
+} from '@cieloazul310/gatsby-theme-aoi-components';
 
 type DrawerPageNavigationProps = {
+  title?: string;
   previous?: {
     to: string;
     title: string;
+    secondaryText?: string;
   } | null;
   next?: {
     to: string;
     title: string;
+    secondaryText?: string;
   } | null;
+  linkProps?: Partial<Omit<ListItemAppLinkProps, 'to' | 'button'>>;
 };
 
-function DrawerPageNavigation({ previous, next }: DrawerPageNavigationProps) {
+function DrawerPageNavigation({
+  title,
+  previous,
+  next,
+  linkProps,
+}: DrawerPageNavigationProps) {
   return (
-    <List subheader={<ListSubheader>Navigation</ListSubheader>}>
+    <List subheader={<ListSubheader>{title ?? 'Navigation'}</ListSubheader>}>
       {previous ? (
-        <ListItemAppLink to={previous.to} button>
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        <ListItemAppLink to={previous.to} button {...linkProps}>
           <ListItemIcon>
             <ArrowBackIcon />
           </ListItemIcon>
-          <ListItemText primary={previous.title} secondary="Previous" />
+          <ListItemText
+            primary={previous.title}
+            secondary={previous.secondaryText ?? 'Previous'}
+          />
         </ListItemAppLink>
       ) : null}
       {next ? (
-        <ListItemAppLink to={next.to} button>
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        <ListItemAppLink to={next.to} button {...linkProps}>
           <ListItemIcon>
             <ArrowForwardIcon />
           </ListItemIcon>
-          <ListItemText primary={next.title} secondary="Next" />
+          <ListItemText
+            primary={next.title}
+            secondary={next.secondaryText ?? 'Next'}
+          />
         </ListItemAppLink>
       ) : null}
     </List>
@@ -43,8 +63,10 @@ function DrawerPageNavigation({ previous, next }: DrawerPageNavigationProps) {
 }
 
 DrawerPageNavigation.defaultProps = {
+  title: undefined,
   previous: undefined,
   next: undefined,
+  linkProps: undefined,
 };
 
 export default DrawerPageNavigation;
