@@ -216,8 +216,8 @@ export default async function createPagesasync(
           '@cieloazul310/gatsby-theme-aoi-blog-templates/src/author.tsx'
         ),
         context: {
-          previous: previous?.node.name,
-          next: next?.node.name,
+          previous: previous?.node.name ?? null,
+          next: next?.node.name ?? null,
           type: 'Author',
           fieldValue: node.name,
           limit: postsPerPage,

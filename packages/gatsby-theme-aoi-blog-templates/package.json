@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-templates",
-  "version": "2.1.1",
+  "version": "2.1.5",
   "description": "Templates for Gatsby Theme Aoi Blog",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -41,10 +41,10 @@
     "typescript": "^4.5.4"
   },
   "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-components": "^2.0.0",
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^2.0.0",
-    "@cieloazul310/gatsby-theme-aoi-components": "^2.0.0",
-    "@cieloazul310/gatsby-theme-aoi-layout": "^2.0.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "^2.1.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^2.1.0",
+    "@cieloazul310/gatsby-theme-aoi-components": "^2.1.0",
+    "@cieloazul310/gatsby-theme-aoi-layout": "^2.1.0",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@mdx-js/mdx": "^1.6.22",

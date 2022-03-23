@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-cli",
-  "version": "2.1.1",
+  "version": "2.1.5",
   "description": "CLI package for Gatsby Theme Aoi Blog",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -54,6 +54,6 @@
     "commander": "^9.0.0"
   },
   "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "2.0.0"
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "2.1.0"
   }
 }

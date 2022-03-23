@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.5](https://github.com/cieloazul310/gatsby-aoi/compare/v2.1.4...v2.1.5) (2022-03-23)
+
+
+### Bug Fixes
+
+* peerDependencies ([b965b07](https://github.com/cieloazul310/gatsby-aoi/commit/b965b07ed260b5554ca44dea1ea50a0f911d70a9))
+
+
+
+
+
+## [2.1.4](https://github.com/cieloazul310/gatsby-aoi/compare/v2.1.3...v2.1.4) (2022-03-23)
+
+
+### Bug Fixes
+
+* **blog-core:** fix createPages context ([9864942](https://github.com/cieloazul310/gatsby-aoi/commit/9864942c6106af05714a100691ad52ef4fd32eee))
+
+
+
+
+
 ## [2.1.3](https://github.com/cieloazul310/gatsby-aoi/compare/v2.1.2...v2.1.3) (2022-03-20)
 
 
