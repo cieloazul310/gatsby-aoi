@@ -54,6 +54,6 @@
     "commander": "^9.0.0"
   },
   "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "2.0.0"
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "2.1.0"
   }
 }
