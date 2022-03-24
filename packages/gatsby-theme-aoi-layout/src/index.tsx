@@ -136,93 +136,95 @@ export function Layout({
   );
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexGrow: 1,
-        minHeight: '100vh',
-      }}
-    >
+    <>
       <SEO
         title={title}
         description={description}
         keywords={keywords}
         image={image}
       />
-      {loading ? (
-        <LinearProgress
-          sx={{
-            position: 'fixed',
-            top: { xs: theme.mixins.toolbar.minHeight, sm: 64 },
-            left: 0,
-            width: '100%',
-            zIndex: theme.zIndex.drawer + 1,
-          }}
-          color="secondary"
-        />
-      ) : null}
-      <AppBar
-        sx={{
-          zIndex: theme.zIndex.drawer + 2,
-          width: '100%',
-        }}
-      >
-        <Header
-          title={title}
-          toggleDrawer={toggleDrawer}
-          componentViewports={viewports}
-        />
-      </AppBar>
-      {viewports.swipeableDrawer || viewports.permanentDrawer ? drawer : null}
       <Box
         sx={{
-          ...mainStyles(viewports.bottomNav),
+          display: 'flex',
           flexGrow: 1,
-          maxWidth: '100%',
-          minWidth: 0,
-          paddingTop: { xs: '56px', sm: '64px' },
+          minHeight: '100vh',
         }}
       >
-        {tabs ? (
-          <TabContainer tabSticky={tabSticky}>{tabs}</TabContainer>
+        {loading ? (
+          <LinearProgress
+            sx={{
+              position: 'fixed',
+              top: { xs: theme.mixins.toolbar.minHeight, sm: 64 },
+              left: 0,
+              width: '100%',
+              zIndex: theme.zIndex.drawer + 1,
+            }}
+            color="secondary"
+          />
         ) : null}
-        <main>{children}</main>
-        <SectionDivider />
-        <Section>
-          <FooterMenu />
-        </Section>
-        <SectionDivider />
-        <Section>
-          <Footer />
-        </Section>
-      </Box>
-      {viewports.fab !== false ? (
-        <Box
+        <AppBar
           sx={{
-            ...fabStyles(viewports.bottomNav, theme),
-            display: viewportsToSxDisplay(viewports.fab),
-            position: 'fixed',
-            right: theme.spacing(2),
-            bottom: theme.spacing(2),
-            transition: theme.transitions.create('bottom'),
-          }}
-        >
-          {fab || <Fab onClick={toggleDrawer} />}
-        </Box>
-      ) : null}
-      {viewports.bottomNav !== false ? (
-        <Box
-          sx={{
-            display: viewportsToSxDisplay(viewports.bottomNav),
-            position: 'fixed',
-            left: 0,
-            bottom: 0,
+            zIndex: theme.zIndex.drawer + 2,
             width: '100%',
           }}
         >
-          {bottomNavigation || <BottomNav />}
+          <Header
+            title={title}
+            toggleDrawer={toggleDrawer}
+            componentViewports={viewports}
+          />
+        </AppBar>
+        {viewports.swipeableDrawer || viewports.permanentDrawer ? drawer : null}
+        <Box
+          sx={{
+            ...mainStyles(viewports.bottomNav),
+            flexGrow: 1,
+            maxWidth: '100%',
+            minWidth: 0,
+            paddingTop: { xs: '56px', sm: '64px' },
+          }}
+        >
+          {tabs ? (
+            <TabContainer tabSticky={tabSticky}>{tabs}</TabContainer>
+          ) : null}
+          <main>{children}</main>
+          <SectionDivider />
+          <Section>
+            <FooterMenu />
+          </Section>
+          <SectionDivider />
+          <Section>
+            <Footer />
+          </Section>
         </Box>
-      ) : null}
-    </Box>
+        {viewports.fab !== false ? (
+          <Box
+            sx={{
+              ...fabStyles(viewports.bottomNav, theme),
+              display: viewportsToSxDisplay(viewports.fab),
+              position: 'fixed',
+              right: theme.spacing(2),
+              bottom: theme.spacing(2),
+              transition: theme.transitions.create('bottom'),
+            }}
+          >
+            {fab || <Fab onClick={toggleDrawer} />}
+          </Box>
+        ) : null}
+        {viewports.bottomNav !== false ? (
+          <Box
+            sx={{
+              display: viewportsToSxDisplay(viewports.bottomNav),
+              position: 'fixed',
+              left: 0,
+              bottom: 0,
+              width: '100%',
+            }}
+          >
+            {bottomNavigation || <BottomNav />}
+          </Box>
+        ) : null}
+      </Box>
+    </>
   );
 }
