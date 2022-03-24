@@ -5,14 +5,14 @@ import {
   useAbsoluteUrl,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
 
-interface Props {
+type SeoProps = {
   title?: string;
   description?: string;
   keywords?: string[];
   image?: string;
-}
+};
 
-function SEO({ title, description, keywords, image }: Props) {
+function Seo({ title, description, keywords, image }: SeoProps) {
   const siteMetadata = useSiteMetadata();
   const imageUrl = useAbsoluteUrl(image);
 
@@ -73,11 +73,11 @@ function SEO({ title, description, keywords, image }: Props) {
   );
 }
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   title: undefined,
   description: undefined,
   keywords: undefined,
   image: undefined,
 };
 
-export default SEO;
+export default Seo;

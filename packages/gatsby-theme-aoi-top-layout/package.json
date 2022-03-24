@@ -55,7 +55,6 @@
     "react-helmet": "^6.1.0"
   },
   "dependencies": {
-    "gatsby-plugin-react-helmet": "^5.5.0",
     "gatsby-plugin-webfonts": "^2.2.1"
   }
 }
