@@ -54,6 +54,7 @@
     "@cieloazul310/gatsby-theme-aoi-top-layout": "^2.2.0",
     "@cieloazul310/gatsby-theme-aoi-utils": "^2.1.1",
     "gatsby-plugin-material-ui": "^4.1.0",
-    "gatsby-plugin-react-helmet": "^5.5.0"
+    "gatsby-plugin-react-helmet": "^5.5.0",
+    "react-helmet": "^6.1.0"
   }
 }
