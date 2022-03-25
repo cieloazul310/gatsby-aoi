@@ -4,5 +4,5 @@ export default function useBaseUrl(): string {
   const { siteUrl } = useSiteMetadata();
   const url = new URL(siteUrl);
 
-  return url.hostname;
+  return url.origin;
 }
