@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cieloazul310/gatsby-aoi/compare/v2.2.0...v2.3.0) (2022-03-25)
+
+
+### Bug Fixes
+
+* **theme-aoi:** add react-helmet ([0e1889b](https://github.com/cieloazul310/gatsby-aoi/commit/0e1889bcbbc780ca5ed343c1acb0a5a4ab7ecb1b))
+
+
+
+
+
 # [2.2.0](https://github.com/cieloazul310/gatsby-aoi/compare/v2.1.5...v2.2.0) (2022-03-24)
 
 **Note:** Version bump only for package gatsby-theme-aoi

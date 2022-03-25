@@ -64,15 +64,12 @@ export default function TopLayout({
   });
 
   return (
-    <ThemeStateProvider paletteType={paletteType}>
+    <ThemeStateProvider paletteType={paletteType} key={isClient}>
       <ThemeDispatchContext.Provider
         // eslint-disable-next-line react/jsx-no-constructed-context-values
         value={{ state: themeState, dispatch: themeDispatch }}
-        key={isClient}
       >
-        <AppStateProvider isMobile={isMobile} key={isClient}>
-          {children}
-        </AppStateProvider>
+        <AppStateProvider isMobile={isMobile}>{children}</AppStateProvider>
       </ThemeDispatchContext.Provider>
     </ThemeStateProvider>
   );

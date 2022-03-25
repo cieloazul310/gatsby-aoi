@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-top-layout",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Gatsby plugin for @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
@@ -52,7 +52,7 @@
     "@mui/material": "^5.0.0",
     "gatsby": "^3.0.0 || ^4.0.0",
     "react": "^16.8.6 || ^17.0.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet-async": "^1.2.3"
   },
   "dependencies": {
     "gatsby-plugin-webfonts": "^2.2.1"
