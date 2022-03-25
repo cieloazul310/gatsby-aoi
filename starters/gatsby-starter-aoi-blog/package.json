@@ -1,6 +1,6 @@
 {
   "name": "gatsby-starter-aoi-blog",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
   "description": "Gatsby blog theme starter built with @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
@@ -33,7 +33,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "^2.2.0",
+    "@cieloazul310/gatsby-theme-aoi": "^2.3.0",
     "@cieloazul310/gatsby-theme-aoi-blog": "^2.1.5",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
