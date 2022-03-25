@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
   useSiteMetadata,
-  useAbsoluteUrl,
+  useAssetUrl,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
 
 type SeoProps = {
@@ -14,7 +14,7 @@ type SeoProps = {
 
 function Seo({ title, description, keywords, image }: SeoProps) {
   const siteMetadata = useSiteMetadata();
-  const imageUrl = useAbsoluteUrl(image);
+  const imageUrl = useAssetUrl(image);
 
   const images = imageUrl
     ? [
