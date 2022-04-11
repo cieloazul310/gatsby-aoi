@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/cieloazul310/gatsby-aoi/compare/v2.3.1...v2.4.0) (2022-04-11)
+
+
+### Features
+
+* **components:** add `<PanelLink>` components ([258be97](https://github.com/cieloazul310/gatsby-aoi/commit/258be9783e80151ff758d0bf144cf7206c21529c))
+
+
+
+
+
 ## [2.1.5](https://github.com/cieloazul310/gatsby-aoi/compare/v2.1.4...v2.1.5) (2022-03-23)
 
 

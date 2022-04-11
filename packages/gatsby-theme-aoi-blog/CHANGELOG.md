@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/cieloazul310/gatsby-aoi/compare/v2.3.1...v2.4.0) (2022-04-11)
+
+**Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-blog
+
+
+
+
+
 ## [2.1.5](https://github.com/cieloazul310/gatsby-aoi/compare/v2.1.4...v2.1.5) (2022-03-23)
 
 
