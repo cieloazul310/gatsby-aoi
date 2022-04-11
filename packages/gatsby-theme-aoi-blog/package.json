@@ -57,5 +57,6 @@
     "@cieloazul310/gatsby-theme-aoi-blog-core": "^2.1.5",
     "@cieloazul310/gatsby-theme-aoi-blog-templates": "^2.1.5",
     "@cieloazul310/gatsby-theme-aoi-blog-utils": "^2.1.1"
-  }
+  },
+  "gitHead": "3d8ab98e6497fec0000f3500d800e52fb7338136"
 }
