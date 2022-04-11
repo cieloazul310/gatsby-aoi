@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-components",
-  "version": "2.1.5",
+  "version": "2.4.0",
   "description": "MUI based blog components for @cieloazul310/gatsby-theme-aoi-blog",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -65,5 +65,6 @@
     "gatsby": "^3.0.0 || ^4.0.0",
     "react": "^16.8.6 || ^17.0.0",
     "react-helmet": "^6.1.0"
-  }
+  },
+  "gitHead": "3d8ab98e6497fec0000f3500d800e52fb7338136"
 }
