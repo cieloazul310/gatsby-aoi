@@ -30,10 +30,12 @@ import {
 
 function Table({ children }: TableProps) {
   return (
-    <Box py={2}>
-      <TableContainer component={Paper}>
-        <MuiTable>{children}</MuiTable>
-      </TableContainer>
+    <Box my={4}>
+      <Paper elevation={0} variant="outlined">
+        <TableContainer>
+          <MuiTable>{children}</MuiTable>
+        </TableContainer>
+      </Paper>
     </Box>
   );
 }
