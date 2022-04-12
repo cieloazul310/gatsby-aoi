@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.2](https://github.com/cieloazul310/gatsby-aoi/compare/v2.4.1...v2.4.2) (2022-04-12)
+
+
+### Features
+
+* **components:** Add `<PanelLink>` `disableMargin` props ([c826f12](https://github.com/cieloazul310/gatsby-aoi/commit/c826f12a409ed7d910cc2e335e37719def9fe4b1))
+* **components:** Change `<Blockquote>` margin ([5c3eefd](https://github.com/cieloazul310/gatsby-aoi/commit/5c3eefde33ef0550748a0ce850d36dac7f4be16e))
+
+
+
+
+
 ## [2.4.1](https://github.com/cieloazul310/gatsby-aoi/compare/v2.4.0...v2.4.1) (2022-04-11)
 
 **Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-components

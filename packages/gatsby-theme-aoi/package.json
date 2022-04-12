@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "Gatsby theme for MUI",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
@@ -49,7 +49,7 @@
     "react-dom": "^16.8.6 || ^17.0.0"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi-components": "^2.4.1",
+    "@cieloazul310/gatsby-theme-aoi-components": "^2.4.2",
     "@cieloazul310/gatsby-theme-aoi-layout": "^2.4.1",
     "@cieloazul310/gatsby-theme-aoi-top-layout": "^2.3.0",
     "@cieloazul310/gatsby-theme-aoi-utils": "^2.3.1",

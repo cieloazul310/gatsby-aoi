@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "Gatsby Blog Theme built with Gatsby Theme Aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@cieloazul310/gatsby-theme-aoi-blog-cli": "^2.1.5",
-    "@cieloazul310/gatsby-theme-aoi-blog-components": "^2.4.1",
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "^2.4.2",
     "@cieloazul310/gatsby-theme-aoi-blog-core": "^2.4.1",
     "@cieloazul310/gatsby-theme-aoi-blog-templates": "^2.1.5",
     "@cieloazul310/gatsby-theme-aoi-blog-utils": "^2.1.1"

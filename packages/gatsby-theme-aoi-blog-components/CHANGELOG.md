@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.2](https://github.com/cieloazul310/gatsby-aoi/compare/v2.4.1...v2.4.2) (2022-04-12)
+
+
+### Features
+
+* **blog-components:** Change muiComponents `Table` style ([182b5c0](https://github.com/cieloazul310/gatsby-aoi/commit/182b5c01c5a5e7cbf836d8199c06d4c0725c1963))
+
+
+
+
+
 ## [2.4.1](https://github.com/cieloazul310/gatsby-aoi/compare/v2.4.0...v2.4.1) (2022-04-11)
 
 **Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-blog-components
