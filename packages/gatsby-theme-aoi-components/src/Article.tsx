@@ -158,9 +158,10 @@ export function Blockquote({ children, ...props }: Props) {
       component="blockquote"
       borderLeft={2}
       borderColor="text.secondary"
+      color="text.secondary"
       py={2}
       px={2}
-      my={2}
+      my={4}
       {...props}
     >
       {children}
