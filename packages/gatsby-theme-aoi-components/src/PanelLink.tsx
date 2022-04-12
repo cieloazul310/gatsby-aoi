@@ -32,9 +32,15 @@ type PanelLinkProps = {
   to: string;
   children: React.ReactNode;
   disableBorder?: boolean;
+  disableMargin?: boolean;
 };
 
-function PanelLink({ to, children, disableBorder = false }: PanelLinkProps) {
+function PanelLink({
+  to,
+  children,
+  disableBorder = false,
+  disableMargin = false,
+}: PanelLinkProps) {
   const borderStyles = {
     border: disableBorder ? 0 : 1,
     borderRadius: disableBorder ? 0 : 1,
@@ -52,7 +58,7 @@ function PanelLink({ to, children, disableBorder = false }: PanelLinkProps) {
         target="_blank"
         rel="noopener noreferrer"
         sx={{
-          my: 2,
+          my: disableMargin ? 0 : 4,
           '&.MuiButtonBase-root': { ...ButtonBaseRootStyle, ...borderStyles },
         }}
       >
@@ -75,7 +81,7 @@ function PanelLink({ to, children, disableBorder = false }: PanelLinkProps) {
       component={GatsbyLink}
       to={to}
       sx={{
-        my: 2,
+        my: disableMargin ? 0 : 4,
         '&.MuiButtonBase-root': { ...ButtonBaseRootStyle, ...borderStyles },
       }}
     >
@@ -93,6 +99,7 @@ function PanelLink({ to, children, disableBorder = false }: PanelLinkProps) {
 
 PanelLink.defaultProps = {
   disableBorder: false,
+  disableMargin: false,
 };
 
 export default PanelLink;
