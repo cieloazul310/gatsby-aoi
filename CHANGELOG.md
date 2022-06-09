@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/cieloazul310/gatsby-aoi/compare/v2.6.0...v2.6.1) (2022-06-09)
+
+
+### Bug Fixes
+
+* **blog-cli:** change `blog-utils` from peerDependencies to devDependencies ([e4fb3f1](https://github.com/cieloazul310/gatsby-aoi/commit/e4fb3f13299c5db2dd467e6d885da441af085e59))
+
+
+
+
+
 # [2.6.0](https://github.com/cieloazul310/gatsby-aoi/compare/v2.5.0...v2.6.0) (2022-06-09)
 
 
