@@ -1832,6 +1832,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-cli@workspace:packages/gatsby-theme-aoi-blog-cli"
   dependencies:
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": 2.1.1
     "@types/node": ^17.0.32
     "@typescript-eslint/eslint-plugin": ^5.23.0
     "@typescript-eslint/parser": ^5.23.0
@@ -1846,8 +1847,6 @@ __metadata:
     ts-node: ^10.7.0
     ts-node-dev: ^1.1.8
     typescript: ^4.6.4
-  peerDependencies:
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": 2.1.1
   bin:
     gatsby-aoi-blog: bin/gatsby-aoi-blog
   languageName: unknown
@@ -1966,7 +1965,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-blog-utils@^2.1.1, @cieloazul310/gatsby-theme-aoi-blog-utils@workspace:packages/gatsby-theme-aoi-blog-utils":
+"@cieloazul310/gatsby-theme-aoi-blog-utils@2.1.1, @cieloazul310/gatsby-theme-aoi-blog-utils@^2.1.1, @cieloazul310/gatsby-theme-aoi-blog-utils@workspace:packages/gatsby-theme-aoi-blog-utils":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-utils@workspace:packages/gatsby-theme-aoi-blog-utils"
   dependencies:
