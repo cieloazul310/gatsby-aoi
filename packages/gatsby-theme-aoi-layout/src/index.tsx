@@ -40,7 +40,7 @@ import BottomNav from './BottomNav';
  *
  * from props
  */
-export type LayoutProps = {
+export interface LayoutProps {
   children: React.ReactNode;
   title?: string;
   description?: string;
@@ -54,7 +54,7 @@ export type LayoutProps = {
   tabs?: React.ReactNode;
   bottomNavigation?: React.ReactNode;
   fab?: React.ReactNode;
-};
+}
 
 export function Layout({
   children,
@@ -228,18 +228,3 @@ export function Layout({
     </>
   );
 }
-
-Layout.defaultProps = {
-  title: undefined,
-  description: undefined,
-  keywords: undefined,
-  image: undefined,
-  loading: false,
-  componentViewports: undefined,
-  drawerWidth: 280,
-  tabSticky: false,
-  drawerContents: undefined,
-  tabs: undefined,
-  bottomNavigation: undefined,
-  fab: undefined,
-};

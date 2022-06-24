@@ -36,7 +36,6 @@ function DrawerFooter() {
           <address>
             <Stack direction="row" justifyContent="center" spacing={1}>
               {social.map(({ name, url }, index) => (
-                // eslint-disable-next-line react/no-array-index-key
                 <SocialLink key={index.toString()} name={name} url={url} />
               ))}
             </Stack>
