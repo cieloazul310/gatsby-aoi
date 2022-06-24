@@ -228,3 +228,18 @@ export function Layout({
     </>
   );
 }
+
+Layout.defaultProps = {
+  title: undefined,
+  description: undefined,
+  keywords: undefined,
+  image: undefined,
+  tabs: undefined,
+  drawerContents: undefined,
+  bottomNavigation: undefined,
+  fab: undefined,
+  componentViewports: undefined,
+  tabSticky: false,
+  loading: false,
+  drawerWidth: 280,
+};
