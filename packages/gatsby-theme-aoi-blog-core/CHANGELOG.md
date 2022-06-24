@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/cieloazul310/gatsby-aoi/compare/v2.5.0...v2.6.0) (2022-06-09)
+
+
+### Bug Fixes
+
+* devDependencies ([8dc5d0c](https://github.com/cieloazul310/gatsby-aoi/commit/8dc5d0c9f78a92ad029528f097c46716a3151ebd))
+
+
+
+
+
+# [2.5.0](https://github.com/cieloazul310/gatsby-aoi/compare/v2.4.2...v2.5.0) (2022-06-09)
+
+**Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-blog-core
+
+
+
+
+
 ## [2.4.1](https://github.com/cieloazul310/gatsby-aoi/compare/v2.4.0...v2.4.1) (2022-04-11)
 
 **Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-blog-core
