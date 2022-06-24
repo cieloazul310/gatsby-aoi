@@ -10,7 +10,6 @@ function Socials() {
     <address>
       <Stack direction="row" spacing={1} justifyContent="center">
         {social.map(({ name, url }, index) => (
-          // eslint-disable-next-line react/no-array-index-key
           <SocialLink key={index.toString()} name={name} url={url} />
         ))}
       </Stack>

@@ -22,11 +22,11 @@ const GatsbyLinkComposed = React.forwardRef<any, GatsbyLinkComposedProps>(
   }
 );
 
-type LinkPropsBase = {
+interface LinkPropsBase {
   activeClassName?: string;
   innerRef?: React.Ref<HTMLAnchorElement>;
   naked?: boolean;
-};
+}
 
 export type AppLinkProps = LinkPropsBase &
   GatsbyLinkComposedProps &
@@ -73,18 +73,11 @@ function AppLink(props: AppLinkProps) {
     />
   );
 }
-
-AppLink.defaultProps = {
-  activeClassName: 'active',
-  innerRef: undefined,
-  naked: undefined,
-};
-
 export default AppLink;
 
-type ButtonPropsBase = {
+interface ButtonPropsBase {
   innerRef?: React.Ref<HTMLAnchorElement>;
-};
+}
 
 export type AppLinkButtonProps = ButtonPropsBase &
   GatsbyLinkComposedProps &
@@ -105,10 +98,6 @@ export function AppLinkButton(props: AppLinkButtonProps) {
   );
 }
 
-AppLinkButton.defaultProps = {
-  innerRef: undefined,
-};
-
 export type BottomNavigationAppLinkProps = ButtonPropsBase &
   Omit<GatsbyLinkComposedProps, 'to'> &
   Omit<BottomNavigationActionProps, 'ref'>;
@@ -127,7 +116,3 @@ export function BottomNavigationAppLink(props: BottomNavigationAppLinkProps) {
     />
   );
 }
-
-BottomNavigationAppLink.defaultProps = {
-  innerRef: undefined,
-};
