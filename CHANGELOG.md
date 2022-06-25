@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/cieloazul310/gatsby-aoi/compare/v2.6.1...v2.7.0) (2022-06-25)
+
+
+### Bug Fixes
+
+* types ([3f7ecdd](https://github.com/cieloazul310/gatsby-aoi/commit/3f7ecdd0b44b7d63ba5e1d3446a44b5a53dd6915))
+* types ([910bb61](https://github.com/cieloazul310/gatsby-aoi/commit/910bb61251960574e59d73244dd0d68c0c9c1fb6))
+
+
+
+
+
 ## [2.6.1](https://github.com/cieloazul310/gatsby-aoi/compare/v2.6.0...v2.6.1) (2022-06-09)
 
 
