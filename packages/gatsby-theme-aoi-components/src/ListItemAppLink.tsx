@@ -63,4 +63,10 @@ function ListItemAppLink(props: ListItemAppLinkProps) {
   );
 }
 
+ListItemAppLink.defaultProps = {
+  innerRef: undefined,
+  button: undefined,
+  naked: undefined,
+};
+
 export default ListItemAppLink;
