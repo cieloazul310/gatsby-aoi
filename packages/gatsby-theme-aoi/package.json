@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "Gatsby theme for MUI",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
@@ -49,13 +49,13 @@
     "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi-components": "^2.7.0",
-    "@cieloazul310/gatsby-theme-aoi-layout": "^2.7.0",
+    "@cieloazul310/gatsby-theme-aoi-components": "^2.7.1",
+    "@cieloazul310/gatsby-theme-aoi-layout": "^2.7.1",
     "@cieloazul310/gatsby-theme-aoi-top-layout": "^2.7.0",
     "@cieloazul310/gatsby-theme-aoi-utils": "^2.7.0",
     "gatsby-plugin-emotion": "^7.17.0",
     "gatsby-plugin-react-helmet-async": "^1.2.2",
     "react-helmet-async": "^1.3.0"
   },
-  "gitHead": "3d8ab98e6497fec0000f3500d800e52fb7338136"
+  "gitHead": "29290cbebc4e5e403b3700d3b0586f2a76c2c6b0"
 }

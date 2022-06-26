@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-layout",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "MUI based layout component for @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
@@ -64,5 +64,6 @@
     "gatsby": "^3.0.0 || ^4.0.0",
     "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
     "react-helmet-async": "^1.2.0"
-  }
+  },
+  "gitHead": "29290cbebc4e5e403b3700d3b0586f2a76c2c6b0"
 }

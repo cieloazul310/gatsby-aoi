@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-core",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "Gatsby Node API for Gatsby Theme Aoi Blog",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -71,5 +71,6 @@
     "gatsby-source-filesystem": "^4.17.0",
     "gatsby-transformer-sharp": "^4.17.0",
     "yaml": "^2.1.1"
-  }
+  },
+  "gitHead": "29290cbebc4e5e403b3700d3b0586f2a76c2c6b0"
 }

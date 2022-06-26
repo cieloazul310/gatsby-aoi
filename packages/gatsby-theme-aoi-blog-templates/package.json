@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-templates",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "Templates for Gatsby Theme Aoi Blog",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -55,5 +55,6 @@
     "gatsby": "^3.0.0 || ^4.0.0",
     "gatsby-plugin-mdx": "^3.5.0",
     "react": "^16.8.6 || ^17.0.0 || ^18.0.0"
-  }
+  },
+  "gitHead": "29290cbebc4e5e403b3700d3b0586f2a76c2c6b0"
 }
