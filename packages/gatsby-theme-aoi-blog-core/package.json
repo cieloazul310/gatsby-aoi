@@ -71,5 +71,6 @@
     "gatsby-source-filesystem": "^4.17.0",
     "gatsby-transformer-sharp": "^4.17.0",
     "yaml": "^2.1.1"
-  }
+  },
+  "gitHead": "29290cbebc4e5e403b3700d3b0586f2a76c2c6b0"
 }
