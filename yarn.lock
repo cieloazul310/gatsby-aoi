@@ -1875,7 +1875,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cieloazul310/gatsby-theme-aoi-blog-cli@^2.7.0, @cieloazul310/gatsby-theme-aoi-blog-cli@workspace:packages/gatsby-theme-aoi-blog-cli":
+"@cieloazul310/gatsby-theme-aoi-blog-cli@^2.7.1, @cieloazul310/gatsby-theme-aoi-blog-cli@workspace:packages/gatsby-theme-aoi-blog-cli":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-cli@workspace:packages/gatsby-theme-aoi-blog-cli"
   dependencies:
@@ -1894,15 +1894,18 @@ __metadata:
     ts-node: ^10.8.1
     ts-node-dev: ^2.0.0
     typescript: ^4.7.4
+  peerDependencies:
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": 2.7.0
   bin:
     gatsby-aoi-blog: bin/gatsby-aoi-blog
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-blog-components@^2.7.0, @cieloazul310/gatsby-theme-aoi-blog-components@workspace:packages/gatsby-theme-aoi-blog-components":
+"@cieloazul310/gatsby-theme-aoi-blog-components@^2.7.1, @cieloazul310/gatsby-theme-aoi-blog-components@workspace:packages/gatsby-theme-aoi-blog-components":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-components@workspace:packages/gatsby-theme-aoi-blog-components"
   dependencies:
+    "@cieloazul310/gatsby-theme-aoi-components": ^2.7.0
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
     "@mui/material": ^5.8.5
@@ -1932,7 +1935,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-blog-core@^2.7.0, @cieloazul310/gatsby-theme-aoi-blog-core@workspace:packages/gatsby-theme-aoi-blog-core":
+"@cieloazul310/gatsby-theme-aoi-blog-core@^2.7.1, @cieloazul310/gatsby-theme-aoi-blog-core@workspace:packages/gatsby-theme-aoi-blog-core":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-core@workspace:packages/gatsby-theme-aoi-blog-core"
   dependencies:
@@ -1976,7 +1979,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-blog-templates@^2.7.0, @cieloazul310/gatsby-theme-aoi-blog-templates@workspace:packages/gatsby-theme-aoi-blog-templates":
+"@cieloazul310/gatsby-theme-aoi-blog-templates@^2.7.1, @cieloazul310/gatsby-theme-aoi-blog-templates@workspace:packages/gatsby-theme-aoi-blog-templates":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-templates@workspace:packages/gatsby-theme-aoi-blog-templates"
   dependencies:
@@ -2040,14 +2043,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-blog@^2.7.0, @cieloazul310/gatsby-theme-aoi-blog@workspace:packages/gatsby-theme-aoi-blog":
+"@cieloazul310/gatsby-theme-aoi-blog@^2.7.1, @cieloazul310/gatsby-theme-aoi-blog@workspace:packages/gatsby-theme-aoi-blog":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog@workspace:packages/gatsby-theme-aoi-blog"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi-blog-cli": ^2.7.0
-    "@cieloazul310/gatsby-theme-aoi-blog-components": ^2.7.0
-    "@cieloazul310/gatsby-theme-aoi-blog-core": ^2.7.0
-    "@cieloazul310/gatsby-theme-aoi-blog-templates": ^2.7.0
+    "@cieloazul310/gatsby-theme-aoi-blog-cli": ^2.7.1
+    "@cieloazul310/gatsby-theme-aoi-blog-components": ^2.7.1
+    "@cieloazul310/gatsby-theme-aoi-blog-core": ^2.7.1
+    "@cieloazul310/gatsby-theme-aoi-blog-templates": ^2.7.1
     "@cieloazul310/gatsby-theme-aoi-blog-utils": ^2.7.0
     "@typescript-eslint/eslint-plugin": ^5.29.0
     "@typescript-eslint/parser": ^5.29.0
@@ -2074,7 +2077,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-components@^2.7.0, @cieloazul310/gatsby-theme-aoi-components@workspace:packages/gatsby-theme-aoi-components":
+"@cieloazul310/gatsby-theme-aoi-components@^2.7.0, @cieloazul310/gatsby-theme-aoi-components@^2.7.1, @cieloazul310/gatsby-theme-aoi-components@workspace:packages/gatsby-theme-aoi-components":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-components@workspace:packages/gatsby-theme-aoi-components"
   dependencies:
@@ -2111,7 +2114,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-layout@^2.7.0, @cieloazul310/gatsby-theme-aoi-layout@workspace:packages/gatsby-theme-aoi-layout":
+"@cieloazul310/gatsby-theme-aoi-layout@^2.7.1, @cieloazul310/gatsby-theme-aoi-layout@workspace:packages/gatsby-theme-aoi-layout":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-layout@workspace:packages/gatsby-theme-aoi-layout"
   dependencies:
@@ -2200,12 +2203,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi@^2.7.0, @cieloazul310/gatsby-theme-aoi@workspace:packages/gatsby-theme-aoi":
+"@cieloazul310/gatsby-theme-aoi@^2.7.1, @cieloazul310/gatsby-theme-aoi@workspace:packages/gatsby-theme-aoi":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi@workspace:packages/gatsby-theme-aoi"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi-components": ^2.7.0
-    "@cieloazul310/gatsby-theme-aoi-layout": ^2.7.0
+    "@cieloazul310/gatsby-theme-aoi-components": ^2.7.1
+    "@cieloazul310/gatsby-theme-aoi-layout": ^2.7.1
     "@cieloazul310/gatsby-theme-aoi-top-layout": ^2.7.0
     "@cieloazul310/gatsby-theme-aoi-utils": ^2.7.0
     "@typescript-eslint/eslint-plugin": ^5.29.0
@@ -14868,8 +14871,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "gatsby-starter-aoi-blog@workspace:starters/gatsby-starter-aoi-blog"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi": ^2.7.0
-    "@cieloazul310/gatsby-theme-aoi-blog": ^2.7.0
+    "@cieloazul310/gatsby-theme-aoi": ^2.7.1
+    "@cieloazul310/gatsby-theme-aoi-blog": ^2.7.1
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
     "@mui/icons-material": ^5.8.4
@@ -14903,7 +14906,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "gatsby-starter-aoi-theme@workspace:starters/gatsby-starter-aoi-theme"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi": ^2.7.0
+    "@cieloazul310/gatsby-theme-aoi": ^2.7.1
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
     "@mui/icons-material": ^5.8.4
