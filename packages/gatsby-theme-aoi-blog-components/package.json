@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-components",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "description": "MUI based blog components for @cieloazul310/gatsby-theme-aoi-blog",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -37,7 +37,7 @@
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
   "devDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-components": "^2.7.0",
+    "@cieloazul310/gatsby-theme-aoi-components": "^2.7.2",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/material": "^5.8.5",
@@ -66,5 +66,5 @@
     "gatsby": "^3.0.0 || ^4.0.0",
     "react": "^16.8.6 || ^17.0.0 || ^18.0.0"
   },
-  "gitHead": "29290cbebc4e5e403b3700d3b0586f2a76c2c6b0"
+  "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"
 }
