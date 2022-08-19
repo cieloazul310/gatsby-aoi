@@ -7,6 +7,7 @@ import {
   Article,
   Paragraph,
   AppLinkButton,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
 
 function JumbotronPage() {
@@ -47,3 +48,7 @@ function JumbotronPage() {
 }
 
 export default JumbotronPage;
+
+export function Head() {
+  return <Seo title="Jumbotron Page" />;
+}

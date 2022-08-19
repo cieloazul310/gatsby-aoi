@@ -20,7 +20,6 @@ import {
 
 // layout components are enable to override from your project
 // https://www.gatsbyjs.org/docs/themes/shadowing/
-import SEO from './SEO';
 import Header from './Header';
 import TabContainer from './TabContainer';
 import DrawerInner from './DrawerInner';
@@ -43,9 +42,6 @@ import BottomNav from './BottomNav';
 export interface LayoutProps {
   children: React.ReactNode;
   title?: string;
-  description?: string;
-  keywords?: string[];
-  image?: string;
   loading?: boolean;
   componentViewports?: Partial<ComponentViewports>;
   drawerWidth?: number;
@@ -59,9 +55,6 @@ export interface LayoutProps {
 export function Layout({
   children,
   title,
-  description,
-  keywords,
-  image,
   tabs,
   drawerContents,
   bottomNavigation,
@@ -136,104 +129,93 @@ export function Layout({
   );
 
   return (
-    <>
-      <SEO
-        title={title}
-        description={description}
-        keywords={keywords}
-        image={image}
-      />
-      <Box
+    <Box
+      sx={{
+        display: 'flex',
+        flexGrow: 1,
+        minHeight: '100vh',
+      }}
+    >
+      {loading ? (
+        <LinearProgress
+          sx={{
+            position: 'fixed',
+            top: { xs: theme.mixins.toolbar.minHeight, sm: 64 },
+            left: 0,
+            width: '100%',
+            zIndex: theme.zIndex.drawer + 1,
+          }}
+          color="secondary"
+        />
+      ) : null}
+      <AppBar
         sx={{
-          display: 'flex',
-          flexGrow: 1,
-          minHeight: '100vh',
+          zIndex: theme.zIndex.drawer + 2,
+          width: '100%',
         }}
       >
-        {loading ? (
-          <LinearProgress
-            sx={{
-              position: 'fixed',
-              top: { xs: theme.mixins.toolbar.minHeight, sm: 64 },
-              left: 0,
-              width: '100%',
-              zIndex: theme.zIndex.drawer + 1,
-            }}
-            color="secondary"
-          />
+        <Header
+          title={title}
+          toggleDrawer={toggleDrawer}
+          componentViewports={viewports}
+        />
+      </AppBar>
+      {viewports.swipeableDrawer || viewports.permanentDrawer ? drawer : null}
+      <Box
+        sx={{
+          ...mainStyles(viewports.bottomNav),
+          flexGrow: 1,
+          maxWidth: '100%',
+          minWidth: 0,
+          paddingTop: { xs: '56px', sm: '64px' },
+        }}
+      >
+        {tabs ? (
+          <TabContainer tabSticky={tabSticky}>{tabs}</TabContainer>
         ) : null}
-        <AppBar
+        <main>{children}</main>
+        <SectionDivider />
+        <Section>
+          <FooterMenu />
+        </Section>
+        <SectionDivider />
+        <Section>
+          <Footer />
+        </Section>
+      </Box>
+      {viewports.fab !== false ? (
+        <Box
           sx={{
-            zIndex: theme.zIndex.drawer + 2,
+            ...fabStyles(viewports.bottomNav, theme),
+            display: viewportsToSxDisplay(viewports.fab),
+            position: 'fixed',
+            right: theme.spacing(2),
+            bottom: theme.spacing(2),
+            transition: theme.transitions.create('bottom'),
+          }}
+        >
+          {fab || <Fab onClick={toggleDrawer} />}
+        </Box>
+      ) : null}
+      {viewports.bottomNav !== false ? (
+        <Box
+          sx={{
+            display: viewportsToSxDisplay(viewports.bottomNav),
+            position: 'fixed',
+            left: 0,
+            bottom: 0,
             width: '100%',
           }}
         >
-          <Header
-            title={title}
-            toggleDrawer={toggleDrawer}
-            componentViewports={viewports}
-          />
-        </AppBar>
-        {viewports.swipeableDrawer || viewports.permanentDrawer ? drawer : null}
-        <Box
-          sx={{
-            ...mainStyles(viewports.bottomNav),
-            flexGrow: 1,
-            maxWidth: '100%',
-            minWidth: 0,
-            paddingTop: { xs: '56px', sm: '64px' },
-          }}
-        >
-          {tabs ? (
-            <TabContainer tabSticky={tabSticky}>{tabs}</TabContainer>
-          ) : null}
-          <main>{children}</main>
-          <SectionDivider />
-          <Section>
-            <FooterMenu />
-          </Section>
-          <SectionDivider />
-          <Section>
-            <Footer />
-          </Section>
+          {bottomNavigation || <BottomNav />}
         </Box>
-        {viewports.fab !== false ? (
-          <Box
-            sx={{
-              ...fabStyles(viewports.bottomNav, theme),
-              display: viewportsToSxDisplay(viewports.fab),
-              position: 'fixed',
-              right: theme.spacing(2),
-              bottom: theme.spacing(2),
-              transition: theme.transitions.create('bottom'),
-            }}
-          >
-            {fab || <Fab onClick={toggleDrawer} />}
-          </Box>
-        ) : null}
-        {viewports.bottomNav !== false ? (
-          <Box
-            sx={{
-              display: viewportsToSxDisplay(viewports.bottomNav),
-              position: 'fixed',
-              left: 0,
-              bottom: 0,
-              width: '100%',
-            }}
-          >
-            {bottomNavigation || <BottomNav />}
-          </Box>
-        ) : null}
-      </Box>
-    </>
+      ) : null}
+    </Box>
   );
 }
 
 Layout.defaultProps = {
   title: undefined,
-  description: undefined,
-  keywords: undefined,
-  image: undefined,
   tabs: undefined,
   drawerContents: undefined,
   bottomNavigation: undefined,
