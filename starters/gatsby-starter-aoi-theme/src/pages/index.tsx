@@ -11,6 +11,7 @@ import {
   Li,
   AppLink,
   PanelLink,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
 import { useAppState } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
 
@@ -56,3 +57,7 @@ function IndexPage() {
 }
 
 export default IndexPage;
+
+export function Head() {
+  return <Seo />;
+}

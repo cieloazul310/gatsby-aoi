@@ -14,6 +14,7 @@ import {
   AppLink,
   AppLinkButton,
   PanelLink,
+  Seo,
   useToggleDark,
   useToggleUseSystem,
   useThemeContextState,
@@ -174,3 +175,7 @@ function Catalogue() {
 }
 
 export default Catalogue;
+
+export function Head() {
+  return <Seo title="Catalogue" />;
+}

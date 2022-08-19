@@ -12,6 +12,7 @@ import {
   Paragraph,
   AppLinkButton,
   Alert,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
 
 function TabPage() {
@@ -117,3 +118,7 @@ function TabPage() {
 }
 
 export default TabPage;
+
+export function Head() {
+  return <Seo title="Tab Layout" />;
+}

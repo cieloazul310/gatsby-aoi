@@ -51,8 +51,7 @@
   "peerDependencies": {
     "@mui/material": "^5.0.0",
     "gatsby": "^4.19.0",
-    "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
-    "react-helmet-async": "^1.2.0"
+    "react": "^16.8.6 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
     "gatsby-plugin-webfonts": "^2.2.2"
