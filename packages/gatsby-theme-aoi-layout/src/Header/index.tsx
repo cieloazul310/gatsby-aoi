@@ -2,17 +2,17 @@ import * as React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {
-  ComponentViewports,
+  type ComponentViewports,
   useSiteMetadata,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
 import ButtonLeft from './ButtonLeft';
 import ButtonRight from './ButtonRight';
 
-interface Props {
+type HeaderProps = {
   title?: string;
   componentViewports: ComponentViewports;
   toggleDrawer?: () => void;
-}
+};
 
 function Header({
   title,
@@ -20,7 +20,7 @@ function Header({
   toggleDrawer = () => {
     // do nothing
   },
-}: Props) {
+}: HeaderProps) {
   const siteMetadata = useSiteMetadata();
   return (
     <Toolbar>

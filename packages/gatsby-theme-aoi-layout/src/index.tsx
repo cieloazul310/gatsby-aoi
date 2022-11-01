@@ -15,7 +15,7 @@ import {
   permanentDrawerStyles,
   fabStyles,
   viewportsToSxDisplay,
-  ComponentViewports,
+  type ComponentViewports,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
 
 // layout components are enable to override from your project

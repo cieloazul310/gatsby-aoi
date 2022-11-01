@@ -1,4 +1,4 @@
-import { ThemeOptions } from './types';
+import type { ThemeOptions } from './types';
 
 export default function withDefaults(
   themeOptions: Partial<ThemeOptions>

@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 
-interface Props {
+type TabsProps = {
   children: React.ReactNode;
   tabSticky?: boolean;
-}
+};
 
-function Tabs({ children, tabSticky = false }: Props) {
+function Tabs({ children, tabSticky = false }: TabsProps) {
   return (
     <Box
       sx={{

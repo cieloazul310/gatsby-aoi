@@ -1,5 +1,5 @@
 import * as React from 'react';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton, { type IconButtonProps } from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -10,11 +10,11 @@ import {
   useSocialShare,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
 
-type Props = {
+type ShareButtonsProps = {
   title?: string;
 } & Partial<Pick<IconButtonProps, 'color'>>;
 
-function ShareButtons({ title, color = 'default' }: Props) {
+function ShareButtons({ title, color = 'default' }: ShareButtonsProps) {
   const { lang, social } = useSiteMetadata();
   const twitterUrl = useSocialShare('twitter', title);
   const fbUrl = useSocialShare('facebook');

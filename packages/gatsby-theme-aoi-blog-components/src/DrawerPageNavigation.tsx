@@ -8,7 +8,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 import {
   ListItemAppLink,
-  ListItemAppLinkProps,
+  type ListItemAppLinkProps,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 
 type DrawerPageNavigationProps = {

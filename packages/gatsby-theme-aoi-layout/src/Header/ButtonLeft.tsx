@@ -4,17 +4,17 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { ComponentViewports } from '@cieloazul310/gatsby-theme-aoi-utils';
+import type { ComponentViewports } from '@cieloazul310/gatsby-theme-aoi-utils';
 
-interface Props {
+type ButtonLeftProps = {
   componentViewports: ComponentViewports;
   toggleDrawer: () => void;
-}
+};
 
 function ButtonLeft({
   toggleDrawer,
   componentViewports: { swipeableDrawer, permanentDrawer },
-}: Props) {
+}: ButtonLeftProps) {
   const showMenuButton = swipeableDrawer !== false && permanentDrawer === false;
   const onBackButtonClick = (event: React.MouseEvent) => {
     event.preventDefault();

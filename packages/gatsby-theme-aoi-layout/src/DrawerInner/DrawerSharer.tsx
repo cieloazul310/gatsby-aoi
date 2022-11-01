@@ -11,11 +11,11 @@ import {
   useSocialShare,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
 
-interface Props {
+type DrawerSharerProps = {
   title?: string;
-}
+};
 
-function DrawerSharer({ title }: Props): JSX.Element {
+function DrawerSharer({ title }: DrawerSharerProps) {
   const { lang } = useSiteMetadata();
   const twitterUrl = useSocialShare('twitter', title);
   const fbUrl = useSocialShare('facebook');

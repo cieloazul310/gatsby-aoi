@@ -1,25 +1,25 @@
 import * as React from 'react';
-import { PageProps } from 'gatsby';
+import type { PageProps, HeadProps } from 'gatsby';
 import {
   Article,
   Section,
   SectionDivider,
   Jumbotron,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import { muiComponents } from '@cieloazul310/gatsby-theme-aoi-blog-components';
 import { MDXProvider } from '@mdx-js/react';
-import { MDXRendererProps } from 'gatsby-plugin-mdx';
+import type { MDXRendererProps } from 'gatsby-plugin-mdx';
 import Layout from './layout';
 import shortcodes from './shortcodes';
 
-type Props = Omit<PageProps, 'children'> &
-  MDXRendererProps & {
-    pageContext: {
-      frontmatter?: {
-        title?: string;
-      };
-    };
+type PageContext = {
+  frontmatter?: {
+    title?: string;
   };
+};
+
+type Props = Omit<PageProps<null, PageContext>, 'children'> & MDXRendererProps;
 
 function DefaultTemplate({ children, pageContext }: Props) {
   return (
@@ -50,3 +50,7 @@ function DefaultTemplate({ children, pageContext }: Props) {
 }
 
 export default DefaultTemplate;
+
+export function Head({ pageContext }: HeadProps<null, PageContext>) {
+  return <Seo title={pageContext.frontmatter?.title} />;
+}

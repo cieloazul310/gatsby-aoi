@@ -1,10 +1,10 @@
 /* eslint react/jsx-props-no-spreading: "warn" */
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Container, { ContainerProps } from '@mui/material/Container';
-import Typography, { TypographyProps } from '@mui/material/Typography';
-import MuiLink, { LinkProps } from '@mui/material/Link';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import Container, { type ContainerProps } from '@mui/material/Container';
+import Typography, { type TypographyProps } from '@mui/material/Typography';
+import MuiLink, { type LinkProps } from '@mui/material/Link';
+import MuiAlert, { type AlertProps } from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Divider from '@mui/material/Divider';
 import { alpha } from '@mui/material/styles';
@@ -54,7 +54,7 @@ export function ArticleSection({ children }: Props) {
  */
 export function ArticleTitle({ children, ...props }: Props) {
   return (
-    <Typography variant="h5" component="h2" align="center" mb={4} {...props}>
+    <Typography variant="h4" component="h2" align="center" my={4} {...props}>
       {children}
     </Typography>
   );
@@ -62,7 +62,7 @@ export function ArticleTitle({ children, ...props }: Props) {
 
 export function Paragraph({ children, ...props }: Props) {
   return (
-    <Typography variant="inherit" paragraph lineHeight={1.8} {...props}>
+    <Typography variant="inherit" paragraph lineHeight={1.8} my={4} {...props}>
       {children}
     </Typography>
   );
@@ -74,6 +74,7 @@ export function SubParagraph({ children, ...props }: Props) {
       variant="body2"
       color="text.secondary"
       paragraph
+      my={4}
       lineHeight={1.8}
       {...props}
     >
@@ -84,7 +85,15 @@ export function SubParagraph({ children, ...props }: Props) {
 
 export function H3({ children, ...props }: Props) {
   return (
-    <Typography variant="h6" component="h3" mb="1em" mt="2em" {...props}>
+    <Typography
+      variant="h5"
+      component="h3"
+      mt={8}
+      mb={4}
+      borderBottom={1}
+      borderColor="secondary.main"
+      {...props}
+    >
       {children}
     </Typography>
   );
@@ -93,10 +102,10 @@ export function H3({ children, ...props }: Props) {
 export function H4({ children, ...props }: Props) {
   return (
     <Typography
-      variant="body1"
+      variant="h6"
       component="h4"
-      mt="2em"
-      mb="1.2em"
+      mt={8}
+      mb={4}
       fontWeight="bold"
       {...props}
     >
@@ -112,8 +121,8 @@ export function H5({ children, ...props }: Props) {
       component="h5"
       color="text.secondary"
       fontWeight="bold"
-      mt="2em"
-      mb="1em"
+      mt={8}
+      mb={4}
       {...props}
     >
       {children}
@@ -124,12 +133,12 @@ export function H5({ children, ...props }: Props) {
 export function H6({ children, ...props }: Props) {
   return (
     <Typography
-      variant="body2"
+      variant="body1"
       component="h6"
       color="text.secondary"
       fontWeight="bold"
-      mt="2em"
-      mb="1em"
+      mt={8}
+      mb={4}
       {...props}
     >
       {children}
@@ -181,6 +190,7 @@ export function InlineCode({ children }: Omit<TypographyProps, 'ref'>) {
       fontFamily="'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'monospace'"
       px={0.5}
       borderRadius={1}
+      fontSize=".875em"
       bgcolor={({ palette }) =>
         alpha(palette.secondary.main, palette.action.selectedOpacity)
       }
@@ -194,8 +204,7 @@ export function Ul({ variant, ...props }: Omit<TypographyProps, 'ref'>) {
   return (
     <Typography
       component="ul"
-      mt={2}
-      mb={3}
+      my={4}
       mx={0}
       variant={variant ?? 'inherit'}
       {...props}
@@ -207,8 +216,7 @@ export function Ol({ variant, ...props }: Omit<TypographyProps, 'ref'>) {
   return (
     <Typography
       component="ol"
-      mt={2}
-      mb={3}
+      my={4}
       mx={0}
       variant={variant ?? 'inherit'}
       {...props}

@@ -3,11 +3,11 @@ import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import TableContainer from '@mui/material/TableContainer';
-import MuiTable, { TableProps } from '@mui/material/Table';
+import MuiTable, { type TableProps } from '@mui/material/Table';
 import TableHead from '@mui/material/TableHead';
 import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
-import TableCell, { TableCellProps } from '@mui/material/TableCell';
+import TableCell, { type TableCellProps } from '@mui/material/TableCell';
 import {
   AppLink,
   ArticleTitle,

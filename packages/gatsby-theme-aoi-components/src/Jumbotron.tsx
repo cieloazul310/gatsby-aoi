@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Container, { ContainerProps } from '@mui/material/Container';
+import Container, { type ContainerProps } from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { useTheme, alpha } from '@mui/material/styles';
-import { AliasesCSSProperties } from '@mui/system';
+import type { AliasesCSSProperties } from '@mui/system';
 
 export type JumbotronProps = {
   title?: string;
