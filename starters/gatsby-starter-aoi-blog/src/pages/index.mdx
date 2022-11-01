@@ -4,6 +4,7 @@ date: 2022-01-25
 ---
 
 import { graphql } from 'gatsby';
+import { Seo } from '@cieloazul310/gatsby-theme-aoi';
 import { MdxPostEdgesList } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 Gatsby Theme Aoi Blog は、**Gatsby Theme Aoi** で作成された [Gatsby スターター][Gatsby Starters]です。Gatsby Theme Aoi は [MUI] (Material-UI) で構成された [Gatsby テーマ][Gatsby Themes] です。Gatsby Theme Aoi には以下のような特徴があります。
@@ -32,6 +33,10 @@ Gatsby Theme Aoi Blog は、**Gatsby Theme Aoi** で作成された [Gatsby ス�
 [`@cieloazul310/gatsby-theme-aoi-layout`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-layout
 [`@cieloazul310/gatsby-theme-aoi-top-layout`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-top-layout
 [`@cieloazul310/gatsby-theme-aoi-utils`]: https://github.com/cieloazul310/gatsby-aoi/tree/main/packages/gatsby-theme-aoi-utils
+
+export function Head() {
+  return <Seo />;
+}
 
 export const query = graphql`
   query {

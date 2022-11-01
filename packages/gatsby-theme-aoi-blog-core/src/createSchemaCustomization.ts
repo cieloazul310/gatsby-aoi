@@ -1,8 +1,8 @@
 import * as path from 'path';
-import { CreateSchemaCustomizationArgs } from 'gatsby';
+import type { CreateSchemaCustomizationArgs } from 'gatsby';
 import { slash } from 'gatsby-core-utils';
-import { FileSystemNode } from 'gatsby-source-filesystem';
-import {
+import type { FileSystemNode } from 'gatsby-source-filesystem';
+import type {
   GraphQLFieldResolver,
   GraphQLResolveInfo,
   GraphQLObjectType,
@@ -10,12 +10,12 @@ import {
 import {
   withDefaults,
   isString,
-  AuthorBare,
-  MdxPost,
-  MdxPostBare,
-  MdxNode,
-  ThemeOptions,
-  GatsbyGraphQLContext,
+  type AuthorBare,
+  type MdxPost,
+  type MdxPostBare,
+  type MdxNode,
+  type ThemeOptions,
+  type GatsbyGraphQLContext,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 async function processMdxPostRelativeImage(

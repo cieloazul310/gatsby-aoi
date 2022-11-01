@@ -1,10 +1,10 @@
 /* eslint react/jsx-props-no-spreading: "warn" */
 import * as React from 'react';
-import { Link as GatsbyLink, GatsbyLinkProps, withPrefix } from 'gatsby';
-import MuiLink, { LinkProps as MuiLinkProps } from '@mui/material/Link';
-import Button, { ButtonProps } from '@mui/material/Button';
+import { Link as GatsbyLink, type GatsbyLinkProps, withPrefix } from 'gatsby';
+import MuiLink, { type LinkProps as MuiLinkProps } from '@mui/material/Link';
+import Button, { type ButtonProps } from '@mui/material/Button';
 import BottomNavigationAction, {
-  BottomNavigationActionProps,
+  type BottomNavigationActionProps,
 } from '@mui/material/BottomNavigationAction';
 import { useLocation } from '@reach/router';
 import clsx from 'clsx';

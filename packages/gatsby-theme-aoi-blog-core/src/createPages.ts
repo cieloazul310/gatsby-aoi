@@ -1,9 +1,9 @@
-import { CreatePagesArgs } from 'gatsby';
+import type { CreatePagesArgs } from 'gatsby';
 import {
   withDefaults,
-  MdxPost,
-  MdxPostMonth,
-  ThemeOptions,
+  type MdxPost,
+  type MdxPostMonth,
+  type ThemeOptions,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 type Data = {

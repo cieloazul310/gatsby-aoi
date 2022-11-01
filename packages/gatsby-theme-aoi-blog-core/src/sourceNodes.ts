@@ -1,14 +1,14 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as yaml from 'yaml';
-import { SourceNodesArgs } from 'gatsby';
+import type { SourceNodesArgs } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import {
   withDefaults,
   createSlug,
   validURL,
-  AuthorBare,
-  ThemeOptions,
+  type AuthorBare,
+  type ThemeOptions,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 export default async function sourceNodes(

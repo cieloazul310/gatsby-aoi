@@ -3,17 +3,17 @@ import Fab from '@mui/material/Fab';
 import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
 
-interface Props {
+type FloationActionButtonProps = {
   className?: string;
   onClick?: () => void;
-}
+};
 
 function FloationActionButton({
   className,
   onClick = () => {
     // do nothing
   },
-}: Props) {
+}: FloationActionButtonProps) {
   return (
     <Tooltip title="Menu" placement="top">
       <Fab className={className} onClick={onClick} color="secondary">

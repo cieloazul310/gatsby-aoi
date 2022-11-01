@@ -1,6 +1,6 @@
 /* eslint react/jsx-props-no-spreading: warn */
 import * as React from 'react';
-import MuiLink, { LinkProps as MuiLinkProps } from '@mui/material/Link';
+import MuiLink, { type LinkProps as MuiLinkProps } from '@mui/material/Link';
 
 export type ExternalLinkProps = MuiLinkProps;
 

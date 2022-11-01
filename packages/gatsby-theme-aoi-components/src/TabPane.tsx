@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-type Props = {
+type TabPaneProps = {
   currentTab: number;
   index: number;
   children: React.ReactNode;
@@ -13,7 +13,7 @@ function TabPane({
   currentTab,
   children,
   renderNeighbor = false,
-}: Props): JSX.Element {
+}: TabPaneProps) {
   const current = currentTab === index;
   const isNeighbor = currentTab === index - 1 || currentTab === index + 1;
   return (

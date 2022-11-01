@@ -1,8 +1,8 @@
 export {
   default as AppLink,
   AppLinkButton,
-  AppLinkProps,
-  AppLinkButtonProps,
+  type AppLinkProps,
+  type AppLinkButtonProps,
   BottomNavigationAppLink,
 } from './AppLink';
 export {
@@ -24,19 +24,29 @@ export {
   Li,
   Alert,
 } from './Article';
-export { default as ExternalLink, ExternalLinkProps } from './ExternalLink';
-export { default as Jumbotron, JumbotronProps } from './Jumbotron';
+export {
+  default as ExternalLink,
+  type ExternalLinkProps,
+} from './ExternalLink';
+export { default as Jumbotron, type JumbotronProps } from './Jumbotron';
 export {
   default as ListItemAppLink,
-  ListItemAppLinkProps,
+  type ListItemAppLinkProps,
 } from './ListItemAppLink';
-export { default as ListItemLink, ListItemLinkProps } from './ListItemLink';
+export {
+  default as ListItemLink,
+  type ListItemLinkProps,
+} from './ListItemLink';
 export {
   default as ListItemToggleDarkMode,
   ListItemToggleUseSystemTheme,
 } from './ListItemToggleDarkMode';
 export { default as PanelLink } from './PanelLink';
-export { default as Section, SectionDivider, SectionProps } from './Section';
+export {
+  default as Section,
+  SectionDivider,
+  type SectionProps,
+} from './Section';
 export { default as Seo } from './Seo';
 export { SocialIcon, SocialLink } from './Socials';
 export { default as TabPane } from './TabPane';

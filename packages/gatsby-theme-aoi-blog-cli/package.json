@@ -56,7 +56,7 @@
     "commander": "^9.4.1"
   },
   "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "2.7.0"
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "2.7.0 || ^3.0.0 || ^3.0.0-alpha.0"
   },
   "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"
 }

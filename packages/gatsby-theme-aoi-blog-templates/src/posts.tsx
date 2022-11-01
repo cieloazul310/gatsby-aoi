@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Typography from '@mui/material/Typography';
@@ -9,6 +9,7 @@ import {
   SectionDivider,
   Article,
   AppLink,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import {
   DrawerPageNavigation,
@@ -16,7 +17,7 @@ import {
   PageNavigationItem,
   muiComponents,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 import Layout from './layout';
 import AuthorBox from './components/AuthorBox';
@@ -38,8 +39,7 @@ function BlogPostTemplate({
 }: PageProps<PageData, PageContext>) {
   const { mdxPost } = data;
   if (!mdxPost) return null;
-  const { title, date, author, categoriesSlug, tagsSlug, image, excerpt } =
-    mdxPost;
+  const { title, date, author, categoriesSlug, tagsSlug, image } = mdxPost;
   const { previous, next } = pageContext;
   const staticImage =
     image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
@@ -47,8 +47,6 @@ function BlogPostTemplate({
   return (
     <Layout
       title={title ?? 'Title'}
-      description={excerpt}
-      image={staticImage}
       drawerContents={
         <DrawerPageNavigation
           previous={
@@ -139,6 +137,14 @@ function BlogPostTemplate({
 }
 
 export default BlogPostTemplate;
+
+export function Head({ data }: HeadProps<PageData, PageContext>) {
+  const { mdxPost } = data;
+  const { title, image, excerpt } = mdxPost;
+  const staticImage =
+    image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
+  return <Seo title={title} description={excerpt} image={staticImage} />;
+}
 
 export const pageQuery = graphql`
   query PostsQuery($id: String) {

@@ -1,7 +1,7 @@
 /* eslint react/jsx-props-no-spreading: warn */
 import * as React from 'react';
 import MuiLink from '@mui/material/Link';
-import { SvgIconProps } from '@mui/material/SvgIcon';
+import type { SvgIconProps } from '@mui/material/SvgIcon';
 import EmailIcon from '@mui/icons-material/Email';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';

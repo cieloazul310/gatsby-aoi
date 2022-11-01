@@ -5,6 +5,7 @@ import {
   Section,
   ArticleTitle,
   Paragraph,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
 
 function NotFoundPage() {
@@ -18,6 +19,10 @@ function NotFoundPage() {
       </Section>
     </Layout>
   );
+}
+
+export function Head() {
+  return <Seo title="404 Not Found" />;
 }
 
 export default NotFoundPage;

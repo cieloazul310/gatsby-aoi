@@ -3,7 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import { ThemeProvider, createTheme, lighten } from '@mui/material/styles';
 import initialMuiTheme from '../theme';
-import { PaletteType } from '../utils/ThemeState';
+import type { PaletteType } from '../utils/ThemeState';
 
 type TopThemeProviderProps = {
   children: React.ReactNode;
