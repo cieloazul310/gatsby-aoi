@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { initialThemeState, ThemeState, ThemeAction } from './ThemeState';
+import {
+  initialThemeState,
+  type ThemeState,
+  type ThemeAction,
+} from './ThemeState';
 
 type Context = { state: ThemeState; dispatch: React.Dispatch<ThemeAction> };
 const ThemeDispatchContext = React.createContext<Context>({

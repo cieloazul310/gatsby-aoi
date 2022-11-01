@@ -2,11 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import ShareButtons from './ShareButtons';
 
-interface Props {
+type ButtonRightProps = {
   title?: string;
-}
+};
 
-function ButtonRight({ title }: Props) {
+function ButtonRight({ title }: ButtonRightProps) {
   return (
     <>
       <Box sx={{ display: { xs: 'none', md: 'block' } }}>

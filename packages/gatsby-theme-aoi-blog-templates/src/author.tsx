@@ -20,7 +20,7 @@ import {
   PageNavigationContainer,
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import {
+import type {
   MdxPostBrowser,
   AuthorBrowser,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';

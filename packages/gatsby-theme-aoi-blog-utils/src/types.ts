@@ -1,6 +1,6 @@
-import { Node } from 'gatsby';
-import { FileSystemNode } from 'gatsby-source-filesystem';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
+import type { Node } from 'gatsby';
+import type { FileSystemNode } from 'gatsby-source-filesystem';
+import type { IGatsbyImageData } from 'gatsby-plugin-image';
 
 export type ThemeOptions = {
   postsPerPage: number;

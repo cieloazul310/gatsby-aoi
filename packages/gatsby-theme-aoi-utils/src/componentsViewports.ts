@@ -1,5 +1,5 @@
-import { Theme, Breakpoint } from '@mui/material/styles';
-import {
+import type { Theme, Breakpoint } from '@mui/material/styles';
+import type {
   ResponsiveStyleValue,
   AllSystemCSSProperties,
   SxProps,
@@ -20,12 +20,12 @@ export type Viewport =
 export type ViewDirection = 'Up' | 'Down';
 export type Viewports = Viewport | boolean;
 
-export interface ComponentViewports {
+export type ComponentViewports = {
   swipeableDrawer: Viewports;
   permanentDrawer: Viewports;
   bottomNav: Viewports;
   fab: Viewports;
-}
+};
 
 export const defaultComponentViewports: ComponentViewports = {
   swipeableDrawer: 'smDown',

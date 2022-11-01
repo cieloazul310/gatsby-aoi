@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { ListItemAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
-import menu, { Menu } from '../menu';
+import menu, { type Menu } from '../menu';
 
 type FooterMenuItemProps = Menu;
 

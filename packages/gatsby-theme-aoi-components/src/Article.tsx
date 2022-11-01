@@ -1,10 +1,10 @@
 /* eslint react/jsx-props-no-spreading: "warn" */
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Container, { ContainerProps } from '@mui/material/Container';
-import Typography, { TypographyProps } from '@mui/material/Typography';
-import MuiLink, { LinkProps } from '@mui/material/Link';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import Container, { type ContainerProps } from '@mui/material/Container';
+import Typography, { type TypographyProps } from '@mui/material/Typography';
+import MuiLink, { type LinkProps } from '@mui/material/Link';
+import MuiAlert, { type AlertProps } from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Divider from '@mui/material/Divider';
 import { alpha } from '@mui/material/styles';

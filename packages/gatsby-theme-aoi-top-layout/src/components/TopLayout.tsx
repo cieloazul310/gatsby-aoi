@@ -4,7 +4,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import ThemeStateProvider from './ThemeStateProvider';
 import AppStateProvider from './AppStateProvider';
 import ThemeDispatchContext from '../utils/ThemeStateContext';
-import themeReducer, { PaletteType } from '../utils/ThemeState';
+import themeReducer, { type PaletteType } from '../utils/ThemeState';
 import initialTheme from '../theme';
 import useUpdateOnClient from '../utils/useUpdateOnClient';
 

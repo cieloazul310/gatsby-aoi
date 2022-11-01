@@ -1,7 +1,7 @@
 /* eslint react/jsx-props-no-spreading: "warn" */
 import * as React from 'react';
-import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby';
-import ListItem, { ListItemProps } from '@mui/material/ListItem';
+import { Link as GatsbyLink, type GatsbyLinkProps } from 'gatsby';
+import ListItem, { type ListItemProps } from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 
 type GatsbyLinkComposedProps<T = Record<string, unknown>> = Omit<
