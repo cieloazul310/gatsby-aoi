@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.1](https://github.com/cieloazul310/gatsby-aoi/compare/v3.0.0-alpha.0...v3.0.0-alpha.1) (2022-11-01)
+
+### Features
+
+- **blog-template:** adapted to Gatsby Head API ([5bf37c4](https://github.com/cieloazul310/gatsby-aoi/commit/5bf37c44e99931253f10af889245e10df1bbbaaa))
+
 # [3.0.0-alpha.0](https://github.com/cieloazul310/gatsby-aoi/compare/v2.8.0...v3.0.0-alpha.0) (2022-11-01)
 
 **Note:** Version bump only for package gatsby-theme-aoi

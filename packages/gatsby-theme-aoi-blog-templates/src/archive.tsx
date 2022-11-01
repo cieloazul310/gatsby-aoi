@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import Typography from '@mui/material/Typography';
 import {
   Jumbotron,
   Section,
   SectionDivider,
   Article,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import {
   Pagination,
@@ -13,7 +14,7 @@ import {
   PageNavigationContainer,
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 import Layout from './layout';
 import MdxPostEdgesList from './components/MdxPostList';
@@ -146,6 +147,12 @@ function ArchiveTemplate({
 }
 
 export default ArchiveTemplate;
+
+export function Head({ pageContext }: HeadProps<PageData, PageContext>) {
+  const { year, month } = pageContext;
+  const title = createTitleString(year, month);
+  return <Seo title={title} />;
+}
 
 export const query = graphql`
   query Archive($gte: Date!, $lt: Date!, $skip: Int!, $limit: Int!) {

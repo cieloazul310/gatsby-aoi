@@ -3,7 +3,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 
 function isInternal(to: string) {

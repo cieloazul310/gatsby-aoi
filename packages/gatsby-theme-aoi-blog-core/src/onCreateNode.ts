@@ -1,12 +1,12 @@
 import * as path from 'path';
-import { CreateNodeArgs, Node, GatsbyCache } from 'gatsby';
+import type { CreateNodeArgs, Node, GatsbyCache } from 'gatsby';
 import { createContentDigest } from 'gatsby-core-utils';
 import { createFilePath, createRemoteFileNode } from 'gatsby-source-filesystem';
 import {
   withDefaults,
   validURL,
-  MdxBare,
-  ThemeOptions,
+  type MdxBare,
+  type ThemeOptions,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 declare module 'gatsby-source-filesystem' {

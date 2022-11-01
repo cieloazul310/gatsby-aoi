@@ -2,7 +2,7 @@
 import * as React from 'react';
 import {
   Layout as AoiLayout,
-  LayoutProps,
+  type LayoutProps,
 } from '@cieloazul310/gatsby-theme-aoi-layout';
 
 function Layout({ children, componentViewports, ...props }: LayoutProps) {

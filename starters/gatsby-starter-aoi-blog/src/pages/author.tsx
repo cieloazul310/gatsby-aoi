@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, type PageProps } from 'gatsby';
 import {
   Layout,
   Jumbotron,
   Section,
   SectionDivider,
   Article,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
 import { AuthorBox, AuthorBrowser } from '@cieloazul310/gatsby-theme-aoi-blog';
 
@@ -54,6 +55,10 @@ function AuthorPage({ data }: PageProps<PageData>) {
 }
 
 export default AuthorPage;
+
+export function Head() {
+  return <Seo title="Authors" />;
+}
 
 export const query = graphql`
   query {

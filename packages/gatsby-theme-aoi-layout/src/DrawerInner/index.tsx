@@ -6,12 +6,12 @@ import DrawerSharer from './DrawerSharer';
 import StateHandler from './StateHandler';
 import DrawerFooter from './DrawerFooter';
 
-interface Props {
+type DrawerInnerProps = {
   contents?: React.ReactNode;
   title?: string;
-}
+};
 
-function DrawerInner({ contents, title }: Props) {
+function DrawerInner({ contents, title }: DrawerInnerProps) {
   return (
     <div>
       {contents}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, type PageProps } from 'gatsby';
 import {
   Layout,
   Section,
@@ -7,6 +7,7 @@ import {
   Jumbotron,
   Article,
   AppLink,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
 
 type PageData = {
@@ -48,6 +49,10 @@ function TagPage({ data }: PageProps<PageData>) {
 }
 
 export default TagPage;
+
+export function Head() {
+  return <Seo title="Tags" />;
+}
 
 export const query = graphql`
   query {
