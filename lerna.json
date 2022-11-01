@@ -1,9 +1,16 @@
 {
-  "packages": [
-    "packages/*",
-    "starters/*"
-  ],
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "npmClient": "yarn",
+  "useNx": true,
   "useWorkspaces": true,
+  "packages": ["packages/*", "starters/*"],
+  "ignoreChanges": [
+    ".yarn",
+    ".yarnrc.yml",
+    "**/__tests__/**",
+    "**/*.md",
+    ".eslintrc.js",
+    "jest.config.ts"
+  ],
   "version": "2.8.0"
 }
