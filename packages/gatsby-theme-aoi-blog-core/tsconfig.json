@@ -4,6 +4,7 @@
     "module": "commonjs",
     "target": "esnext",
     "outDir": "lib",
+    "baseUrl": ".",
     "noUnusedLocals": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,

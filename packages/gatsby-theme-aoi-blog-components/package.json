@@ -38,24 +38,24 @@
   },
   "devDependencies": {
     "@cieloazul310/gatsby-theme-aoi-components": "^2.8.0",
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "@mui/material": "^5.10.1",
-    "@typescript-eslint/eslint-plugin": "^5.33.1",
-    "@typescript-eslint/parser": "^5.33.1",
-    "eslint": "^8.22.0",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.12",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-graphql": "^4.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "rimraf": "^3.0.2",
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.4"
   },
   "peerDependencies": {
     "@cieloazul310/gatsby-theme-aoi-components": "^2.7.0",
@@ -63,7 +63,7 @@
     "@emotion/styled": "^11.0.0",
     "@mui/icons-material": "^5.0.0",
     "@mui/material": "^5.0.0",
-    "gatsby": "^4.21.0",
+    "gatsby": "^4.19.0",
     "react": "^16.8.6 || ^17.0.0 || ^18.0.0"
   },
   "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"
