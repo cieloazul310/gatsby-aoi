@@ -1902,11 +1902,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cieloazul310/gatsby-theme-aoi-blog-cli@^2.8.0, @cieloazul310/gatsby-theme-aoi-blog-cli@workspace:packages/gatsby-theme-aoi-blog-cli":
+"@cieloazul310/gatsby-theme-aoi-blog-cli@^3.0.0-alpha.0, @cieloazul310/gatsby-theme-aoi-blog-cli@workspace:packages/gatsby-theme-aoi-blog-cli":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-cli@workspace:packages/gatsby-theme-aoi-blog-cli"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": 2.7.0
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": ^3.0.0-alpha.0
     "@types/node": ^18.11.8
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
@@ -1928,11 +1928,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-blog-components@^2.8.0, @cieloazul310/gatsby-theme-aoi-blog-components@workspace:packages/gatsby-theme-aoi-blog-components":
+"@cieloazul310/gatsby-theme-aoi-blog-components@^3.0.0-alpha.0, @cieloazul310/gatsby-theme-aoi-blog-components@workspace:packages/gatsby-theme-aoi-blog-components":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-components@workspace:packages/gatsby-theme-aoi-blog-components"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi-components": ^2.8.0
+    "@cieloazul310/gatsby-theme-aoi-components": ^3.0.0-alpha.0
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
     "@mui/material": ^5.10.12
@@ -1962,7 +1962,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-blog-core@^2.8.0, @cieloazul310/gatsby-theme-aoi-blog-core@workspace:packages/gatsby-theme-aoi-blog-core":
+"@cieloazul310/gatsby-theme-aoi-blog-core@^3.0.0-alpha.0, @cieloazul310/gatsby-theme-aoi-blog-core@workspace:packages/gatsby-theme-aoi-blog-core":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-core@workspace:packages/gatsby-theme-aoi-blog-core"
   dependencies:
@@ -2006,7 +2006,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-blog-templates@^2.8.0, @cieloazul310/gatsby-theme-aoi-blog-templates@workspace:packages/gatsby-theme-aoi-blog-templates":
+"@cieloazul310/gatsby-theme-aoi-blog-templates@^3.0.0-alpha.0, @cieloazul310/gatsby-theme-aoi-blog-templates@workspace:packages/gatsby-theme-aoi-blog-templates":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-templates@workspace:packages/gatsby-theme-aoi-blog-templates"
   dependencies:
@@ -2042,7 +2042,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-blog-utils@2.7.0, @cieloazul310/gatsby-theme-aoi-blog-utils@^2.7.0, @cieloazul310/gatsby-theme-aoi-blog-utils@workspace:packages/gatsby-theme-aoi-blog-utils":
+"@cieloazul310/gatsby-theme-aoi-blog-utils@^3.0.0-alpha.0, @cieloazul310/gatsby-theme-aoi-blog-utils@workspace:packages/gatsby-theme-aoi-blog-utils":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-utils@workspace:packages/gatsby-theme-aoi-blog-utils"
   dependencies:
@@ -2070,15 +2070,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-blog@^2.8.0, @cieloazul310/gatsby-theme-aoi-blog@workspace:packages/gatsby-theme-aoi-blog":
+"@cieloazul310/gatsby-theme-aoi-blog@^3.0.0-alpha.0, @cieloazul310/gatsby-theme-aoi-blog@workspace:packages/gatsby-theme-aoi-blog":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog@workspace:packages/gatsby-theme-aoi-blog"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi-blog-cli": ^2.8.0
-    "@cieloazul310/gatsby-theme-aoi-blog-components": ^2.8.0
-    "@cieloazul310/gatsby-theme-aoi-blog-core": ^2.8.0
-    "@cieloazul310/gatsby-theme-aoi-blog-templates": ^2.8.0
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": ^2.7.0
+    "@cieloazul310/gatsby-theme-aoi-blog-cli": ^3.0.0-alpha.0
+    "@cieloazul310/gatsby-theme-aoi-blog-components": ^3.0.0-alpha.0
+    "@cieloazul310/gatsby-theme-aoi-blog-core": ^3.0.0-alpha.0
+    "@cieloazul310/gatsby-theme-aoi-blog-templates": ^3.0.0-alpha.0
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": ^3.0.0-alpha.0
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     eslint: ^8.26.0
@@ -2104,7 +2104,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-components@^2.8.0, @cieloazul310/gatsby-theme-aoi-components@workspace:packages/gatsby-theme-aoi-components":
+"@cieloazul310/gatsby-theme-aoi-components@^3.0.0-alpha.0, @cieloazul310/gatsby-theme-aoi-components@workspace:packages/gatsby-theme-aoi-components":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-components@workspace:packages/gatsby-theme-aoi-components"
   dependencies:
@@ -2142,7 +2142,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-layout@^2.8.0, @cieloazul310/gatsby-theme-aoi-layout@workspace:packages/gatsby-theme-aoi-layout":
+"@cieloazul310/gatsby-theme-aoi-layout@^3.0.0-alpha.0, @cieloazul310/gatsby-theme-aoi-layout@workspace:packages/gatsby-theme-aoi-layout":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-layout@workspace:packages/gatsby-theme-aoi-layout"
   dependencies:
@@ -2178,7 +2178,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-top-layout@^2.7.0, @cieloazul310/gatsby-theme-aoi-top-layout@workspace:packages/gatsby-theme-aoi-top-layout":
+"@cieloazul310/gatsby-theme-aoi-top-layout@^3.0.0-alpha.0, @cieloazul310/gatsby-theme-aoi-top-layout@workspace:packages/gatsby-theme-aoi-top-layout":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-top-layout@workspace:packages/gatsby-theme-aoi-top-layout"
   dependencies:
@@ -2203,7 +2203,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-utils@^2.7.0, @cieloazul310/gatsby-theme-aoi-utils@workspace:packages/gatsby-theme-aoi-utils":
+"@cieloazul310/gatsby-theme-aoi-utils@^3.0.0-alpha.0, @cieloazul310/gatsby-theme-aoi-utils@workspace:packages/gatsby-theme-aoi-utils":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-utils@workspace:packages/gatsby-theme-aoi-utils"
   dependencies:
@@ -2230,14 +2230,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi@^2.8.0, @cieloazul310/gatsby-theme-aoi@workspace:packages/gatsby-theme-aoi":
+"@cieloazul310/gatsby-theme-aoi@^3.0.0-alpha.0, @cieloazul310/gatsby-theme-aoi@workspace:packages/gatsby-theme-aoi":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi@workspace:packages/gatsby-theme-aoi"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi-components": ^2.8.0
-    "@cieloazul310/gatsby-theme-aoi-layout": ^2.8.0
-    "@cieloazul310/gatsby-theme-aoi-top-layout": ^2.7.0
-    "@cieloazul310/gatsby-theme-aoi-utils": ^2.7.0
+    "@cieloazul310/gatsby-theme-aoi-components": ^3.0.0-alpha.0
+    "@cieloazul310/gatsby-theme-aoi-layout": ^3.0.0-alpha.0
+    "@cieloazul310/gatsby-theme-aoi-top-layout": ^3.0.0-alpha.0
+    "@cieloazul310/gatsby-theme-aoi-utils": ^3.0.0-alpha.0
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     eslint: ^8.26.0
@@ -11728,8 +11728,8 @@ __metadata:
   linkType: hard
 
 "devcert@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "devcert@npm:1.2.0"
+  version: 1.2.2
+  resolution: "devcert@npm:1.2.2"
   dependencies:
     "@types/configstore": ^2.1.1
     "@types/debug": ^0.0.30
@@ -11746,6 +11746,7 @@ __metadata:
     eol: ^0.9.1
     get-port: ^3.2.0
     glob: ^7.1.2
+    is-valid-domain: ^0.1.6
     lodash: ^4.17.4
     mkdirp: ^0.5.1
     password-prompt: ^1.0.4
@@ -11753,7 +11754,7 @@ __metadata:
     sudo-prompt: ^8.2.0
     tmp: ^0.0.33
     tslib: ^1.10.0
-  checksum: 3671d172b69d28de86e78851701cc63a17ffa3748ee92337b4ebeea0f53d85cde55d45cc529899a047b8ffe605300203af6ba2549a69e91ce9dd4cf310387611
+  checksum: 53f0281378be4b732019315b571a4d6e2133ad3963b8686cb19ac25fe37d186a745429248a0c4fcc558edba9b755fff23ed94e2a3e7e8ef7506893389941a372
   languageName: node
   linkType: hard
 
@@ -14594,8 +14595,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "gatsby-starter-aoi-blog@workspace:starters/gatsby-starter-aoi-blog"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi": ^2.8.0
-    "@cieloazul310/gatsby-theme-aoi-blog": ^2.8.0
+    "@cieloazul310/gatsby-theme-aoi": ^3.0.0-alpha.0
+    "@cieloazul310/gatsby-theme-aoi-blog": ^3.0.0-alpha.0
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
     "@mui/icons-material": ^5.10.9
@@ -14629,7 +14630,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "gatsby-starter-aoi-theme@workspace:starters/gatsby-starter-aoi-theme"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi": ^2.8.0
+    "@cieloazul310/gatsby-theme-aoi": ^3.0.0-alpha.0
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
     "@mui/icons-material": ^5.10.9
@@ -17105,6 +17106,15 @@ __metadata:
   version: 0.2.1
   resolution: "is-utf8@npm:0.2.1"
   checksum: 167ccd2be869fc228cc62c1a28df4b78c6b5485d15a29027d3b5dceb09b383e86a3522008b56dcac14b592b22f0a224388718c2505027a994fd8471465de54b3
+  languageName: node
+  linkType: hard
+
+"is-valid-domain@npm:^0.1.6":
+  version: 0.1.6
+  resolution: "is-valid-domain@npm:0.1.6"
+  dependencies:
+    punycode: ^2.1.1
+  checksum: 4e497673431c57b83026dfded173ff65fb432fad6db6715d14435acdd125e4acc2fc2fe865290c6329d0895362416b57f43483e0b73258b97242004f151b10ca
   languageName: node
   linkType: hard
 
@@ -22553,7 +22563,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"punycode@npm:^2.1.0":
+"punycode@npm:^2.1.0, punycode@npm:^2.1.1":
   version: 2.1.1
   resolution: "punycode@npm:2.1.1"
   checksum: 823bf443c6dd14f669984dea25757b37993f67e8d94698996064035edd43bed8a5a17a9f12e439c2b35df1078c6bec05a6c86e336209eb1061e8025c481168e8
@@ -26212,7 +26222,7 @@ __metadata:
 
 "typescript@patch:typescript@^3 || ^4#~builtin<compat/typescript>, typescript@patch:typescript@^4.8.4#~builtin<compat/typescript>":
   version: 4.8.4
-  resolution: "typescript@patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
