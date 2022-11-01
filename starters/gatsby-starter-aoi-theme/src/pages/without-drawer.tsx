@@ -7,6 +7,7 @@ import {
   Article,
   Paragraph,
   AppLinkButton,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
 
 function FullWidthLayout() {
@@ -51,3 +52,7 @@ function FullWidthLayout() {
 }
 
 export default FullWidthLayout;
+
+export function Head() {
+  return <Seo title="Full Width Layout" />;
+}
