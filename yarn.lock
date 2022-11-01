@@ -2174,7 +2174,6 @@ __metadata:
     clsx: ^1.1.1
     gatsby: ^4.19.0
     react: ^16.8.6 || ^17.0.0 || ^18.0.0
-    react-helmet-async: ^1.2.0
   languageName: unknown
   linkType: soft
 
@@ -26186,7 +26185,7 @@ __metadata:
 
 "typescript@patch:typescript@^3 || ^4#~builtin<compat/typescript>, typescript@patch:typescript@^4.8.4#~builtin<compat/typescript>":
   version: 4.8.4
-  resolution: "typescript@patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=a1c5e5"
+  resolution: "typescript@patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=bda367"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver

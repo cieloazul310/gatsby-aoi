@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
@@ -12,6 +12,7 @@ import {
   Paragraph,
   ExternalLink,
   SocialLink,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import {
   Pagination,
@@ -69,7 +70,6 @@ function AuthorTemplate({
   return (
     <Layout
       title={author.name}
-      image={bgImage}
       drawerContents={
         <DrawerPageNavigation
           previous={
@@ -215,6 +215,11 @@ function AuthorTemplate({
 }
 
 export default AuthorTemplate;
+
+export function Head({ data }: HeadProps<PageData, PageContext>) {
+  const { author } = data;
+  return <Seo title={`Author: ${author.name}`} />;
+}
 
 export const query = graphql`
   query Author(

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, type PageProps } from 'gatsby';
 import List from '@mui/material/List';
 import {
   Layout,
@@ -8,6 +8,7 @@ import {
   SectionDivider,
   Article,
   ListItemLink,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
 import { MdxPostMonth } from '@cieloazul310/gatsby-theme-aoi-blog';
 
@@ -45,6 +46,10 @@ function ArchivePage({ data }: PageProps<PageData>) {
 }
 
 export default ArchivePage;
+
+export function Head() {
+  return <Seo title="Archive" />;
+}
 
 export const query = graphql`
   query {

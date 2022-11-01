@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, type PageProps } from 'gatsby';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -11,6 +11,7 @@ import {
   Article,
   AppLink,
   ListItemLink,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
 import {
   MdxPostEdgesList,
@@ -85,6 +86,10 @@ function CategoryPage({ data }: PageProps<PageData>) {
 }
 
 export default CategoryPage;
+
+export function Head() {
+  return <Seo title="Categories" />;
+}
 
 export const query = graphql`
   query {

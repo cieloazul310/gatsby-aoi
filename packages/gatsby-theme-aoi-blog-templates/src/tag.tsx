@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import {
@@ -7,6 +7,7 @@ import {
   Section,
   SectionDivider,
   Article,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import {
   Pagination,
@@ -14,7 +15,7 @@ import {
   PageNavigationContainer,
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
 import Layout from './layout';
 import MdxPostEdgesList from './components/MdxPostList';
@@ -118,6 +119,11 @@ function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
 }
 
 export default TagTemplate;
+
+export function Head({ pageContext }: HeadProps<PageData, PageContext>) {
+  const { fieldValue } = pageContext;
+  return <Seo title={`Tag: ${fieldValue}`} />;
+}
 
 export const query = graphql`
   query Tag($fieldValue: String!, $skip: Int!, $limit: Int!) {
