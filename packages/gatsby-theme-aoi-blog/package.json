@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog",
-  "version": "2.1.5",
+  "version": "3.0.0-alpha.0",
   "description": "Gatsby Blog Theme built with Gatsby Theme Aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -29,33 +29,34 @@
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
   "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "^2.1.0",
+    "@cieloazul310/gatsby-theme-aoi": "^2.7.0",
     "@mui/icons-material": "^5.0.0",
     "@mui/material": "^5.0.0",
-    "gatsby": "^4.0.0",
-    "react": "^16.8.6 || ^17.0.0",
-    "react-dom": "^16.8.6 || ^17.0.0"
+    "gatsby": "^4.19.0",
+    "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.10.0",
-    "@typescript-eslint/parser": "^5.10.0",
-    "eslint": "^8.7.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^16.1.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-graphql": "^4.0.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.5.1",
-    "typescript": "^4.5.4"
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-cli": "^2.1.5",
-    "@cieloazul310/gatsby-theme-aoi-blog-components": "^2.1.5",
-    "@cieloazul310/gatsby-theme-aoi-blog-core": "^2.1.5",
-    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^2.1.5",
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^2.1.1"
-  }
+    "@cieloazul310/gatsby-theme-aoi-blog-cli": "^3.0.0-alpha.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "^3.0.0-alpha.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-core": "^3.0.0-alpha.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^3.0.0-alpha.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.0.0-alpha.0"
+  },
+  "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"
 }

@@ -25,14 +25,17 @@ import {
   Ol,
   Li,
   Alert,
+  PanelLink,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 
 function Table({ children }: TableProps) {
   return (
-    <Box py={2}>
-      <TableContainer component={Paper}>
-        <MuiTable>{children}</MuiTable>
-      </TableContainer>
+    <Box my={4}>
+      <Paper elevation={0} variant="outlined">
+        <TableContainer>
+          <MuiTable>{children}</MuiTable>
+        </TableContainer>
+      </Paper>
     </Box>
   );
 }
@@ -76,6 +79,7 @@ const components = {
   AppLink,
   SubParagraph,
   Alert,
+  PanelLink,
 };
 
 export default components;

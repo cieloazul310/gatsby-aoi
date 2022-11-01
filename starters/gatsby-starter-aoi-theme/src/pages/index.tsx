@@ -10,7 +10,8 @@ import {
   Ul,
   Li,
   AppLink,
-  AppLinkButton,
+  PanelLink,
+  Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
 import { useAppState } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
 
@@ -47,7 +48,7 @@ function IndexPage() {
                 Full Width <AppLink to="/without-drawer/">Example</AppLink>
               </Li>
             </Ul>
-            <AppLinkButton to="/catalogue/">Browse Catalogue</AppLinkButton>
+            <PanelLink to="/catalogue/">Browse Catalogue</PanelLink>
           </Article>
         </Section>
       </article>
@@ -56,3 +57,7 @@ function IndexPage() {
 }
 
 export default IndexPage;
+
+export function Head() {
+  return <Seo />;
+}

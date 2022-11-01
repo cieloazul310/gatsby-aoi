@@ -25,7 +25,6 @@ module.exports = (options) => ({
       },
     },
     `@cieloazul310/gatsby-theme-aoi-layout`,
-    `gatsby-plugin-react-helmet-async`,
     `gatsby-plugin-emotion`,
   ],
 });

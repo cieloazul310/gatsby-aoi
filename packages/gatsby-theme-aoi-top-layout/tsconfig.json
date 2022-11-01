@@ -1,4 +1,7 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src/**/*", ".eslintrc.js", "gatsby-*.js", "index.js"]
+  "include": ["src/**/*", ".eslintrc.js", "gatsby-*.js", "index.js"],
+  "compilerOptions": {
+    "baseUrl": "."
+  }
 }

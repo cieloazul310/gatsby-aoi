@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-components",
-  "version": "2.1.5",
+  "version": "3.0.0-alpha.0",
   "description": "MUI based blog components for @cieloazul310/gatsby-theme-aoi-blog",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -37,33 +37,34 @@
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
   "devDependencies": {
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@mui/material": "^5.3.0",
-    "@typescript-eslint/eslint-plugin": "^5.10.0",
-    "@typescript-eslint/parser": "^5.10.0",
-    "eslint": "^8.7.0",
+    "@cieloazul310/gatsby-theme-aoi-components": "^3.0.0-alpha.0",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.12",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^16.1.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-graphql": "^4.0.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.5.1",
-    "react": "^17.0.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
     "rimraf": "^3.0.2",
-    "typescript": "^4.5.4"
+    "typescript": "^4.8.4"
   },
   "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-components": "^2.1.0",
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
+    "@cieloazul310/gatsby-theme-aoi-components": "^2.7.0",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
     "@mui/icons-material": "^5.0.0",
     "@mui/material": "^5.0.0",
-    "gatsby": "^3.0.0 || ^4.0.0",
-    "react": "^16.8.6 || ^17.0.0",
-    "react-helmet": "^6.1.0"
-  }
+    "gatsby": "^4.19.0",
+    "react": "^16.8.6 || ^17.0.0 || ^18.0.0"
+  },
+  "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"
 }
