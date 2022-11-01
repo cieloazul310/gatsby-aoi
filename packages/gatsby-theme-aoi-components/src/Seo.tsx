@@ -4,7 +4,7 @@ import {
   useAssetUrl,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
 
-type SeoProps = {
+export type SeoProps = {
   title?: string;
   description?: string;
   image?: string;
