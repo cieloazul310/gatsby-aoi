@@ -41,12 +41,12 @@ export {
   default as ListItemToggleDarkMode,
   ListItemToggleUseSystemTheme,
 } from './ListItemToggleDarkMode';
-export { default as PanelLink } from './PanelLink';
+export { default as PanelLink, type PanelLinkProps } from './PanelLink';
 export {
   default as Section,
   SectionDivider,
   type SectionProps,
 } from './Section';
-export { default as Seo } from './Seo';
+export { default as Seo, type SeoProps } from './Seo';
 export { SocialIcon, SocialLink } from './Socials';
-export { default as TabPane } from './TabPane';
+export { default as TabPane, type TabPaneProps } from './TabPane';
