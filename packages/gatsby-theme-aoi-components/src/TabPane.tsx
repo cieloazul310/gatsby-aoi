@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-type TabPaneProps = {
+export type TabPaneProps = {
   currentTab: number;
   index: number;
   children: React.ReactNode;

@@ -28,7 +28,7 @@ const ButtonBaseRootStyle = {
   },
 } as const;
 
-type PanelLinkProps = {
+export type PanelLinkProps = {
   to: string;
   children: React.ReactNode;
   disableBorder?: boolean;
