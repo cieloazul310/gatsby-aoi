@@ -86,7 +86,7 @@ export function viewportsHelper(
 }
 
 export function mergeViewports(
-  componentViewports: Partial<ComponentViewports> | undefined
+  componentViewports: Partial<ComponentViewports> | undefined = undefined
 ): ComponentViewports {
   return componentViewports
     ? {
