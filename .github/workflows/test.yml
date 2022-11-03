@@ -2,9 +2,9 @@ name: Test
 on:
   pull_request:
     types: [opened, synchronize]
-    paths:
-      - packages/*/src/**
-      - packages/*/package.json
+    # paths:
+    #  - packages/*/src/**
+    #  - packages/*/package.json
   
 jobs:
   test:
