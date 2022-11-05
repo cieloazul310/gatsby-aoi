@@ -3,7 +3,9 @@ import * as fs from 'fs';
 import { parse } from 'jsonc-parser';
 import { pathsToModuleNameMapper, type JestConfigWithTsJest } from 'ts-jest';
 
-const { compilerOptions } = parse(fs.readFileSync('./tsconfig.json').toString());
+const { compilerOptions } = parse(
+  fs.readFileSync('./tsconfig.json').toString()
+);
 
 const paths = pathsToModuleNameMapper(compilerOptions.paths, {
   prefix: '<rootDir>/',
@@ -13,7 +15,7 @@ const config: JestConfigWithTsJest = {
   transform: {
     '^.+\\.[jt]sx?$': '<rootDir>/jest-preprocess.js',
   },
-  preset: 'ts-jest',
+  preset: 'ts-jest/presets/js-with-babel-esm',
   testEnvironment: 'node',
   moduleNameMapper: {
     '.+\\.(css|styl|less|sass|scss)$': `identity-obj-proxy`,
@@ -22,7 +24,7 @@ const config: JestConfigWithTsJest = {
   },
   testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
   transformIgnorePatterns: [
-    `node_modules/(?!(gatsby|gatsby-script|gatsby-link)/)`,
+    `node_modules/(?!(gatsby|gatsby-script|gatsby-link|url-join)/)`,
   ],
   globals: {
     __PATH_PREFIX__: ``,
