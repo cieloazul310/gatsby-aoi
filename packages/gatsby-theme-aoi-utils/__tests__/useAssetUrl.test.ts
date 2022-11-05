@@ -2,7 +2,7 @@
 import { expect, jest } from '@jest/globals';
 
 import * as Gatsby from 'gatsby';
-import useAbusoluteUrl from '../src/useAbsoluteUrl';
+import useAssetUrl from '../src/useAssetUrl';
 
 beforeEach(() => {
   const useStaticQuery = jest.spyOn(Gatsby, 'useStaticQuery');
@@ -12,7 +12,7 @@ beforeEach(() => {
         title: `Gatsby Theme Aoi`,
         description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
         author: `@cieloazul310`,
-        siteUrl: 'https://gatsby-theme-aoi.netlify.app',
+        siteUrl: 'https://cieloazul310.github.io/gatsby-aoi/',
         keywords: ['Gatsby', 'TypeScript', 'MUI'],
         lang: '',
         social: [
@@ -35,12 +35,11 @@ afterEach(() => {
   jest.restoreAllMocks();
 });
 
-describe('useAbusoluteUrl', () => {
+describe('useAssetUrl', () => {
   it('default', () => {
-    const url = useAbusoluteUrl('/about/');
+    const url = useAssetUrl('/gatsby-aoi/assets/image_hoge.png');
     expect(url).toBe(
-      'https://gatsby-theme-aoi.netlify.app/about/'
+      'https://cieloazul310.github.io/gatsby-aoi/assets/image_hoge.png'
     );
   });
 });
-
