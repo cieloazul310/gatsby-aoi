@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: off */
+import { expect } from '@jest/globals';
 import { createTheme } from '@mui/material/styles';
 import {
   mergeViewports,
@@ -9,7 +11,8 @@ import {
 
 describe('mergeViewports', () => {
   it('empty arguments', () => {
-    const { swipeableDrawer, permanentDrawer, bottomNav, fab } = mergeViewports();
+    const { swipeableDrawer, permanentDrawer, bottomNav, fab } =
+      mergeViewports();
     expect(swipeableDrawer).toBe('smDown');
     expect(permanentDrawer).toBe('mdUp');
     expect(bottomNav).toBe('xsDown');
@@ -17,8 +20,9 @@ describe('mergeViewports', () => {
   });
 
   it('partial arguments', () => {
-    const { swipeableDrawer, permanentDrawer, bottomNav, fab } =
-      mergeViewports({ bottomNav: 'smDown' });
+    const { swipeableDrawer, permanentDrawer, bottomNav, fab } = mergeViewports(
+      { bottomNav: 'smDown' }
+    );
     expect(swipeableDrawer).toBe('smDown');
     expect(permanentDrawer).toBe('mdUp');
     expect(bottomNav).toBe('smDown');
@@ -26,8 +30,9 @@ describe('mergeViewports', () => {
   });
 
   it('boolean arguments', () => {
-    const { swipeableDrawer, permanentDrawer, bottomNav, fab } =
-      mergeViewports({ bottomNav: false });
+    const { swipeableDrawer, permanentDrawer, bottomNav, fab } = mergeViewports(
+      { bottomNav: false }
+    );
     expect(swipeableDrawer).toBe('smDown');
     expect(permanentDrawer).toBe('mdUp');
     expect(bottomNav).toBe(false);
