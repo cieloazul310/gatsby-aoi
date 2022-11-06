@@ -2,11 +2,14 @@ name: Test
 on:
   pull_request:
     types: [opened, synchronize]
+    branches:
+      - develop
     paths:
       - package.json
       - packages/*/src/**
       - packages/*/package.json
-  
+      - .github/workflows/**
+
 jobs:
   test:
     name: Test
@@ -28,3 +31,9 @@ jobs:
 
       - name: Test
         run: yarn run test
+
+      - name: Build Theme
+        run: yarn run build:theme
+      
+      - name: Build Blog Theme
+        run: yarn run build:theme-blog
