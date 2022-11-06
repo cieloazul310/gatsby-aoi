@@ -1,7 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src/**/*", ".eslintrc.js"],
-  "compilerOptions": {
-    "baseUrl": "."
-  }
+  "include": ["src/**/*", ".eslintrc.js"]
 }

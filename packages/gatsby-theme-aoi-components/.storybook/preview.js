@@ -1,25 +1,33 @@
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider as Emotion10ThemeProvider } from 'emotion-theming';
-import theme from '@cieloazul310/gatsby-theme-aoi-top-layout/src/theme';
+import { withMuiTheme } from './with-mui-theme.decorator';
 
-const withThemeProvider = (Story, context) => {
-  return (
-    <Emotion10ThemeProvider theme={theme}>
-      <ThemeProvider theme={theme}>
-        <link
-          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
-          rel="stylesheet"
-        />
-        <CssBaseline />
-        <Story {...context} />
-      </ThemeProvider>
-    </Emotion10ThemeProvider>
-  );
-};
-
-export const decorators = [withThemeProvider];
+export const decorators = [withMuiTheme];
 
 export const parameters = {
   layout: 'fullscreen',
+  actions: { argTypesRegex: '^on[A-Z].*' },
+  controls: {
+    expanded: true,
+    hideNoControlsWarning: true,
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+};
+
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    title: 'Theme',
+    description: 'Theme for your components',
+    defaultValue: 'light',
+    toolbar: {
+      icon: 'paintbrush',
+      dynamicTitle: true,
+      items: [
+        { value: 'light', left: '☀️', title: 'Light mode' },
+        { value: 'dark', left: '🌙', title: 'Dark mode' },
+      ],
+    },
+  },
 };
