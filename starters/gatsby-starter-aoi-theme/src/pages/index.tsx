@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
   Layout,
   Article,
-  ArticleTitle,
   Jumbotron,
   Section,
   SectionDivider,
@@ -26,7 +25,7 @@ function IndexPage() {
         <SectionDivider />
         <Section>
           <Article>
-            <ArticleTitle>Features</ArticleTitle>
+            <H3>Features</H3>
             <Ul>
               <Li>TypeScript</Li>
               <Li>MUI</Li>
