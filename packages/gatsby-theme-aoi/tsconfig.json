@@ -1,4 +1,7 @@
 {
   "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  },
   "include": ["index.ts", ".eslintrc.js", "gatsby-config.js"]
 }
