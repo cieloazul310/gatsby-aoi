@@ -1,6 +1,6 @@
 {
   "name": "gatsby-starter-aoi-theme",
-  "version": "3.0.0-alpha.3",
+  "version": "3.0.0-alpha.5",
   "private": true,
   "description": "Gatsby starter built with @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
@@ -32,7 +32,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "^3.0.0-alpha.3",
+    "@cieloazul310/gatsby-theme-aoi": "^3.0.0-alpha.4",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.9",
