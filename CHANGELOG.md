@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.6](https://github.com/cieloazul310/gatsby-aoi/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-11-08)
+
+### Bug Fixes
+
+- tsconfig baseUrl ([0ea7200](https://github.com/cieloazul310/gatsby-aoi/commit/0ea7200d24c0e81a39c0db83a7fc8594ea5dc66c))
+
 # [3.0.0-alpha.5](https://github.com/cieloazul310/gatsby-aoi/compare/v3.0.0-alpha.4...v3.0.0-alpha.5) (2022-11-08)
 
 **Note:** Version bump only for package gatsby-theme-aoi
