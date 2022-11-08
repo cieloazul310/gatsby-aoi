@@ -9,7 +9,6 @@ import {
   Article,
   ArticleTitle,
   H3,
-  Hr,
   Paragraph,
   AppLink,
   AppLinkButton,
@@ -49,21 +48,18 @@ function Catalogue() {
               <Paragraph>
                 Gatsby Theme Aoi Basic Layout. Easy to customize.
               </Paragraph>
-              <Hr />
               <H3>Tab Page Layout</H3>
               <Paragraph>
                 Gatsby Theme Aoi Tab Page Layout
                 <br />
                 <PanelLink to="/tab-page/">Example</PanelLink>
               </Paragraph>
-              <Hr />
               <H3>Jumbotron Layout</H3>
               <Paragraph>
                 Gatsby Theme Aoi Jumbotron Layout
                 <br />
                 <PanelLink to="/jumbotron/">Example</PanelLink>
               </Paragraph>
-              <Hr />
               <H3>Full Width Layout</H3>
               <Paragraph>
                 Gatsby Theme Aoi Full Width Layout
@@ -86,7 +82,6 @@ function Catalogue() {
                   App Link Color Primary
                 </AppLink>
               </Stack>
-              <Hr />
               <H3>AppLinkButton</H3>
               <Paragraph>Gatsby Link composed to MuiButton</Paragraph>
               <Stack spacing={2} direction="column" maxWidth={300}>
@@ -98,7 +93,6 @@ function Catalogue() {
                   Contained
                 </AppLinkButton>
               </Stack>
-              <Hr />
               <H3>PanelLink</H3>
               <Paragraph>
                 Gatsby Link and external link component styled with Button Panel
@@ -128,20 +122,17 @@ function Catalogue() {
               <Paragraph>
                 Easy to use Social Share Url for Twitter, Facebook and Line.
               </Paragraph>
-              <Hr />
               <H3>useAppState</H3>
               <Paragraph>
                 Returns current App State.
                 <br />
                 Count: {count}
               </Paragraph>
-              <Hr />
               <H3>useDispatch</H3>
               <Paragraph>Returns dispatch of App State.</Paragraph>
               <Button variant="contained" onClick={increment}>
                 Increment
               </Button>
-              <Hr />
               <H3>useThemeContextState</H3>
               <Paragraph>Returns theme Context State.</Paragraph>
               <Paragraph>
@@ -149,7 +140,6 @@ function Catalogue() {
                 <br />
                 useSystemTheme: {`${useSystemTheme}`}
               </Paragraph>
-              <Hr />
               <H3>useToggleDark</H3>
               <Paragraph>
                 Returns callback to toggle lightmode / darkmode state.
@@ -157,7 +147,6 @@ function Catalogue() {
               <Button variant="contained" onClick={toggleDark}>
                 Toggle Dark
               </Button>
-              <Hr />
               <H3>useToggleUseSystem</H3>
               <Paragraph>
                 Returns callback to toggle useSystemTheme (enable auto dark
