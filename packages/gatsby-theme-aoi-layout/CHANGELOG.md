@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.6](https://github.com/cieloazul310/gatsby-aoi/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-11-08)
+
+**Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-layout
+
 # [3.0.0-alpha.4](https://github.com/cieloazul310/gatsby-aoi/compare/v3.0.0-alpha.3...v3.0.0-alpha.4) (2022-11-07)
 
 **Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-layout
