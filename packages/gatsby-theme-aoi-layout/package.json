@@ -53,9 +53,9 @@
     "typescript": "^4.8.4"
   },
   "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-components": "^2.7.0 || ^3.0.0 || ^3.0.0-alpha.0",
-    "@cieloazul310/gatsby-theme-aoi-top-layout": "^2.7.0 || ^3.0.0 || ^3.0.0-alpha.0",
-    "@cieloazul310/gatsby-theme-aoi-utils": "^2.7.0 || ^3.0.0 || ^3.0.0-alpha.0",
+    "@cieloazul310/gatsby-theme-aoi-components": "^3.0.0 || ^3.0.0-alpha.6",
+    "@cieloazul310/gatsby-theme-aoi-top-layout": "^3.0.0 || ^3.0.0-alpha.6",
+    "@cieloazul310/gatsby-theme-aoi-utils": "^3.0.0 || ^3.0.0-alpha.6",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@mui/icons-material": "^5.0.0",
