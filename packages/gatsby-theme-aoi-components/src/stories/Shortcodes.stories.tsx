@@ -8,6 +8,7 @@ import Article, {
   Ol,
   Li,
   Alert,
+  Blockquote,
 } from '../Article';
 
 export default {
@@ -72,7 +73,14 @@ export function Shortcodes() {
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
       </Paragraph>
       <Ol>
-        <Li>Lorem ipsum dolor sit amet</Li>
+        <Li>
+          Lorem ipsum dolor sit amet
+          <br />
+          <Ol>
+            <Li>Lorem ipsum dolor sit amet</Li>
+            <Li>Duis nec quam quis nulla</Li>
+          </Ol>
+        </Li>
         <Li>Duis nec quam quis nulla</Li>
       </Ol>
       <Paragraph>
@@ -97,6 +105,18 @@ export function Shortcodes() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
       </Paragraph>
+      <Blockquote title="Lorem ipsum">
+        <Paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
+          quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
+        </Paragraph>
+      </Blockquote>
+      <Blockquote title="Lorem ipsum" url="https://cieloazul310.github.io">
+        <Paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
+          quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
+        </Paragraph>
+      </Blockquote>
     </Article>
   );
 }

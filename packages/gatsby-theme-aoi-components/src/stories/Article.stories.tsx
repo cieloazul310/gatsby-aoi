@@ -104,11 +104,34 @@ function Content() {
         mus. Suspendisse luctus mattis dui, quis eleifend enim convallis eget.
         Phasellus nec luctus leo.
       </Blockquote>
+      <Blockquote title="Jリーグ規約">
+        Sed fermentum rutrum urna, vitae suscipit nunc tempus eget. Orci varius
+        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+        mus. Suspendisse luctus mattis dui, quis eleifend enim convallis eget.
+        Phasellus nec luctus leo.
+      </Blockquote>
       <Paragraph>
         Proin condimentum felis nec luctus egestas. In in sagittis augue.
         Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
         vulputate posuere vehicula.
       </Paragraph>
+      <H4>H4</H4>
+      <Blockquote>
+        <H3>In Blockquote</H3>
+        <Paragraph>
+          Sed fermentum rutrum urna, vitae suscipit nunc tempus eget. Orci
+          varius natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Suspendisse luctus mattis dui, quis eleifend enim
+          convallis eget. Phasellus nec luctus leo.
+        </Paragraph>
+        <H4>In Blokquote h4</H4>
+        <Paragraph>
+          Sed fermentum rutrum urna, vitae suscipit nunc tempus eget. Orci
+          varius natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Suspendisse luctus mattis dui, quis eleifend enim
+          convallis eget. Phasellus nec luctus leo.
+        </Paragraph>
+      </Blockquote>
     </Article>
   );
 }
