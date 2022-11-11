@@ -49,12 +49,26 @@ export function ArticleSection({ children }: Props) {
   );
 }
 
+const firstChild = {
+  '&:first-child': {
+    mt: 4,
+  },
+};
+
 /**
  * `<ArticleTitle>`
  */
 export function ArticleTitle({ children, ...props }: Props) {
   return (
-    <Typography variant="h4" component="h2" align="center" my={4} {...props}>
+    <Typography
+      variant="h4"
+      component="h2"
+      align="center"
+      mt={8}
+      mb={4}
+      sx={firstChild}
+      {...props}
+    >
       {children}
     </Typography>
   );
@@ -62,7 +76,7 @@ export function ArticleTitle({ children, ...props }: Props) {
 
 export function Paragraph({ children, ...props }: Props) {
   return (
-    <Typography variant="inherit" paragraph lineHeight={1.8} my={4} {...props}>
+    <Typography variant="inherit" paragraph lineHeight={1.8} {...props}>
       {children}
     </Typography>
   );
@@ -74,7 +88,6 @@ export function SubParagraph({ children, ...props }: Props) {
       variant="body2"
       color="text.secondary"
       paragraph
-      my={4}
       lineHeight={1.8}
       {...props}
     >
@@ -90,8 +103,15 @@ export function H3({ children, ...props }: Props) {
       component="h3"
       mt={8}
       mb={4}
+      color="inherit"
       borderBottom={1}
-      borderColor="secondary.main"
+      borderColor="secondary.dark"
+      sx={{
+        ...firstChild,
+        'blockquote > &': {
+          borderColor: 'text.secondary',
+        },
+      }}
       {...props}
     >
       {children}
@@ -106,7 +126,9 @@ export function H4({ children, ...props }: Props) {
       component="h4"
       mt={8}
       mb={4}
+      color="inherit"
       fontWeight="bold"
+      sx={firstChild}
       {...props}
     >
       {children}
@@ -119,10 +141,10 @@ export function H5({ children, ...props }: Props) {
     <Typography
       variant="body1"
       component="h5"
-      color="text.secondary"
       fontWeight="bold"
       mt={8}
       mb={4}
+      sx={firstChild}
       {...props}
     >
       {children}
@@ -139,6 +161,7 @@ export function H6({ children, ...props }: Props) {
       fontWeight="bold"
       mt={8}
       mb={4}
+      sx={firstChild}
       {...props}
     >
       {children}
@@ -160,23 +183,54 @@ export function Link({ children, href, ...props }: LinkProps) {
   );
 }
 
-export function Blockquote({ children, ...props }: Props) {
+type BlockquoteProps = Props & {
+  url?: string;
+  title?: string;
+};
+
+export function Blockquote({
+  children,
+  url,
+  title,
+  ...props
+}: BlockquoteProps) {
   return (
     <Typography
       variant="inherit"
       component="blockquote"
-      borderLeft={2}
-      borderColor="text.secondary"
       color="text.secondary"
       py={2}
       px={2}
       my={4}
+      borderRadius={1}
+      bgcolor={({ palette }) =>
+        alpha(palette.text.disabled, palette.action.hoverOpacity)
+      }
       {...props}
     >
       {children}
+      <Typography textAlign="right" variant="body2">
+        {url ? (
+          <MuiLink
+            color="inherit"
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {title}
+          </MuiLink>
+        ) : (
+          title
+        )}
+      </Typography>
     </Typography>
   );
 }
+
+Blockquote.defaultProps = {
+  url: undefined,
+  title: undefined,
+};
 
 export function Hr() {
   return <Divider sx={{ my: 8 }} />;
@@ -207,6 +261,11 @@ export function Ul({ variant, ...props }: Omit<TypographyProps, 'ref'>) {
       my={4}
       mx={0}
       variant={variant ?? 'inherit'}
+      sx={{
+        'li > &': {
+          my: 0,
+        },
+      }}
       {...props}
     />
   );
@@ -219,6 +278,12 @@ export function Ol({ variant, ...props }: Omit<TypographyProps, 'ref'>) {
       my={4}
       mx={0}
       variant={variant ?? 'inherit'}
+      sx={{
+        'li > &': {
+          mt: 0,
+          mb: 1,
+        },
+      }}
       {...props}
     />
   );
