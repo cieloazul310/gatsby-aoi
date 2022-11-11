@@ -31,10 +31,10 @@
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
   "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "^3.0.0 || ^3.0.0-alpha.6",
-    "@cieloazul310/gatsby-theme-aoi-blog-components": "^3.0.0 || ^3.0.0-alpha.6",
-    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^3.0.0 || ^3.0.0-alpha.6",
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.0.0 || ^3.0.0-alpha.6",
+    "@cieloazul310/gatsby-theme-aoi": "^2.7.0 || ^3.0.0 || ^3.0.0-alpha.6",
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "^2.7.0 || ^3.0.0 || ^3.0.0-alpha.6",
+    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^2.7.0 || ^3.0.0 || ^3.0.0-alpha.6",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^2.7.0 || ^3.0.0 || ^3.0.0-alpha.6",
     "@mui/icons-material": "^5.0.0",
     "@mui/material": "^5.0.0",
     "gatsby": "^4.19.0",
