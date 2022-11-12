@@ -198,8 +198,7 @@ export function Blockquote({
     <Typography
       variant="inherit"
       component="blockquote"
-      color="text.secondary"
-      py={2}
+      py={4}
       px={2}
       my={4}
       borderRadius={1}
@@ -209,20 +208,22 @@ export function Blockquote({
       {...props}
     >
       {children}
-      <Typography textAlign="right" variant="body2">
-        {url ? (
-          <MuiLink
-            color="inherit"
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {title}
-          </MuiLink>
-        ) : (
-          title
-        )}
-      </Typography>
+      {title ? (
+        <Typography textAlign="right" variant="body2">
+          {url ? (
+            <MuiLink
+              color="inherit"
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {title}
+            </MuiLink>
+          ) : (
+            title
+          )}
+        </Typography>
+      ) : null}
     </Typography>
   );
 }
