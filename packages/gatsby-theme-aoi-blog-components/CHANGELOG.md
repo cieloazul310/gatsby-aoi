@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.1](https://github.com/cieloazul310/gatsby-aoi/compare/v2.9.0...v2.9.1) (2022-11-12)
+
+### Bug Fixes
+
+- **blog-components:** add `Paragraph` to muiComponents ([c562c25](https://github.com/cieloazul310/gatsby-aoi/commit/c562c25b112b1e7b7bab424449cfb47efc92d4ef))
+
 # [2.9.0](https://github.com/cieloazul310/gatsby-aoi/compare/v3.0.0-alpha.6...v2.9.0) (2022-11-11)
 
 **Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-blog-components
