@@ -99,16 +99,20 @@ function Content() {
       </SubParagraph>
       <H4>H4</H4>
       <Blockquote>
-        Sed fermentum rutrum urna, vitae suscipit nunc tempus eget. Orci varius
-        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Suspendisse luctus mattis dui, quis eleifend enim convallis eget.
-        Phasellus nec luctus leo.
+        <Paragraph>
+          Sed fermentum rutrum urna, vitae suscipit nunc tempus eget. Orci
+          varius natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Suspendisse luctus mattis dui, quis eleifend enim
+          convallis eget. Phasellus nec luctus leo.
+        </Paragraph>
       </Blockquote>
       <Blockquote title="Jリーグ規約">
-        Sed fermentum rutrum urna, vitae suscipit nunc tempus eget. Orci varius
-        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Suspendisse luctus mattis dui, quis eleifend enim convallis eget.
-        Phasellus nec luctus leo.
+        <Paragraph>
+          Sed fermentum rutrum urna, vitae suscipit nunc tempus eget. Orci
+          varius natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Suspendisse luctus mattis dui, quis eleifend enim
+          convallis eget. Phasellus nec luctus leo.
+        </Paragraph>
       </Blockquote>
       <Paragraph>
         Proin condimentum felis nec luctus egestas. In in sagittis augue.
