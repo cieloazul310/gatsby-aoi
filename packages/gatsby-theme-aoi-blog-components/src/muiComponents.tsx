@@ -77,6 +77,7 @@ const components = {
   blockquote: Blockquote,
   hr: Hr,
   AppLink,
+  Paragraph,
   SubParagraph,
   Alert,
   PanelLink,
