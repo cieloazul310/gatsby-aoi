@@ -228,9 +228,12 @@ export function fabStyles(
     bottomNavViewports === 'xsUp'
   )
     return {
-      paddingBottom: `calc(${theme.spacing(2)} + 56px)`,
+      bottom: `calc(${theme.spacing(2)} + 56px)`,
     };
-  if (bottomNavViewports === false) return {};
+  if (bottomNavViewports === false)
+    return {
+      bottom: theme.spacing(2),
+    };
 
   const breakpoint = breakpointSlicer(bottomNavViewports);
   const direction =
@@ -239,12 +242,15 @@ export function fabStyles(
 
   if (direction === 'down')
     return {
-      paddingBottom: {
+      bottom: {
         xs: `calc(${theme.spacing(2)} + 56px)`,
-        [breakpoints[index + 1]]: 0,
+        [breakpoints[index + 1]]: theme.spacing(2),
       },
     };
   return {
-    paddingBottom: { xs: 0, [breakpoint]: `calc(${theme.spacing(2)} + 56px)` },
+    bottom: {
+      xs: theme.spacing(2),
+      [breakpoint]: `calc(${theme.spacing(2)} + 56px)`,
+    },
   };
 }
