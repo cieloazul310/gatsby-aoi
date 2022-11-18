@@ -187,10 +187,10 @@ export function Layout({
         <Box
           sx={{
             ...fabStyles(viewports.bottomNav, theme),
+            zIndex: 'fab',
             display: viewportsToSxDisplay(viewports.fab),
             position: 'fixed',
             right: theme.spacing(2),
-            bottom: theme.spacing(2),
             transition: theme.transitions.create('bottom'),
           }}
         >
@@ -205,6 +205,7 @@ export function Layout({
             left: 0,
             bottom: 0,
             width: '100%',
+            zIndex: 'appBar',
           }}
         >
           {bottomNavigation || <BottomNav />}
