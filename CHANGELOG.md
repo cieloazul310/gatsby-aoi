@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.2](https://github.com/cieloazul310/gatsby-aoi/compare/v2.9.1...v2.9.2) (2022-11-18)
+
+### Bug Fixes
+
+- **layout:** add zIndex to `Fab` and `BottomNav` ([bf06a3c](https://github.com/cieloazul310/gatsby-aoi/commit/bf06a3c2bd8bc5ebee4c49a5a4046a578392acbb))
+- **utils:** fab bottom position ([68e6c15](https://github.com/cieloazul310/gatsby-aoi/commit/68e6c15fecaa506cd48084e3555441a86f6a48ad))
+
 ## [2.9.1](https://github.com/cieloazul310/gatsby-aoi/compare/v2.9.0...v2.9.1) (2022-11-12)
 
 ### Bug Fixes
