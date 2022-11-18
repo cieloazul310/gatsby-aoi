@@ -131,26 +131,26 @@ describe('fabStyles', () => {
     const { bottomNav } = mergeViewports();
     const style = fabStyles(bottomNav, theme);
     expect(style).toMatchObject({
-      paddingBottom: { xs: `calc(${theme.spacing(2)} + 56px)`, sm: 0 },
+      bottom: { xs: `calc(${theme.spacing(2)} + 56px)`, sm: theme.spacing(2) },
     });
   });
   it('bottomNav: "smDown"', () => {
     const { bottomNav } = mergeViewports({ bottomNav: 'smDown' });
     const style = fabStyles(bottomNav, theme);
     expect(style).toMatchObject({
-      paddingBottom: { xs: `calc(${theme.spacing(2)} + 56px)`, md: 0 },
+      bottom: { xs: `calc(${theme.spacing(2)} + 56px)`, md: theme.spacing(2) },
     });
   });
   it('bottomNav: false', () => {
     const { bottomNav } = mergeViewports({ bottomNav: false });
     const style = fabStyles(bottomNav, theme);
-    expect(style).toMatchObject({});
+    expect(style).toMatchObject({ bottom: theme.spacing(2) });
   });
   it('bottomNav: true', () => {
     const { bottomNav } = mergeViewports({ bottomNav: true });
     const style = fabStyles(bottomNav, theme);
     expect(style).toMatchObject({
-      paddingBottom: `calc(${theme.spacing(2)} + 56px)`,
+      bottom: `calc(${theme.spacing(2)} + 56px)`,
     });
   });
 });
