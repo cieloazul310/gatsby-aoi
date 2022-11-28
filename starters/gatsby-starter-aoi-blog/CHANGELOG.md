@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.3](https://github.com/cieloazul310/gatsby-aoi/compare/v2.9.2...v2.9.3) (2022-11-28)
+
+**Note:** Version bump only for package gatsby-starter-aoi-blog
+
 ## [2.9.2](https://github.com/cieloazul310/gatsby-aoi/compare/v2.9.1...v2.9.2) (2022-11-18)
 
 **Note:** Version bump only for package gatsby-starter-aoi-blog

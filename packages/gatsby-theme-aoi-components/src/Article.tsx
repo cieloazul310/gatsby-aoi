@@ -50,7 +50,7 @@ export function ArticleSection({ children }: Props) {
 }
 
 const firstChild = {
-  '&:first-child': {
+  '&:first-of-type': {
     mt: 4,
   },
 };
@@ -128,7 +128,6 @@ export function H4({ children, ...props }: Props) {
       mb={4}
       color="inherit"
       fontWeight="bold"
-      sx={firstChild}
       {...props}
     >
       {children}
@@ -144,7 +143,6 @@ export function H5({ children, ...props }: Props) {
       fontWeight="bold"
       mt={8}
       mb={4}
-      sx={firstChild}
       {...props}
     >
       {children}
@@ -161,7 +159,6 @@ export function H6({ children, ...props }: Props) {
       fontWeight="bold"
       mt={8}
       mb={4}
-      sx={firstChild}
       {...props}
     >
       {children}
