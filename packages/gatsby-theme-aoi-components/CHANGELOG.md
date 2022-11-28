@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.3](https://github.com/cieloazul310/gatsby-aoi/compare/v2.9.2...v2.9.3) (2022-11-28)
+
+### Bug Fixes
+
+- **components:** remove `:first-child` styles ([69d4abd](https://github.com/cieloazul310/gatsby-aoi/commit/69d4abddf81c393c71ddad2a145dd9e3b76c69a1))
+
 ## [2.9.1](https://github.com/cieloazul310/gatsby-aoi/compare/v2.9.0...v2.9.1) (2022-11-12)
 
 **Note:** Version bump only for package @cieloazul310/gatsby-theme-aoi-components
