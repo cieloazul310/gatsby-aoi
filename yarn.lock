@@ -2303,11 +2303,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-blog-components@^2.9.1, @cieloazul310/gatsby-theme-aoi-blog-components@workspace:packages/gatsby-theme-aoi-blog-components":
+"@cieloazul310/gatsby-theme-aoi-blog-components@^2.9.3, @cieloazul310/gatsby-theme-aoi-blog-components@workspace:packages/gatsby-theme-aoi-blog-components":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-components@workspace:packages/gatsby-theme-aoi-blog-components"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi-components": ^2.9.1
+    "@cieloazul310/gatsby-theme-aoi-components": ^2.9.3
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
     "@mui/material": ^5.10.12
@@ -2445,12 +2445,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-blog@^2.9.1, @cieloazul310/gatsby-theme-aoi-blog@workspace:packages/gatsby-theme-aoi-blog":
+"@cieloazul310/gatsby-theme-aoi-blog@^2.9.3, @cieloazul310/gatsby-theme-aoi-blog@workspace:packages/gatsby-theme-aoi-blog":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog@workspace:packages/gatsby-theme-aoi-blog"
   dependencies:
     "@cieloazul310/gatsby-theme-aoi-blog-cli": ^2.9.0
-    "@cieloazul310/gatsby-theme-aoi-blog-components": ^2.9.1
+    "@cieloazul310/gatsby-theme-aoi-blog-components": ^2.9.3
     "@cieloazul310/gatsby-theme-aoi-blog-core": ^2.9.0
     "@cieloazul310/gatsby-theme-aoi-blog-templates": ^2.9.0
     "@cieloazul310/gatsby-theme-aoi-blog-utils": ^2.9.0
@@ -2479,7 +2479,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi-components@^2.9.1, @cieloazul310/gatsby-theme-aoi-components@workspace:packages/gatsby-theme-aoi-components":
+"@cieloazul310/gatsby-theme-aoi-components@^2.9.3, @cieloazul310/gatsby-theme-aoi-components@workspace:packages/gatsby-theme-aoi-components":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-components@workspace:packages/gatsby-theme-aoi-components"
   dependencies:
@@ -2610,11 +2610,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@cieloazul310/gatsby-theme-aoi@^2.9.2, @cieloazul310/gatsby-theme-aoi@workspace:packages/gatsby-theme-aoi":
+"@cieloazul310/gatsby-theme-aoi@^2.9.3, @cieloazul310/gatsby-theme-aoi@workspace:packages/gatsby-theme-aoi":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi@workspace:packages/gatsby-theme-aoi"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi-components": ^2.9.1
+    "@cieloazul310/gatsby-theme-aoi-components": ^2.9.3
     "@cieloazul310/gatsby-theme-aoi-layout": ^2.9.2
     "@cieloazul310/gatsby-theme-aoi-top-layout": ^2.9.0
     "@cieloazul310/gatsby-theme-aoi-utils": ^2.9.2
@@ -16128,8 +16128,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "gatsby-starter-aoi-blog@workspace:starters/gatsby-starter-aoi-blog"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi": ^2.9.2
-    "@cieloazul310/gatsby-theme-aoi-blog": ^2.9.1
+    "@cieloazul310/gatsby-theme-aoi": ^2.9.3
+    "@cieloazul310/gatsby-theme-aoi-blog": ^2.9.3
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
     "@mui/icons-material": ^5.10.9
@@ -16163,7 +16163,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "gatsby-starter-aoi-theme@workspace:starters/gatsby-starter-aoi-theme"
   dependencies:
-    "@cieloazul310/gatsby-theme-aoi": ^2.9.2
+    "@cieloazul310/gatsby-theme-aoi": ^2.9.3
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
     "@mui/icons-material": ^5.10.9
@@ -17594,9 +17594,9 @@ __metadata:
   linkType: hard
 
 "http-cache-semantics@npm:^4.0.0, http-cache-semantics@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "http-cache-semantics@npm:4.1.0"
-  checksum: 974de94a81c5474be07f269f9fd8383e92ebb5a448208223bfb39e172a9dbc26feff250192ecc23b9593b3f92098e010406b0f24bd4d588d631f80214648ed42
+  version: 4.1.1
+  resolution: "http-cache-semantics@npm:4.1.1"
+  checksum: 83ac0bc60b17a3a36f9953e7be55e5c8f41acc61b22583060e8dedc9dd5e3607c823a88d0926f9150e571f90946835c7fe150732801010845c72cd8bbff1a236
   languageName: node
   linkType: hard
 
