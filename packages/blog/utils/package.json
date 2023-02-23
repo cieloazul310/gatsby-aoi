@@ -1,0 +1,57 @@
+{
+  "name": "@cieloazul310/gatsby-theme-aoi-blog-utils",
+  "version": "2.9.0",
+  "description": "Utils and types for Gatsby Theme Aoi Blog",
+  "author": "cieloazul310 <cieloazul310@gmail.com>",
+  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
+  "license": "ISC",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    "import": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.mjs"
+    },
+    "require": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/blog/utils"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "build:blog": "yarn run build",
+    "eslint": "eslint src/"
+  },
+  "bugs": {
+    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-custom": "workspace:*",
+    "gatsby": "^4.24.6",
+    "gatsby-plugin-image": "^2.24.0",
+    "gatsby-source-filesystem": "^4.24.0",
+    "tsconfig": "workspace:*",
+    "tsup": "^6.6.3"
+  },
+  "peerDependencies": {
+    "gatsby": "^4.19.0",
+    "gatsby-plugin-image": "^2.0.0",
+    "gatsby-source-filesystem": "^4.0.0"
+  }
+}

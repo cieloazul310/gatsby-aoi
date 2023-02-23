@@ -1,0 +1,17 @@
+{
+  "extends": "tsconfig/gatsby.json",
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "include": [
+    "stories",
+    "components",
+    ".storybook/*.ts",
+    ".storybook/*.tsx",
+    ".eslintrc.js"
+  ],
+  "exclude": ["node_modules"]
+}

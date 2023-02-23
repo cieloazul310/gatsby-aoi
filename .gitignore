@@ -132,7 +132,7 @@ dist
 !.yarn/versions
 
 # build
-packages/*/lib
+packages/**/*/lib
 starters/*/public
 
 starters/cli-test

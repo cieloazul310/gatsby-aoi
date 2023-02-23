@@ -9,30 +9,15 @@
   "main": "index.js",
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop -o",
+    "start": "gatsby develop -o",
     "clean": "gatsby clean",
     "serve": "gatsby serve -o",
     "eslint": "eslint src/",
     "prettier": "prettier \"src/**/*.{js,jsx,ts,tsx}\" --parser typescript --write",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.42.0",
-    "@typescript-eslint/parser": "^5.42.0",
-    "eslint": "^8.26.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-graphql": "^4.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.31.10",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.7.1",
-    "typescript": "^4.8.4"
-  },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "^2.9.3",
+    "@cieloazul310/gatsby-theme-aoi": "workspace:*",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.9",
@@ -40,5 +25,11 @@
     "gatsby": "^4.24.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.8.4"
   }
 }

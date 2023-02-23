@@ -1,0 +1,11 @@
+{
+  "extends": "tsconfig/react-library.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@reach/router": ["../../../node_modules/@gatsbyjs/reach-router"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["src/stories/**/*"]
+}

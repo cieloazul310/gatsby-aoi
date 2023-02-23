@@ -1,0 +1,52 @@
+{
+  "name": "@cieloazul310/gatsby-theme-aoi-blog",
+  "version": "2.9.3",
+  "description": "Gatsby Blog Theme built with Gatsby Theme Aoi",
+  "author": "cieloazul310 <cieloazul310@gmail.com>",
+  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
+  "license": "ISC",
+  "main": "index.ts",
+  "bin": {
+    "gatsby-aoi-blog": "./cli.js"
+  },
+  "files": [
+    "index.ts",
+    "gatsby-config.js",
+    "cli.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/blog/gatsby-theme-aoi-blog"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
+  },
+  "dependencies": {
+    "@cieloazul310/gatsby-theme-aoi-blog-cli": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-blog-core": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-blog-templates": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "workspace:*"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*"
+  },
+  "peerDependencies": {
+    "@cieloazul310/gatsby-theme-aoi": "workspace:*",
+    "@mui/icons-material": "^5.0.0",
+    "@mui/material": "^5.0.0",
+    "gatsby": "^4.19.0",
+    "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
+  },
+  "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"
+}

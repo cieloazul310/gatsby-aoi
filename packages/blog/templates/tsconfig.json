@@ -1,0 +1,7 @@
+{
+  "extends": "tsconfig/gatsby.json",
+  "compilerOptions": {
+    "noUnusedParameters": false
+  },
+  "include": ["src"]
+}

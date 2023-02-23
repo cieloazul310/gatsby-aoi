@@ -1,0 +1,9 @@
+{
+  "name": "tsconfig",
+  "private": true,
+  "files": [
+    "base.json",
+    "gatsby.json",
+    "react-library.json"
+  ]
+}

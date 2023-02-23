@@ -1,8 +1,5 @@
 module.exports = {
   root: true,
-  globals: {
-    __PATH_PREFIX__: true,
-  },
   env: {
     browser: true,
     es2021: true,
@@ -10,12 +7,7 @@ module.exports = {
   },
   extends: ['custom'],
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: './tsconfig.json',
+    project: './tsconfig.eslint.json',
     tsconfigRootDir: __dirname,
   },
 };

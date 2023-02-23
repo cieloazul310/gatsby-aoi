@@ -1,0 +1,49 @@
+{
+  "name": "@cieloazul310/gatsby-theme-aoi",
+  "version": "2.9.3",
+  "description": "Gatsby theme for MUI",
+  "author": "cieloazul310 <cieloazul310@gmail.com>",
+  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
+  "license": "ISC",
+  "main": "index.ts",
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "mui",
+    "material-ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/core/gatsby-theme-aoi"
+  },
+  "files": [
+    "gatsby-config.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@cieloazul310/gatsby-theme-aoi-components": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-layout": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-top-layout": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-utils": "workspace:*",
+    "gatsby-plugin-emotion": "^7.24.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*"
+  },
+  "peerDependencies": {
+    "@mui/icons-material": "^5.0.0",
+    "@mui/material": "^5.0.0",
+    "gatsby": "^4.19.0",
+    "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
+  },
+  "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"
+}

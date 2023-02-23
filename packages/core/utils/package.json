@@ -1,0 +1,65 @@
+{
+  "name": "@cieloazul310/gatsby-theme-aoi-utils",
+  "version": "2.9.2",
+  "description": "Util library for @cieloazul310/gatsby-theme-aoi",
+  "author": "cieloazul310 <cieloazul310@gmail.com>",
+  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
+  "license": "ISC",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    "import": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.cjs"
+    },
+    "require": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "mui",
+    "material-ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/core/utils"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "build:core": "yarn run build",
+    "eslint": "eslint src/"
+  },
+  "dependencies": {
+    "url-join": "^5.0.0"
+  },
+  "devDependencies": {
+    "@gatsbyjs/reach-router": "^2.0.1",
+    "eslint": "^8.26.0",
+    "eslint-config-custom": "workspace:*",
+    "gatsby": "^4.24.6",
+    "tsconfig": "workspace:*",
+    "tsup": "^6.6.3"
+  },
+  "peerDependencies": {
+    "@gatsbyjs/reach-router": "^2.0.0",
+    "@mui/material": "^5.0.0",
+    "@mui/system": "^5.0.0",
+    "gatsby": "^4.19.0",
+    "react": "^16.8.6 || ^17.0.0 || ^18.0.0"
+  }
+}
