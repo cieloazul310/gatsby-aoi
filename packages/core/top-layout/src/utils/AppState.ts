@@ -4,7 +4,7 @@ export type AppState = {
 
 export const initialAppState: AppState = {};
 
-export function useInitialAppState(isMobile: boolean) {
+export function useInitialAppState() {
   return initialAppState;
 }
 

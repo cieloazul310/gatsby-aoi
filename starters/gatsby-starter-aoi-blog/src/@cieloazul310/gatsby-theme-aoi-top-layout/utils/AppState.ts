@@ -6,7 +6,7 @@ export const initialAppState: AppState = {
   count: 0,
 };
 
-export function useInitialAppState(isMobile: boolean): AppState {
+export function useInitialAppState(): AppState {
   return initialAppState;
 }
 

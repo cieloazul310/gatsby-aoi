@@ -1,17 +1,12 @@
 import * as React from 'react';
 import AppStateContext from '../utils/AppStateContext';
-import reducer, { useInitialAppState } from '../utils/AppState';
+import reducer, { initialAppState } from '../utils/AppState';
 
 type AppStateProviderProps = {
   children: React.ReactNode;
-  isMobile: boolean;
 };
 
-export default function AppStateProvider({
-  children,
-  isMobile,
-}: AppStateProviderProps) {
-  const initialAppState = useInitialAppState(isMobile);
+export default function AppStateProvider({ children }: AppStateProviderProps) {
   const [state, dispatch] = React.useReducer(reducer, initialAppState);
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
