@@ -1,0 +1,16 @@
+{
+  "extends": "tsconfig/react-library.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@reach/router": ["node_modules/@gatsbyjs/reach-router"],
+      "@cieloazul310/gatsby-theme-aoi-utils": ["packages/core/utils/src"],
+      "@cieloazul310/gatsby-theme-aoi-components": [
+        "packages/core/components/src"
+      ],
+      "@cieloazul310/gatsby-theme-aoi-blog-utils": ["packages/blog/utils/src"],
+      "@cieloazul310/gatsby-theme-aoi-blog-components": ["packages/blog/components/src"]
+    },
+    "composite": true
+  }
+}

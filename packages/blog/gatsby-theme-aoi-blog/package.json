@@ -5,12 +5,14 @@
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
-  "main": "index.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "bin": {
     "gatsby-aoi-blog": "./cli.js"
   },
   "files": [
-    "index.ts",
+    "index.js",
+    "index.d.ts",
     "gatsby-config.js",
     "cli.js"
   ],
@@ -38,7 +40,8 @@
   "devDependencies": {
     "eslint": "^8.26.0",
     "eslint-config-custom": "workspace:*",
-    "tsconfig": "workspace:*"
+    "tsconfig": "workspace:*",
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
     "@cieloazul310/gatsby-theme-aoi": "workspace:*",

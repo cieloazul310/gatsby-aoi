@@ -1,4 +1,10 @@
 {
   "extends": "tsconfig/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@reach/router": ["../../../node_modules/@gatsbyjs/reach-router"]
+    }
+  },
   "include": ["src", ".eslintrc.js"]
 }

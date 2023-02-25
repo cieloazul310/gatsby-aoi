@@ -1,12 +1,16 @@
-const pathPrefix = '/gatsby-aoi';
+import type { GatsbyConfig } from 'gatsby';
 
-module.exports = {
+const baseUrl = 'https://cieloazul310.github.io';
+const pathPrefix = '/gatsby-aoi';
+const siteUrl = new URL(pathPrefix, baseUrl);
+
+const config: GatsbyConfig = {
   pathPrefix,
   siteMetadata: {
     title: 'Gatsby Theme Aoi',
     description: 'TypeScript based Gatsby Theme for MUI (Material-UI).',
     author: `@cieloazul310`,
-    siteUrl: `https://cieloazul310.github.io${pathPrefix}`,
+    siteUrl: siteUrl.toString(),
     keywords: ['Gatsby', 'TypeScript', 'MUI'],
     lang: 'en',
     social: [
@@ -49,3 +53,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;

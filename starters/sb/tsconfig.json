@@ -3,7 +3,11 @@
   "ts-node": {
     "transpileOnly": true,
     "compilerOptions": {
-      "module": "CommonJS"
+      "module": "CommonJS",
+      "baseUrl": ".",
+      "paths": {
+        "@reach/router": ["../../node_modules/@gatsbyjs/reach-router"]
+      }
     }
   },
   "include": [

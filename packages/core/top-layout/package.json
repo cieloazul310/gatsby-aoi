@@ -19,15 +19,16 @@
   },
   "files": [
     "src",
-    "gatsby-browser.js",
+    "gatsby-browser.tsx",
     "gatsby-config.js",
-    "gatsby-ssr.js"
+    "gatsby-ssr.tsx"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "eslint": "eslint src/",
+    "typecheck": "tsc --noEmit",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {
@@ -36,7 +37,8 @@
     "eslint-config-custom": "workspace:*",
     "gatsby": "^4.24.6",
     "react": "^18.2.0",
-    "tsconfig": "workspace:*"
+    "tsconfig": "workspace:*",
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
     "@mui/material": "^5.0.0",

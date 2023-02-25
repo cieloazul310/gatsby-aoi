@@ -1,10 +1,8 @@
 {
-  "extends": "tsconfig/react-library.json",
+  "extends": "../../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@reach/router": ["../../../node_modules/@gatsbyjs/reach-router"]
-    }
+    "outDir": "lib",
+    "rootDir": "src"
   },
   "include": ["src"]
 }

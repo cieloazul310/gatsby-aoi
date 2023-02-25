@@ -8,14 +8,12 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "build": "gatsby build",
     "start": "gatsby develop -o",
+    "build": "gatsby build",
     "clean": "gatsby clean",
     "serve": "gatsby serve -o",
     "post": "gatsby-aoi-blog new post --mdx --canonical",
-    "eslint": "eslint src/",
-    "prettier": "prettier \"{src,gatsby-node,content}/**/*.{js,jsx,ts,tsx}\" --parser typescript --write",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "eslint": "eslint src/"
   },
   "dependencies": {
     "@cieloazul310/gatsby-theme-aoi": "workspace:*",
@@ -38,6 +36,6 @@
     "eslint": "^8.34.0",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",
-    "typescript": "^4.8.4"
+    "typescript": "^4.9.5"
   }
 }

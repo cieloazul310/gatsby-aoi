@@ -1,4 +1,10 @@
 {
-  "extends": "tsconfig/react-library.json",
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2020",
+    "outDir": "lib",
+    "rootDir": "src"
+  },
   "include": ["src"]
 }

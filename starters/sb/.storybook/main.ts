@@ -47,8 +47,8 @@ const config: StorybookConfig = {
     checkOptions: {},
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
-      // allowSyntheticDefaultImports: false, // speeds up storybook build time
-      // esModuleInterop: false, // speeds up storybook build time
+      allowSyntheticDefaultImports: false, // speeds up storybook build time
+      esModuleInterop: false, // speeds up storybook build time
       shouldExtractLiteralValuesFromEnum: true, // makes union prop types like variant and size appear as select controls
       shouldRemoveUndefinedFromOptional: true, // makes string and boolean types that can be undefined appear as inputs and switches
       propFilter: (prop: any) =>
@@ -88,6 +88,7 @@ const config: StorybookConfig = {
           ...(baseConfig.resolve?.alias || {}),
           '@emotion/core': toPath('../../node_modules/@emotion/react'),
           'emotion-theming': toPath('../../node_modules/@emotion/react'),
+          '@reach/router': toPath('../../node_modules/@gatsbyjs/reach-router'),
         },
       },
     };

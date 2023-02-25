@@ -1,5 +1,4 @@
 /* eslint @typescript-eslint/no-var-requires: warn */
-
 const {
   createPages,
   createResolvers,

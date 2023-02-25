@@ -13,7 +13,7 @@ type TopLayoutProps = {
   storedItem: {
     paletteType: string;
     useSystemTheme: boolean;
-  };
+  } | null;
   siteId: string;
   isMobile: boolean;
 };

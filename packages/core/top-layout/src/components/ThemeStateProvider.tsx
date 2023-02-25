@@ -1,6 +1,5 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import GlobalStyles from '@mui/material/GlobalStyles';
 import { ThemeProvider, createTheme, lighten } from '@mui/material/styles';
 import initialMuiTheme from '../theme';
 import type { PaletteType } from '../utils/ThemeState';
@@ -40,14 +39,6 @@ function TopThemeProvider({ children, paletteType }: TopThemeProviderProps) {
     <ThemeProvider theme={theme}>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
-      <GlobalStyles
-        styles={{
-          html: {
-            backgroundColor:
-              paletteType === 'light' ? theme.palette.primary.main : undefined,
-          },
-        }}
-      />
       {children}
     </ThemeProvider>
   );

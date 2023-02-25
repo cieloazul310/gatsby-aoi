@@ -1,4 +1,3 @@
-import urljoin from 'url-join';
 import useBaseUrl from './useBaseUrl';
 
 /**
@@ -16,7 +15,10 @@ import useBaseUrl from './useBaseUrl';
 export default function useAssetUrl(assetPath?: string) {
   const baseUrl = useBaseUrl();
   if (!assetPath) return undefined;
-  const assetUrl = urljoin(baseUrl, assetPath);
-
-  return assetUrl;
+  try {
+    const assetUrl = new URL(assetPath, baseUrl);
+    return assetUrl.toString();
+  } catch {
+    return undefined;
+  }
 }

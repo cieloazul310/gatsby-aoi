@@ -27,11 +27,13 @@
     "directory": "packages/blog/cli"
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "tsc -b .",
+    "dev": "tsc --watch",
     "build:blog": "yarn run build",
+    "clean": "rimraf lib && tsc -b . --clean",
     "eslint": "eslint src/",
-    "test": "node lib/index.js"
+    "test": "node lib/index.js",
+    "typecheck": "tsc --noEmit"
   },
   "bugs": {
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
@@ -44,10 +46,11 @@
     "@types/node": "^18.11.8",
     "eslint": "^8.26.0",
     "eslint-config-custom": "workspace:*",
+    "rimraf": "^4.1.2",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "tsconfig": "workspace:*",
-    "tsup": "^6.6.3"
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
     "@cieloazul310/gatsby-theme-aoi-blog-utils": "workspace:*"
