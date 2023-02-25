@@ -6,11 +6,8 @@ export const initialAppState: AppState = {
   count: 0,
 };
 
-export function useInitialAppState(isMobile: boolean): AppState {
-  return {
-    ...initialAppState,
-    count: isMobile ? 100 : 0,
-  };
+export function useInitialAppState(): AppState {
+  return initialAppState;
 }
 
 export type Action = { type: 'RESET' } | { type: 'INCREMENT' };
