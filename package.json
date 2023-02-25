@@ -52,11 +52,11 @@
     "bootstrap": "lerna bootstrap"
   },
   "lint-staged": {
-    "./{starters}/*/src/**/*.{js,jsx,ts,tsx}": [
+    "./starters/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --parser typescript --write"
     ],
-    "./{packages}/**/*/src/**/*.{js,jsx,ts,tsx}": [
+    "./packages/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --parser typescript --write"
     ]
