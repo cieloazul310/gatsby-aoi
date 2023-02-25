@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-core",
-  "version": "2.10.0",
+  "version": "2.10.1",
   "description": "Gatsby Node API for Gatsby Theme Aoi Blog",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -49,15 +49,15 @@
     "yaml": "^2.2.1"
   },
   "devDependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "^2.10.0",
-    "@cieloazul310/gatsby-theme-aoi-blog-components": "^2.10.0",
-    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^2.10.0",
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^2.10.0",
+    "@cieloazul310/gatsby-theme-aoi": "^2.10.1",
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "^2.10.1",
+    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^2.10.1",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^2.10.1",
     "eslint": "^8.34.0",
-    "eslint-config-custom": "^2.10.0",
+    "eslint-config-custom": "^2.10.1",
     "gatsby": "^4.24.6",
     "rimraf": "^4.1.2",
-    "tsconfig": "^2.10.0",
+    "tsconfig": "^2.10.1",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {

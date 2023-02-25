@@ -3,7 +3,10 @@
   "npmClient": "yarn",
   "useNx": true,
   "useWorkspaces": true,
-  "packages": ["packages/**/*", "starters/*"],
+  "packages": [
+    "packages/**/*",
+    "starters/*"
+  ],
   "ignoreChanges": [
     ".yarn",
     ".yarnrc.yml",
@@ -12,5 +15,5 @@
     ".eslintrc.js",
     "jest.config.ts"
   ],
-  "version": "2.10.0"
+  "version": "2.10.1"
 }
