@@ -5,6 +5,15 @@ on:
    branches:
     - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Build
@@ -20,39 +29,31 @@ jobs:
           node-version: 'lts/*'
           cache: yarn
       
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v2
+
       - name: Install dependencies
         run: yarn install --immutable
 
       - name: Build theme
-        run: yarn run build:theme
-
-      - name: Build theme-blog
-        run: yarn run build:theme-blog
+        run: yarn run build
 
       - name: Build starter
-        run: yarn workspace gatsby-starter-aoi-theme build --prefix-paths
+        run: yarn run build:starter
 
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          name: production-files
           path: ./starters/gatsby-starter-aoi-theme/public
 
   deploy:
-    name: Deploy
-    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    needs: build
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: production-files
-          path: ./starters/gatsby-starter-aoi-theme/public
-
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./starters/gatsby-starter-aoi-theme/public
-    
+        id: deployment
+        uses: actions/deploy-pages@v1

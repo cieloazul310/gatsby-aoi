@@ -8,37 +8,20 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
+    "start": "gatsby develop -o",
     "build": "gatsby build",
-    "dev": "gatsby develop -o",
     "clean": "gatsby clean",
     "serve": "gatsby serve -o",
     "post": "gatsby-aoi-blog new post --mdx --canonical",
-    "eslint": "eslint src/",
-    "prettier": "prettier \"{src,gatsby-node,content}/**/*.{js,jsx,ts,tsx}\" --parser typescript --write",
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.42.0",
-    "@typescript-eslint/parser": "^5.42.0",
-    "eslint": "^8.26.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-graphql": "^4.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.31.10",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.7.1",
-    "typescript": "^4.8.4"
+    "eslint": "eslint src/"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "^2.9.3",
-    "@cieloazul310/gatsby-theme-aoi-blog": "^2.9.3",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/icons-material": "^5.10.9",
-    "@mui/material": "^5.10.12",
+    "@cieloazul310/gatsby-theme-aoi": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-blog": "workspace:*",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.10",
     "gatsby": "^4.24.6",
     "gatsby-plugin-image": "^2.24.0",
     "gatsby-plugin-twitter": "^4.24.0",
@@ -48,5 +31,11 @@
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.9.5"
   }
 }

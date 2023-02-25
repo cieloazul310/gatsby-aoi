@@ -1,0 +1,62 @@
+{
+  "name": "@cieloazul310/gatsby-theme-aoi-blog-templates",
+  "version": "2.9.0",
+  "description": "Templates for Gatsby Theme Aoi Blog",
+  "author": "cieloazul310 <cieloazul310@gmail.com>",
+  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
+  "license": "ISC",
+  "main": "src/index.tsx",
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/blog/templates"
+  },
+  "scripts": {
+    "eslint": "eslint src/",
+    "typecheck": "tsc --noEmit"
+  },
+  "bugs": {
+    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
+  },
+  "devDependencies": {
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-components": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-layout": "workspace:*",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.10",
+    "@types/mdx-js__react": "^1.5.5",
+    "eslint": "^8.34.0",
+    "eslint-config-custom": "workspace:*",
+    "gatsby": "^4.24.6",
+    "react": "^18.2.0",
+    "rimraf": "^4.1.2",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-components": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-layout": "workspace:*",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@mui/icons-material": "^5.0.0",
+    "@mui/material": "^5.0.0",
+    "@types/mdx-js__react": "^1.5.5",
+    "gatsby": "^4.19.0",
+    "gatsby-plugin-mdx": "^3.5.0",
+    "react": "^16.8.6 || ^17.0.0 || ^18.0.0"
+  },
+  "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"
+}

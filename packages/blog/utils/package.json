@@ -1,0 +1,50 @@
+{
+  "name": "@cieloazul310/gatsby-theme-aoi-blog-utils",
+  "version": "2.9.0",
+  "description": "Utils and types for Gatsby Theme Aoi Blog",
+  "author": "cieloazul310 <cieloazul310@gmail.com>",
+  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
+  "license": "ISC",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/blog/utils"
+  },
+  "scripts": {
+    "build": "tsc -b .",
+    "dev": "tsc --watch",
+    "build:blog": "yarn run build",
+    "clean": "rimraf lib && tsc -b . --clean",
+    "eslint": "eslint src/",
+    "typecheck": "tsc --noEmit"
+  },
+  "bugs": {
+    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
+  },
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-config-custom": "workspace:*",
+    "gatsby": "^4.24.6",
+    "gatsby-plugin-image": "^2.24.0",
+    "gatsby-source-filesystem": "^4.24.0",
+    "rimraf": "^4.1.2",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "gatsby": "^4.19.0",
+    "gatsby-plugin-image": "^2.0.0",
+    "gatsby-source-filesystem": "^4.0.0"
+  }
+}
