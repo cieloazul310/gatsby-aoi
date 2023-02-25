@@ -33,7 +33,7 @@
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
   "devDependencies": {
-    "eslint": "^8.26.0",
+    "eslint": "^8.34.0",
     "eslint-config-custom": "workspace:*",
     "gatsby": "^4.24.6",
     "gatsby-plugin-image": "^2.24.0",

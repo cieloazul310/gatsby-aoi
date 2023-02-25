@@ -39,12 +39,12 @@
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
   "dependencies": {
-    "commander": "^9.4.1"
+    "commander": "^10.0.0"
   },
   "devDependencies": {
     "@cieloazul310/gatsby-theme-aoi-blog-utils": "workspace:*",
-    "@types/node": "^18.11.8",
-    "eslint": "^8.26.0",
+    "@types/node": "^18.14.1",
+    "eslint": "^8.34.0",
     "eslint-config-custom": "workspace:*",
     "rimraf": "^4.1.2",
     "ts-node": "^10.9.1",
