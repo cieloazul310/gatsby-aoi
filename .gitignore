@@ -134,5 +134,4 @@ dist
 # build
 packages/**/*/lib
 starters/*/public
-
-starters/cli-test
+starters/*/storybook-static

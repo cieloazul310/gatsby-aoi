@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi",
-  "version": "2.9.3",
+  "version": "2.10.0",
   "description": "Gatsby theme for MUI",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
@@ -30,16 +30,16 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi-components": "workspace:*",
-    "@cieloazul310/gatsby-theme-aoi-layout": "workspace:*",
-    "@cieloazul310/gatsby-theme-aoi-top-layout": "workspace:*",
-    "@cieloazul310/gatsby-theme-aoi-utils": "workspace:*",
+    "@cieloazul310/gatsby-theme-aoi-components": "^2.10.0",
+    "@cieloazul310/gatsby-theme-aoi-layout": "^2.10.0",
+    "@cieloazul310/gatsby-theme-aoi-top-layout": "^2.10.0",
+    "@cieloazul310/gatsby-theme-aoi-utils": "^2.10.0",
     "gatsby-plugin-emotion": "^7.24.0"
   },
   "devDependencies": {
     "eslint": "^8.26.0",
-    "eslint-config-custom": "workspace:*",
-    "tsconfig": "workspace:*",
+    "eslint-config-custom": "^2.10.0",
+    "tsconfig": "^2.10.0",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {

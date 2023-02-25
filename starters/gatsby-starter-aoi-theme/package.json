@@ -1,6 +1,6 @@
 {
   "name": "gatsby-starter-aoi-theme",
-  "version": "2.9.3",
+  "version": "2.10.0",
   "private": true,
   "description": "Gatsby starter built with @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
@@ -15,19 +15,19 @@
     "eslint": "eslint src/"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "workspace:*",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/icons-material": "^5.10.9",
-    "@mui/material": "^5.10.12",
+    "@cieloazul310/gatsby-theme-aoi": "^2.10.0",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.10",
     "gatsby": "^4.24.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "eslint": "^8.26.0",
-    "eslint-config-custom": "workspace:*",
-    "tsconfig": "workspace:*",
+    "eslint": "^8.34.0",
+    "eslint-config-custom": "^2.10.0",
+    "tsconfig": "^2.10.0",
     "typescript": "^4.9.5"
   }
 }

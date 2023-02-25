@@ -40,7 +40,7 @@ jobs:
         run: yarn run build
 
       - name: Build starter
-        run: yarn workspace gatsby-starter-aoi-theme build --prefix-paths
+        run: yarn run build:starter
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
