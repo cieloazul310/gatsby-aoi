@@ -37,6 +37,8 @@
     "build:theme-blog": "nx run-many --target=build:blog",
     "dev": "nx run-many --target=dev",
     "clean": "nx run-many --target=clean",
+    "build:starter": "nx run gatsby-starter-aoi:build",
+    "build:starter-blog": "nx run gatsby-starter-aoi-blog:build",
     "serve:starter": "yarn workspace gatsby-starter-aoi-theme serve --prefix-paths",
     "deploy:starter": "npx gh-pages -d starters/gatsby-starter-aoi-theme/public",
     "version": "lerna version --conventional-commits",
