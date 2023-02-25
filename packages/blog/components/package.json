@@ -1,0 +1,64 @@
+{
+  "name": "@cieloazul310/gatsby-theme-aoi-blog-components",
+  "version": "2.9.3",
+  "description": "MUI based blog components for @cieloazul310/gatsby-theme-aoi-blog",
+  "author": "cieloazul310 <cieloazul310@gmail.com>",
+  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
+  "license": "ISC",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "mui",
+    "material-ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/blog/components"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -b .",
+    "dev": "tsc --watch",
+    "build:blog": "yarn run build",
+    "clean": "rimraf lib && tsc -b . --clean",
+    "eslint": "eslint src/",
+    "typecheck": "tsc --noEmit"
+  },
+  "bugs": {
+    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
+  },
+  "devDependencies": {
+    "@cieloazul310/gatsby-theme-aoi-components": "workspace:*",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.12",
+    "eslint": "^8.26.0",
+    "eslint-config-custom": "workspace:*",
+    "gatsby": "^4.24.6",
+    "react": "^18.2.0",
+    "rimraf": "^4.1.2",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "@cieloazul310/gatsby-theme-aoi-components": "workspace:*",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "@mui/icons-material": "^5.0.0",
+    "@mui/material": "^5.0.0",
+    "gatsby": "^4.19.0",
+    "react": "^16.8.6 || ^17.0.0 || ^18.0.0"
+  },
+  "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"
+}

@@ -3,7 +3,7 @@
   "npmClient": "yarn",
   "useNx": true,
   "useWorkspaces": true,
-  "packages": ["packages/*", "starters/*"],
+  "packages": ["packages/**/*", "starters/*"],
   "ignoreChanges": [
     ".yarn",
     ".yarnrc.yml",

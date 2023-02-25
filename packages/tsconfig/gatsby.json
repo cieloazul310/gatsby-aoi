@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Gatsby",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "lib": ["dom", "es2017"],
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true
+  }
+}

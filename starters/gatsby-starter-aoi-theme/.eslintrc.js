@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   globals: {
     __PATH_PREFIX__: true,
   },
@@ -7,15 +8,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: [
-    'airbnb',
-    'airbnb-typescript',
-    'airbnb/hooks',
-    'plugin:@typescript-eslint/recommended',
-    'eslint-config-prettier',
-  ],
-  plugins: ['graphql'],
-  parser: '@typescript-eslint/parser',
+  extends: ['custom'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -25,5 +18,4 @@ module.exports = {
     project: './tsconfig.json',
     tsconfigRootDir: __dirname,
   },
-  rules: {},
 };
