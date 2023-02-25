@@ -5,10 +5,9 @@
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "src/index.tsx",
   "files": [
-    "lib"
+    "src"
   ],
   "publishConfig": {
     "access": "public"
@@ -19,12 +18,7 @@
     "directory": "packages/blog/templates"
   },
   "scripts": {
-    "build": "tsc -b .",
-    "dev": "tsc --watch",
-    "build:blog": "yarn run build",
-    "clean": "rimraf lib && tsc -b . --clean",
     "eslint": "eslint src/",
-    "test": "echo \"Error: run tests from root\" && exit 1",
     "typecheck": "tsc --noEmit"
   },
   "bugs": {

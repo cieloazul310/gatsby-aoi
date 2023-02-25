@@ -1,20 +1,4 @@
 {
-  "extends": "../../../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "lib",
-    "rootDir": "src",
-    "noUnusedParameters": false
-  },
-  "include": ["src"],
-  "references": [
-    {
-      "path": "../../core/components"
-    },
-    {
-      "path": "../utils"
-    },
-    {
-      "path": "../components"
-    }
-  ]
+  "extends": "tsconfig/gatsby.json",
+  "include": ["src", ".eslintrc.js"]
 }
