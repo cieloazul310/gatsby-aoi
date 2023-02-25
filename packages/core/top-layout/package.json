@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-top-layout",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "Gatsby plugin for @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
@@ -34,10 +34,10 @@
   "devDependencies": {
     "@mui/material": "^5.11.10",
     "eslint": "^8.34.0",
-    "eslint-config-custom": "^2.9.3",
+    "eslint-config-custom": "^2.10.0",
     "gatsby": "^4.24.6",
     "react": "^18.2.0",
-    "tsconfig": "^2.9.3",
+    "tsconfig": "^2.10.0",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {

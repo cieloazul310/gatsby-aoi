@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-components",
-  "version": "2.9.3",
+  "version": "2.10.0",
   "description": "MUI based components for @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
@@ -36,19 +36,19 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-top-layout": "^2.9.0",
-    "@cieloazul310/gatsby-theme-aoi-utils": "^2.9.2",
+    "@cieloazul310/gatsby-theme-aoi-top-layout": "^2.10.0",
+    "@cieloazul310/gatsby-theme-aoi-utils": "^2.10.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@gatsbyjs/reach-router": "^1.3.7",
     "@mui/material": "^5.11.10",
     "@types/reach__router": "^1.3.11",
     "eslint": "^8.34.0",
-    "eslint-config-custom": "^2.9.3",
+    "eslint-config-custom": "^2.10.0",
     "gatsby": "^4.24.6",
     "react": "^18.2.0",
     "rimraf": "^4.1.2",
-    "tsconfig": "^2.9.3",
+    "tsconfig": "^2.10.0",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
