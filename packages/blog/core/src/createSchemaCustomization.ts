@@ -61,7 +61,8 @@ function mdxResolverPassthrough(
     });
     const resolver = type?.getFields()[fieldName].resolve;
     if (!resolver) return {};
-    const result = await resolver(mdxNode ?? {}, args, context, {
+    if (!mdxNode) return {};
+    const result = await resolver(mdxNode, args, context, {
       fieldName,
     } as GraphQLResolveInfo);
     return result;
