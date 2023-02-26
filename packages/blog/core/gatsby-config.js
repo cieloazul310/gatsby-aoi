@@ -1,5 +1,6 @@
-/* eslint @typescript-eslint/no-var-requires: off */
-/* eslint react/function-component-definition: off */
+/* eslint import/no-extraneous-dependencies: warn */
+/* eslint global-require: warn */
+
 const path = require('path');
 const { withDefaults } = require('@cieloazul310/gatsby-theme-aoi-blog-utils');
 
@@ -29,8 +30,8 @@ module.exports = (themeOptions) => {
         resolve: `gatsby-plugin-mdx`,
         options: {
           extensions: [`.mdx`, `.md`],
-          defaultLayouts: {
-            default: require.resolve('@cieloazul310/gatsby-theme-aoi-blog-templates/src/default.tsx'),
+          mdxOptions: {
+            remarkPlugins: [require('remark-gfm')],
           },
           gatsbyRemarkPlugins: [
             {

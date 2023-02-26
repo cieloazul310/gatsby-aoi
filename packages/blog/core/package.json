@@ -44,6 +44,7 @@
     "gatsby-remark-responsive-iframe": "^6.7.0",
     "gatsby-source-filesystem": "^5.7.0",
     "gatsby-transformer-sharp": "^5.7.0",
+    "remark-gfm": "^3.0.1",
     "yaml": "^2.2.1"
   },
   "devDependencies": {
