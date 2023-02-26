@@ -49,8 +49,8 @@ export default async function createPagesasync(
   const { basePaths, postsPerPage } = withDefaults(themeOptions);
   const { createPage } = actions;
   const result = await graphql<Data>(`
-    query {
-      allMdxPost(sort: { fields: date, order: DESC }) {
+    {
+      allMdxPost(sort: { date: DESC }) {
         posts: edges {
           node {
             id
@@ -60,13 +60,13 @@ export default async function createPagesasync(
             slug
           }
         }
-        categories: group(field: categories) {
+        categories: group(field: { categories: SELECT }) {
           totalCount
           fieldValue
           field
           slug
         }
-        tags: group(field: tags) {
+        tags: group(field: { tags: SELECT }) {
           totalCount
           fieldValue
           field
@@ -74,9 +74,7 @@ export default async function createPagesasync(
         }
         totalCount
       }
-      allAuthor(
-        sort: { fields: [posts___totalCount, name], order: [DESC, ASC] }
-      ) {
+      allAuthor(sort: [{ posts: { totalCount: DESC } }, { name: ASC }]) {
         authors: edges {
           node {
             name
