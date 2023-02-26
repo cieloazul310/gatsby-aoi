@@ -1,6 +1,11 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider, createTheme, lighten } from '@mui/material/styles';
+import {
+  ThemeProvider,
+  StyledEngineProvider,
+  createTheme,
+  lighten,
+} from '@mui/material/styles';
 import initialMuiTheme from '../theme';
 import type { PaletteType } from '../utils/ThemeState';
 
@@ -36,11 +41,13 @@ function TopThemeProvider({ children, paletteType }: TopThemeProviderProps) {
   );
 
   return (
-    <ThemeProvider theme={theme}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }
 
