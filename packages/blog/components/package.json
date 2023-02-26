@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-components",
-  "version": "2.10.1",
+  "version": "2.11.0",
   "description": "MUI based blog components for @cieloazul310/gatsby-theme-aoi-blog",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -39,16 +39,16 @@
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
   "devDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-components": "^2.10.1",
+    "@cieloazul310/gatsby-theme-aoi-components": "^2.11.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.11.10",
     "eslint": "^8.34.0",
-    "eslint-config-custom": "^2.10.1",
+    "eslint-config-custom": "^2.11.0",
     "gatsby": "^4.24.6",
     "react": "^18.2.0",
     "rimraf": "^4.1.2",
-    "tsconfig": "^2.10.1",
+    "tsconfig": "^2.11.0",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
