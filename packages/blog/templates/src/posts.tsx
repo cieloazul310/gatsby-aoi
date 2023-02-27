@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Typography from '@mui/material/Typography';
 import {
   Jumbotron,
@@ -10,12 +9,12 @@ import {
   Article,
   AppLink,
   Seo,
+  mdxComponents,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import {
   DrawerPageNavigation,
   PageNavigationContainer,
   PageNavigationItem,
-  muiComponents,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
 import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 
@@ -36,6 +35,7 @@ type PageContext = {
 function BlogPostTemplate({
   data,
   pageContext,
+  children,
 }: PageProps<PageData, PageContext>) {
   const { mdxPost } = data;
   if (!mdxPost) return null;
@@ -69,8 +69,8 @@ function BlogPostTemplate({
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            <MDXProvider components={{ ...muiComponents, ...shortcodes }}>
-              <MDXRenderer>{mdxPost.body}</MDXRenderer>
+            <MDXProvider components={{ ...mdxComponents, ...shortcodes }}>
+              {children}
             </MDXProvider>
           </Article>
         </Section>
@@ -86,7 +86,7 @@ function BlogPostTemplate({
               <Typography>
                 Categories:{' '}
                 {categoriesSlug.map((category) => (
-                  <AppLink key={category.name} to={category.slug} mr={1}>
+                  <AppLink key={category.name} href={category.slug} mr={1}>
                     {category.name}
                   </AppLink>
                 ))}
@@ -94,7 +94,7 @@ function BlogPostTemplate({
               {tagsSlug.length ? (
                 <Typography>
                   {tagsSlug.map((tag) => (
-                    <AppLink key={tag.name} to={tag.slug} mr={1}>
+                    <AppLink key={tag.name} href={tag.slug} mr={1}>
                       #{tag.name}
                     </AppLink>
                   ))}

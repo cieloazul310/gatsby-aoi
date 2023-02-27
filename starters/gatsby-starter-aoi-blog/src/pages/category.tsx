@@ -52,7 +52,7 @@ function CategoryPage({ data }: PageProps<PageData>) {
                       <ListItemText
                         primary={
                           <AppLink
-                            to={slug}
+                            href={slug}
                             color="inherit"
                             fontSize="large"
                             fontWeight="bold"

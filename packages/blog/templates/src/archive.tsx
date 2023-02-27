@@ -158,7 +158,7 @@ export const query = graphql`
   query Archive($gte: Date!, $lt: Date!, $skip: Int!, $limit: Int!) {
     allMdxPost(
       filter: { date: { gte: $gte, lt: $lt } }
-      sort: { fields: date, order: DESC }
+      sort: { date: DESC }
       limit: $limit
       skip: $skip
     ) {

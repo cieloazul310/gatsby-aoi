@@ -77,11 +77,7 @@ export function Head({ pageContext }: HeadProps<PageData, PageContext>) {
 
 export const query = graphql`
   query AllPosts($skip: Int!, $limit: Int!) {
-    allMdxPost(
-      sort: { fields: date, order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
+    allMdxPost(sort: { date: DESC }, limit: $limit, skip: $skip) {
       edges {
         node {
           id

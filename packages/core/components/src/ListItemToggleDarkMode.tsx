@@ -18,7 +18,7 @@ function ListItemToggleDarkMode({ label = 'Dark Mode' }: { label?: string }) {
   const { darkMode, useSystemTheme } = useThemeContextState();
   const toggleDark = useToggleDark();
   return (
-    <ListItem disabled={useSystemTheme}>
+    <ListItem>
       <ListItemIcon>
         {darkMode ? <Bright4Icon /> : <Bright5Icon />}
       </ListItemIcon>

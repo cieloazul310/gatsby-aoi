@@ -1,32 +1,52 @@
-/* eslint react/jsx-props-no-spreading: "warn" */
 import * as React from 'react';
-import { Link as GatsbyLink, type GatsbyLinkProps } from 'gatsby';
-import ListItem, { type ListItemProps } from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
+import ListItemButton, {
+  type ListItemButtonProps,
+} from '@mui/material/ListItemButton';
+import GatsbyLinkComposed, {
+  type GatsbyLinkComposedProps,
+} from './mdxComponents/GatsbyLinkComposed';
 
-type GatsbyLinkComposedProps<T = Record<string, unknown>> = Omit<
-  GatsbyLinkProps<T>,
-  'ref'
->;
+export type ListItemAppLinkProps<
+  TState extends object = Record<string, unknown>
+> = Omit<GatsbyLinkComposedProps<TState>, 'to'> &
+  Omit<
+    ListItemButtonProps<
+      any,
+      {
+        href?: string;
+      }
+    >,
+    'ref'
+  >;
 
-const GatsbyLinkComposed = React.forwardRef<any, GatsbyLinkComposedProps>(
-  (props, ref) => {
-    // eslint-disable-next-line react/prop-types
-    const { to, state, ...other } = props;
-    return <GatsbyLink to={to} state={state} ref={ref} {...other} />;
+export const ListItemAppLink: (
+  props: Omit<ListItemAppLinkProps, 'ref'>
+) => JSX.Element | null = React.forwardRef<
+  HTMLAnchorElement,
+  ListItemAppLinkProps
+>(({ href, ...props }, ref) => {
+  if (href && /^\/(?!\/)/.test(href)) {
+    return (
+      <ListItemButton
+        ref={ref}
+        component={GatsbyLinkComposed}
+        to={href}
+        {...props}
+      />
+    );
   }
-);
-
-interface ListItemAppLinkPropsBase {
-  innerRef?: React.Ref<unknown>;
-  button?: boolean;
-  naked?: boolean;
-}
-
-export type ListItemAppLinkProps = ListItemAppLinkPropsBase &
-  GatsbyLinkComposedProps &
-  Omit<ListItemProps, 'ref'>;
-
+  return (
+    <ListItemButton
+      ref={ref}
+      component="a"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...props}
+    />
+  );
+});
+/*
 function ListItemAppLink(props: ListItemAppLinkProps) {
   const { className, innerRef, naked, to, button, ...other } = props;
 
@@ -68,5 +88,5 @@ ListItemAppLink.defaultProps = {
   button: undefined,
   naked: undefined,
 };
-
+*/
 export default ListItemAppLink;

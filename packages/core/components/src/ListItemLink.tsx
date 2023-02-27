@@ -1,4 +1,3 @@
-/* eslint react/jsx-props-no-spreading: "warn" */
 import * as React from 'react';
 import { Link as GatsbyLink, type GatsbyLinkProps } from 'gatsby';
 import ListItem, { type ListItemProps } from '@mui/material/ListItem';
@@ -10,7 +9,7 @@ import type { LinkProps as MuiLinkProps } from '@mui/material/Link';
 import type { Theme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-import AppLink from './AppLink';
+import { AppLink } from './mdxComponents/Link';
 
 export type ListItemLinkProps<T = Record<string, unknown>> = Omit<
   ListItemProps,
@@ -59,7 +58,7 @@ function ListItemLink({
       <ListItemText
         inset={inset}
         primary={
-          <AppLink to={to} color={color}>
+          <AppLink href={to} color={color}>
             {primaryText}
           </AppLink>
         }

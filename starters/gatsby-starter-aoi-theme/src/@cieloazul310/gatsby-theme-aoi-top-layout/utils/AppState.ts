@@ -6,10 +6,6 @@ export const initialAppState: AppState = {
   count: 0,
 };
 
-export function useInitialAppState(): AppState {
-  return initialAppState;
-}
-
 export type Action = { type: 'RESET' } | { type: 'INCREMENT' };
 
 /**

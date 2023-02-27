@@ -9,8 +9,8 @@ import {
   Section,
   SectionDivider,
   Article,
+  AppLink,
   Paragraph,
-  ExternalLink,
   SocialLink,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
@@ -125,9 +125,7 @@ function AuthorTemplate({
               {author.websiteURL ? (
                 <>
                   Website:{' '}
-                  <ExternalLink href={author.websiteURL}>
-                    {author.website}
-                  </ExternalLink>
+                  <AppLink href={author.websiteURL}>{author.website}</AppLink>
                 </>
               ) : null}
             </Paragraph>
@@ -246,7 +244,7 @@ export const query = graphql`
     }
     allMdxPost(
       filter: { author: { name: { eq: $fieldValue } } }
-      sort: { fields: date, order: DESC }
+      sort: { date: DESC }
       limit: $limit
       skip: $skip
     ) {

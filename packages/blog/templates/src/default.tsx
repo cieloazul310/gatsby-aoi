@@ -6,10 +6,9 @@ import {
   SectionDivider,
   Jumbotron,
   Seo,
+  mdxComponents,
 } from '@cieloazul310/gatsby-theme-aoi-components';
-import { muiComponents } from '@cieloazul310/gatsby-theme-aoi-blog-components';
 import { MDXProvider } from '@mdx-js/react';
-import type { MDXRendererProps } from 'gatsby-plugin-mdx';
 import Layout from './layout';
 import shortcodes from './shortcodes';
 
@@ -19,7 +18,7 @@ type PageContext = {
   };
 };
 
-type Props = Omit<PageProps<null, PageContext>, 'children'> & MDXRendererProps;
+type Props = PageProps<null, PageContext>;
 
 function DefaultTemplate({ children, pageContext }: Props) {
   return (
@@ -36,7 +35,7 @@ function DefaultTemplate({ children, pageContext }: Props) {
           <Article maxWidth="md">
             <MDXProvider
               components={{
-                ...muiComponents,
+                ...mdxComponents,
                 ...shortcodes,
               }}
             >

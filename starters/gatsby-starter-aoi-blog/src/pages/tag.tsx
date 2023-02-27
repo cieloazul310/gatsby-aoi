@@ -37,7 +37,7 @@ function TagPage({ data }: PageProps<PageData>) {
               .map((tag) => (
                 <AppLink
                   key={tag.slug}
-                  to={tag.slug}
+                  href={tag.slug}
                   mr={1}
                 >{`#${tag.fieldValue}`}</AppLink>
               ))}

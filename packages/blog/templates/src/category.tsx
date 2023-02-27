@@ -130,7 +130,7 @@ export const query = graphql`
   query Category($fieldValue: String!, $skip: Int!, $limit: Int!) {
     allMdxPost(
       filter: { categories: { eq: $fieldValue } }
-      sort: { fields: date, order: DESC }
+      sort: { date: DESC }
       limit: $limit
       skip: $skip
     ) {

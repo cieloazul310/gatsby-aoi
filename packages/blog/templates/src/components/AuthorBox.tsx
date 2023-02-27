@@ -3,11 +3,7 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
-import {
-  SocialLink,
-  AppLink,
-  ExternalLink,
-} from '@cieloazul310/gatsby-theme-aoi-components';
+import { SocialLink, AppLink } from '@cieloazul310/gatsby-theme-aoi-components';
 import type { AuthorBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import { AuthorIcon } from '../icons';
 
@@ -45,7 +41,7 @@ function AuthorBox({ author }: AuthorBoxProps) {
   return (
     <Box display="flex" flexDirection="row">
       <Box display="flex" alignItems="center" justifyContent="center">
-        {author.slug ? <AppLink to={author.slug}>{avatar}</AppLink> : avatar}
+        {author.slug ? <AppLink href={author.slug}>{avatar}</AppLink> : avatar}
       </Box>
       <Box
         flexGrow={1}
@@ -67,9 +63,7 @@ function AuthorBox({ author }: AuthorBoxProps) {
           {author.websiteURL ? (
             <Typography variant="body2">
               Website:{' '}
-              <ExternalLink href={author.websiteURL}>
-                {author.website}
-              </ExternalLink>
+              <AppLink href={author.websiteURL}>{author.website}</AppLink>
             </Typography>
           ) : null}
         </Box>
@@ -81,7 +75,7 @@ function AuthorBox({ author }: AuthorBoxProps) {
           </Stack>
           <Box textAlign={{ xs: 'right', sm: 'left' }}>
             {author.slug ? (
-              <AppLink to={author.slug}>
+              <AppLink href={author.slug}>
                 {author.name}の記事一覧 ({author.posts?.totalCount})
               </AppLink>
             ) : null}

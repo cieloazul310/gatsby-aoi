@@ -47,7 +47,7 @@ function TabPage() {
               <Button color="secondary" onClick={handleTabIndex(1)}>
                 Go to Tab-2
               </Button>
-              <AppLinkButton to="/">Back to top</AppLinkButton>
+              <AppLinkButton href="/">Back to top</AppLinkButton>
             </Article>
           </Section>
         </article>
@@ -80,7 +80,7 @@ function TabPage() {
               <Button color="secondary" onClick={handleTabIndex(2)}>
                 Go to Tab-3
               </Button>
-              <AppLinkButton to="/">Back to top</AppLinkButton>
+              <AppLinkButton href="/">Back to top</AppLinkButton>
             </Article>
           </Section>
         </article>
@@ -108,7 +108,7 @@ function TabPage() {
               <Button color="secondary" onClick={handleTabIndex(0)}>
                 Go to Tab-1
               </Button>
-              <AppLinkButton to="/">Back to top</AppLinkButton>
+              <AppLinkButton href="/">Back to top</AppLinkButton>
             </Article>
           </Section>
         </article>

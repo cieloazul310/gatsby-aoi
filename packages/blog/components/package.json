@@ -43,6 +43,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.11.10",
+    "@types/mdx": "^2.0.3",
     "eslint": "^8.34.0",
     "eslint-config-custom": "^2.11.0",
     "gatsby": "^5.7.0",

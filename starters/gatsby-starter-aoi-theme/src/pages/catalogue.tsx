@@ -7,7 +7,7 @@ import {
   Section,
   SectionDivider,
   Article,
-  ArticleTitle,
+  H2,
   H3,
   Paragraph,
   AppLink,
@@ -43,7 +43,7 @@ function Catalogue() {
         <section>
           <Section>
             <Article>
-              <ArticleTitle>Layouts</ArticleTitle>
+              <H2>Layouts</H2>
               <H3>Default Layout</H3>
               <Paragraph>
                 Gatsby Theme Aoi Basic Layout. Easy to customize.
@@ -73,23 +73,23 @@ function Catalogue() {
         <section>
           <Section>
             <Article>
-              <ArticleTitle>Components</ArticleTitle>
+              <H2>Components</H2>
               <H3>AppLink</H3>
               <Paragraph>Gatsby Link composed to MuiLink</Paragraph>
               <Stack spacing={2} direction="row">
-                <AppLink to="/">This is AppLink</AppLink>
-                <AppLink to="/" color="primary">
+                <AppLink href="/">This is AppLink</AppLink>
+                <AppLink href="/" color="primary">
                   App Link Color Primary
                 </AppLink>
               </Stack>
               <H3>AppLinkButton</H3>
               <Paragraph>Gatsby Link composed to MuiButton</Paragraph>
               <Stack spacing={2} direction="column" maxWidth={300}>
-                <AppLinkButton to="/">This is AppLinkButton</AppLinkButton>
-                <AppLinkButton to="/" color="primary">
+                <AppLinkButton href="/">This is AppLinkButton</AppLinkButton>
+                <AppLinkButton href="/" color="primary">
                   Primary
                 </AppLinkButton>
-                <AppLinkButton variant="contained" to="/">
+                <AppLinkButton variant="contained" href="/">
                   Contained
                 </AppLinkButton>
               </Stack>
@@ -113,7 +113,7 @@ function Catalogue() {
         <section>
           <Section>
             <Article>
-              <ArticleTitle>Custom Hooks</ArticleTitle>
+              <H2>Custom Hooks</H2>
               <H3>useSiteMetadata</H3>
               <Paragraph>
                 Easy to use site metadata. Gatsby Static Query
