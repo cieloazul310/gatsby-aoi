@@ -13,28 +13,28 @@ export default {
 export function Basic() {
   return (
     <List>
-      <ListItemAppLink to="/">
+      <ListItemAppLink href="/">
         <ListItemText primary="Default" />
       </ListItemAppLink>
-      <ListItemAppLink to="/">
+      <ListItemAppLink href="/">
         <ListItemText primary="Button" />
       </ListItemAppLink>
-      <ListItemAppLink to="/">
+      <ListItemAppLink href="/">
         <ListItemText
           primary="Secondary Text"
           secondary="Secondary Text is here"
         />
       </ListItemAppLink>
-      <ListItemAppLink to="/">
+      <ListItemAppLink href="/">
         <ListItemIcon>
           <HomeIcon />
         </ListItemIcon>
         <ListItemText primary="With Icon" />
       </ListItemAppLink>
-      <ListItemAppLink to="/" selected>
+      <ListItemAppLink href="/" selected>
         <ListItemText primary="Selected" />
       </ListItemAppLink>
-      <ListItemAppLink to="https://cieloazul310.github.io">
+      <ListItemAppLink href="https://cieloazul310.github.io">
         <ListItemText primary="External" />
       </ListItemAppLink>
     </List>

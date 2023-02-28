@@ -13,7 +13,7 @@ export const Table: (props: Omit<TableProps, 'ref'>) => JSX.Element | null =
   React.forwardRef<HTMLTableElement, TableProps>(
     ({ children, ...props }, ref) => (
       <Box component={Paper} elevation={0} variant="outlined" my={4}>
-        <TableContainer sx={{ maxHeight: '1vh' }}>
+        <TableContainer>
           <MuiTable ref={ref} stickyHeader {...props}>
             {children}
           </MuiTable>

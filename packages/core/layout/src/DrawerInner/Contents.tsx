@@ -21,8 +21,7 @@ function ContentsItem({
 }: ContentsItemProps) {
   return (
     <ListItemAppLink
-      to={path}
-      button
+      href={path}
       selected={currentPathname === withPrefix(path)}
       role="menuitem"
     >

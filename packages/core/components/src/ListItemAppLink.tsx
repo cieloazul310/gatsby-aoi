@@ -1,7 +1,9 @@
 import * as React from 'react';
+import ListItem from '@mui/material/ListItem';
 import ListItemButton, {
   type ListItemButtonProps,
 } from '@mui/material/ListItemButton';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import GatsbyLinkComposed, {
   type GatsbyLinkComposedProps,
 } from './mdxComponents/GatsbyLinkComposed';
@@ -13,7 +15,7 @@ export type ListItemAppLinkProps<
     ListItemButtonProps<
       any,
       {
-        href?: string;
+        href: string;
       }
     >,
     'ref'
@@ -25,68 +27,38 @@ export const ListItemAppLink: (
   HTMLAnchorElement,
   ListItemAppLinkProps
 >(({ href, ...props }, ref) => {
-  if (href && /^\/(?!\/)/.test(href)) {
+  const isInternal = href && /^\/(?!\/)/.test(href);
+  const button = React.useMemo(() => {
+    if (isInternal) {
+      return (
+        <ListItemButton
+          ref={ref}
+          component={GatsbyLinkComposed}
+          to={href}
+          {...props}
+        />
+      );
+    }
     return (
       <ListItemButton
         ref={ref}
-        component={GatsbyLinkComposed}
-        to={href}
+        component="a"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
         {...props}
       />
     );
-  }
-  return (
-    <ListItemButton
-      ref={ref}
-      component="a"
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      {...props}
-    />
-  );
-});
-/*
-function ListItemAppLink(props: ListItemAppLinkProps) {
-  const { className, innerRef, naked, to, button, ...other } = props;
-
-  if (naked) {
-    return (
-      <GatsbyLinkComposed
-        className={className}
-        ref={innerRef}
-        to={to}
-        {...other}
-      />
-    );
-  }
-  if (button) {
-    return (
-      <ListItemButton
-        component={GatsbyLinkComposed}
-        className={className}
-        to={to}
-        ref={innerRef}
-        {...other}
-      />
-    );
-  }
+  }, [href, ref, props]);
 
   return (
     <ListItem
-      component={GatsbyLinkComposed}
-      className={className}
-      to={to}
-      ref={innerRef}
-      {...other}
-    />
+      disablePadding
+      secondaryAction={!isInternal ? <OpenInNewIcon /> : null}
+    >
+      {button}
+    </ListItem>
   );
-}
+});
 
-ListItemAppLink.defaultProps = {
-  innerRef: undefined,
-  button: undefined,
-  naked: undefined,
-};
-*/
 export default ListItemAppLink;
