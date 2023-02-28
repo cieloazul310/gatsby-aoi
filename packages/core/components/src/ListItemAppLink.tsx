@@ -4,6 +4,7 @@ import ListItemButton, {
   type ListItemButtonProps,
 } from '@mui/material/ListItemButton';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { isInternal } from '@cieloazul310/gatsby-theme-aoi-utils';
 import GatsbyLinkComposed, {
   type GatsbyLinkComposedProps,
 } from './mdxComponents/GatsbyLinkComposed';
@@ -27,9 +28,9 @@ export const ListItemAppLink: (
   HTMLAnchorElement,
   ListItemAppLinkProps
 >(({ href, ...props }, ref) => {
-  const isInternal = href && /^\/(?!\/)/.test(href);
+  const internal = href && isInternal(href);
   const button = React.useMemo(() => {
-    if (isInternal) {
+    if (internal) {
       return (
         <ListItemButton
           ref={ref}

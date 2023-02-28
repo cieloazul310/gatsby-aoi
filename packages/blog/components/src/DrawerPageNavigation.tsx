@@ -36,7 +36,7 @@ function DrawerPageNavigation({
     <List subheader={<ListSubheader>{title ?? 'Navigation'}</ListSubheader>}>
       {previous ? (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ListItemAppLink to={previous.to} button {...linkProps}>
+        <ListItemAppLink href={previous.to} {...linkProps}>
           <ListItemIcon>
             <ArrowBackIcon />
           </ListItemIcon>
@@ -48,7 +48,7 @@ function DrawerPageNavigation({
       ) : null}
       {next ? (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ListItemAppLink to={next.to} button {...linkProps}>
+        <ListItemAppLink href={next.to} {...linkProps}>
           <ListItemIcon>
             <ArrowForwardIcon />
           </ListItemIcon>

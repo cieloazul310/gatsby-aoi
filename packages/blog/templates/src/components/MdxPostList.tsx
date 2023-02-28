@@ -15,7 +15,7 @@ export function MdxPostList({ posts }: MdxPostListProps) {
       {posts.map(({ id, slug, title, date, author }, index) => (
         <ListItemLink
           key={id}
-          to={slug}
+          href={slug}
           primaryText={title}
           secondaryText={`${date} post by ${author.name}`}
           divider={index !== posts.length - 1}

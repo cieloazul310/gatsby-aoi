@@ -1,11 +1,6 @@
 import * as React from 'react';
-import {
-  Table,
-  THead,
-  TBody,
-  Tr,
-  Td,
-} from '@cieloazul310/gatsby-theme-aoi-components';
+import { Table } from '@cieloazul310/gatsby-theme-aoi-components';
+import TableExample from '../components/Table';
 
 export default {
   title: 'Table',
@@ -13,37 +8,13 @@ export default {
 };
 
 export function Basic() {
-  return (
-    <Table>
-      <THead>
-        <Tr>
-          <Td component="th">Number</Td>
-          <Td component="th">Name</Td>
-          <Td component="th">Pos</Td>
-        </Tr>
-      </THead>
-      <TBody>
-        <Tr>
-          <Td>1</Td>
-          <Td>Koji Honma</Td>
-          <Td>GK</Td>
-        </Tr>
-        <Tr>
-          <Td>1</Td>
-          <Td>Koji Honma</Td>
-          <Td>GK</Td>
-        </Tr>
-        <Tr>
-          <Td>1</Td>
-          <Td>Koji Honma</Td>
-          <Td>GK</Td>
-        </Tr>
-        <Tr>
-          <Td>1</Td>
-          <Td>Koji Honma</Td>
-          <Td>GK</Td>
-        </Tr>
-      </TBody>
-    </Table>
-  );
+  return <TableExample length={10} />;
+}
+
+export function Longer() {
+  return <TableExample length={40} />;
+}
+
+export function Small() {
+  return <TableExample length={10} size="small" />;
 }

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Button, { type ButtonProps } from '@mui/material/Button';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { isInternal } from '@cieloazul310/gatsby-theme-aoi-utils';
 import GatsbyLinkComposed, {
   type GatsbyLinkComposedProps,
 } from './mdxComponents/GatsbyLinkComposed';
@@ -11,7 +12,7 @@ export type AppLinkButtonProps<T extends object = Record<string, unknown>> =
 const AppLinkButton: (props: AppLinkButtonProps) => JSX.Element | null =
   React.forwardRef<HTMLButtonElement, AppLinkButtonProps>(
     ({ href, ...props }, ref) => {
-      if (href && /^\/(?!\/)/.test(href)) {
+      if (href && isInternal(href)) {
         return (
           <Button
             ref={ref}

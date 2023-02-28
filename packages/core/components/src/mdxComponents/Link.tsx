@@ -2,6 +2,7 @@ import * as React from 'react';
 import MuiLink, { type LinkProps as MuiLinkProps } from '@mui/material/Link';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import type { Theme } from '@mui/material/styles';
+import { isInternal } from '@cieloazul310/gatsby-theme-aoi-utils';
 import type { MDXComponents } from 'mdx/types';
 import GatsbyLinkComposed, {
   type GatsbyLinkComposedProps,
@@ -21,7 +22,7 @@ export const AppLink: (props: AppLinkProps) => JSX.Element | null =
         (({ palette }: Theme) =>
           palette.mode === 'light' ? 'secondary.dark' : 'secondary.main');
 
-      if (href && /^\/(?!\/)/.test(href)) {
+      if (href && isInternal(href)) {
         return (
           <MuiLink
             ref={ref}
