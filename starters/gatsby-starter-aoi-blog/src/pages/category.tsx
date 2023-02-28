@@ -15,7 +15,7 @@ import {
 } from '@cieloazul310/gatsby-theme-aoi';
 import {
   MdxPostEdgesList,
-  MdxPostBrowser,
+  type MdxPostBrowser,
 } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
@@ -25,9 +25,10 @@ type PageData = {
       fieldValue: string;
       field: string;
       slug: string;
-      edges: {
-        node: Pick<MdxPostBrowser, 'id' | 'title' | 'date' | 'slug' | 'author'>;
-      }[];
+      nodes: Pick<
+        MdxPostBrowser,
+        'id' | 'title' | 'date' | 'slug' | 'author'
+      >[];
     }[];
   };
 };
@@ -43,7 +44,7 @@ function CategoryPage({ data }: PageProps<PageData>) {
         <SectionDivider />
         {group
           .sort((a, b) => b.totalCount - a.totalCount)
-          .map(({ totalCount, fieldValue, slug, edges }, index) => (
+          .map(({ totalCount, fieldValue, slug, nodes }, index) => (
             <React.Fragment key={fieldValue}>
               <Section>
                 <Article maxWidth="md">
@@ -63,7 +64,7 @@ function CategoryPage({ data }: PageProps<PageData>) {
                         secondary={`${totalCount} posts`}
                       />
                     </ListItem>
-                    <MdxPostEdgesList edges={edges} />
+                    <MdxPostEdgesList nodes={nodes} />
                     <List>
                       {totalCount > 2 ? (
                         <ListItemLink
@@ -92,22 +93,20 @@ export function Head() {
 }
 
 export const query = graphql`
-  query {
-    allMdxPost(sort: { fields: date, order: DESC }) {
-      group(field: categories, limit: 2) {
+  {
+    allMdxPost(sort: { date: DESC }) {
+      group(field: { categories: SELECT }, limit: 2) {
         totalCount
         fieldValue
         field
         slug
-        edges {
-          node {
-            id
-            title
-            date(formatString: "YYYY-MM-DD")
-            slug
-            author {
-              name
-            }
+        nodes {
+          id
+          title
+          date(formatString: "YYYY-MM-DD")
+          slug
+          author {
+            name
           }
         }
       }

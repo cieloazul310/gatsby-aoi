@@ -18,7 +18,7 @@ Gatsby Theme Aoi Blog は、**Gatsby Theme Aoi** で作成された [Gatsby ス�
 
 ### Recent posts
 
-<MdxPostEdgesList edges={props.data.allMdxPost.edges} />
+<MdxPostEdgesList edges={props.data.allMdxPost.nodes} />
 
 [Gatsby]: https://www.gatsbyjs.com/ "Gatsby"
 [MUI]: https://mui.org/ "MUI"
@@ -40,16 +40,14 @@ export function Head() {
 
 export const query = graphql`
   query {
-    allMdxPost(sort: {fields: date, order: DESC}, limit: 4) {
-      edges {
-        node {
-          id
-          title
-          date(formatString: "YYYY-MM-DD")
-          slug
-          author {
-            name
-          }
+    allMdxPost(sort: {date: DESC}, limit: 4) {
+      nodes {
+        id
+        title
+        date(formatString: "YYYY-MM-DD")
+        slug
+        author {
+          name
         }
       }
     }

@@ -55,9 +55,9 @@ export function Head() {
 }
 
 export const query = graphql`
-  query {
-    allMdxPost(sort: { fields: date, order: DESC }) {
-      group(field: tags) {
+  {
+    allMdxPost(sort: { date: DESC }) {
+      group(field: { tags: SELECT }) {
         totalCount
         fieldValue
         field

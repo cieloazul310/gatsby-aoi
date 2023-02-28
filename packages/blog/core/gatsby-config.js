@@ -12,6 +12,13 @@ module.exports = (themeOptions) => {
       {
         resolve: `gatsby-source-filesystem`,
         options: {
+          name: `pages`,
+          path: `./src/pages`,
+        },
+      },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
           path: path.join(options.contentPath, options.basePaths.posts),
           name: path.join(options.contentPath, options.basePaths.posts),
         },

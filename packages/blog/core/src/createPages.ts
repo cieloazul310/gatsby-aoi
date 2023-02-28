@@ -11,6 +11,8 @@ type Data = {
     posts: (Pick<MdxPost, 'id' | 'title' | 'slug'> & {
       year: string;
       month: string;
+    } & {
+      internal: Pick<MdxPost['internal'], 'contentFilePath'>;
     })[];
     categories: {
       totalCount: number;
@@ -53,6 +55,9 @@ export default async function createPagesasync(
           year: date(formatString: "YYYY")
           month: date(formatString: "MM")
           slug
+          internal {
+            contentFilePath
+          }
         }
         categories: group(field: { categories: SELECT }) {
           totalCount
@@ -96,15 +101,16 @@ export default async function createPagesasync(
   const { posts, categories, tags } = result.data.allMdxPost;
 
   // generate Each post pages
-  posts.forEach(({ id, slug }, index) => {
+  const postTemplate = require.resolve(
+    '@cieloazul310/gatsby-theme-aoi-blog-templates/src/posts.tsx'
+  );
+  posts.forEach(({ id, slug, internal }, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1];
     const next = index === 0 ? null : posts[index - 1];
 
     createPage({
       path: slug,
-      component: require.resolve(
-        '@cieloazul310/gatsby-theme-aoi-blog-templates/src/posts.tsx'
-      ),
+      component: `${postTemplate}?__contentFilePath=${internal.contentFilePath}`,
       context: { previous, next, id },
     });
   });
