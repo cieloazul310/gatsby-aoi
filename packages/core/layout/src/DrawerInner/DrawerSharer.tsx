@@ -1,11 +1,11 @@
 import * as React from 'react';
 import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
-import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import { ListItemAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
 import {
   useSiteMetadata,
   useSocialShare,
@@ -21,34 +21,22 @@ function DrawerSharer({ title }: DrawerSharerProps) {
   const fbUrl = useSocialShare('facebook');
   return (
     <List subheader={<ListSubheader>Share</ListSubheader>}>
-      <ListItem
-        component="a"
-        button
-        href={twitterUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <ListItemAppLink href={twitterUrl}>
         <ListItemIcon>
           <TwitterIcon />
         </ListItemIcon>
         <ListItemText
           primary={lang === 'ja' ? 'Twitterでシェア' : 'Share on Twitter'}
         />
-      </ListItem>
-      <ListItem
-        button
-        component="a"
-        href={fbUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      </ListItemAppLink>
+      <ListItemAppLink href={fbUrl}>
         <ListItemIcon>
           <FacebookIcon />
         </ListItemIcon>
         <ListItemText
           primary={lang === 'ja' ? 'Facebookでシェア' : 'Share on Facebook'}
         />
-      </ListItem>
+      </ListItemAppLink>
     </List>
   );
 }

@@ -59,7 +59,11 @@ const PanelLink: (props: Omit<PanelLinkProps, 'ref'>) => JSX.Element | null =
         try {
           const { hostname } = new URL(href);
           return (
-            <Typography variant="caption" color="text.secondary">
+            <Typography
+              component="div"
+              variant="caption"
+              color="text.secondary"
+            >
               {hostname}
             </Typography>
           );
@@ -75,7 +79,7 @@ const PanelLink: (props: Omit<PanelLinkProps, 'ref'>) => JSX.Element | null =
               <ArrowCircleRightIcon />
             </Box>
             <Box flexGrow={1}>
-              <Typography>{children}</Typography>
+              <Typography component="div">{children}</Typography>
               {host}
             </Box>
           </Box>

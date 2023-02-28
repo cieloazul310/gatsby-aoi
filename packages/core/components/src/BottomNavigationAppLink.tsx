@@ -8,15 +8,21 @@ import GatsbyLinkComposed, {
 
 export type BottomNavigationAppLinkProps<
   T extends object = Record<string, unknown>
-> = GatsbyLinkComposedProps<T> & BottomNavigationActionProps;
+> = Omit<GatsbyLinkComposedProps<T>, 'to'> &
+  BottomNavigationActionProps & {
+    href: string;
+  };
 
-const BottomNavigationAppLink: (
-  props: BottomNavigationAppLinkProps
-) => JSX.Element | null = React.forwardRef<
+const BottomNavigationAppLink = React.forwardRef<
   HTMLButtonElement,
   BottomNavigationAppLinkProps
->((props, ref) => (
-  <BottomNavigationAction ref={ref} component={GatsbyLinkComposed} {...props} />
+>(({ href, ...props }, ref) => (
+  <BottomNavigationAction
+    ref={ref}
+    component={GatsbyLinkComposed}
+    to={href}
+    {...props}
+  />
 ));
 
 export default BottomNavigationAppLink;

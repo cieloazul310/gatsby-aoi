@@ -10,60 +10,26 @@ export type ArticleProps = ContainerProps & Pick<TypographyProps, 'variant'>;
  * A main article component with padding-top and padding-bottom including MUI `<Container>` component.
  * `maxWidth` is default to `'sm'`
  */
-const Article: (props: Omit<ArticleProps, 'ref'>) => JSX.Element | null =
-  React.forwardRef<any, ArticleProps>(
-    ({ variant, maxWidth, ...props }, ref) => (
-      <Typography
-        sx={{ py: 4, wordWrap: 'break-word' }}
-        component="div"
-        variant={variant ?? 'body1'}
-      >
-        <Container
-          ref={ref}
-          maxWidth={maxWidth ?? 'sm'}
-          sx={{
-            '& > *:first-child': {
-              mt: 4,
-            },
-            '& > *:last-child': {
-              mb: 4,
-            },
-          }}
-          {...props}
-        />
-      </Typography>
-    )
-  );
-/*
-function Article({
-  children,
-  maxWidth,
-  variant,
-  ...props
-}: ContainerProps & Pick<TypographyProps, 'variant'>) {
-  return (
+const Article = React.forwardRef<any, ArticleProps>(
+  ({ variant, maxWidth, ...props }, ref) => (
     <Typography
       sx={{ py: 4, wordWrap: 'break-word' }}
       component="div"
       variant={variant ?? 'body1'}
     >
       <Container
+        ref={ref}
         maxWidth={maxWidth ?? 'sm'}
         sx={{
-          '& > *:first-child': {
-            mt: 4,
-          },
-          '& > *:last-child': {
-            mb: 4,
+          // equivalent to first-child
+          '& > *:not(:is(*:not(style) ~ *))': {
+            mt: 0,
           },
         }}
         {...props}
-      >
-        {children}
-      </Container>
+      />
     </Typography>
-  );
-}
-*/
+  )
+);
 
 export default Article;

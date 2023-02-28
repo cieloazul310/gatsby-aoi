@@ -52,19 +52,19 @@ function Catalogue() {
               <Paragraph>
                 Gatsby Theme Aoi Tab Page Layout
                 <br />
-                <PanelLink to="/tab-page/">Example</PanelLink>
+                <PanelLink href="/tab-page/">Example</PanelLink>
               </Paragraph>
               <H3>Jumbotron Layout</H3>
               <Paragraph>
                 Gatsby Theme Aoi Jumbotron Layout
                 <br />
-                <PanelLink to="/jumbotron/">Example</PanelLink>
+                <PanelLink href="/jumbotron/">Example</PanelLink>
               </Paragraph>
               <H3>Full Width Layout</H3>
               <Paragraph>
                 Gatsby Theme Aoi Full Width Layout
                 <br />
-                <PanelLink to="/without-drawer/">Example</PanelLink>
+                <PanelLink href="/without-drawer/">Example</PanelLink>
               </Paragraph>
             </Article>
           </Section>
@@ -98,11 +98,11 @@ function Catalogue() {
                 Gatsby Link and external link component styled with Button Panel
               </Paragraph>
               <Stack spacing={2} direction="column">
-                <PanelLink to="/">Back to Top Page</PanelLink>
-                <PanelLink to="https://cieloazul310.github.io">
+                <PanelLink href="/">Back to Top Page</PanelLink>
+                <PanelLink href="https://cieloazul310.github.io">
                   External Link
                 </PanelLink>
-                <PanelLink to="https://www.mito-hollyhock.net" disableBorder>
+                <PanelLink href="https://www.mito-hollyhock.net" disableBorder>
                   Disable Border
                 </PanelLink>
               </Stack>

@@ -47,7 +47,7 @@ function IndexPage() {
                 Full Width <AppLink href="/without-drawer/">Example</AppLink>
               </Li>
             </Ul>
-            <PanelLink to="/catalogue/">Browse Catalogue</PanelLink>
+            <PanelLink href="/catalogue/">Browse Catalogue</PanelLink>
           </Article>
         </Section>
       </article>

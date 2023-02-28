@@ -46,11 +46,9 @@ export const Blockquote: (props: BlockquoteProps) => JSX.Element | null =
           alpha(palette.text.disabled, palette.action.hoverOpacity)
         }
         sx={{
-          '& > *:first-child': {
-            mt: 4,
-          },
-          '& > *:last-child': {
-            mb: 4,
+          // equivalent to first-child
+          '& > *:not(:is(*:not(style) ~ *))': {
+            mt: 0,
           },
         }}
         {...props}

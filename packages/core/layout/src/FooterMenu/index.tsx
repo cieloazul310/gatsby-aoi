@@ -11,7 +11,7 @@ type FooterMenuItemProps = Menu;
 function FooterMenuItem({ title, path, icon }: FooterMenuItemProps) {
   return (
     <Grid item xs={12} sm={6} md={3} xl={2}>
-      <ListItemAppLink to={path} button>
+      <ListItemAppLink href={path}>
         <ListItemIcon>{icon}</ListItemIcon>
         <ListItemText primary={title} />
       </ListItemAppLink>
