@@ -21,9 +21,7 @@ import MdxPostEdgesList from './components/MdxPostList';
 
 type PageData = {
   allMdxPost: {
-    edges: {
-      node: Pick<MdxPostBrowser, 'id' | 'title' | 'slug' | 'date' | 'author'>;
-    }[];
+    nodes: Pick<MdxPostBrowser, 'id' | 'title' | 'slug' | 'date' | 'author'>[];
   };
 };
 
@@ -90,7 +88,7 @@ function CategoryTemplate({
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            <MdxPostEdgesList edges={allMdxPost.edges} />
+            <MdxPostEdgesList nodes={allMdxPost.nodes} />
             <Pagination
               numPages={numPages}
               currentPage={currentPage}
@@ -134,15 +132,13 @@ export const query = graphql`
       limit: $limit
       skip: $skip
     ) {
-      edges {
-        node {
-          id
-          title
-          slug
-          date(formatString: "YYYY-MM-DD")
-          author {
-            name
-          }
+      nodes {
+        id
+        title
+        slug
+        date(formatString: "YYYY-MM-DD")
+        author {
+          name
         }
       }
     }

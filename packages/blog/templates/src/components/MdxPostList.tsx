@@ -26,15 +26,13 @@ export function MdxPostList({ posts }: MdxPostListProps) {
 }
 
 type MdxPostEdgesListProps = {
-  edges: {
-    node: Pick<MdxPostBrowser, 'id' | 'slug' | 'title' | 'date'> & {
-      author: Pick<NonNullable<MdxPostBrowser['author']>, 'name'>;
-    };
-  }[];
+  nodes: (Pick<MdxPostBrowser, 'id' | 'slug' | 'title' | 'date'> & {
+    author: Pick<NonNullable<MdxPostBrowser['author']>, 'name'>;
+  })[];
 };
 
-function MdxPostEdgesList({ edges }: MdxPostEdgesListProps) {
-  return <MdxPostList posts={edges.map(({ node }) => node)} />;
+function MdxPostEdgesList({ nodes }: MdxPostEdgesListProps) {
+  return <MdxPostList posts={nodes} />;
 }
 
 export default MdxPostEdgesList;

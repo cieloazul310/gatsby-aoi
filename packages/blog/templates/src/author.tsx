@@ -35,9 +35,7 @@ type PageData = {
     'name' | 'avatar' | 'description' | 'website' | 'websiteURL' | 'socials'
   >;
   allMdxPost: {
-    edges: {
-      node: Pick<MdxPostBrowser, 'id' | 'title' | 'slug' | 'date' | 'author'>;
-    }[];
+    nodes: Pick<MdxPostBrowser, 'id' | 'title' | 'slug' | 'date' | 'author'>[];
   };
   previous: (Pick<AuthorBrowser, 'name' | 'avatar'> & { slug: string }) | null;
   next: (Pick<AuthorBrowser, 'name' | 'avatar'> & { slug: string }) | null;
@@ -139,7 +137,7 @@ function AuthorTemplate({
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            <MdxPostEdgesList edges={allMdxPost.edges} />
+            <MdxPostEdgesList nodes={allMdxPost.nodes} />
             <Pagination
               numPages={numPages}
               currentPage={currentPage}
@@ -248,15 +246,13 @@ export const query = graphql`
       limit: $limit
       skip: $skip
     ) {
-      edges {
-        node {
-          id
-          title
-          slug
-          date(formatString: "YYYY-MM-DD")
-          author {
-            name
-          }
+      nodes {
+        id
+        title
+        slug
+        date(formatString: "YYYY-MM-DD")
+        author {
+          name
         }
       }
     }

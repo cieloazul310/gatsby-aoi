@@ -8,12 +8,10 @@ import {
 
 type Data = {
   allMdxPost: {
-    posts: {
-      node: Pick<MdxPost, 'id' | 'title' | 'slug'> & {
-        year: string;
-        month: string;
-      };
-    }[];
+    posts: (Pick<MdxPost, 'id' | 'title' | 'slug'> & {
+      year: string;
+      month: string;
+    })[];
     categories: {
       totalCount: number;
       fieldValue: string;
@@ -30,12 +28,10 @@ type Data = {
   };
   allAuthor: {
     authors: {
-      node: {
-        name: string;
-        slug: string;
-        posts: {
-          totalCount: number;
-        };
+      name: string;
+      slug: string;
+      posts: {
+        totalCount: number;
       };
     }[];
   };
@@ -51,14 +47,12 @@ export default async function createPagesasync(
   const result = await graphql<Data>(`
     {
       allMdxPost(sort: { date: DESC }) {
-        posts: edges {
-          node {
-            id
-            title
-            year: date(formatString: "YYYY")
-            month: date(formatString: "MM")
-            slug
-          }
+        posts: nodes {
+          id
+          title
+          year: date(formatString: "YYYY")
+          month: date(formatString: "MM")
+          slug
         }
         categories: group(field: { categories: SELECT }) {
           totalCount
@@ -75,13 +69,11 @@ export default async function createPagesasync(
         totalCount
       }
       allAuthor(sort: [{ posts: { totalCount: DESC } }, { name: ASC }]) {
-        authors: edges {
-          node {
-            name
-            slug
-            posts {
-              totalCount
-            }
+        authors: nodes {
+          name
+          slug
+          posts {
+            totalCount
           }
         }
       }
@@ -104,16 +96,16 @@ export default async function createPagesasync(
   const { posts, categories, tags } = result.data.allMdxPost;
 
   // generate Each post pages
-  posts.forEach(({ node }, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
+  posts.forEach(({ id, slug }, index) => {
+    const previous = index === posts.length - 1 ? null : posts[index + 1];
+    const next = index === 0 ? null : posts[index - 1];
 
     createPage({
-      path: node.slug,
+      path: slug,
       component: require.resolve(
         '@cieloazul310/gatsby-theme-aoi-blog-templates/src/posts.tsx'
       ),
-      context: { previous, next, id: node.id },
+      context: { previous, next, id },
     });
   });
 
@@ -201,7 +193,7 @@ export default async function createPagesasync(
 
   // create author pages
   const { authors } = result.data.allAuthor;
-  authors.forEach(({ node }, index, arr) => {
+  authors.forEach((node, index, arr) => {
     const next = index === arr.length - 1 ? null : arr[index + 1];
     const previous = index === 0 ? null : arr[index - 1];
     // eslint-disable-next-line @typescript-eslint/no-shadow
@@ -214,8 +206,8 @@ export default async function createPagesasync(
           '@cieloazul310/gatsby-theme-aoi-blog-templates/src/author.tsx'
         ),
         context: {
-          previous: previous?.node.name ?? null,
-          next: next?.node.name ?? null,
+          previous: previous?.name ?? null,
+          next: next?.name ?? null,
           type: 'Author',
           fieldValue: node.name,
           limit: postsPerPage,
