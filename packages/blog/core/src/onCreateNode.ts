@@ -8,7 +8,7 @@ import {
   type MdxBare,
   type ThemeOptions,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
-
+/*
 declare module 'gatsby-source-filesystem' {
   type CreateRemoteFileNodeArgsFixed = Omit<
     CreateRemoteFileNodeArgs,
@@ -21,7 +21,7 @@ declare module 'gatsby-source-filesystem' {
     args: CreateRemoteFileNodeArgsFixed
   ): Promise<FileSystemNode>;
 }
-
+*/
 function isMdxNode(node: Node & Record<string, unknown>): node is MdxBare {
   return typeof node.frontmatter === 'object';
 }
@@ -44,7 +44,6 @@ export default async function onCreateNode(
   if (node.internal.type !== 'Mdx') return;
   if (!isMdxNode(node)) return;
 
-  // const contentPath = `/content/posts/`;
   const contentPath = path.join(options.contentPath, options.basePaths.posts);
   // Create source field (according to contentPath)
   const parentFileNode = getNode(node.parent ?? '');
@@ -53,7 +52,6 @@ export default async function onCreateNode(
   if (source !== contentPath) return;
 
   const value = createFilePath({ node, getNode });
-  // const slug = `/posts${value}`;
   const slug = path.join(options.basePaths.posts, value);
 
   const fieldData: Record<string, unknown> = {

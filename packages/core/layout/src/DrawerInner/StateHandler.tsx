@@ -1,4 +1,3 @@
-import * as React from 'react';
 import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
 import { useSiteMetadata } from '@cieloazul310/gatsby-theme-aoi-utils';

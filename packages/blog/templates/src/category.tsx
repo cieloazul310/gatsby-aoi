@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import Typography from '@mui/material/Typography';
 import {

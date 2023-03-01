@@ -1,4 +1,3 @@
-import * as React from 'react';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -12,7 +11,7 @@ import {
   useThemeContextState,
   useToggleDark,
   useToggleUseSystem,
-} from '@cieloazul310/gatsby-theme-aoi-top-layout/src/utils/ThemeStateContext';
+} from '@cieloazul310/gatsby-theme-aoi-top-layout';
 
 function ListItemToggleDarkMode({ label = 'Dark Mode' }: { label?: string }) {
   const { darkMode, useSystemTheme } = useThemeContextState();

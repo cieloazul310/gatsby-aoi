@@ -1,5 +1,3 @@
-/* eslint react/jsx-props-no-spreading: warn */
-import * as React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import Box from '@mui/material/Box';
 import MuiPagination from '@mui/material/Pagination';

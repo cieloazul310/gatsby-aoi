@@ -133,5 +133,7 @@ dist
 
 # build
 packages/**/*/lib
+packages/**/*/module
+packages/**/*/cjs
 starters/*/public
 starters/*/storybook-static

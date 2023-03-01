@@ -1,4 +1,3 @@
-import * as React from 'react';
 import List from '@mui/material/List';
 import { ListItemLink } from '@cieloazul310/gatsby-theme-aoi-components';
 import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';

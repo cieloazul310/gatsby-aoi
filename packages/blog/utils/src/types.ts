@@ -144,3 +144,5 @@ export type MdxPostMonth = {
   lt: string;
   totalCount: number;
 };
+
+export {};

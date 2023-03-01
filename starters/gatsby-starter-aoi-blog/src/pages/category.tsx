@@ -70,7 +70,7 @@ function CategoryPage({ data }: PageProps<PageData>) {
                         <ListItemLink
                           sx={{ textAlign: { xs: undefined, sm: 'right' } }}
                           primaryText="More"
-                          to={slug}
+                          href={slug}
                           color="secondary"
                         />
                       ) : null}

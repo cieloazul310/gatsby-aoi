@@ -1,6 +1,11 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['airbnb', 'airbnb-typescript', 'prettier'],
+  extends: [
+    'airbnb',
+    'airbnb-typescript',
+    'plugin:react/jsx-runtime',
+    'prettier',
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,

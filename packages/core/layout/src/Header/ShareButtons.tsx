@@ -1,4 +1,3 @@
-import * as React from 'react';
 import IconButton, { type IconButtonProps } from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -18,7 +17,7 @@ function ShareButtons({ title, color = 'default' }: ShareButtonsProps) {
   const { lang, social } = useSiteMetadata();
   const twitterUrl = useSocialShare('twitter', title);
   const fbUrl = useSocialShare('facebook');
-  const github: typeof social[number] | undefined =
+  const github: (typeof social)[number] | undefined =
     social[social.map(({ name }) => name).indexOf('github')];
   return (
     <div>

@@ -1,5 +1,3 @@
-/* eslint react/jsx-props-no-spreading: warn */
-import * as React from 'react';
 import MuiLink from '@mui/material/Link';
 import type { SvgIconProps } from '@mui/material/SvgIcon';
 import EmailIcon from '@mui/icons-material/Email';

@@ -7,11 +7,26 @@
   "license": "ISC",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
+  "module": "./module/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./module/index.d.ts",
+        "default": "./module/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    }
+  },
   "directories": {
     "lib": "lib"
   },
   "files": [
-    "lib"
+    "lib",
+    "module"
   ],
   "publishConfig": {
     "access": "public"
@@ -22,10 +37,10 @@
     "directory": "packages/blog/utils"
   },
   "scripts": {
-    "build": "tsc -b .",
+    "build": "tsc -p . && tsc -p ./tsconfig.cjs.json",
     "dev": "tsc --watch",
     "build:blog": "yarn run build",
-    "clean": "rimraf lib && tsc -b . --clean",
+    "clean": "rimraf lib && tsc -b . --clean && tsc -b ./tsconfig.cjs.json --clean",
     "eslint": "eslint src/",
     "typecheck": "tsc --noEmit"
   },

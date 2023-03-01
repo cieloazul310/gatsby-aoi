@@ -1,4 +1,3 @@
-import * as React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import { BottomNavigationAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
 import { usePathnameWithoutPrefix } from '@cieloazul310/gatsby-theme-aoi-utils';
