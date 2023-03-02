@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -22,7 +23,7 @@ import {
 import type {
   MdxPostBrowser,
   AuthorBrowser,
-} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+} from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 import Layout from './layout';
 import { AuthorIcon } from './icons';

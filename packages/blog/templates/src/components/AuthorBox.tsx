@@ -1,9 +1,10 @@
+import * as React from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import { SocialLink, AppLink } from '@cieloazul310/gatsby-theme-aoi-components';
-import type { AuthorBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type { AuthorBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 import { AuthorIcon } from '../icons';
 
 type AuthorBoxProps = {

@@ -1,7 +1,7 @@
-export interface ThemeState {
+export type ThemeState = {
   darkMode: boolean;
   useSystemTheme: boolean;
-}
+};
 export type PaletteType = 'light' | 'dark';
 
 export const initialThemeState = (

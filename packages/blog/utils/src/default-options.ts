@@ -1,4 +1,5 @@
-import type { ThemeOptions } from './types';
+// import type { ThemeOptions } from './types';
+import type { ThemeOptions } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 export default function withDefaults(
   themeOptions: Partial<ThemeOptions>

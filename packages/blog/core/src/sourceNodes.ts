@@ -7,9 +7,11 @@ import {
   withDefaults,
   createSlug,
   validURL,
-  type AuthorBare,
-  type ThemeOptions,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type {
+  AuthorBare,
+  ThemeOptions,
+} from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 export default async function sourceNodes(
   { actions, createNodeId, createContentDigest, getCache }: SourceNodesArgs,

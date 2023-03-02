@@ -10,7 +10,7 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "noFallthroughCasesInSwitch": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "declaration": true
   }
 }

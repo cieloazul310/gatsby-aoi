@@ -1,27 +1,16 @@
 import * as path from 'path';
-import type { CreateNodeArgs, Node, GatsbyCache } from 'gatsby';
+import type { CreateNodeArgs, Node } from 'gatsby';
 import { createContentDigest } from 'gatsby-core-utils';
 import { createFilePath, createRemoteFileNode } from 'gatsby-source-filesystem';
 import {
   withDefaults,
   validURL,
-  type MdxBare,
-  type ThemeOptions,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
-/*
-declare module 'gatsby-source-filesystem' {
-  type CreateRemoteFileNodeArgsFixed = Omit<
-    CreateRemoteFileNodeArgs,
-    'cache' | 'reporter' | 'store'
-  > & {
-    getCache: (this: void, id: string) => GatsbyCache;
-  };
-  // eslint-disable-next-line @typescript-eslint/no-shadow
-  function createRemoteFileNode(
-    args: CreateRemoteFileNodeArgsFixed
-  ): Promise<FileSystemNode>;
-}
-*/
+import type {
+  MdxBare,
+  ThemeOptions,
+} from '@cieloazul310/gatsby-theme-aoi-blog-types';
+
 function isMdxNode(node: Node & Record<string, unknown>): node is MdxBare {
   return typeof node.frontmatter === 'object';
 }

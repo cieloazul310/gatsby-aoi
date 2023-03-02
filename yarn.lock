@@ -1735,6 +1735,7 @@ __metadata:
     "@cieloazul310/gatsby-theme-aoi": ^2.11.0
     "@cieloazul310/gatsby-theme-aoi-blog-components": ^2.11.0
     "@cieloazul310/gatsby-theme-aoi-blog-templates": ^2.11.0
+    "@cieloazul310/gatsby-theme-aoi-blog-types": ^2.11.0
     "@cieloazul310/gatsby-theme-aoi-blog-utils": ^2.11.0
     "@mdx-js/react": ^2.3.0
     "@types/prismjs": ^1.26.0
@@ -1758,6 +1759,7 @@ __metadata:
     "@cieloazul310/gatsby-theme-aoi": ^3.0.0
     "@cieloazul310/gatsby-theme-aoi-blog-components": ^3.0.0
     "@cieloazul310/gatsby-theme-aoi-blog-templates": ^3.0.0
+    "@cieloazul310/gatsby-theme-aoi-blog-types": ^3.0.0
     "@cieloazul310/gatsby-theme-aoi-blog-utils": ^3.0.0
     "@mui/icons-material": ^5.0.0
     "@mui/material": ^5.0.0
@@ -1772,7 +1774,7 @@ __metadata:
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-templates@workspace:packages/blog/templates"
   dependencies:
     "@cieloazul310/gatsby-theme-aoi-blog-components": ^2.11.0
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": ^2.11.0
+    "@cieloazul310/gatsby-theme-aoi-blog-types": ^2.11.0
     "@cieloazul310/gatsby-theme-aoi-components": ^2.11.0
     "@cieloazul310/gatsby-theme-aoi-layout": ^2.11.0
     "@mdx-js/react": ^2.3.0
@@ -1788,7 +1790,7 @@ __metadata:
     typescript: ^4.9.5
   peerDependencies:
     "@cieloazul310/gatsby-theme-aoi-blog-components": ^3.0.0
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": ^3.0.0
+    "@cieloazul310/gatsby-theme-aoi-blog-types": ^2.11.0
     "@cieloazul310/gatsby-theme-aoi-components": ^3.0.0
     "@cieloazul310/gatsby-theme-aoi-layout": ^3.0.0
     "@emotion/react": ^11.0.0
@@ -1802,10 +1804,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@cieloazul310/gatsby-theme-aoi-blog-types@^2.11.0, @cieloazul310/gatsby-theme-aoi-blog-types@workspace:packages/blog/types":
+  version: 0.0.0-use.local
+  resolution: "@cieloazul310/gatsby-theme-aoi-blog-types@workspace:packages/blog/types"
+  dependencies:
+    eslint: ^8.34.0
+    eslint-config-custom: ^2.11.0
+    gatsby: ^5.7.0
+    gatsby-plugin-image: ^3.7.0
+    gatsby-source-filesystem: ^5.7.0
+    tsconfig: ^2.11.0
+  peerDependencies:
+    gatsby: ^5.0.0
+    gatsby-plugin-image: ^3.0.0
+    gatsby-source-filesystem: ^5.0.0
+  languageName: unknown
+  linkType: soft
+
 "@cieloazul310/gatsby-theme-aoi-blog-utils@^2.11.0, @cieloazul310/gatsby-theme-aoi-blog-utils@workspace:packages/blog/utils":
   version: 0.0.0-use.local
   resolution: "@cieloazul310/gatsby-theme-aoi-blog-utils@workspace:packages/blog/utils"
   dependencies:
+    "@cieloazul310/gatsby-theme-aoi-blog-types": ^2.11.0
     eslint: ^8.34.0
     eslint-config-custom: ^2.11.0
     gatsby: ^5.7.0
@@ -1815,6 +1835,7 @@ __metadata:
     tsconfig: ^2.11.0
     typescript: ^4.9.5
   peerDependencies:
+    "@cieloazul310/gatsby-theme-aoi-blog-types": ^3.0.0
     gatsby: ^5.0.0
     gatsby-plugin-image: ^3.0.0
     gatsby-source-filesystem: ^5.0.0
@@ -1829,6 +1850,7 @@ __metadata:
     "@cieloazul310/gatsby-theme-aoi-blog-components": ^2.11.0
     "@cieloazul310/gatsby-theme-aoi-blog-core": ^2.11.0
     "@cieloazul310/gatsby-theme-aoi-blog-templates": ^2.11.0
+    "@cieloazul310/gatsby-theme-aoi-blog-types": ^2.11.0
     "@cieloazul310/gatsby-theme-aoi-blog-utils": ^2.11.0
     eslint: ^8.34.0
     eslint-config-custom: ^2.11.0

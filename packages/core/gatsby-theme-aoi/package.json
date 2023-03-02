@@ -6,7 +6,7 @@
   "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "license": "ISC",
   "main": "index.js",
-  "types": "index.d.ts",
+  "types": "types.d.ts",
   "keywords": [
     "gatsby",
     "gatsby-theme",
@@ -20,7 +20,7 @@
   },
   "files": [
     "index.js",
-    "index.d.ts",
+    "types.d.ts",
     "gatsby-config.js"
   ],
   "publishConfig": {

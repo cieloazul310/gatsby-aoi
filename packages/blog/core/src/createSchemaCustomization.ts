@@ -10,13 +10,15 @@ import type {
 import {
   withDefaults,
   isString,
-  type AuthorBare,
-  type MdxPost,
-  type MdxPostBare,
-  type MdxNode,
-  type ThemeOptions,
-  type GatsbyGraphQLContext,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type {
+  AuthorBare,
+  MdxPost,
+  MdxPostBare,
+  MdxNode,
+  ThemeOptions,
+  GatsbyGraphQLContext,
+} from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 async function processMdxPostRelativeImage(
   source: MdxPostBare,

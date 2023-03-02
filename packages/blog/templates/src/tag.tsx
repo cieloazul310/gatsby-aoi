@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
@@ -14,7 +15,7 @@ import {
   PageNavigationContainer,
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 import Layout from './layout';
 import MdxPostEdgesList from './components/MdxPostList';

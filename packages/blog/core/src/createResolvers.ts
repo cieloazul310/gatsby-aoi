@@ -3,11 +3,13 @@ import {
   withDefaults,
   fieldValueToSlug,
   createSlug,
-  type MdxPost,
-  type MdxPostMonth,
-  type ThemeOptions,
-  type GatsbyGraphQLContext,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type {
+  MdxPost,
+  MdxPostMonth,
+  ThemeOptions,
+  GatsbyGraphQLContext,
+} from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 function mdxPostToMonths(
   posts: MdxPost[],

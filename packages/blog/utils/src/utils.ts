@@ -1,6 +1,7 @@
 import * as path from 'path';
 // import slugify from '@sindresorhus/slugify';
-import type { ThemeOptions } from './types';
+// import type { ThemeOptions } from './types';
+import type { ThemeOptions } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 export function strToSlug(str: string) {
   // return slugify(str);

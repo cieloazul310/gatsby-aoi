@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import Typography from '@mui/material/Typography';
 import {
@@ -8,7 +9,7 @@ import {
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import { Pagination } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 import Layout from './layout';
 import MdxPostEdgesList from './components/MdxPostList';
