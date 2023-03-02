@@ -26,10 +26,10 @@ export const H2: (
 >((props, ref) => (
   <Typography
     ref={ref}
-    variant="h4"
+    variant="h5"
     component="h2"
     color="inherit"
-    mt={4}
+    mt={8}
     mb={2}
     borderBottom={1}
     borderColor="secondary.dark"

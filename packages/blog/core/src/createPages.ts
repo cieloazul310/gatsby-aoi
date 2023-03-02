@@ -135,13 +135,13 @@ export default async function createPagesasync(
     '@cieloazul310/gatsby-theme-aoi-blog-templates/src/posts.tsx'
   );
   posts.forEach(({ id, slug, internal }, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1];
-    const next = index === 0 ? null : posts[index - 1];
+    const newer = index === 0 ? null : posts[index - 1].id;
+    const older = index === posts.length - 1 ? null : posts[index + 1].id;
 
     createPage({
       path: slug,
       component: `${postTemplate}?__contentFilePath=${internal.contentFilePath}`,
-      context: { previous, next, id },
+      context: { newer, older, id },
     });
   });
   /*

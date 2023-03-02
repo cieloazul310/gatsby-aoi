@@ -12,7 +12,7 @@ import { AppLink } from '@cieloazul310/gatsby-theme-aoi';
 
 Gatsby Theme Aoi の Aoi レイアウト内にサイトコンテンツのメニューを設定する方法を説明します。[Gatsby テーマ]の [Shadowing] という機能を使いますが、今はまだ Shadowing を理解する必要はありません。
 
-### Menu ファイルを作成
+## Menu ファイルを作成
 
 Gatsby プロジェクトの `src` ディレクトリに、`@cieloazul310/gatsby-theme-aoi-layout` というディレクトリを作成し、`menu.tsx` を作成します。Gatsby Theme Aoi のスターターを使っている場合は既にファイルが存在しているはずです。
 
@@ -37,7 +37,7 @@ Gatsby プロジェクトは以下のような構成になります。
         └── page-2.tsx
 ```
 
-### Menu ファイルの中身
+## Menu ファイルの中身
 
 以下は作成した `./src/@cieloazul310/gatsby-theme-aoi-layout/menu.tsx` の例です。
 
@@ -46,7 +46,7 @@ Gatsby プロジェクトは以下のような構成になります。
 これは実際にこのサイトで使われている `menu.tsx` です。
 `title`, `path`, `icon` というプロパティを持つオブジェクトの配列を作成し、デフォルトエクスポートすることで、Aoi レイアウト内のメニューコンポーネントに反映することができます。
 
-### Shadowing 第一歩
+## Shadowing 第一歩
 
 これは Gatsby テーマの Shadowing という機能を使っています。
 Shadowing とは、`node_modules` にインストールされている特定のパッケージの `src` ディレクトリに含まれるファイルを独自の実装に置き換えることです。

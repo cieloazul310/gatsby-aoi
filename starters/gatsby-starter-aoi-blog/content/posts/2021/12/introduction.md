@@ -10,32 +10,32 @@ imageAlt: Flags
 
 Gatsby Theme AoiはMUIベースのGatsbyテーマです。
 
-### 特長
+## 特長
 
 - MUI v5(Material-UI)対応
 - TypeScript対応
 - Gatsby v4対応
 
-### インストール方法
+## インストール方法
 
 使い方は二通り。Gatsby Theme Aoiのスターターをクローンする方法と、Gatsbyプロジェクトに手動でインストールがあります。
 
-#### スターターを使う場合
+### スターターを使う場合
 
 ```shell
 curl https://codeload.github.com/cieloazul310/gatsby-aoi/tar.gz/main | tar -xz --strip=2  gatsby-aoi-main/starters/gatsby-starter-aoi-theme
 cd gatsby-starter-aoi-theme
 ```
 
-#### 手動でインストールする場合
+### 手動でインストールする場合
 
 ```shell
 yarn add @cieloazul310/gatsby-theme-aoi
 ```
 
-### 使い方
+## 使い方
 
-#### 1. gatsby-config.jsを編集
+### 1. gatsby-config.jsを編集
 
 ```javascript
 module.exports = {
@@ -52,7 +52,7 @@ module.exports = {
 };
 ```
 
-#### 2. レイアウトを使う
+### 2. レイアウトを使う
 
 ```tsx
 import { Layout } from '@cieloazul310/gatsby-theme-aoi';
@@ -68,7 +68,7 @@ function Page() {
 export default Page;
 ```
 
-#### 3. コンポーネントを使う
+### 3. コンポーネントを使う
 
 ```tsx
 import {

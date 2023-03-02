@@ -12,48 +12,48 @@ import {
 
 type DrawerPageNavigationProps = {
   title?: string;
-  previous?: {
-    to: string;
+  newer?: {
+    href: string;
     title: string;
     secondaryText?: string;
   } | null;
-  next?: {
-    to: string;
+  older?: {
+    href: string;
     title: string;
     secondaryText?: string;
   } | null;
-  linkProps?: Partial<Omit<ListItemAppLinkProps, 'to' | 'button'>>;
+  linkProps?: Partial<Omit<ListItemAppLinkProps, 'href' | 'button'>>;
 };
 
 function DrawerPageNavigation({
   title,
-  previous,
-  next,
+  newer,
+  older,
   linkProps,
 }: DrawerPageNavigationProps) {
   return (
     <List subheader={<ListSubheader>{title ?? 'Navigation'}</ListSubheader>}>
-      {previous ? (
+      {newer ? (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ListItemAppLink href={previous.to} {...linkProps}>
+        <ListItemAppLink href={newer.href} {...linkProps}>
           <ListItemIcon>
             <ArrowBackIcon />
           </ListItemIcon>
           <ListItemText
-            primary={previous.title}
-            secondary={previous.secondaryText ?? 'Previous'}
+            primary={newer.title}
+            secondary={newer.secondaryText ?? 'Newer post'}
           />
         </ListItemAppLink>
       ) : null}
-      {next ? (
+      {older ? (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ListItemAppLink href={next.to} {...linkProps}>
+        <ListItemAppLink href={older.href} {...linkProps}>
           <ListItemIcon>
             <ArrowForwardIcon />
           </ListItemIcon>
           <ListItemText
-            primary={next.title}
-            secondary={next.secondaryText ?? 'Next'}
+            primary={older.title}
+            secondary={older.secondaryText ?? 'Older post'}
           />
         </ListItemAppLink>
       ) : null}
@@ -63,8 +63,8 @@ function DrawerPageNavigation({
 
 DrawerPageNavigation.defaultProps = {
   title: undefined,
-  previous: undefined,
-  next: undefined,
+  newer: undefined,
+  older: undefined,
   linkProps: undefined,
 };
 

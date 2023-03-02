@@ -62,7 +62,6 @@ module.exports = {
         imageMaxWidth: 800,
         gatsbyRemarkPlugins: [
           // `gatsby-remark-embed-snippet`,
-          /*
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -78,7 +77,6 @@ module.exports = {
               escapeEntities: {},
             },
           },
-          */
         ],
       },
     },

@@ -24,23 +24,28 @@ import mdxComponents from './mdxComponents';
 import shortcodes from './shortcodes';
 
 type PageData = {
-  // mdxPost: MdxPostBrowser;
   mdx: Mdx;
+  newer: Pick<Mdx, 'id' | 'slug'> & {
+    frontmatter: Pick<Mdx['frontmatter'], 'title' | 'date'>;
+  };
+  older: Pick<Mdx, 'id' | 'slug'> & {
+    frontmatter: Pick<Mdx['frontmatter'], 'title' | 'date'>;
+  };
 };
 
 type PageContext = {
   id: string;
-  next: { id: string; slug: string; title: string } | null;
-  previous: { id: string; slug: string; title: string } | null;
+  newer: string | null;
+  older: string | null;
 };
 
 function BlogPostTemplate({
   data,
-  pageContext,
+  // pageContext,
   children,
 }: PageProps<PageData, PageContext>) {
-  const { previous, next } = pageContext;
-  const { mdx } = data;
+  // const { previous, next } = pageContext;
+  const { mdx, newer, older } = data;
   const { frontmatter, featuredImage } = mdx;
   const { title, date, author } = frontmatter;
   const staticImage =
@@ -52,10 +57,12 @@ function BlogPostTemplate({
       title={title ?? 'Title'}
       drawerContents={
         <DrawerPageNavigation
-          previous={
-            previous ? { to: previous.slug, title: previous.title } : null
+          older={
+            older ? { href: older.slug, title: older.frontmatter.title } : null
           }
-          next={next ? { to: next.slug, title: next.title } : null}
+          newer={
+            newer ? { href: newer.slug, title: newer.frontmatter.title } : null
+          }
         />
       }
     >
@@ -80,22 +87,24 @@ function BlogPostTemplate({
         <SectionDivider />
         <footer>
           <Section>
-            {/*
             <Article maxWidth="md">
               <Typography variant="h6" gutterBottom>
                 {title}
               </Typography>
               <Typography>Date: {date}</Typography>
-              <Typography>Post by {author.name}</Typography>
+              <Typography>Post by {author?.name}</Typography>
               <Typography>
                 Categories:{' '}
-                {categoriesSlug.map((category) => (
+                {/*
+                categoriesSlug.map((category) => (
                   <AppLink key={category.name} href={category.slug} mr={1}>
                     {category.name}
                   </AppLink>
-                ))}
+                ))
+                */}
               </Typography>
-              {tagsSlug.length ? (
+              {/*
+              tagsSlug.length ? (
                 <Typography>
                   {tagsSlug.map((tag) => (
                     <AppLink key={tag.name} href={tag.slug} mr={1}>
@@ -103,14 +112,14 @@ function BlogPostTemplate({
                     </AppLink>
                   ))}
                 </Typography>
-              ) : null}
-            </Article>
+              ) : null
                   */}
+            </Article>
           </Section>
           <SectionDivider />
           <Section>
             <Article maxWidth="md">
-              {/* <AuthorBox author={author} /> */}
+              {author ? <AuthorBox author={author} /> : null}
             </Article>
           </Section>
         </footer>
@@ -118,19 +127,24 @@ function BlogPostTemplate({
         <nav>
           <Section>
             <PageNavigationContainer>
-              <PageNavigationItem
-                to={previous?.slug ?? '#'}
-                disabled={!previous}
-              >
-                <Typography variant="body2">{previous?.title}</Typography>
+              <PageNavigationItem href={newer?.slug ?? '#'} disabled={!newer}>
+                <Typography variant="body2">
+                  {newer?.frontmatter.title}
+                </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Previous
+                  Newer
                 </Typography>
               </PageNavigationItem>
-              <PageNavigationItem to={next?.slug ?? '#'} next disabled={!next}>
-                <Typography variant="body2">{next?.title}</Typography>
+              <PageNavigationItem
+                href={older?.slug ?? '#'}
+                older
+                disabled={!older}
+              >
+                <Typography variant="body2">
+                  {older?.frontmatter.title}
+                </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Next
+                  Older
                 </Typography>
               </PageNavigationItem>
             </PageNavigationContainer>
@@ -143,20 +157,18 @@ function BlogPostTemplate({
 
 export default BlogPostTemplate;
 
-/* { data }: HeadProps<PageData, PageContext> */
-export function Head() {
-  /*
-  const { mdxPost } = data;
-  const { title, image, excerpt } = mdxPost;
+export function Head({ data }: HeadProps<PageData, PageContext>) {
+  const { mdx } = data;
+  const { excerpt, frontmatter, featuredImage } = mdx;
   const staticImage =
-    image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
-  return <Seo title={title} description={excerpt} image={staticImage} />;
-  */
-  return <Seo />;
+    featuredImage?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
+  return (
+    <Seo title={frontmatter.title} description={excerpt} image={staticImage} />
+  );
 }
 
 export const pageQuery = graphql`
-  query PostQuery($id: String!) {
+  query PostQuery($id: String!, $newer: String, $older: String) {
     mdx(id: { eq: $id }) {
       id
       slug
@@ -164,18 +176,49 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 140)
       frontmatter {
         title
-        date
+        date(formatString: "YYYY-MM-DD")
         categories
         tags
         author {
           name
           slug
+          description
+          website
+          websiteURL
+          avatar {
+            childImageSharp {
+              gatsbyImageData(width: 200)
+            }
+          }
+          socials {
+            name
+            url
+          }
+          posts {
+            totalCount
+          }
         }
       }
       featuredImg {
         childImageSharp {
           gatsbyImageData
         }
+      }
+    }
+    newer: mdx(id: { eq: $newer }) {
+      id
+      slug
+      frontmatter {
+        title
+        date(formatString: "YYYY-MM-DD")
+      }
+    }
+    older: mdx(id: { eq: $older }) {
+      id
+      slug
+      frontmatter {
+        title
+        date(formatString: "YYYY-MM-DD")
       }
     }
   }

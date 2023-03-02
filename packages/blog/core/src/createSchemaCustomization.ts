@@ -162,7 +162,6 @@ export default function createSchemaCustomization(
   createTypes(`
     type MdxFrontmatter {
       title: String!
-      date: Date
       categories: [String]
       tags: [String]
       author: Author
