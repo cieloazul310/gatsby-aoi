@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-unused-vars: warn */
 import * as React from 'react';
 import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import Typography from '@mui/material/Typography';
@@ -15,15 +16,17 @@ import {
   PageNavigationContainer,
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+// import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 import Layout from './layout';
 import MdxPostEdgesList from './components/MdxPostList';
 
 type PageData = {
+  /*
   allMdxPost: {
     nodes: Pick<MdxPostBrowser, 'id' | 'title' | 'slug' | 'date' | 'author'>[];
   };
+  */
 };
 
 type PageContext = {
@@ -50,7 +53,7 @@ type PageContext = {
 };
 
 function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
-  const { allMdxPost } = data;
+  // const { allMdxPost } = data;
   const {
     fieldValue,
     previous,
@@ -86,7 +89,9 @@ function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
         <Section>
           <Article maxWidth="md">
             <List>
+              {/*
               <MdxPostEdgesList nodes={allMdxPost.nodes} />
+              */}
             </List>
             <Pagination
               numPages={numPages}
@@ -122,7 +127,7 @@ export function Head({ pageContext }: HeadProps<PageData, PageContext>) {
   const { fieldValue } = pageContext;
   return <Seo title={`Tag: ${fieldValue}`} />;
 }
-
+/*
 export const query = graphql`
   query Tag($fieldValue: String!, $skip: Int!, $limit: Int!) {
     allMdxPost(
@@ -143,3 +148,4 @@ export const query = graphql`
     }
   }
 `;
+*/

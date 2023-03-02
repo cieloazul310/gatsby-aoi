@@ -1,24 +1,23 @@
 import * as path from 'path';
 import type { CreateNodeArgs, Node } from 'gatsby';
-import { createContentDigest } from 'gatsby-core-utils';
 import { createFilePath, createRemoteFileNode } from 'gatsby-source-filesystem';
 import {
   withDefaults,
   validURL,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import type {
-  MdxBare,
+  Mdx,
   ThemeOptions,
 } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
-function isMdxNode(node: Node & Record<string, unknown>): node is MdxBare {
+function isMdxNode(node: Node & Record<string, unknown>): node is Mdx<'bare'> {
   return typeof node.frontmatter === 'object';
 }
 
 export default async function onCreateNode(
   {
     node,
-    actions: { createNode, createParentChildLink },
+    actions: { createNode, createNodeField },
     getNode,
     createNodeId,
     getCache,
@@ -38,21 +37,17 @@ export default async function onCreateNode(
   const parentFileNode = getNode(node.parent ?? '');
   const source = parentFileNode?.sourceInstanceName;
 
-  if (source !== contentPath) return;
-
-  const value = createFilePath({ node, getNode });
-  const slug = path.join(options.basePaths.posts, value);
-
-  const fieldData: Record<string, unknown> = {
-    title: node.frontmatter.title,
-    slug,
-    categories: node.frontmatter.categories ?? [],
-    tags: node.frontmatter.tags ?? [],
-    date: node.frontmatter.date,
-    author: node.frontmatter.author,
-    image: node.frontmatter.image,
-    imageAlt: node.frontmatter.imageAlt,
-  };
+  if (source === contentPath) {
+    const value = createFilePath({ node, getNode });
+    const slug = path.join(options.basePaths.posts, value);
+    createNodeField({ node, name: 'slug', value: slug });
+    createNodeField({ node, name: 'contentType', value: 'post' });
+  }
+  if (source === 'pages') {
+    const value = createFilePath({ node, getNode });
+    createNodeField({ node, name: 'slug', value });
+    createNodeField({ node, name: 'contentType', value: 'page' });
+  }
 
   const { image } = node.frontmatter;
   if (image) {
@@ -65,28 +60,12 @@ export default async function onCreateNode(
         getCache,
       });
       if (remoteFileNode) {
-        fieldData.image___NODE = remoteFileNode.id;
+        createNodeField({
+          node,
+          name: 'remoteImageId',
+          value: remoteFileNode.id,
+        });
       }
     }
-  }
-
-  const mdxPostId = createNodeId(`${node.id} >>> MdxPost`);
-
-  await createNode({
-    ...fieldData,
-    // Required fields.
-    id: mdxPostId,
-    parent: node.id,
-    children: [],
-    internal: {
-      type: `MdxPost`,
-      contentDigest: createContentDigest(fieldData),
-      content: JSON.stringify(fieldData),
-      description: `Mdx implementation of the BlogPost interface`,
-    },
-  });
-  const mdxPostNode = getNode(mdxPostId);
-  if (mdxPostNode) {
-    createParentChildLink({ parent: node, child: mdxPostNode });
   }
 }

@@ -1,15 +1,21 @@
+/* eslint @typescript-eslint/no-unused-vars: warn */
 import * as React from 'react';
 import List from '@mui/material/List';
 import { ListItemLink } from '@cieloazul310/gatsby-theme-aoi-components';
-import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+// import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 type MdxPostListProps = {
+  /*
   posts: (Pick<MdxPostBrowser, 'id' | 'slug' | 'title' | 'date'> & {
     author: Pick<NonNullable<MdxPostBrowser['author']>, 'name'>;
   })[];
+  */
 };
 
-export function MdxPostList({ posts }: MdxPostListProps) {
+/* { posts }: MdxPostListProps */
+export function MdxPostList() {
+  return null;
+  /*
   return (
     <List>
       {posts.map(({ id, slug, title, date, author }, index) => (
@@ -23,16 +29,21 @@ export function MdxPostList({ posts }: MdxPostListProps) {
       ))}
     </List>
   );
+  */
 }
 
 type MdxPostEdgesListProps = {
+  /*
   nodes: (Pick<MdxPostBrowser, 'id' | 'slug' | 'title' | 'date'> & {
     author: Pick<NonNullable<MdxPostBrowser['author']>, 'name'>;
   })[];
+  */
 };
 
-function MdxPostEdgesList({ nodes }: MdxPostEdgesListProps) {
-  return <MdxPostList posts={nodes} />;
+/* { nodes }: MdxPostEdgesListProps */
+function MdxPostEdgesList() {
+  return null;
+  // return <MdxPostList posts={nodes} />;
 }
 
 export default MdxPostEdgesList;

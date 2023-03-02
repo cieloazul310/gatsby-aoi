@@ -1,12 +1,20 @@
 import type { CreatePagesArgs } from 'gatsby';
 import { withDefaults } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import type {
-  MdxPost,
+  // MdxPost,
+  Mdx,
   MdxPostMonth,
   ThemeOptions,
 } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 type Data = {
+  allMdx: {
+    posts: (Pick<Mdx, 'id' | 'slug'> & {
+      frontmatter: Pick<Mdx['frontmatter'], 'title'>;
+      internal: Pick<Mdx['internal'], 'contentFilePath'>;
+    })[];
+  };
+  /*
   allMdxPost: {
     posts: (Pick<MdxPost, 'id' | 'title' | 'slug'> & {
       year: string;
@@ -38,6 +46,7 @@ type Data = {
     }[];
   };
   months: MdxPostMonth[];
+  */
 };
 
 export default async function createPagesasync(
@@ -46,6 +55,26 @@ export default async function createPagesasync(
 ) {
   const { basePaths, postsPerPage } = withDefaults(themeOptions);
   const { createPage } = actions;
+  const result = await graphql<Data>(`
+    {
+      allMdx(
+        filter: { contentType: { eq: "post" } }
+        sort: { frontmatter: { date: DESC } }
+      ) {
+        posts: nodes {
+          id
+          slug
+          frontmatter {
+            title
+          }
+          internal {
+            contentFilePath
+          }
+        }
+      }
+    }
+  `);
+  /*
   const result = await graphql<Data>(`
     {
       allMdxPost(sort: { date: DESC }) {
@@ -93,12 +122,13 @@ export default async function createPagesasync(
       }
     }
   `);
+  */
   if (result.errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
   if (!result.data) throw new Error('There are no posts');
 
-  const { posts, categories, tags } = result.data.allMdxPost;
+  const { posts } = result.data.allMdx;
 
   // generate Each post pages
   const postTemplate = require.resolve(
@@ -114,7 +144,7 @@ export default async function createPagesasync(
       context: { previous, next, id },
     });
   });
-
+  /*
   // generate All posts pages
   const numPages = Math.ceil(posts.length / postsPerPage);
   Array.from({ length: numPages }).forEach((_, i) => {
@@ -257,4 +287,5 @@ export default async function createPagesasync(
       });
     });
   });
+  */
 }

@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-unused-vars: warn */
 import * as React from 'react';
 import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import Box from '@mui/material/Box';
@@ -21,7 +22,7 @@ import {
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
 import type {
-  MdxPostBrowser,
+  // MdxPostBrowser,
   AuthorBrowser,
 } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
@@ -30,6 +31,7 @@ import { AuthorIcon } from './icons';
 import MdxPostEdgesList from './components/MdxPostList';
 
 type PageData = {
+  /*
   author: Pick<
     AuthorBrowser,
     'name' | 'avatar' | 'description' | 'website' | 'websiteURL' | 'socials'
@@ -39,6 +41,7 @@ type PageData = {
   };
   previous: (Pick<AuthorBrowser, 'name' | 'avatar'> & { slug: string }) | null;
   next: (Pick<AuthorBrowser, 'name' | 'avatar'> & { slug: string }) | null;
+  */
 };
 
 type PageContext = {
@@ -54,10 +57,10 @@ type PageContext = {
   totalCount: number;
 };
 
-function AuthorTemplate({
-  data,
-  pageContext,
-}: PageProps<PageData, PageContext>) {
+/* { data, pageContext }: PageProps<PageData, PageContext> */
+function AuthorTemplate() {
+  return <p>Author Template</p>;
+  /*
   const { author, allMdxPost, previous, next } = data;
   const { numPages, currentPage, basePath, totalCount } = pageContext;
   const bgImage =
@@ -208,15 +211,17 @@ function AuthorTemplate({
       </article>
     </Layout>
   );
+  */
 }
 
 export default AuthorTemplate;
 
 export function Head({ data }: HeadProps<PageData, PageContext>) {
-  const { author } = data;
-  return <Seo title={`Author: ${author.name}`} />;
+  // const { author } = data;
+  // return <Seo title={`Author: ${author.name}`} />;
+  return <Seo />;
 }
-
+/*
 export const query = graphql`
   query Author(
     $fieldValue: String!
@@ -276,3 +281,4 @@ export const query = graphql`
     }
   }
 `;
+*/

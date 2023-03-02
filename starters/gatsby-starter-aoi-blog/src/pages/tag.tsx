@@ -11,6 +11,7 @@ import {
 } from '@cieloazul310/gatsby-theme-aoi';
 
 type PageData = {
+  /*
   allMdxPost: {
     group: {
       field: string;
@@ -19,10 +20,10 @@ type PageData = {
       slug: string;
     }[];
   };
+  */
 };
-
 function TagPage({ data }: PageProps<PageData>) {
-  const { group } = data.allMdxPost;
+  // const { group } = data.allMdxPost;
   return (
     <Layout title="Tags" componentViewports={{ bottomNav: false }}>
       <article>
@@ -32,7 +33,8 @@ function TagPage({ data }: PageProps<PageData>) {
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            {group
+            {/*
+            group
               .sort((a, b) => b.totalCount - a.totalCount)
               .map((tag) => (
                 <AppLink
@@ -40,7 +42,8 @@ function TagPage({ data }: PageProps<PageData>) {
                   href={tag.slug}
                   mr={1}
                 >{`#${tag.fieldValue}`}</AppLink>
-              ))}
+              ))
+              */}
           </Article>
         </Section>
       </article>
@@ -53,7 +56,7 @@ export default TagPage;
 export function Head() {
   return <Seo title="Tags" />;
 }
-
+/*
 export const query = graphql`
   {
     allMdxPost(sort: { date: DESC }) {
@@ -66,3 +69,4 @@ export const query = graphql`
     }
   }
 `;
+*/

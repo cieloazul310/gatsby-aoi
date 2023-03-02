@@ -9,7 +9,7 @@ import {
   validURL,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import type {
-  AuthorBare,
+  Author,
   ThemeOptions,
 } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
@@ -24,7 +24,7 @@ export default async function sourceNodes(
   const dir = path.dirname(authorsFile);
   if (!fs.existsSync(authorsFile)) return;
 
-  const authors: AuthorBare[] = yaml.parse(
+  const authors: Author<'bare'>[] = yaml.parse(
     fs.readFileSync(authorsFile, 'utf8')
   );
 

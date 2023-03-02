@@ -12,18 +12,17 @@ import {
   isString,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import type {
-  AuthorBare,
-  MdxPost,
-  MdxPostBare,
-  MdxNode,
+  Author,
+  Mdx,
+  MdxFrontmatter,
   ThemeOptions,
   GatsbyGraphQLContext,
 } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
-async function processMdxPostRelativeImage(
-  source: MdxPostBare,
+async function processMdxRelativeImage(
+  source: Mdx<'bare'>,
   context: GatsbyGraphQLContext,
-  type: keyof MdxPostBare
+  type: keyof Mdx<'bare'>
 ): Promise<FileSystemNode | undefined> {
   // Image is a relative path - find a corresponding file
   const mdxFileNode = context.nodeModel.findRootNodeAncestor<FileSystemNode>(
@@ -50,31 +49,10 @@ async function processMdxPostRelativeImage(
   return fileNode ?? undefined;
 }
 
-function mdxResolverPassthrough(
-  fieldName: string
-): GraphQLFieldResolver<MdxPostBare, GatsbyGraphQLContext> {
-  return async (source, args, context, info) => {
-    const type = info.schema.getType(`Mdx`) as GraphQLObjectType<
-      MdxNode,
-      GatsbyGraphQLContext
-    >;
-    const mdxNode = context.nodeModel.getNodeById<MdxNode>({
-      id: source.parent as string,
-    });
-    const resolver = type?.getFields()[fieldName].resolve;
-    if (!resolver) return {};
-    if (!mdxNode) return {};
-    const result = await resolver(mdxNode, args, context, {
-      fieldName,
-    } as GraphQLResolveInfo);
-    return result;
-  };
-}
-
 async function processAuthorRelativeImage(
-  source: AuthorBare & { dir: string },
+  source: Author<'bare'> & { dir: string },
   context: GatsbyGraphQLContext,
-  type: keyof AuthorBare
+  type: keyof Author<'bare'>
 ) {
   const { dir } = source;
   const imagePath = slash(path.join(dir, (source[type] ?? '') as string));
@@ -99,12 +77,12 @@ export default function createSchemaCustomization(
   const { createTypes } = actions;
 
   createTypes(`
-    type Social @dontInfer {
+    type AuthorSocial @dontInfer {
       name: String!
       url: String!
     }
-    type AuthorMdxPosts @dontInfer {
-      posts: [MdxPost]!
+    type AuthorMdx @dontInfer {
+      posts: [Mdx]!
       totalCount: Int!
     }
     type Author implements Node @dontInfer {
@@ -114,14 +92,16 @@ export default function createSchemaCustomization(
       description: String
       website: String
       websiteURL: String
-      socials: [Social]
-      posts: AuthorMdxPosts
+      socials: [AuthorSocial]
+      posts: AuthorMdx
     }
+  `);
+  /**
     type WithSlug @dontInfer {
       name: String!
       slug: String!
     }
-    type MdxPostMonth {
+    type MdxMonth {
       id: String!
       year: String!
       month: String!
@@ -130,27 +110,30 @@ export default function createSchemaCustomization(
       lt: String!
       totalCount: Int!
     }
-  `);
+   */
 
   createTypes(
     schema.buildObjectType({
       name: `Author`,
       fields: {
         posts: {
-          type: `AuthorMdxPosts`,
+          type: `AuthorMdx`,
           resolve: async (
-            source: AuthorBare,
+            source: Author<'bare'>,
             args,
             context: GatsbyGraphQLContext,
             info
           ) => {
-            const { entries, totalCount } =
-              await context.nodeModel.findAll<MdxPost>({
-                type: `MdxPost`,
-                query: {
-                  filter: { author: { name: { eq: source.name } } },
+            const { entries, totalCount } = await context.nodeModel.findAll<
+              Mdx<'node'>
+            >({
+              type: `Mdx`,
+              query: {
+                filter: {
+                  frontmatter: { author: { eq: source.name } },
                 },
-              });
+              },
+            });
             return {
               posts: entries,
               totalCount: await totalCount(),
@@ -160,7 +143,7 @@ export default function createSchemaCustomization(
         avatar: {
           type: `File`,
           resolve: async (
-            source: AuthorBare & { image___NODE?: string; dir: string },
+            source: Author<'bare'> & { image___NODE?: string; dir: string },
             args,
             context: GatsbyGraphQLContext,
             info
@@ -176,6 +159,92 @@ export default function createSchemaCustomization(
     })
   );
 
+  createTypes(`
+    type MdxFrontmatter {
+      title: String!
+      date: Date
+      categories: [String]
+      tags: [String]
+      author: Author
+      imageAlt: String
+    }
+    type Mdx implements Node {
+      contentType: String!
+      frontmatter: MdxFrontmatter
+      slug: String!
+      featuredImg: File
+    }
+  `);
+
+  createTypes(
+    schema.buildObjectType({
+      name: `MdxFrontmatter`,
+      fields: {
+        author: {
+          type: `Author`,
+          resolve: async (
+            source: MdxFrontmatter<'bare'>,
+            args,
+            context: GatsbyGraphQLContext,
+            info
+          ) => {
+            const author = await context.nodeModel.findOne<Author<'bare'>>({
+              type: 'Author',
+              query: {
+                filter: { name: { eq: source.author } },
+              },
+            });
+            return (
+              author ?? {
+                name: source.author ?? `Unknown Author`,
+              }
+            );
+          },
+        },
+      },
+    })
+  );
+  createTypes(
+    schema.buildObjectType({
+      name: `Mdx`,
+      fields: {
+        contentType: {
+          type: `String!`,
+          resolve: async ({
+            fields,
+          }: Mdx<'bare'> & { fields: { contentType: 'post' | 'page' } }) => {
+            const { contentType } = fields;
+            return contentType;
+          },
+        },
+        slug: {
+          type: `String!`,
+          resolve: async ({
+            fields,
+          }: Mdx<'bare'> & { fields: { slug: string } }) => {
+            const { slug } = fields;
+            return slug;
+          },
+        },
+        featuredImg: {
+          type: `File`,
+          resolve: async (
+            source: Mdx<'bare'> & { fields: { remoteImageId?: string } },
+            args,
+            context: GatsbyGraphQLContext,
+            info
+          ) => {
+            const { remoteImageId } = source.fields;
+            if (remoteImageId && isString(remoteImageId)) {
+              return context.nodeModel.getNodeById({ id: remoteImageId });
+            }
+            return processMdxRelativeImage(source, context, `image`);
+          },
+        },
+      },
+    })
+  );
+  /*
   createTypes(
     schema.buildObjectType({
       name: `MdxPost`,
@@ -189,12 +258,12 @@ export default function createSchemaCustomization(
         author: {
           type: `Author`,
           resolve: async (
-            source: MdxPostBare,
+            source: Mdx<'bare'>,
             args,
             context: GatsbyGraphQLContext,
             info
           ) => {
-            const author = await context.nodeModel.findOne<AuthorBare>({
+            const author = await context.nodeModel.findOne<Author<'bare'>>({
               type: 'Author',
               query: {
                 filter: { name: { eq: source.author } },
@@ -247,4 +316,5 @@ export default function createSchemaCustomization(
       },
     })
   );
+  */
 }

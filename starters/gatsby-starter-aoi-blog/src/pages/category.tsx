@@ -15,10 +15,11 @@ import {
 } from '@cieloazul310/gatsby-theme-aoi';
 import {
   MdxPostEdgesList,
-  type MdxPostBrowser,
+  // type MdxPostBrowser,
 } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
+  /*
   allMdxPost: {
     group: {
       totalCount: number;
@@ -31,10 +32,11 @@ type PageData = {
       >[];
     }[];
   };
+  */
 };
 
 function CategoryPage({ data }: PageProps<PageData>) {
-  const { group } = data.allMdxPost;
+  // const { group } = data.allMdxPost;
   return (
     <Layout title="Categories" componentViewports={{ bottomNav: false }}>
       <article>
@@ -42,7 +44,8 @@ function CategoryPage({ data }: PageProps<PageData>) {
           <Jumbotron title="Categories" maxWidth="md" />
         </header>
         <SectionDivider />
-        {group
+        {/*
+        group
           .sort((a, b) => b.totalCount - a.totalCount)
           .map(({ totalCount, fieldValue, slug, nodes }, index) => (
             <React.Fragment key={fieldValue}>
@@ -80,7 +83,8 @@ function CategoryPage({ data }: PageProps<PageData>) {
               </Section>
               {index !== group.length - 1 ? <SectionDivider /> : null}
             </React.Fragment>
-          ))}
+          ))
+                      */}
       </article>
     </Layout>
   );
@@ -91,7 +95,7 @@ export default CategoryPage;
 export function Head() {
   return <Seo title="Categories" />;
 }
-
+/*
 export const query = graphql`
   {
     allMdxPost(sort: { date: DESC }) {
@@ -113,3 +117,4 @@ export const query = graphql`
     }
   }
 `;
+*/

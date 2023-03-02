@@ -14,6 +14,7 @@ import {
 } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
+  /*
   allAuthor: {
     nodes: Pick<
       AuthorBrowser,
@@ -27,10 +28,11 @@ type PageData = {
       | 'posts'
     >[];
   };
+  */
 };
 
 function AuthorPage({ data }: PageProps<PageData>) {
-  const { nodes } = data.allAuthor;
+  // const { nodes } = data.allAuthor;
   return (
     <Layout title="Authors" componentViewports={{ bottomNav: false }}>
       <article>
@@ -38,7 +40,8 @@ function AuthorPage({ data }: PageProps<PageData>) {
           <Jumbotron title="Authors" maxWidth="md" />
         </header>
         <SectionDivider />
-        {nodes.map((node, index) => (
+        {/*
+        nodes.map((node, index) => (
           <React.Fragment key={node.name}>
             <Section>
               <article>
@@ -49,7 +52,8 @@ function AuthorPage({ data }: PageProps<PageData>) {
             </Section>
             {index !== nodes.length - 1 ? <SectionDivider /> : null}
           </React.Fragment>
-        ))}
+        ))
+        */}
       </article>
     </Layout>
   );
@@ -60,7 +64,7 @@ export default AuthorPage;
 export function Head() {
   return <Seo title="Authors" />;
 }
-
+/*
 export const query = graphql`
   {
     allAuthor(sort: [{ posts: { totalCount: DESC } }, { name: ASC }]) {
@@ -86,3 +90,4 @@ export const query = graphql`
     }
   }
 `;
+*/

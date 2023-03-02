@@ -21,6 +21,8 @@ export type ThemeOptions = {
 };
 
 // configured in './data/authors.yml'
+
+/** @deprecated */
 export type AuthorBare = Node & {
   name: string;
   description?: string;
@@ -33,7 +35,35 @@ export type AuthorBare = Node & {
   }[];
 };
 
-export type Author = Node &
+export type Author<T extends 'browser' | 'bare' | 'node' = 'browser'> = Node & {
+  name: string;
+  description?: string;
+  avatar?: T extends 'bare'
+    ? string
+    : T extends 'node'
+    ? FileSystemNode
+    : T extends 'browser'
+    ? {
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData;
+        };
+      }
+    : never;
+  slug?: T extends 'bare' ? never : string;
+  website?: string;
+  websiteURL?: string;
+  socials?: {
+    name: string;
+    url: string;
+  }[];
+  posts?: {
+    posts: (T extends 'node' ? MdxNode : MdxBrowser)[];
+    totalCount: number;
+  };
+};
+
+/** @deprecated */
+export type AuthorNode = Node &
   Pick<
     AuthorBare,
     'name' | 'description' | 'website' | 'websiteURL' | 'socials'
@@ -41,11 +71,12 @@ export type Author = Node &
     slug?: string;
     avatar?: FileSystemNode;
     posts?: {
-      posts: MdxPost[];
+      posts: MdxNode[];
       totalCount: number;
     };
   };
 
+/** @deprecated */
 export type AuthorBrowser = Node &
   Pick<
     Author,
@@ -57,12 +88,61 @@ export type AuthorBrowser = Node &
       };
     };
     posts?: {
-      posts: MdxPostBrowser[];
+      posts: MdxBrowser[];
       totalCount: number;
     };
   };
 
+export type TocItem = {
+  url: string;
+  title: string;
+  items?: TocItem[];
+};
+
+export type Toc = {
+  items?: TocItem;
+};
+
+export type MdxFrontmatter<T extends 'bare' | 'node' | 'browser' = 'browser'> =
+  {
+    title: string;
+    date: string;
+    categories?: string[];
+    tags?: string[];
+    author?: T extends 'browser' ? Author<'browser'> : string;
+    image?: T extends 'bare'
+      ? string
+      : T extends 'node'
+      ? FileSystemNode
+      : T extends 'browser'
+      ? {
+          childImageSharp: {
+            gatsbyImageData: IGatsbyImageData;
+          };
+        } | null
+      : never;
+  };
+
+export type Mdx<T extends 'bare' | 'node' | 'browser' = 'browser'> = Node & {
+  slug: string;
+  excerpt: string;
+  tableOfContents: Toc;
+  body: string;
+  frontmatter: MdxFrontmatter<T>;
+  featuredImage: T extends 'browser'
+    ? {
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData;
+        };
+      } | null
+    : never;
+};
+
+/** @deprecated */
 export type MdxBare = Node & {
+  excerpt: string;
+  tableOfContents: Toc;
+  body: string;
   frontmatter: {
     title: string;
     date: string;
@@ -74,6 +154,7 @@ export type MdxBare = Node & {
   };
 };
 
+/** @deprecated */
 export type MdxNode = Node &
   Omit<MdxBare, 'frontmatter'> & {
     frontmatter: Omit<MdxBare['frontmatter'], 'image'> & {
@@ -81,6 +162,14 @@ export type MdxNode = Node &
     };
   };
 
+/** @deprecated */
+export type MdxBrowser = Node &
+  Omit<MdxNode, 'frontmatter'> & {
+    frontmatter: Omit<MdxNode['frontmatter'], 'author'> & {
+      author?: Author<'browser'>;
+    };
+  };
+/*
 export type MdxPostBare = Node & {
   id: string;
   title: string;
@@ -134,7 +223,7 @@ export type MdxPostBrowser = Node &
     categoriesSlug: { name: string; slug: string }[];
     tagsSlug: { name: string; slug: string }[];
   };
-
+*/
 export type MdxPostMonth = {
   id: string;
   year: string;
@@ -145,4 +234,4 @@ export type MdxPostMonth = {
   totalCount: number;
 };
 
-export {};
+// export {};

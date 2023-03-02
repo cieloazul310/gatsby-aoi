@@ -18,7 +18,7 @@ type AuthorBoxProps = {
     | 'socials'
     | 'slug'
   > & {
-    posts?: Pick<NonNullable<AuthorBrowser['posts']>, 'totalCount'>;
+    // posts?: Pick<NonNullable<AuthorBrowser['posts']>, 'totalCount'>;
   };
 };
 
@@ -74,11 +74,13 @@ function AuthorBox({ author }: AuthorBoxProps) {
             ))}
           </Stack>
           <Box textAlign={{ xs: 'right', sm: 'left' }}>
-            {author.slug ? (
+            {/*
+            author.slug ? (
               <AppLink href={author.slug}>
                 {author.name}の記事一覧 ({author.posts?.totalCount})
               </AppLink>
-            ) : null}
+            ) : null
+            */}
           </Box>
         </Box>
       </Box>

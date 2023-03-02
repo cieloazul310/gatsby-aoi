@@ -5,12 +5,12 @@ import {
   createSlug,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import type {
-  MdxPost,
+  // MdxPost,
   MdxPostMonth,
   ThemeOptions,
   GatsbyGraphQLContext,
 } from '@cieloazul310/gatsby-theme-aoi-blog-types';
-
+/*
 function mdxPostToMonths(
   posts: MdxPost[],
   basePaths: ThemeOptions['basePaths']
@@ -57,11 +57,12 @@ function mdxPostToMonths(
     };
   });
 }
-
+*/
 export default function gatsbyCreateResolvers(
   { createResolvers }: CreateResolversArgs,
   themeOptions: ThemeOptions
 ) {
+  /*
   const { basePaths } = withDefaults(themeOptions);
 
   const resolvers = {
@@ -122,4 +123,5 @@ export default function gatsbyCreateResolvers(
     },
   };
   createResolvers(resolvers);
+  */
 }
