@@ -71,6 +71,12 @@ export type Toc = {
   items?: TocItem;
 };
 
+export type Terminology<T extends 'post' | 'schema' = 'schema'> = {
+  name: string;
+  slug: string;
+  totalCount: T extends 'schema' ? number : never;
+};
+
 export type MdxFrontmatter = {
   title: string;
   date: string;
@@ -96,8 +102,8 @@ export type MdxPost<T extends 'node' | 'browser' = 'browser'> = Node & {
   author: T extends 'node' ? string | null : Author;
   excerpt: T extends 'node' ? never : string;
   tableOfContents: T extends 'node' ? never : Toc;
-  categories: T extends 'node' ? string[] | null : string[];
-  tags: T extends 'node' ? string[] | null : string[];
+  categories: T extends 'node' ? string[] | null : Terminology<'post'>[];
+  tags: T extends 'node' ? string[] | null : Terminology<'post'>[];
   image: T extends 'node'
     ? string | null
     : {

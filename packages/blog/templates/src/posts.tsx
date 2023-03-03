@@ -1,4 +1,3 @@
-/* eslint @typescript-eslint/no-unused-vars: warn */
 import * as React from 'react';
 import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
@@ -16,10 +15,7 @@ import {
   PageNavigationContainer,
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import type {
-  MdxPost,
-  AuthorBoxFragment,
-} from '@cieloazul310/gatsby-theme-aoi-blog-types';
+import type { MdxPost } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 import Layout from './layout';
 import AuthorBox from './components/AuthorBox';
@@ -40,12 +36,10 @@ type PageContext = {
 
 function BlogPostTemplate({
   data,
-  // pageContext,
   children,
 }: PageProps<PageData, PageContext>) {
-  // const { previous, next } = pageContext;
   const { mdxPost, newer, older } = data;
-  const { title, date, author, image } = mdxPost;
+  const { title, date, author, image, categories, tags } = mdxPost;
   const staticImage =
     image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
   const bgcolor = image?.childImageSharp?.gatsbyImageData?.backgroundColor;
@@ -88,25 +82,21 @@ function BlogPostTemplate({
               <Typography>Post by {author?.name}</Typography>
               <Typography>
                 Categories:{' '}
-                {/*
-                categoriesSlug.map((category) => (
+                {categories.map((category) => (
                   <AppLink key={category.name} href={category.slug} mr={1}>
                     {category.name}
                   </AppLink>
-                ))
-                */}
+                ))}
               </Typography>
-              {/*
-              tagsSlug.length ? (
+              {tags.length ? (
                 <Typography>
-                  {tagsSlug.map((tag) => (
+                  {tags.map((tag) => (
                     <AppLink key={tag.name} href={tag.slug} mr={1}>
                       #{tag.name}
                     </AppLink>
                   ))}
                 </Typography>
-              ) : null
-                  */}
+              ) : null}
             </Article>
           </Section>
           <SectionDivider />
@@ -161,8 +151,14 @@ export const pageQuery = graphql`
       slug
       title
       date(formatString: "YYYY-MM-DD")
-      categories
-      tags
+      categories {
+        name
+        slug
+      }
+      tags {
+        name
+        slug
+      }
       tableOfContents(maxDepth: 2)
       excerpt(pruneLength: 140)
       author {

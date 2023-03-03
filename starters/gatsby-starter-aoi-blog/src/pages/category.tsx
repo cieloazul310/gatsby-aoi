@@ -15,28 +15,23 @@ import {
 } from '@cieloazul310/gatsby-theme-aoi';
 import {
   MdxPostList,
-  // type MdxPostBrowser,
+  useCategoryToSlug,
+  type MdxPostListFragment,
 } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
-  /*
   allMdxPost: {
     group: {
       totalCount: number;
       fieldValue: string;
-      field: string;
-      slug: string;
-      nodes: Pick<
-        MdxPostBrowser,
-        'id' | 'title' | 'date' | 'slug' | 'author'
-      >[];
+      nodes: MdxPostListFragment[];
     }[];
   };
-  */
 };
 
 function CategoryPage({ data }: PageProps<PageData>) {
-  // const { group } = data.allMdxPost;
+  const { group } = data.allMdxPost;
+  const categoryToSlug = useCategoryToSlug();
   return (
     <Layout title="Categories" componentViewports={{ bottomNav: false }}>
       <article>
@@ -44,10 +39,13 @@ function CategoryPage({ data }: PageProps<PageData>) {
           <Jumbotron title="Categories" maxWidth="md" />
         </header>
         <SectionDivider />
-        {/*
-        group
-          .sort((a, b) => b.totalCount - a.totalCount)
-          .map(({ totalCount, fieldValue, slug, nodes }, index) => (
+        {group
+          .sort(
+            (a, b) =>
+              b.totalCount - a.totalCount ||
+              a.fieldValue.localeCompare(b.fieldValue)
+          )
+          .map(({ totalCount, fieldValue, nodes }, index) => (
             <React.Fragment key={fieldValue}>
               <Section>
                 <Article maxWidth="md">
@@ -56,7 +54,7 @@ function CategoryPage({ data }: PageProps<PageData>) {
                       <ListItemText
                         primary={
                           <AppLink
-                            href={slug}
+                            href={categoryToSlug(fieldValue)}
                             color="inherit"
                             fontSize="large"
                             fontWeight="bold"
@@ -67,13 +65,13 @@ function CategoryPage({ data }: PageProps<PageData>) {
                         secondary={`${totalCount} posts`}
                       />
                     </ListItem>
-                    <MdxPostEdgesList nodes={nodes} />
+                    <MdxPostList posts={nodes} />
                     <List>
                       {totalCount > 2 ? (
                         <ListItemLink
                           sx={{ textAlign: { xs: undefined, sm: 'right' } }}
                           primaryText="More"
-                          href={slug}
+                          href={categoryToSlug(fieldValue)}
                           color="secondary"
                         />
                       ) : null}
@@ -83,8 +81,7 @@ function CategoryPage({ data }: PageProps<PageData>) {
               </Section>
               {index !== group.length - 1 ? <SectionDivider /> : null}
             </React.Fragment>
-          ))
-                      */}
+          ))}
       </article>
     </Layout>
   );
@@ -95,26 +92,17 @@ export default CategoryPage;
 export function Head() {
   return <Seo title="Categories" />;
 }
-/*
+
 export const query = graphql`
   {
     allMdxPost(sort: { date: DESC }) {
-      group(field: { categories: SELECT }, limit: 2) {
+      group(field: { categories: { name: SELECT } }, limit: 2) {
         totalCount
         fieldValue
-        field
-        slug
         nodes {
-          id
-          title
-          date(formatString: "YYYY-MM-DD")
-          slug
-          author {
-            name
-          }
+          ...MdxPostList
         }
       }
     }
   }
 `;
-*/

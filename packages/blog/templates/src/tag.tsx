@@ -1,4 +1,3 @@
-/* eslint @typescript-eslint/no-unused-vars: warn */
 import * as React from 'react';
 import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import Typography from '@mui/material/Typography';
@@ -16,34 +15,26 @@ import {
   PageNavigationContainer,
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-// import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+import type {
+  MdxPostListFragment,
+  Terminology,
+} from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 import Layout from './layout';
-import MdxPostEdgesList from './components/MdxPostList';
+import MdxPostList from './components/MdxPostList';
 
 type PageData = {
-  /*
   allMdxPost: {
-    nodes: Pick<MdxPostBrowser, 'id' | 'title' | 'slug' | 'date' | 'author'>[];
+    nodes: MdxPostListFragment[];
   };
-  */
 };
 
 type PageContext = {
-  previous: {
-    slug: string;
-    totalCount: number;
-    fieldValue: string;
-    field: string;
-  } | null;
-  next: {
-    slug: string;
-    totalCount: number;
-    fieldValue: string;
-    field: string;
-  } | null;
+  previous: Terminology | null;
+  next: Terminology | null;
   type: string;
-  fieldValue: string;
+  name: string;
+  slug: string;
   limit: number;
   skip: number;
   numPages: number;
@@ -53,25 +44,16 @@ type PageContext = {
 };
 
 function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
-  // const { allMdxPost } = data;
-  const {
-    fieldValue,
-    previous,
-    next,
-    numPages,
-    currentPage,
-    basePath,
-    totalCount,
-  } = pageContext;
+  const { allMdxPost } = data;
+  const { name, previous, next, numPages, currentPage, basePath, totalCount } =
+    pageContext;
   return (
     <Layout
-      title={fieldValue}
+      title={name}
       drawerContents={
         <DrawerPageNavigation
-          previous={
-            previous ? { to: previous.slug, title: previous.fieldValue } : null
-          }
-          next={next ? { to: next.slug, title: next.fieldValue } : null}
+          left={previous ? { href: previous.slug, title: previous.name } : null}
+          right={next ? { href: next.slug, title: next.name } : null}
         />
       }
     >
@@ -80,7 +62,7 @@ function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
           <Jumbotron maxWidth="md">
             <Typography>Tag</Typography>
             <Typography variant="h4" component="h2" gutterBottom>
-              {`#${fieldValue}`}
+              {`#${name}`}
             </Typography>
             <Typography>{totalCount} posts</Typography>
           </Jumbotron>
@@ -89,9 +71,7 @@ function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
         <Section>
           <Article maxWidth="md">
             <List>
-              {/*
-              <MdxPostEdgesList nodes={allMdxPost.nodes} />
-              */}
+              <MdxPostList posts={allMdxPost.nodes} />
             </List>
             <Pagination
               numPages={numPages}
@@ -105,13 +85,17 @@ function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
           <Section>
             <PageNavigationContainer>
               <PageNavigationItem
-                to={previous?.slug ?? '#'}
+                href={previous?.slug ?? '#'}
                 disabled={!previous}
               >
-                <Typography variant="body2">{previous?.fieldValue}</Typography>
+                <Typography variant="body2">{previous?.name}</Typography>
               </PageNavigationItem>
-              <PageNavigationItem to={next?.slug ?? '#'} next disabled={!next}>
-                <Typography variant="body2">{next?.fieldValue}</Typography>
+              <PageNavigationItem
+                href={next?.slug ?? '#'}
+                right
+                disabled={!next}
+              >
+                <Typography variant="body2">{next?.name}</Typography>
               </PageNavigationItem>
             </PageNavigationContainer>
           </Section>
@@ -124,28 +108,21 @@ function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
 export default TagTemplate;
 
 export function Head({ pageContext }: HeadProps<PageData, PageContext>) {
-  const { fieldValue } = pageContext;
-  return <Seo title={`Tag: ${fieldValue}`} />;
+  const { name } = pageContext;
+  return <Seo title={`Tag: ${name}`} />;
 }
-/*
+
 export const query = graphql`
-  query Tag($fieldValue: String!, $skip: Int!, $limit: Int!) {
+  query Tag($slug: String!, $skip: Int!, $limit: Int!) {
     allMdxPost(
-      filter: { tags: { eq: $fieldValue } }
+      filter: { tags: { elemMatch: { slug: { eq: $slug } } } }
       sort: { date: DESC }
       limit: $limit
       skip: $skip
     ) {
       nodes {
-        id
-        title
-        slug
-        date(formatString: "YYYY-MM-DD")
-        author {
-          name
-        }
+        ...MdxPostList
       }
     }
   }
 `;
-*/

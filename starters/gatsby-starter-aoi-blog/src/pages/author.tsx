@@ -27,8 +27,6 @@ type PageData = {
 };
 
 function AuthorPage({ data }: PageProps<PageData>) {
-  return <p>Author page</p>;
-  /*
   const { nodes } = data.allAuthor;
   return (
     <Layout title="Authors" componentViewports={{ bottomNav: false }}>
@@ -52,7 +50,6 @@ function AuthorPage({ data }: PageProps<PageData>) {
       </article>
     </Layout>
   );
-  */
 }
 
 export default AuthorPage;
@@ -60,7 +57,7 @@ export default AuthorPage;
 export function Head() {
   return <Seo title="Authors" />;
 }
-/*
+
 export const query = graphql`
   {
     allAuthor(sort: [{ posts: { totalCount: DESC } }, { name: ASC }]) {
@@ -79,8 +76,13 @@ export const query = graphql`
           name
           url
         }
+        posts {
+          items {
+            ...MdxPostList
+          }
+          totalCount
+        }
       }
     }
   }
 `;
-*/

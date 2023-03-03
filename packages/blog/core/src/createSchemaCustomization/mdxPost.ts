@@ -10,17 +10,19 @@ import type {
 import {
   withDefaults,
   isString,
+  createSlug,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import type {
   Author,
   Mdx,
+  MdxPost,
   ThemeOptions,
   GatsbyGraphQLContext,
 } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 function mdxResolverPassthrough(
   fieldName: string
-): GraphQLFieldResolver<Mdx, GatsbyGraphQLContext> {
+): GraphQLFieldResolver<MdxPost<'node'>, GatsbyGraphQLContext> {
   return async (source, args, context, info) => {
     const type = info.schema.getType(`Mdx`) as GraphQLObjectType<
       Mdx,
@@ -40,7 +42,7 @@ function mdxResolverPassthrough(
 }
 
 async function processMdxPostRelativeImage(
-  source: Mdx,
+  source: MdxPost<'node'>,
   context: GatsbyGraphQLContext,
   type: keyof Mdx
 ): Promise<FileSystemNode | undefined> {
@@ -76,6 +78,7 @@ async function processMdxPostRelativeImage(
  * 1. author フィールドと `Author` ノードを連結する
  * 2. image フィールドと `File` ノードを連結する
  * 3. tableOfContents, excerpt フィールドを `Mdx` ノードから引用する
+ * 4. categories, tags フィールドに slug を追加
  */
 export default function createMdxPostSchemaCustomization(
   { actions, schema }: CreateSchemaCustomizationArgs,
@@ -98,6 +101,17 @@ export default function createMdxPostSchemaCustomization(
       totalCount: Int!
     }
    */
+  createTypes(`
+    type PostTerminology @dontInfer {
+      name: String!
+      slug: String!
+    }
+    type Terminology @dontInfer {
+      name: String!
+      slug: String!
+      totalCount: Int!
+    }
+  `);
   createTypes(
     schema.buildObjectType({
       name: `MdxPost`,
@@ -110,7 +124,7 @@ export default function createMdxPostSchemaCustomization(
         author: {
           type: `Author!`,
           resolve: async (
-            source: Mdx,
+            source: MdxPost<'node'>,
             args,
             context: GatsbyGraphQLContext,
             info
@@ -128,13 +142,28 @@ export default function createMdxPostSchemaCustomization(
             );
           },
         },
-        categories: { type: `[String]!` },
-        tags: { type: `[String]!` },
+        // 4. categories, tags フィールドに slug を追加
+        categories: {
+          type: `[PostTerminology]!`,
+          resolve: ({ categories }: MdxPost<'node'>) =>
+            categories?.map((fieldValue) => ({
+              name: fieldValue,
+              slug: createSlug(options.basePaths.category, fieldValue),
+            })),
+        },
+        tags: {
+          type: `[PostTerminology]!`,
+          resolve: ({ tags }: MdxPost<'node'>) =>
+            tags?.map((fieldValue) => ({
+              name: fieldValue,
+              slug: createSlug(options.basePaths.tag, fieldValue),
+            })),
+        },
         // 2. image フィールドと `File` ノードを連結する
         image: {
           type: `File`,
           resolve: async (
-            source: Mdx & { image___NODE?: string },
+            source: MdxPost<'node'> & { image___NODE?: string },
             args,
             context: GatsbyGraphQLContext,
             info

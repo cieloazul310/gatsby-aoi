@@ -9,21 +9,20 @@ import {
   AppLink,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
+import { useTagToSlug } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
-  /*
   allMdxPost: {
     group: {
       field: string;
       fieldValue: string;
       totalCount: number;
-      slug: string;
     }[];
   };
-  */
 };
 function TagPage({ data }: PageProps<PageData>) {
-  // const { group } = data.allMdxPost;
+  const { group } = data.allMdxPost;
+  const tagToSlug = useTagToSlug();
   return (
     <Layout title="Tags" componentViewports={{ bottomNav: false }}>
       <article>
@@ -33,17 +32,19 @@ function TagPage({ data }: PageProps<PageData>) {
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            {/*
-            group
-              .sort((a, b) => b.totalCount - a.totalCount)
+            {group
+              .sort(
+                (a, b) =>
+                  b.totalCount - a.totalCount ||
+                  a.fieldValue.localeCompare(b.fieldValue)
+              )
               .map((tag) => (
                 <AppLink
-                  key={tag.slug}
-                  href={tag.slug}
+                  key={tag.fieldValue}
+                  href={tagToSlug(tag.fieldValue)}
                   mr={1}
                 >{`#${tag.fieldValue}`}</AppLink>
-              ))
-              */}
+              ))}
           </Article>
         </Section>
       </article>
@@ -56,17 +57,15 @@ export default TagPage;
 export function Head() {
   return <Seo title="Tags" />;
 }
-/*
+
 export const query = graphql`
   {
     allMdxPost(sort: { date: DESC }) {
-      group(field: { tags: SELECT }) {
+      group(field: { tags: { name: SELECT } }) {
         totalCount
         fieldValue
         field
-        slug
       }
     }
   }
 `;
-*/
