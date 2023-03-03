@@ -16,7 +16,10 @@ import {
   PageNavigationContainer,
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import type { Mdx } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+import type {
+  MdxPost,
+  AuthorBoxFragment,
+} from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 import Layout from './layout';
 import AuthorBox from './components/AuthorBox';
@@ -24,13 +27,9 @@ import mdxComponents from './mdxComponents';
 import shortcodes from './shortcodes';
 
 type PageData = {
-  mdx: Mdx;
-  newer: Pick<Mdx, 'id' | 'slug'> & {
-    frontmatter: Pick<Mdx['frontmatter'], 'title' | 'date'>;
-  };
-  older: Pick<Mdx, 'id' | 'slug'> & {
-    frontmatter: Pick<Mdx['frontmatter'], 'title' | 'date'>;
-  };
+  mdxPost: MdxPost;
+  newer: Pick<MdxPost, 'id' | 'slug' | 'title' | 'date'>;
+  older: Pick<MdxPost, 'id' | 'slug' | 'title' | 'date'>;
 };
 
 type PageContext = {
@@ -45,24 +44,18 @@ function BlogPostTemplate({
   children,
 }: PageProps<PageData, PageContext>) {
   // const { previous, next } = pageContext;
-  const { mdx, newer, older } = data;
-  const { frontmatter, featuredImage } = mdx;
-  const { title, date, author } = frontmatter;
+  const { mdxPost, newer, older } = data;
+  const { title, date, author, image } = mdxPost;
   const staticImage =
-    featuredImage?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
-  const bgcolor =
-    featuredImage?.childImageSharp?.gatsbyImageData?.backgroundColor;
+    image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
+  const bgcolor = image?.childImageSharp?.gatsbyImageData?.backgroundColor;
   return (
     <Layout
       title={title ?? 'Title'}
       drawerContents={
         <DrawerPageNavigation
-          older={
-            older ? { href: older.slug, title: older.frontmatter.title } : null
-          }
-          newer={
-            newer ? { href: newer.slug, title: newer.frontmatter.title } : null
-          }
+          right={older ? { href: older.slug, title: older.title } : null}
+          left={newer ? { href: newer.slug, title: newer.title } : null}
         />
       }
     >
@@ -128,23 +121,19 @@ function BlogPostTemplate({
           <Section>
             <PageNavigationContainer>
               <PageNavigationItem href={newer?.slug ?? '#'} disabled={!newer}>
-                <Typography variant="body2">
-                  {newer?.frontmatter.title}
-                </Typography>
+                <Typography variant="body2">{newer?.title}</Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Newer
+                  Newer post
                 </Typography>
               </PageNavigationItem>
               <PageNavigationItem
                 href={older?.slug ?? '#'}
-                older
+                right
                 disabled={!older}
               >
-                <Typography variant="body2">
-                  {older?.frontmatter.title}
-                </Typography>
+                <Typography variant="body2">{older?.title}</Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Older
+                  Older post
                 </Typography>
               </PageNavigationItem>
             </PageNavigationContainer>
@@ -158,71 +147,68 @@ function BlogPostTemplate({
 export default BlogPostTemplate;
 
 export function Head({ data }: HeadProps<PageData, PageContext>) {
-  const { mdx } = data;
-  const { excerpt, frontmatter, featuredImage } = mdx;
+  const { mdxPost } = data;
+  const { excerpt, title, image } = mdxPost;
   const staticImage =
-    featuredImage?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
-  return (
-    <Seo title={frontmatter.title} description={excerpt} image={staticImage} />
-  );
+    image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
+  return <Seo title={title} description={excerpt} image={staticImage} />;
 }
 
 export const pageQuery = graphql`
   query PostQuery($id: String!, $newer: String, $older: String) {
-    mdx(id: { eq: $id }) {
+    mdxPost(id: { eq: $id }) {
       id
       slug
+      title
+      date(formatString: "YYYY-MM-DD")
+      categories
+      tags
       tableOfContents(maxDepth: 2)
       excerpt(pruneLength: 140)
-      frontmatter {
-        title
-        date(formatString: "YYYY-MM-DD")
-        categories
-        tags
-        author {
-          name
-          slug
-          description
-          website
-          websiteURL
-          avatar {
-            childImageSharp {
-              gatsbyImageData(width: 200)
-            }
-          }
-          socials {
-            name
-            url
-          }
-          posts {
-            totalCount
-          }
-        }
+      author {
+        ...AuthorBox
       }
-      featuredImg {
+      image {
         childImageSharp {
           gatsbyImageData
         }
       }
+      imageAlt
     }
-    newer: mdx(id: { eq: $newer }) {
+    newer: mdxPost(id: { eq: $newer }) {
       id
       slug
-      frontmatter {
-        title
-        date(formatString: "YYYY-MM-DD")
-      }
+      title
+      date(formatString: "YYYY-MM-DD")
     }
-    older: mdx(id: { eq: $older }) {
+    older: mdxPost(id: { eq: $older }) {
       id
       slug
-      frontmatter {
-        title
-        date(formatString: "YYYY-MM-DD")
+      title
+      date(formatString: "YYYY-MM-DD")
+    }
+  }
+  fragment AuthorBox on Author {
+    name
+    slug
+    description
+    website
+    websiteURL
+    avatar {
+      childImageSharp {
+        gatsbyImageData(width: 200)
       }
+    }
+    socials {
+      name
+      url
+    }
+    posts {
+      totalCount
     }
   }
 `;
+
 /*
 export const pageQuery = graphql`
   query PostsQuery($id: String) {

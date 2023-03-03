@@ -8,16 +8,12 @@ import {
   Article,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
-import {
-  AuthorBox,
-  type AuthorBrowser,
-} from '@cieloazul310/gatsby-theme-aoi-blog';
+import { AuthorBox, type Author } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
-  /*
   allAuthor: {
     nodes: Pick<
-      AuthorBrowser,
+      Author,
       | 'name'
       | 'slug'
       | 'description'
@@ -28,11 +24,12 @@ type PageData = {
       | 'posts'
     >[];
   };
-  */
 };
 
 function AuthorPage({ data }: PageProps<PageData>) {
-  // const { nodes } = data.allAuthor;
+  return <p>Author page</p>;
+  /*
+  const { nodes } = data.allAuthor;
   return (
     <Layout title="Authors" componentViewports={{ bottomNav: false }}>
       <article>
@@ -40,8 +37,7 @@ function AuthorPage({ data }: PageProps<PageData>) {
           <Jumbotron title="Authors" maxWidth="md" />
         </header>
         <SectionDivider />
-        {/*
-        nodes.map((node, index) => (
+        {nodes.map((node, index) => (
           <React.Fragment key={node.name}>
             <Section>
               <article>
@@ -52,11 +48,11 @@ function AuthorPage({ data }: PageProps<PageData>) {
             </Section>
             {index !== nodes.length - 1 ? <SectionDivider /> : null}
           </React.Fragment>
-        ))
-        */}
+        ))}
       </article>
     </Layout>
   );
+  */
 }
 
 export default AuthorPage;
@@ -82,9 +78,6 @@ export const query = graphql`
         socials {
           name
           url
-        }
-        posts {
-          totalCount
         }
       }
     }

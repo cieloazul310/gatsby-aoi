@@ -28,22 +28,10 @@ export type GatsbyNodeModel = {
     predicate?: (node: Node) => boolean
   ) => T | null;
 
-  /**
-   * @deprecated
-   * Since version 4.0 - Use nodeModel.findAll() instead
-   */
-  getAllNodes: <T extends Node>(args: { type: string }) => T[];
-
   getNodeById: <T extends Node>(
     args: Partial<{ id: string; type: string }>,
     pageDependencies?: PageDependencies
   ) => T | null;
-
-  /** @deprecated */
-  runQuery: <T extends Node>(args: {
-    type: string;
-    query: { [key: string]: unknown };
-  }) => Promise<T[]>;
 };
 
 export type GatsbyGraphQLContext = {

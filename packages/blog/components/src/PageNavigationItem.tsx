@@ -7,15 +7,15 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 type PageNavigationItemProps = {
   href: string;
-  older?: boolean;
+  right?: boolean;
   disabled?: boolean;
   children: React.ReactNode;
 };
 
 function PageNavigationItem({
   href,
-  disabled,
-  older,
+  disabled = false,
+  right = false,
   children,
 }: PageNavigationItemProps) {
   return (
@@ -48,14 +48,14 @@ function PageNavigationItem({
           sx={{
             flexGrow: 1,
             paddingTop: 1,
-            paddingRight: older ? 1 : 7,
+            paddingRight: right ? 1 : 7,
             paddingBottom: 1,
-            paddingLeft: older ? 7 : 1,
+            paddingLeft: right ? 7 : 1,
             display: 'flex',
-            flexDirection: older ? 'row-reverse' : 'row',
+            flexDirection: right ? 'row-reverse' : 'row',
             justifyContent: 'flex-start',
             alignItems: 'center',
-            borderRight: older
+            borderRight: right
               ? 'none'
               : (theme) => ({
                   xs: 'none',
@@ -64,13 +64,13 @@ function PageNavigationItem({
           }}
         >
           <Box py={2} px={1} display="flex">
-            {older ? <ArrowForwardIcon /> : <ArrowBackIcon />}
+            {right ? <ArrowForwardIcon /> : <ArrowBackIcon />}
           </Box>
           <Box
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: older ? 'flex-end' : 'flex-start',
+              alignItems: right ? 'flex-end' : 'flex-start',
             }}
           >
             {children}
@@ -82,8 +82,8 @@ function PageNavigationItem({
 }
 
 PageNavigationItem.defaultProps = {
-  older: undefined,
-  disabled: undefined,
+  right: false,
+  disabled: false,
 };
 
 export default PageNavigationItem;

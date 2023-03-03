@@ -3,8 +3,9 @@ title: Gatsby Theme Aoi Blog
 date: 2022-01-25
 ---
 
+import { graphql } from 'gatsby';
 import { Seo } from '@cieloazul310/gatsby-theme-aoi';
-import { DefaultTemplate } from '@cieloazul310/gatsby-theme-aoi-blog';
+import { DefaultTemplate, MdxPostList } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 Gatsby Theme Aoi Blog は、**Gatsby Theme Aoi** で作成された [Gatsby スターター][Gatsby Starters]です。Gatsby Theme Aoi は [MUI] (Material-UI) で構成された [Gatsby テーマ][Gatsby Themes] です。Gatsby Theme Aoi には以下のような特徴があります。
 
@@ -16,6 +17,8 @@ Gatsby Theme Aoi Blog は、**Gatsby Theme Aoi** で作成された [Gatsby ス�
 - サイトを包括したステートの実装
 
 ## Recent posts
+
+<MdxPostList posts={props.data.allMdxPost.nodes} />
 
 [Gatsby]: https://www.gatsbyjs.com/ "Gatsby"
 [MUI]: https://mui.org/ "MUI"
@@ -36,20 +39,13 @@ export function Head() {
 }
 
 export default DefaultTemplate;
-/*
+
 export const query = graphql`
   query {
-    allMdxPost(sort: {date: DESC}, limit: 4) {
+    allMdxPost(sort: {date: DESC}, limit: 6) {
       nodes {
-        id
-        title
-        date(formatString: "YYYY-MM-DD")
-        slug
-        author {
-          name
-        }
+        ...MdxPostList
       }
     }
   }
 `;
-*/

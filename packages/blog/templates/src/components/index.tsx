@@ -1,2 +1,2 @@
 export { default as AuthorBox } from './AuthorBox';
-export { default as MdxPostEdgesList, MdxPostList } from './MdxPostList';
+export { default as MdxPostList } from './MdxPostList';

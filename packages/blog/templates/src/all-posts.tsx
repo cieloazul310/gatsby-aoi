@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { /* graphql, */ type PageProps, type HeadProps } from 'gatsby';
+import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import Typography from '@mui/material/Typography';
 import {
   Jumbotron,
@@ -9,17 +9,15 @@ import {
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import { Pagination } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-// import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+import type { MdxPostListFragment } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 import Layout from './layout';
-// import MdxPostEdgesList from './components/MdxPostList';
+import MdxPostList from './components/MdxPostList';
 
 type PageData = {
-  /*
   allMdxPost: {
-    nodes: Pick<MdxPostBrowser, 'id' | 'title' | 'slug' | 'date' | 'author'>[];
+    nodes: MdxPostListFragment[];
   };
-  */
 };
 
 type PageContext = {
@@ -33,10 +31,10 @@ type PageContext = {
 };
 
 function AllPostsTemplate({
-  // data,
+  data,
   pageContext,
 }: PageProps<PageData, PageContext>) {
-  // const { allMdxPost } = data;
+  const { allMdxPost } = data;
   const { currentPage, numPages, basePath, totalCount } = pageContext;
 
   return (
@@ -53,7 +51,7 @@ function AllPostsTemplate({
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            {/* <MdxPostEdgesList nodes={allMdxPost.nodes} /> */}
+            <MdxPostList posts={allMdxPost.nodes} />
             <Pagination
               numPages={numPages}
               currentPage={currentPage}
@@ -74,20 +72,13 @@ export function Head({ pageContext }: HeadProps<PageData, PageContext>) {
     numPages === 1 ? 'All Posts' : `All Posts (${currentPage}/${numPages})`;
   return <Seo title={title} />;
 }
-/*
+
 export const query = graphql`
   query AllPosts($skip: Int!, $limit: Int!) {
     allMdxPost(sort: { date: DESC }, limit: $limit, skip: $skip) {
       nodes {
-        id
-        title
-        slug
-        date(formatString: "YYYY-MM-DD")
-        author {
-          name
-        }
+        ...MdxPostList
       }
     }
   }
 `;
-*/

@@ -12,12 +12,12 @@ import {
 
 type DrawerPageNavigationProps = {
   title?: string;
-  newer?: {
+  left?: {
     href: string;
     title: string;
     secondaryText?: string;
   } | null;
-  older?: {
+  right?: {
     href: string;
     title: string;
     secondaryText?: string;
@@ -27,33 +27,33 @@ type DrawerPageNavigationProps = {
 
 function DrawerPageNavigation({
   title,
-  newer,
-  older,
+  left,
+  right,
   linkProps,
 }: DrawerPageNavigationProps) {
   return (
     <List subheader={<ListSubheader>{title ?? 'Navigation'}</ListSubheader>}>
-      {newer ? (
+      {left ? (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ListItemAppLink href={newer.href} {...linkProps}>
+        <ListItemAppLink href={left.href} {...linkProps}>
           <ListItemIcon>
             <ArrowBackIcon />
           </ListItemIcon>
           <ListItemText
-            primary={newer.title}
-            secondary={newer.secondaryText ?? 'Newer post'}
+            primary={left.title}
+            secondary={left.secondaryText ?? 'Newer post'}
           />
         </ListItemAppLink>
       ) : null}
-      {older ? (
+      {right ? (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ListItemAppLink href={older.href} {...linkProps}>
+        <ListItemAppLink href={right.href} {...linkProps}>
           <ListItemIcon>
             <ArrowForwardIcon />
           </ListItemIcon>
           <ListItemText
-            primary={older.title}
-            secondary={older.secondaryText ?? 'Older post'}
+            primary={right.title}
+            secondary={right.secondaryText ?? 'Older post'}
           />
         </ListItemAppLink>
       ) : null}
@@ -63,8 +63,8 @@ function DrawerPageNavigation({
 
 DrawerPageNavigation.defaultProps = {
   title: undefined,
-  newer: undefined,
-  older: undefined,
+  left: undefined,
+  right: undefined,
   linkProps: undefined,
 };
 

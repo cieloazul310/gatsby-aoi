@@ -2,20 +2,13 @@
 import * as React from 'react';
 import List from '@mui/material/List';
 import { ListItemLink } from '@cieloazul310/gatsby-theme-aoi-components';
-// import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+import type { MdxPostListFragment } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 type MdxPostListProps = {
-  /*
-  posts: (Pick<MdxPostBrowser, 'id' | 'slug' | 'title' | 'date'> & {
-    author: Pick<NonNullable<MdxPostBrowser['author']>, 'name'>;
-  })[];
-  */
+  posts: MdxPostListFragment[];
 };
 
-/* { posts }: MdxPostListProps */
-export function MdxPostList() {
-  return null;
-  /*
+function MdxPostList({ posts }: MdxPostListProps) {
   return (
     <List>
       {posts.map(({ id, slug, title, date, author }, index) => (
@@ -29,21 +22,6 @@ export function MdxPostList() {
       ))}
     </List>
   );
-  */
 }
 
-type MdxPostEdgesListProps = {
-  /*
-  nodes: (Pick<MdxPostBrowser, 'id' | 'slug' | 'title' | 'date'> & {
-    author: Pick<NonNullable<MdxPostBrowser['author']>, 'name'>;
-  })[];
-  */
-};
-
-/* { nodes }: MdxPostEdgesListProps */
-function MdxPostEdgesList() {
-  return null;
-  // return <MdxPostList posts={nodes} />;
-}
-
-export default MdxPostEdgesList;
+export default MdxPostList;

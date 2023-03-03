@@ -1,17 +1,22 @@
 import type { CreatePagesArgs } from 'gatsby';
 import { withDefaults } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import type {
-  // MdxPost,
-  Mdx,
+  MdxPost,
+  Author,
   MdxPostMonth,
   ThemeOptions,
 } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 type Data = {
-  allMdx: {
-    posts: (Pick<Mdx, 'id' | 'slug'> & {
-      frontmatter: Pick<Mdx['frontmatter'], 'title'>;
-      internal: Pick<Mdx['internal'], 'contentFilePath'>;
+  allMdxPost: {
+    posts: (Pick<MdxPost, 'id' | 'slug' | 'title'> & {
+      internal: Pick<MdxPost['internal'], 'contentFilePath'>;
+    })[];
+    totalCount: number;
+  };
+  allAuthor: {
+    authors: (Pick<Author, 'name' | 'slug'> & {
+      posts: Pick<Author['posts'], 'totalCount'>;
     })[];
   };
   /*
@@ -36,20 +41,20 @@ type Data = {
     }[];
     totalCount: number;
   };
-  allAuthor: {
-    authors: {
-      name: string;
-      slug: string;
-      posts: {
-        totalCount: number;
-      };
-    }[];
-  };
   months: MdxPostMonth[];
   */
 };
 
-export default async function createPagesasync(
+/**
+ * createPagesAsync で何をするか
+ * 1. MdxPost ノードごとにページを作成する (Post)
+ * 2. Author ノードごとにページを作成する (Author)
+ * 3. MdxPost の新着順の一覧ページを作成する (AllPosts)
+ * 4. MdxPost の月別の一覧ページを作成する (Archive)
+ * 5. MdxPost のカテゴリー別のページを作成する (Categories)
+ * 6. MdxPost のタグ別のページを作成する (Tags)
+ */
+export default async function createPagesAsync(
   { graphql, actions, reporter }: CreatePagesArgs,
   themeOptions: Partial<ThemeOptions>
 ) {
@@ -57,18 +62,23 @@ export default async function createPagesasync(
   const { createPage } = actions;
   const result = await graphql<Data>(`
     {
-      allMdx(
-        filter: { contentType: { eq: "post" } }
-        sort: { frontmatter: { date: DESC } }
-      ) {
+      allMdxPost(sort: { date: DESC }) {
         posts: nodes {
           id
           slug
-          frontmatter {
-            title
-          }
+          title
           internal {
             contentFilePath
+          }
+        }
+        totalCount
+      }
+      allAuthor(sort: [{ posts: { totalCount: DESC } }, { name: ASC }]) {
+        authors: nodes {
+          name
+          slug
+          posts {
+            totalCount
           }
         }
       }
@@ -102,15 +112,6 @@ export default async function createPagesasync(
         }
         totalCount
       }
-      allAuthor(sort: [{ posts: { totalCount: DESC } }, { name: ASC }]) {
-        authors: nodes {
-          name
-          slug
-          posts {
-            totalCount
-          }
-        }
-      }
       months: allMdxPostMonths {
         basePath
         gte
@@ -128,9 +129,9 @@ export default async function createPagesasync(
   }
   if (!result.data) throw new Error('There are no posts');
 
-  const { posts } = result.data.allMdx;
+  const { posts } = result.data.allMdxPost;
 
-  // generate Each post pages
+  // 1. MdxPost ノードごとにページを作成する (Post)
   const postTemplate = require.resolve(
     '@cieloazul310/gatsby-theme-aoi-blog-templates/src/posts.tsx'
   );
@@ -144,15 +145,16 @@ export default async function createPagesasync(
       context: { newer, older, id },
     });
   });
-  /*
-  // generate All posts pages
+
+  // 3. MdxPost の新着順の一覧ページを作成する (AllPosts)
   const numPages = Math.ceil(posts.length / postsPerPage);
+  const allPostsTemplate = require.resolve(
+    '@cieloazul310/gatsby-theme-aoi-blog-templates/src/all-posts.tsx'
+  );
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? basePaths.posts : `${basePaths.posts}/${i + 1}`,
-      component: require.resolve(
-        '@cieloazul310/gatsby-theme-aoi-blog-templates/src/all-posts.tsx'
-      ),
+      component: allPostsTemplate,
       context: {
         title: 'All Posts',
         limit: postsPerPage,
@@ -164,7 +166,7 @@ export default async function createPagesasync(
       },
     });
   });
-
+  /*
   // create category pages
   categories
     .sort((a, b) => b.totalCount - a.totalCount)
@@ -226,9 +228,12 @@ export default async function createPagesasync(
         });
       });
     });
-
-  // create author pages
+  */
+  // 2. Author ノードごとにページを作成する (Author)
   const { authors } = result.data.allAuthor;
+  const authorTemplate = require.resolve(
+    '@cieloazul310/gatsby-theme-aoi-blog-templates/src/author.tsx'
+  );
   authors.forEach((node, index, arr) => {
     const next = index === arr.length - 1 ? null : arr[index + 1];
     const previous = index === 0 ? null : arr[index - 1];
@@ -238,9 +243,7 @@ export default async function createPagesasync(
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `${node.slug}` : `${node.slug}/${i + 1}`,
-        component: require.resolve(
-          '@cieloazul310/gatsby-theme-aoi-blog-templates/src/author.tsx'
-        ),
+        component: authorTemplate,
         context: {
           previous: previous?.name ?? null,
           next: next?.name ?? null,
@@ -256,7 +259,7 @@ export default async function createPagesasync(
       });
     });
   });
-
+  /*
   const { months } = result.data;
   months.forEach(({ year, month, basePath, totalCount, lt, gte }, index) => {
     const next = index === 0 ? null : months[index - 1];

@@ -14,7 +14,7 @@ import {
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
 import {
-  MdxPostEdgesList,
+  MdxPostList,
   // type MdxPostBrowser,
 } from '@cieloazul310/gatsby-theme-aoi-blog';
 

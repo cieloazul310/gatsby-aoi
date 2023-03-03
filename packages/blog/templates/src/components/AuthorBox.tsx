@@ -4,22 +4,11 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import { SocialLink, AppLink } from '@cieloazul310/gatsby-theme-aoi-components';
-import type { AuthorBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+import type { AuthorBoxFragment } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 import { AuthorIcon } from '../icons';
 
 type AuthorBoxProps = {
-  author: Pick<
-    AuthorBrowser,
-    | 'avatar'
-    | 'name'
-    | 'description'
-    | 'website'
-    | 'websiteURL'
-    | 'socials'
-    | 'slug'
-  > & {
-    // posts?: Pick<NonNullable<AuthorBrowser['posts']>, 'totalCount'>;
-  };
+  author: AuthorBoxFragment;
 };
 
 function AuthorBox({ author }: AuthorBoxProps) {
@@ -74,13 +63,11 @@ function AuthorBox({ author }: AuthorBoxProps) {
             ))}
           </Stack>
           <Box textAlign={{ xs: 'right', sm: 'left' }}>
-            {/*
-            author.slug ? (
+            {author.slug ? (
               <AppLink href={author.slug}>
                 {author.name}の記事一覧 ({author.posts?.totalCount})
               </AppLink>
-            ) : null
-            */}
+            ) : null}
           </Box>
         </Box>
       </Box>

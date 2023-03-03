@@ -22,26 +22,29 @@ import {
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
 import type {
-  // MdxPostBrowser,
-  AuthorBrowser,
+  Author,
+  MdxPostListFragment,
 } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 import Layout from './layout';
+import MdxPostList from './components/MdxPostList';
 import { AuthorIcon } from './icons';
-import MdxPostEdgesList from './components/MdxPostList';
 
 type PageData = {
-  /*
   author: Pick<
-    AuthorBrowser,
+    Author,
     'name' | 'avatar' | 'description' | 'website' | 'websiteURL' | 'socials'
-  >;
+  > &
+    Required<Pick<Author, 'slug'>>;
   allMdxPost: {
-    nodes: Pick<MdxPostBrowser, 'id' | 'title' | 'slug' | 'date' | 'author'>[];
+    nodes: MdxPostListFragment[];
   };
-  previous: (Pick<AuthorBrowser, 'name' | 'avatar'> & { slug: string }) | null;
-  next: (Pick<AuthorBrowser, 'name' | 'avatar'> & { slug: string }) | null;
-  */
+  previous:
+    | (Pick<Author, 'name' | 'avatar'> & Required<Pick<Author, 'slug'>>)
+    | null;
+  next:
+    | (Pick<Author, 'name' | 'avatar'> & Required<Pick<Author, 'slug'>>)
+    | null;
 };
 
 type PageContext = {
@@ -57,10 +60,10 @@ type PageContext = {
   totalCount: number;
 };
 
-/* { data, pageContext }: PageProps<PageData, PageContext> */
-function AuthorTemplate() {
-  return <p>Author Template</p>;
-  /*
+function AuthorTemplate({
+  data,
+  pageContext,
+}: PageProps<PageData, PageContext>) {
   const { author, allMdxPost, previous, next } = data;
   const { numPages, currentPage, basePath, totalCount } = pageContext;
   const bgImage =
@@ -73,10 +76,8 @@ function AuthorTemplate() {
       title={author.name}
       drawerContents={
         <DrawerPageNavigation
-          previous={
-            previous ? { to: previous.slug, title: previous.name } : null
-          }
-          next={next ? { to: next.slug, title: next.name } : null}
+          left={previous ? { href: previous.slug, title: previous.name } : null}
+          right={next ? { href: next.slug, title: next.name } : null}
         />
       }
     >
@@ -140,7 +141,7 @@ function AuthorTemplate() {
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            <MdxPostEdgesList nodes={allMdxPost.nodes} />
+            <MdxPostList posts={allMdxPost.nodes} />
             <Pagination
               numPages={numPages}
               currentPage={currentPage}
@@ -153,7 +154,7 @@ function AuthorTemplate() {
           <Section>
             <PageNavigationContainer>
               <PageNavigationItem
-                to={previous?.slug ?? '#'}
+                href={previous?.slug ?? '#'}
                 disabled={!previous}
               >
                 <Box display="flex" flexDirection="row" alignItems="center">
@@ -178,7 +179,11 @@ function AuthorTemplate() {
                   <Typography variant="body2">{previous?.name}</Typography>
                 </Box>
               </PageNavigationItem>
-              <PageNavigationItem to={next?.slug ?? '#'} next disabled={!next}>
+              <PageNavigationItem
+                href={next?.slug ?? '#'}
+                right
+                disabled={!next}
+              >
                 <Box
                   display="flex"
                   flexDirection="row-reverse"
@@ -211,17 +216,15 @@ function AuthorTemplate() {
       </article>
     </Layout>
   );
-  */
 }
 
 export default AuthorTemplate;
 
 export function Head({ data }: HeadProps<PageData, PageContext>) {
-  // const { author } = data;
-  // return <Seo title={`Author: ${author.name}`} />;
-  return <Seo />;
+  const { author } = data;
+  return <Seo title={`Author: ${author.name}`} />;
 }
-/*
+
 export const query = graphql`
   query Author(
     $fieldValue: String!
@@ -252,13 +255,7 @@ export const query = graphql`
       skip: $skip
     ) {
       nodes {
-        id
-        title
-        slug
-        date(formatString: "YYYY-MM-DD")
-        author {
-          name
-        }
+        ...MdxPostList
       }
     }
     previous: author(name: { eq: $previous }) {
@@ -280,5 +277,14 @@ export const query = graphql`
       slug
     }
   }
+  fragment MdxPostList on MdxPost {
+    id
+    slug
+    title
+    date(formatString: "YYYY-MM-DD")
+    author {
+      name
+      slug
+    }
+  }
 `;
-*/

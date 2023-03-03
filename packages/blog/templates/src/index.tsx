@@ -1,4 +1,5 @@
 export * from './components';
+export * from './utils';
 export { default as AllPostsTemplate } from './all-posts';
 export { default as ArchiveTemplate } from './archive';
 export { default as AuthorTemplate } from './author';
