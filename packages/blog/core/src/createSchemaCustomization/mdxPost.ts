@@ -78,7 +78,6 @@ async function processMdxPostRelativeImage(
  * 1. author フィールドと `Author` ノードを連結する
  * 2. image フィールドと `File` ノードを連結する
  * 3. tableOfContents, excerpt フィールドを `Mdx` ノードから引用する
- * 4. categories, tags フィールドに slug を追加
  */
 export default function createMdxPostSchemaCustomization(
   { actions, schema }: CreateSchemaCustomizationArgs,
@@ -87,10 +86,6 @@ export default function createMdxPostSchemaCustomization(
   const options = withDefaults(themeOptions);
   const { createTypes } = actions;
   /**
-    type WithSlug @dontInfer {
-      name: String!
-      slug: String!
-    }
     type MdxMonth {
       id: String!
       year: String!
@@ -102,10 +97,6 @@ export default function createMdxPostSchemaCustomization(
     }
    */
   createTypes(`
-    type PostTerminology @dontInfer {
-      name: String!
-      slug: String!
-    }
     type Terminology @dontInfer {
       name: String!
       slug: String!
@@ -142,22 +133,11 @@ export default function createMdxPostSchemaCustomization(
             );
           },
         },
-        // 4. categories, tags フィールドに slug を追加
         categories: {
-          type: `[PostTerminology]!`,
-          resolve: ({ categories }: MdxPost<'node'>) =>
-            categories?.map((fieldValue) => ({
-              name: fieldValue,
-              slug: createSlug(options.basePaths.category, fieldValue),
-            })),
+          type: `[String]!`,
         },
         tags: {
-          type: `[PostTerminology]!`,
-          resolve: ({ tags }: MdxPost<'node'>) =>
-            tags?.map((fieldValue) => ({
-              name: fieldValue,
-              slug: createSlug(options.basePaths.tag, fieldValue),
-            })),
+          type: `[String]!`,
         },
         // 2. image フィールドと `File` ノードを連結する
         image: {

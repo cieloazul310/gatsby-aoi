@@ -21,6 +21,7 @@ import Layout from './layout';
 import AuthorBox from './components/AuthorBox';
 import mdxComponents from './mdxComponents';
 import shortcodes from './shortcodes';
+import { useCategoryToSlug, useTagToSlug } from './utils';
 
 type PageData = {
   mdxPost: MdxPost;
@@ -43,6 +44,9 @@ function BlogPostTemplate({
   const staticImage =
     image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
   const bgcolor = image?.childImageSharp?.gatsbyImageData?.backgroundColor;
+  const categoryToSlug = useCategoryToSlug();
+  const tagToSlug = useTagToSlug();
+
   return (
     <Layout
       title={title ?? 'Title'}
@@ -83,16 +87,20 @@ function BlogPostTemplate({
               <Typography>
                 Categories:{' '}
                 {categories.map((category) => (
-                  <AppLink key={category.name} href={category.slug} mr={1}>
-                    {category.name}
+                  <AppLink
+                    key={category}
+                    href={categoryToSlug(category)}
+                    mr={1}
+                  >
+                    {category}
                   </AppLink>
                 ))}
               </Typography>
               {tags.length ? (
                 <Typography>
                   {tags.map((tag) => (
-                    <AppLink key={tag.name} href={tag.slug} mr={1}>
-                      #{tag.name}
+                    <AppLink key={tag} href={tagToSlug(tag)} mr={1}>
+                      #{tag}
                     </AppLink>
                   ))}
                 </Typography>
@@ -151,14 +159,8 @@ export const pageQuery = graphql`
       slug
       title
       date(formatString: "YYYY-MM-DD")
-      categories {
-        name
-        slug
-      }
-      tags {
-        name
-        slug
-      }
+      categories
+      tags
       tableOfContents(maxDepth: 2)
       excerpt(pruneLength: 140)
       author {

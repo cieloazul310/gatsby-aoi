@@ -96,7 +96,7 @@ export function Head() {
 export const query = graphql`
   {
     allMdxPost(sort: { date: DESC }) {
-      group(field: { categories: { name: SELECT } }, limit: 2) {
+      group(field: { categories: SELECT }, limit: 2) {
         totalCount
         fieldValue
         nodes {

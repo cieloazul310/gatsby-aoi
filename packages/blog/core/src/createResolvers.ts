@@ -108,11 +108,7 @@ export default function gatsbyCreateResolvers(
             query: {
               filter: {
                 categories: {
-                  elemMatch: {
-                    name: {
-                      ne: '',
-                    },
-                  },
+                  ne: null,
                 },
               },
             },
@@ -137,11 +133,7 @@ export default function gatsbyCreateResolvers(
             query: {
               filter: {
                 tags: {
-                  elemMatch: {
-                    name: {
-                      ne: '',
-                    },
-                  },
+                  ne: null,
                 },
               },
             },

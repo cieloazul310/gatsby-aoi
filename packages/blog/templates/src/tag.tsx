@@ -113,9 +113,9 @@ export function Head({ pageContext }: HeadProps<PageData, PageContext>) {
 }
 
 export const query = graphql`
-  query Tag($slug: String!, $skip: Int!, $limit: Int!) {
+  query Tag($name: String!, $skip: Int!, $limit: Int!) {
     allMdxPost(
-      filter: { tags: { elemMatch: { slug: { eq: $slug } } } }
+      filter: { tags: { eq: $name } }
       sort: { date: DESC }
       limit: $limit
       skip: $skip
