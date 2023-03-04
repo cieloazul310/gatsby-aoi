@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
 import { Jumbotron } from '@cieloazul310/gatsby-theme-aoi-components';
 
 export default {
@@ -8,31 +10,62 @@ export default {
   component: Jumbotron,
 };
 
+function Header() {
+  return (
+    <AppBar color="primary" position="sticky">
+      <Toolbar>
+        <Typography variant="h6">Title</Typography>
+      </Toolbar>
+    </AppBar>
+  );
+}
+
 export function withTitle() {
-  return <Jumbotron title="With Title" />;
+  return (
+    <div>
+      <Header />
+      <Jumbotron title="With Title" />
+    </div>
+  );
+}
+
+export function BackgroundImage() {
+  return (
+    <div>
+      <Header />
+      <Jumbotron
+        title="Background Image"
+        bgImage="https://images.microcms-assets.io/assets/d87f2876d9644eb7b41170736931d50c/f04f897a2cae4ca58191c6d6864b4bf7/IMG_9034.jpeg"
+      />
+    </div>
+  );
 }
 
 export function withChildren() {
   return (
-    <Jumbotron>
-      <Typography variant="h4" component="h1">
-        Title
-      </Typography>
-      <Typography variant="h6" component="small">
-        Sub Title
-      </Typography>
-    </Jumbotron>
+    <div>
+      <Header />
+      <Jumbotron>
+        <Typography variant="h4" component="h1">
+          Title
+        </Typography>
+        <Typography variant="h6" component="small">
+          Sub Title
+        </Typography>
+      </Jumbotron>
+    </div>
   );
 }
 
 export function withFlexBox() {
   return (
-    <Jumbotron maxWidth="md" disableGradient>
+    <Jumbotron disableGradient containerProps={{ maxWidth: 'md' }}>
       <Box
         sx={{
           flexGrow: 1,
           bgcolor: '#aaa',
           display: 'flex',
+          height: '100%',
           flexDirection: 'row',
         }}
       >
