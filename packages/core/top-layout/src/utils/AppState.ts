@@ -4,6 +4,9 @@ export type AppState = {
 
 export const initialAppState: AppState = {};
 
+/**
+ * @deprecated
+ */
 export function useInitialAppState() {
   return initialAppState;
 }
