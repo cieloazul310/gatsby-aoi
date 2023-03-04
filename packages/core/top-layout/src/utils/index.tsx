@@ -11,4 +11,5 @@ export {
   useToggleDark,
   useToggleUseSystem,
 } from './ThemeStateContext';
+export { default as useGetDesignTokens } from './useGetDesignTokens';
 export { default as useUpdateOnClient } from './useUpdateOnClient';

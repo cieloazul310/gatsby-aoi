@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "tsc -b .",
-    "dev": "tsc --watch",
+    "dev": "tsc -b . --watch",
     "build:blog": "yarn run build",
     "clean": "rimraf lib && tsc -b . --clean && tsc -b ./tsconfig.cjs.json --clean",
     "eslint": "eslint src/",

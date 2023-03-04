@@ -30,7 +30,7 @@
   },
   "scripts": {
     "build": "tsc -b .",
-    "dev": "tsc --watch",
+    "dev": "tsc -b . --watch",
     "build:core": "yarn run build",
     "clean": "rimraf lib && tsc -b . --clean",
     "eslint": "eslint src/",

@@ -20,7 +20,7 @@ export const AppLink: (props: AppLinkProps) => JSX.Element | null =
       const linkColor =
         color ??
         (({ palette }: Theme) =>
-          palette.mode === 'light' ? 'secondary.dark' : 'secondary.main');
+          palette.mode === 'light' ? 'secondary.dark' : 'secondary.light');
 
       if (href && isInternal(href)) {
         return (

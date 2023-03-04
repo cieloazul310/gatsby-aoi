@@ -1,21 +1,11 @@
-import { createTheme, lighten } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import initialMuiTheme from '@cieloazul310/gatsby-theme-aoi-top-layout/src/theme';
+import { useGetDesignTokens } from '@cieloazul310/gatsby-theme-aoi-top-layout';
+
+const getDesignTokens = useGetDesignTokens(initialMuiTheme);
 
 const light = initialMuiTheme;
-const dark = createTheme({
-  ...initialMuiTheme,
-  palette: {
-    ...initialMuiTheme.palette.primary,
-    primary: {
-      main: lighten(initialMuiTheme.palette.primary.main, 0.4)
-    },
-    secondary: {
-      ...initialMuiTheme.palette.secondary,
-      main: lighten(initialMuiTheme.palette.secondary.main, 0.4)
-    },
-    mode: 'dark',
-  },
-});
+const dark = createTheme(getDesignTokens('dark'));
 
 export default {
   light,

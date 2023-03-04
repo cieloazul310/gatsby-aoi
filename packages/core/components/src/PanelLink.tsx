@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ButtonBase, { type ButtonBaseProps } from '@mui/material/ButtonBase';
-import type { Theme } from '@mui/material/styles';
+import { alpha, type Theme } from '@mui/material/styles';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 import { isInternal } from '@cieloazul310/gatsby-theme-aoi-utils';
 import GatsbyLinkComposed, {
@@ -23,7 +23,7 @@ const ButtonBaseRootStyle = {
   zIndex: 100,
   '&:hover': {
     bgcolor: ({ palette }: Theme) =>
-      palette.grey[palette.mode === 'light' ? 100 : 900],
+      alpha(palette.primary.main, palette.action.hoverOpacity),
   },
 } as const;
 

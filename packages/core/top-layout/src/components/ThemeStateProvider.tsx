@@ -4,9 +4,10 @@ import {
   ThemeProvider,
   StyledEngineProvider,
   createTheme,
-  lighten,
+  responsiveFontSizes,
 } from '@mui/material/styles';
 import initialMuiTheme from '../theme';
+import useGetDesignTokens from '../utils/useGetDesignTokens';
 import type { PaletteType } from '../utils/ThemeState';
 
 type TopThemeProviderProps = {
@@ -15,28 +16,9 @@ type TopThemeProviderProps = {
 };
 
 function TopThemeProvider({ children, paletteType }: TopThemeProviderProps) {
+  const getDesignTokens = useGetDesignTokens(initialMuiTheme);
   const theme = React.useMemo(
-    () =>
-      createTheme({
-        ...initialMuiTheme,
-        palette: {
-          ...initialMuiTheme.palette.primary,
-          primary: {
-            main:
-              paletteType === 'dark'
-                ? lighten(initialMuiTheme.palette.primary.main, 0.4)
-                : initialMuiTheme.palette.primary.main,
-          },
-          secondary: {
-            ...initialMuiTheme.palette.secondary,
-            main:
-              paletteType === 'dark'
-                ? lighten(initialMuiTheme.palette.secondary.main, 0.4)
-                : initialMuiTheme.palette.secondary.main,
-          },
-          mode: paletteType,
-        },
-      }),
+    () => responsiveFontSizes(createTheme(getDesignTokens(paletteType))),
     [paletteType]
   );
 

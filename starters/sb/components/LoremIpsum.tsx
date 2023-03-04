@@ -10,6 +10,8 @@ import {
   SubParagraph,
   AppLink,
   Blockquote,
+  Code,
+  CodeBlock,
   Hr,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 
@@ -114,10 +116,13 @@ export function LoremIpsum() {
         </Paragraph>
       </Blockquote>
       <Paragraph>
-        Proin condimentum felis nec luctus egestas. In in sagittis augue.
-        Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu. Vivamus
-        vulputate posuere vehicula.
+        <Code>Proin condimentum felis</Code> nec luctus egestas. In in sagittis
+        augue. Quisque feugiat ac diam et laoreet. Curabitur a tempus arcu.
+        Vivamus vulputate posuere vehicula.
       </Paragraph>
+      <CodeBlock>
+        <Code>{`import * as React from 'react';`}</Code>
+      </CodeBlock>
       <H3>Heading 3</H3>
       <Blockquote>
         <H2>In Blockquote</H2>

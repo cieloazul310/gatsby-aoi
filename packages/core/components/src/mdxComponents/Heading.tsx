@@ -32,7 +32,9 @@ export const H2: (
     mt={8}
     mb={2}
     borderBottom={1}
-    borderColor="secondary.dark"
+    borderColor={({ palette }) =>
+      palette.mode === 'light' ? 'secondary.dark' : palette.text.primary
+    }
     {...props}
   />
 ));

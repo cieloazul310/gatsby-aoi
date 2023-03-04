@@ -96,7 +96,7 @@ export const Code: (
     bgcolor={({ palette }) =>
       alpha(palette.secondary.main, palette.action.selectedOpacity)
     }
-    sx={{ 'pre > &': { bgColor: 'none', color: 'inherit' } }}
+    sx={{ 'pre > &': { background: 'none', color: 'inherit' } }}
     {...props}
   />
 ));
@@ -120,7 +120,7 @@ export const CodeBlock: (
     borderRadius={1}
     fontSize=".875em"
     bgcolor={({ palette }) =>
-      alpha(palette.secondary.main, palette.action.selectedOpacity)
+      alpha(palette.text.disabled, palette.action.hoverOpacity)
     }
     sx={{ overflowX: 'auto' }}
     {...props}
