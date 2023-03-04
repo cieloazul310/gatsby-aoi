@@ -13,11 +13,11 @@ import {
 import type { MdxPostMonth } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
-  // months: MdxPostMonth[];
+  months: MdxPostMonth[];
 };
 
 function ArchivePage({ data }: PageProps<PageData>) {
-  // const { months } = data;
+  const { months } = data;
   return (
     <Layout title="Archive" componentViewports={{ bottomNav: false }}>
       <article>
@@ -28,8 +28,7 @@ function ArchivePage({ data }: PageProps<PageData>) {
         <Section>
           <Article maxWidth="md">
             <List>
-              {/*
-              months.map(({ basePath, year, month, totalCount }, index) => (
+              {months.map(({ basePath, year, month, totalCount }, index) => (
                 <ListItemLink
                   key={basePath}
                   href={basePath}
@@ -37,8 +36,7 @@ function ArchivePage({ data }: PageProps<PageData>) {
                   secondaryText={`${totalCount} posts`}
                   divider={index !== months.length - 1}
                 />
-              ))
-              */}
+              ))}
             </List>
           </Article>
         </Section>
@@ -52,7 +50,7 @@ export default ArchivePage;
 export function Head() {
   return <Seo title="Archive" />;
 }
-/*
+
 export const query = graphql`
   query {
     months: allMdxPostMonths {
@@ -66,4 +64,3 @@ export const query = graphql`
     }
   }
 `;
-*/

@@ -52,6 +52,7 @@ type PageContext = {
   month: string;
   gte: string;
   lt: string;
+  glob: string;
   limit: number;
   skip: number;
   numPages: number;
@@ -153,9 +154,9 @@ export function Head({ pageContext }: HeadProps<PageData, PageContext>) {
 }
 
 export const query = graphql`
-  query Archive($gte: Date!, $lt: Date!, $skip: Int!, $limit: Int!) {
+  query Archive($glob: String!, $skip: Int!, $limit: Int!) {
     allMdxPost(
-      filter: { date: { gte: $gte, lt: $lt } }
+      filter: { slug: { glob: $glob } }
       sort: { date: DESC }
       limit: $limit
       skip: $skip

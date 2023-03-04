@@ -246,6 +246,7 @@ export default async function createPagesAsync(
             month,
             gte,
             lt,
+            glob: `${basePath}/*`,
             totalCount,
             limit: postsPerPage,
             skip: i * postsPerPage,
