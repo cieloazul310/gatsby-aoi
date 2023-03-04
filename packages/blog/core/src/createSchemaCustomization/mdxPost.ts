@@ -10,7 +10,6 @@ import type {
 import {
   withDefaults,
   isString,
-  createSlug,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import type {
   Author,
@@ -78,6 +77,10 @@ async function processMdxPostRelativeImage(
  * 1. author フィールドと `Author` ノードを連結する
  * 2. image フィールドと `File` ノードを連結する
  * 3. tableOfContents, excerpt フィールドを `Mdx` ノードから引用する
+ *
+ * その他のスキーマを作成する
+ * 1. Terminology スキーマ (カテゴリー、タグで使用)
+ * 2. MdxPostMonth スキーマ (月別の MdxPost で使用)
  */
 export default function createMdxPostSchemaCustomization(
   { actions, schema }: CreateSchemaCustomizationArgs,
@@ -85,21 +88,19 @@ export default function createMdxPostSchemaCustomization(
 ) {
   const options = withDefaults(themeOptions);
   const { createTypes } = actions;
-  /**
-    type MdxMonth {
+  createTypes(`
+    type Terminology @dontInfer {
+      name: String!
+      slug: String!
+      totalCount: Int!
+    }
+    type MdxPostMonth {
       id: String!
       year: String!
       month: String!
       basePath: String!
       gte: String!
       lt: String!
-      totalCount: Int!
-    }
-   */
-  createTypes(`
-    type Terminology @dontInfer {
-      name: String!
-      slug: String!
       totalCount: Int!
     }
   `);

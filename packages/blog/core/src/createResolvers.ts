@@ -1,11 +1,9 @@
 import type { CreateResolversArgs } from 'gatsby';
 import {
   withDefaults,
-  fieldValueToSlug,
   createSlug,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
 import {
-  // MdxPost,
   MdxPostMonth,
   ThemeOptions,
   GatsbyGraphQLContext,
@@ -23,9 +21,9 @@ function createTerminology(basePath: string, items: string[]): Terminology[] {
     (a, b) => b.totalCount - a.totalCount || a.name.localeCompare(b.name)
   );
 }
-/*
+
 function mdxPostToMonths(
-  posts: MdxPost[],
+  posts: MdxPost<'node'>[],
   basePaths: ThemeOptions['basePaths']
 ): MdxPostMonth[] {
   const months = posts
@@ -70,7 +68,13 @@ function mdxPostToMonths(
     };
   });
 }
-*/
+
+/**
+ * gatsbyCreateResolvers で何をするか
+ *
+ * 1. 月別の MdxPost を返す Graph クエリを作成
+ * 2. 全てのカテゴリー、タグを返すクエリを作成
+ */
 export default function gatsbyCreateResolvers(
   { createResolvers }: CreateResolversArgs,
   themeOptions: ThemeOptions
@@ -79,7 +83,6 @@ export default function gatsbyCreateResolvers(
 
   const resolvers = {
     Query: {
-      /*
       allMdxPostMonths: {
         type: `[MdxPostMonth]!`,
         resolve: async (
@@ -88,13 +91,12 @@ export default function gatsbyCreateResolvers(
           context: GatsbyGraphQLContext,
           info: any
         ) => {
-          const { entries } = await context.nodeModel.findAll<MdxPost>({
+          const { entries } = await context.nodeModel.findAll<MdxPost<'node'>>({
             type: `MdxPost`,
           });
           return mdxPostToMonths(Array.from(entries), basePaths);
         },
       },
-      */
       allCategories: {
         type: `[Terminology]!`,
         resolve: async (

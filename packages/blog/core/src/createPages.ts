@@ -23,9 +23,7 @@ type Data = {
   };
   allCategories: Terminology[];
   allTags: Terminology[];
-  /*
-  months: MdxPostMonth[];
-  */
+  allMdxPostMonths: MdxPostMonth[];
 };
 
 /**
@@ -75,12 +73,7 @@ export default async function createPagesAsync(
         slug
         totalCount
       }
-    }
-  `);
-  /*
-  const result = await graphql<Data>(`
-    {
-      months: allMdxPostMonths {
+      allMdxPostMonths {
         basePath
         gte
         id
@@ -91,13 +84,13 @@ export default async function createPagesAsync(
       }
     }
   `);
-  */
   if (result.errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
   if (!result.data) throw new Error('There are no posts');
 
-  const { allMdxPost, allAuthor, allCategories, allTags } = result.data;
+  const { allMdxPost, allAuthor, allCategories, allTags, allMdxPostMonths } =
+    result.data;
   const { posts } = allMdxPost;
 
   // 1. MdxPost ノードごとにページを作成する (Post)
@@ -228,36 +221,40 @@ export default async function createPagesAsync(
       });
     });
   });
-  /*
-  const { months } = result.data;
-  months.forEach(({ year, month, basePath, totalCount, lt, gte }, index) => {
-    const next = index === 0 ? null : months[index - 1];
-    const previous = index === months.length - 1 ? null : months[index + 1];
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    const numPages = Math.ceil(totalCount / postsPerPage);
-    Array.from({ length: numPages }).forEach((_, i) => {
-      createPage({
-        path: i === 0 ? basePath : `${basePath}/${i + 1}`,
-        component: require.resolve(
-          '@cieloazul310/gatsby-theme-aoi-blog-templates/src/archive.tsx'
-        ),
-        context: {
-          previous,
-          next,
-          type: 'Archive',
-          year,
-          month,
-          gte,
-          lt,
-          totalCount,
-          limit: postsPerPage,
-          skip: i * postsPerPage,
-          numPages,
-          currentPage: i + 1,
-          basePath,
-        },
+
+  // 4. MdxPost の月別の一覧ページを作成する (Archive)
+  allMdxPostMonths.forEach(
+    ({ year, month, basePath, totalCount, lt, gte }, index) => {
+      const next = index === 0 ? null : allMdxPostMonths[index - 1];
+      const previous =
+        index === allMdxPostMonths.length - 1
+          ? null
+          : allMdxPostMonths[index + 1];
+      // eslint-disable-next-line @typescript-eslint/no-shadow
+      const numPages = Math.ceil(totalCount / postsPerPage);
+      Array.from({ length: numPages }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? basePath : `${basePath}/${i + 1}`,
+          component: require.resolve(
+            '@cieloazul310/gatsby-theme-aoi-blog-templates/src/archive.tsx'
+          ),
+          context: {
+            previous,
+            next,
+            type: 'Archive',
+            year,
+            month,
+            gte,
+            lt,
+            totalCount,
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            numPages,
+            currentPage: i + 1,
+            basePath,
+          },
+        });
       });
-    });
-  });
-  */
+    }
+  );
 }

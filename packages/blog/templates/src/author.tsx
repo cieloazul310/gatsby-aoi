@@ -1,4 +1,3 @@
-/* eslint @typescript-eslint/no-unused-vars: warn */
 import * as React from 'react';
 import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import Box from '@mui/material/Box';
