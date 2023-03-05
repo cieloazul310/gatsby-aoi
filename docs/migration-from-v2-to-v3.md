@@ -75,10 +75,12 @@ export const initialAppState: AppState = {
   // ...your app state
 };
 
-// Remove!
-// export function useInitialAppState(isMobile: boolean) {
-//  return initialAppState;
-// }
+export function useInitialAppState(dispatch: React.Dispatch<Action>, isMobile: boolean) {
+  React.useEffect(() => {
+    // initial app state handler
+    // dispatch({ type: 'Increment' });
+  }, []);
+}
 ```
 
-Remove `useInitialAppState` hook.
+Refactor `useInitialAppState` hook.

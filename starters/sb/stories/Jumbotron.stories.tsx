@@ -45,7 +45,7 @@ export function withChildren() {
   return (
     <div>
       <Header />
-      <Jumbotron>
+      <Jumbotron component="header">
         <Typography variant="h4" component="h1">
           Title
         </Typography>

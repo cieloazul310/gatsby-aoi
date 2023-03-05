@@ -1,15 +1,10 @@
+import * as React from 'react';
+
 export type AppState = {
   // noop
 };
 
 export const initialAppState: AppState = {};
-
-/**
- * @deprecated
- */
-export function useInitialAppState() {
-  return initialAppState;
-}
 
 export type Action = { type: 'RESET' } | { type: 'ECHO' };
 
@@ -29,3 +24,21 @@ export default function reducer(state: AppState, action: Action): AppState {
       throw new Error("Reducer don't match the action type.");
   }
 }
+
+export const useInitialAppState = (
+  dispatch: React.Dispatch<Action>,
+  isMobile?: boolean
+) => {
+  React.useEffect(() => {
+    if (isMobile) {
+      dispatch({ type: 'ECHO' });
+    }
+  }, []);
+};
+/*
+export function setInitialAppState(dispatch: React.Dispatch<Action>, isMobile: boolean) {
+  if (isMobile) {
+    dispatch({ type: 'ECHO' })
+  }
+}
+*/

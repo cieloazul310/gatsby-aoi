@@ -17,9 +17,6 @@ export function Basic() {
         <ListItemText primary="Default" />
       </ListItemAppLink>
       <ListItemAppLink href="/">
-        <ListItemText primary="Button" />
-      </ListItemAppLink>
-      <ListItemAppLink href="/">
         <ListItemText
           primary="Secondary Text"
           secondary="Secondary Text is here"
@@ -36,6 +33,12 @@ export function Basic() {
       </ListItemAppLink>
       <ListItemAppLink href="https://cieloazul310.github.io">
         <ListItemText primary="External" />
+      </ListItemAppLink>
+      <ListItemAppLink href="mailto:hoge@hoge.com">
+        <ListItemText primary="Mail" />
+      </ListItemAppLink>
+      <ListItemAppLink href="#id">
+        <ListItemText primary="Link to section" />
       </ListItemAppLink>
     </List>
   );

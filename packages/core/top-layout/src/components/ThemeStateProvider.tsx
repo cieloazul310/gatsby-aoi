@@ -7,6 +7,7 @@ import {
   responsiveFontSizes,
 } from '@mui/material/styles';
 import initialMuiTheme from '../theme';
+import inputGlobalStyles from './GlobalStyles';
 import useGetDesignTokens from '../utils/useGetDesignTokens';
 import type { PaletteType } from '../utils/ThemeState';
 
@@ -27,6 +28,7 @@ function TopThemeProvider({ children, paletteType }: TopThemeProviderProps) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
+        {inputGlobalStyles}
         {children}
       </ThemeProvider>
     </StyledEngineProvider>

@@ -3,8 +3,11 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton, {
   type ListItemButtonProps,
 } from '@mui/material/ListItemButton';
+import LinkIcon from '@mui/icons-material/Link';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { isInternal } from '@cieloazul310/gatsby-theme-aoi-utils';
+import MaiOutlineIcon from '@mui/icons-material/MailOutline';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import { useLinkType } from '@cieloazul310/gatsby-theme-aoi-utils';
 import GatsbyLinkComposed, {
   type GatsbyLinkComposedProps,
 } from './mdxComponents/GatsbyLinkComposed';
@@ -27,10 +30,17 @@ export const ListItemAppLink: (
 ) => JSX.Element | null = React.forwardRef<
   HTMLAnchorElement,
   ListItemAppLinkProps
->(({ href, ...props }, ref) => {
-  const internal = href && isInternal(href);
+>(({ href, download, ...props }, ref) => {
+  const linkType = useLinkType(href);
+  const linkIcon = React.useMemo(() => {
+    if (download) return <FileDownloadIcon fontSize="inherit" />;
+    if (linkType === 'external') return <OpenInNewIcon fontSize="inherit" />;
+    if (linkType === 'mail') return <MaiOutlineIcon fontSize="inherit" />;
+    if (linkType === 'section') return <LinkIcon fontSize="inherit" />;
+    return null;
+  }, [linkType, download]);
   const button = React.useMemo(() => {
-    if (internal) {
+    if (href && linkType === 'internal') {
       return (
         <ListItemButton
           ref={ref}
@@ -45,18 +55,15 @@ export const ListItemAppLink: (
         ref={ref}
         component="a"
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={linkType === 'external' ? '_blank' : undefined}
+        rel={linkType === 'external' ? 'noopener noreferrer' : undefined}
         {...props}
       />
     );
   }, [href, ref, props]);
 
   return (
-    <ListItem
-      disablePadding
-      secondaryAction={!isInternal ? <OpenInNewIcon /> : null}
-    >
+    <ListItem disablePadding secondaryAction={linkIcon}>
       {button}
     </ListItem>
   );

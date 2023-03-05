@@ -9,3 +9,9 @@ export function useLinkType(url: string | undefined | null) {
   if (url.slice(0, 7) === 'mailto:') return 'mail';
   return 'external';
 }
+/*
+export function useLinkPropsByType(href: string | undefined | null) {
+  const linkType = useLinkType(href);
+  
+};
+*/

@@ -15,6 +15,12 @@ export function Basic() {
       <AppLink href="/" color="primary.main">
         Primary Color
       </AppLink>
+      <AppLink>No href</AppLink>
+      <AppLink href="#heading">To section</AppLink>
+      <AppLink href="mailto:hoge@hoge.com">Mail</AppLink>
+      <AppLink href="blog:hoge.png" download>
+        Download
+      </AppLink>
     </Stack>
   );
 }

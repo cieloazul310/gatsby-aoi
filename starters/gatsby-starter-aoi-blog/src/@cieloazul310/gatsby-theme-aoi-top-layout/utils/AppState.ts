@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 export type AppState = {
   count: number;
 };
@@ -24,3 +26,14 @@ export default function reducer(state: AppState, action: Action): AppState {
       throw new Error("Reducer don't match the action type.");
   }
 }
+
+export const useInitialAppState = (
+  dispatch: React.Dispatch<Action>,
+  isMobile?: boolean
+) => {
+  React.useEffect(() => {
+    if (isMobile) {
+      dispatch({ type: 'INCREMENT' });
+    }
+  }, []);
+};

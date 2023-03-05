@@ -38,6 +38,19 @@ export function Basic() {
           Contained
         </AppLinkButton>
       </Stack>
+      <Stack spacing={2} direction="row">
+        <AppLinkButton href="#id">To Section</AppLinkButton>
+        <AppLinkButton href="glob:hoge.png" variant="contained" download>
+          Download
+        </AppLinkButton>
+        <AppLinkButton
+          href="mailto:hoge@hoge.com"
+          variant="contained"
+          color="secondary"
+        >
+          Mail
+        </AppLinkButton>
+      </Stack>
     </Stack>
   );
 }
