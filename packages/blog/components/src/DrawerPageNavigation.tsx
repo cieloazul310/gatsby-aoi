@@ -1,4 +1,3 @@
-import * as React from 'react';
 import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -13,48 +12,48 @@ import {
 
 type DrawerPageNavigationProps = {
   title?: string;
-  previous?: {
-    to: string;
+  left?: {
+    href: string;
     title: string;
     secondaryText?: string;
   } | null;
-  next?: {
-    to: string;
+  right?: {
+    href: string;
     title: string;
     secondaryText?: string;
   } | null;
-  linkProps?: Partial<Omit<ListItemAppLinkProps, 'to' | 'button'>>;
+  linkProps?: Partial<Omit<ListItemAppLinkProps, 'href' | 'button'>>;
 };
 
 function DrawerPageNavigation({
   title,
-  previous,
-  next,
+  left,
+  right,
   linkProps,
 }: DrawerPageNavigationProps) {
   return (
     <List subheader={<ListSubheader>{title ?? 'Navigation'}</ListSubheader>}>
-      {previous ? (
+      {left ? (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ListItemAppLink to={previous.to} button {...linkProps}>
+        <ListItemAppLink href={left.href} {...linkProps}>
           <ListItemIcon>
             <ArrowBackIcon />
           </ListItemIcon>
           <ListItemText
-            primary={previous.title}
-            secondary={previous.secondaryText ?? 'Previous'}
+            primary={left.title}
+            secondary={left.secondaryText ?? 'Newer post'}
           />
         </ListItemAppLink>
       ) : null}
-      {next ? (
+      {right ? (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ListItemAppLink to={next.to} button {...linkProps}>
+        <ListItemAppLink href={right.href} {...linkProps}>
           <ListItemIcon>
             <ArrowForwardIcon />
           </ListItemIcon>
           <ListItemText
-            primary={next.title}
-            secondary={next.secondaryText ?? 'Next'}
+            primary={right.title}
+            secondary={right.secondaryText ?? 'Older post'}
           />
         </ListItemAppLink>
       ) : null}
@@ -64,8 +63,8 @@ function DrawerPageNavigation({
 
 DrawerPageNavigation.defaultProps = {
   title: undefined,
-  previous: undefined,
-  next: undefined,
+  left: undefined,
+  right: undefined,
   linkProps: undefined,
 };
 

@@ -1,31 +1,26 @@
 import * as path from 'path';
-import type { CreateNodeArgs, Node, GatsbyCache } from 'gatsby';
+import type { CreateNodeArgs, Node } from 'gatsby';
 import { createContentDigest } from 'gatsby-core-utils';
 import { createFilePath, createRemoteFileNode } from 'gatsby-source-filesystem';
 import {
   withDefaults,
   validURL,
-  type MdxBare,
-  type ThemeOptions,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type {
+  Mdx,
+  ThemeOptions,
+} from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
-declare module 'gatsby-source-filesystem' {
-  type CreateRemoteFileNodeArgsFixed = Omit<
-    CreateRemoteFileNodeArgs,
-    'cache' | 'reporter' | 'store'
-  > & {
-    getCache: (this: void, id: string) => GatsbyCache;
-  };
-  // eslint-disable-next-line @typescript-eslint/no-shadow
-  function createRemoteFileNode(
-    args: CreateRemoteFileNodeArgsFixed
-  ): Promise<FileSystemNode>;
-}
-
-function isMdxNode(node: Node & Record<string, unknown>): node is MdxBare {
+function isMdxNode(node: Node & Record<string, unknown>): node is Mdx {
   return typeof node.frontmatter === 'object';
 }
 
+/**
+ * onCreateNode で何をするか
+ *
+ * 1. gatsby-plugin-mdx が生成した `Mdx` ノードから新たに `MdxPost` ノードを生成する
+ * 2. frontmatter.image の URL から remoteFileNode を生成する
+ */
 export default async function onCreateNode(
   {
     node,
@@ -44,29 +39,28 @@ export default async function onCreateNode(
   if (node.internal.type !== 'Mdx') return;
   if (!isMdxNode(node)) return;
 
-  // const contentPath = `/content/posts/`;
   const contentPath = path.join(options.contentPath, options.basePaths.posts);
   // Create source field (according to contentPath)
   const parentFileNode = getNode(node.parent ?? '');
   const source = parentFileNode?.sourceInstanceName;
 
+  // pages/*.mdx を除外
   if (source !== contentPath) return;
-
   const value = createFilePath({ node, getNode });
-  // const slug = `/posts${value}`;
   const slug = path.join(options.basePaths.posts, value);
 
-  const fieldData: Record<string, unknown> = {
+  const fieldData: Record<string, any> = {
     title: node.frontmatter.title,
     slug,
-    categories: node.frontmatter.categories ?? [],
-    tags: node.frontmatter.tags ?? [],
     date: node.frontmatter.date,
     author: node.frontmatter.author,
+    categories: node.frontmatter.categories ?? [],
+    tags: node.frontmatter.tags ?? [],
     image: node.frontmatter.image,
     imageAlt: node.frontmatter.imageAlt,
   };
 
+  // 2. frontmatter.image の URL から remoteFileNode を生成する
   const { image } = node.frontmatter;
   if (image) {
     if (validURL(image)) {
@@ -83,8 +77,8 @@ export default async function onCreateNode(
     }
   }
 
+  // 1. gatsby-plugin-mdx が生成した `Mdx` ノードから新たに `MdxPost` ノードを生成する
   const mdxPostId = createNodeId(`${node.id} >>> MdxPost`);
-
   await createNode({
     ...fieldData,
     // Required fields.
@@ -96,6 +90,7 @@ export default async function onCreateNode(
       contentDigest: createContentDigest(fieldData),
       content: JSON.stringify(fieldData),
       description: `Mdx implementation of the BlogPost interface`,
+      contentFilePath: node.internal.contentFilePath,
     },
   });
   const mdxPostNode = getNode(mdxPostId);

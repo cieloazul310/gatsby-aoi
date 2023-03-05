@@ -5,7 +5,7 @@
     "gatsby-config.ts",
     "gatsby-browser.tsx",
     ".eslintrc.js",
-    "./content/**/*.tsx",
-    "./content/**/*.ts"
+    "./content/**/*",
+    "./content/**/*"
   ]
 }

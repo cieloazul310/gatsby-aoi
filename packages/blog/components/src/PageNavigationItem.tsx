@@ -6,16 +6,16 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 type PageNavigationItemProps = {
-  to: string;
-  next?: boolean;
+  href: string;
+  right?: boolean;
   disabled?: boolean;
   children: React.ReactNode;
 };
 
 function PageNavigationItem({
-  to,
-  disabled,
-  next,
+  href,
+  disabled = false,
+  right = false,
   children,
 }: PageNavigationItemProps) {
   return (
@@ -41,21 +41,21 @@ function PageNavigationItem({
       }}
       disabled={disabled}
       component={GatsbyLink}
-      to={to}
+      to={href}
     >
       {!disabled ? (
         <Box
           sx={{
             flexGrow: 1,
             paddingTop: 1,
-            paddingRight: next ? 1 : 7,
+            paddingRight: right ? 1 : 7,
             paddingBottom: 1,
-            paddingLeft: next ? 7 : 1,
+            paddingLeft: right ? 7 : 1,
             display: 'flex',
-            flexDirection: next ? 'row-reverse' : 'row',
+            flexDirection: right ? 'row-reverse' : 'row',
             justifyContent: 'flex-start',
             alignItems: 'center',
-            borderRight: next
+            borderRight: right
               ? 'none'
               : (theme) => ({
                   xs: 'none',
@@ -64,13 +64,13 @@ function PageNavigationItem({
           }}
         >
           <Box py={2} px={1} display="flex">
-            {next ? <ArrowForwardIcon /> : <ArrowBackIcon />}
+            {right ? <ArrowForwardIcon /> : <ArrowBackIcon />}
           </Box>
           <Box
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: next ? 'flex-end' : 'flex-start',
+              alignItems: right ? 'flex-end' : 'flex-start',
             }}
           >
             {children}
@@ -82,8 +82,8 @@ function PageNavigationItem({
 }
 
 PageNavigationItem.defaultProps = {
-  next: undefined,
-  disabled: undefined,
+  right: false,
+  disabled: false,
 };
 
 export default PageNavigationItem;

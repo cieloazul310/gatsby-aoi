@@ -8,28 +8,26 @@ import {
   Article,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
-import { AuthorBox, AuthorBrowser } from '@cieloazul310/gatsby-theme-aoi-blog';
+import { AuthorBox, type Author } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
   allAuthor: {
-    edges: {
-      node: Pick<
-        AuthorBrowser,
-        | 'name'
-        | 'slug'
-        | 'description'
-        | 'website'
-        | 'websiteURL'
-        | 'avatar'
-        | 'socials'
-        | 'posts'
-      >;
-    }[];
+    nodes: Pick<
+      Author,
+      | 'name'
+      | 'slug'
+      | 'description'
+      | 'website'
+      | 'websiteURL'
+      | 'avatar'
+      | 'socials'
+      | 'posts'
+    >[];
   };
 };
 
 function AuthorPage({ data }: PageProps<PageData>) {
-  const { edges } = data.allAuthor;
+  const { nodes } = data.allAuthor;
   return (
     <Layout title="Authors" componentViewports={{ bottomNav: false }}>
       <article>
@@ -37,7 +35,7 @@ function AuthorPage({ data }: PageProps<PageData>) {
           <Jumbotron title="Authors" maxWidth="md" />
         </header>
         <SectionDivider />
-        {edges.map(({ node }, index) => (
+        {nodes.map((node, index) => (
           <React.Fragment key={node.name}>
             <Section>
               <article>
@@ -46,7 +44,7 @@ function AuthorPage({ data }: PageProps<PageData>) {
                 </Article>
               </article>
             </Section>
-            {index !== edges.length - 1 ? <SectionDivider /> : null}
+            {index !== nodes.length - 1 ? <SectionDivider /> : null}
           </React.Fragment>
         ))}
       </article>
@@ -61,29 +59,28 @@ export function Head() {
 }
 
 export const query = graphql`
-  query {
-    allAuthor(
-      sort: { fields: [posts___totalCount, name], order: [DESC, ASC] }
-    ) {
-      edges {
-        node {
+  {
+    allAuthor(sort: [{ posts: { totalCount: DESC } }, { name: ASC }]) {
+      nodes {
+        name
+        slug
+        description
+        website
+        websiteURL
+        avatar {
+          childImageSharp {
+            gatsbyImageData(width: 200)
+          }
+        }
+        socials {
           name
-          slug
-          description
-          website
-          websiteURL
-          avatar {
-            childImageSharp {
-              gatsbyImageData(width: 200)
-            }
+          url
+        }
+        posts {
+          items {
+            ...MdxPostList
           }
-          socials {
-            name
-            url
-          }
-          posts {
-            totalCount
-          }
+          totalCount
         }
       }
     }

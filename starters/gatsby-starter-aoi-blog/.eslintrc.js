@@ -8,7 +8,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['custom'],
+  extends: ['plugin:mdx/recommended', 'custom'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,

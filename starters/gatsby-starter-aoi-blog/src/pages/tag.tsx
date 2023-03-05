@@ -9,6 +9,7 @@ import {
   AppLink,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
+import { useTagToSlug } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
   allMdxPost: {
@@ -16,13 +17,12 @@ type PageData = {
       field: string;
       fieldValue: string;
       totalCount: number;
-      slug: string;
     }[];
   };
 };
-
 function TagPage({ data }: PageProps<PageData>) {
   const { group } = data.allMdxPost;
+  const tagToSlug = useTagToSlug();
   return (
     <Layout title="Tags" componentViewports={{ bottomNav: false }}>
       <article>
@@ -33,11 +33,15 @@ function TagPage({ data }: PageProps<PageData>) {
         <Section>
           <Article maxWidth="md">
             {group
-              .sort((a, b) => b.totalCount - a.totalCount)
+              .sort(
+                (a, b) =>
+                  b.totalCount - a.totalCount ||
+                  a.fieldValue.localeCompare(b.fieldValue)
+              )
               .map((tag) => (
                 <AppLink
-                  key={tag.slug}
-                  to={tag.slug}
+                  key={tag.fieldValue}
+                  href={tagToSlug(tag.fieldValue)}
                   mr={1}
                 >{`#${tag.fieldValue}`}</AppLink>
               ))}
@@ -55,13 +59,12 @@ export function Head() {
 }
 
 export const query = graphql`
-  query {
-    allMdxPost(sort: { fields: date, order: DESC }) {
-      group(field: tags) {
+  {
+    allMdxPost(sort: { date: DESC }) {
+      group(field: { tags: SELECT }) {
         totalCount
         fieldValue
         field
-        slug
       }
     }
   }

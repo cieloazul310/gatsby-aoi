@@ -7,10 +7,18 @@ import {
   withDefaults,
   createSlug,
   validURL,
-  type AuthorBare,
-  type ThemeOptions,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type {
+  Author,
+  ThemeOptions,
+} from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
+/**
+ * sourceNodes で何をするか
+ *
+ * 1. プロジェクト内の authors.yml から `Author` ノードを生成
+ * 2. Author の avatar がリモートファイルの場合 remoteFileNode を生成する
+ */
 export default async function sourceNodes(
   { actions, createNodeId, createContentDigest, getCache }: SourceNodesArgs,
   themeOptions: ThemeOptions
@@ -22,7 +30,7 @@ export default async function sourceNodes(
   const dir = path.dirname(authorsFile);
   if (!fs.existsSync(authorsFile)) return;
 
-  const authors: AuthorBare[] = yaml.parse(
+  const authors: Author<'bare'>[] = yaml.parse(
     fs.readFileSync(authorsFile, 'utf8')
   );
 

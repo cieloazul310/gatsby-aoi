@@ -3,7 +3,7 @@ import {
   Layout,
   Section,
   Article,
-  ArticleTitle,
+  H2,
   Paragraph,
 } from '@cieloazul310/gatsby-theme-aoi';
 
@@ -12,7 +12,7 @@ function NotFoundPage() {
     <Layout title="404 not found">
       <Section>
         <Article>
-          <ArticleTitle>404 not found</ArticleTitle>
+          <H2>404 not found</H2>
           <Paragraph>This is Gatsby Aoi Theme Demo Page.</Paragraph>
         </Article>
       </Section>

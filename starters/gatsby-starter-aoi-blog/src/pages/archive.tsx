@@ -10,7 +10,7 @@ import {
   ListItemLink,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
-import { MdxPostMonth } from '@cieloazul310/gatsby-theme-aoi-blog';
+import type { MdxPostMonth } from '@cieloazul310/gatsby-theme-aoi-blog';
 
 type PageData = {
   months: MdxPostMonth[];
@@ -31,7 +31,7 @@ function ArchivePage({ data }: PageProps<PageData>) {
               {months.map(({ basePath, year, month, totalCount }, index) => (
                 <ListItemLink
                   key={basePath}
-                  to={basePath}
+                  href={basePath}
                   primaryText={`${year}年${month}月`}
                   secondaryText={`${totalCount} posts`}
                   divider={index !== months.length - 1}

@@ -9,16 +9,14 @@ import {
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import { Pagination } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type { MdxPostListFragment } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 import Layout from './layout';
-import MdxPostEdgesList from './components/MdxPostList';
+import MdxPostList from './components/MdxPostList';
 
 type PageData = {
   allMdxPost: {
-    edges: {
-      node: Pick<MdxPostBrowser, 'id' | 'title' | 'slug' | 'date' | 'author'>;
-    }[];
+    nodes: MdxPostListFragment[];
   };
 };
 
@@ -53,7 +51,7 @@ function AllPostsTemplate({
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            <MdxPostEdgesList edges={allMdxPost.edges} />
+            <MdxPostList posts={allMdxPost.nodes} />
             <Pagination
               numPages={numPages}
               currentPage={currentPage}
@@ -77,21 +75,9 @@ export function Head({ pageContext }: HeadProps<PageData, PageContext>) {
 
 export const query = graphql`
   query AllPosts($skip: Int!, $limit: Int!) {
-    allMdxPost(
-      sort: { fields: date, order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-          id
-          title
-          slug
-          date(formatString: "YYYY-MM-DD")
-          author {
-            name
-          }
-        }
+    allMdxPost(sort: { date: DESC }, limit: $limit, skip: $skip) {
+      nodes {
+        ...MdxPostList
       }
     }
   }

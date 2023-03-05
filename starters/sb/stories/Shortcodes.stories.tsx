@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import Stack from '@mui/material/Stack';
 import {
   Article,
   H3,
@@ -16,6 +17,35 @@ export default {
   title: 'Shortcodes',
 };
 
+export function Alerts() {
+  return (
+    <>
+      <Alert severity="error" title="Not found">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
+        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
+      </Alert>
+      <Alert severity="warning">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
+        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
+      </Alert>
+      <Alert severity="info" title="hoge">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
+        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
+      </Alert>
+      <Alert severity="success">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
+        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
+      </Alert>
+      <Alert severity="warning" title="hoge">
+        <Ul my={0}>
+          <Li>Lorem ipsum dolor sit amet</Li>
+          <Li>Duis nec quam quis nulla</Li>
+        </Ul>
+      </Alert>
+    </>
+  );
+}
+
 export function Shortcodes() {
   return (
     <Article maxWidth="md">
@@ -28,34 +58,18 @@ export function Shortcodes() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
       </Paragraph>
-      <Alert severity="error" title="Not found">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
-        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
-      </Alert>
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
       </Paragraph>
-      <Alert severity="warning">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
-        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
-      </Alert>
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
       </Paragraph>
-      <Alert severity="info" title="hoge">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
-        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
-      </Alert>
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
       </Paragraph>
-      <Alert severity="success">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
-        quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
-      </Alert>
       <SubParagraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
@@ -96,12 +110,7 @@ export function Shortcodes() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.
       </Paragraph>
-      <Alert severity="warning" title="hoge">
-        <Ul>
-          <Li>Lorem ipsum dolor sit amet</Li>
-          <Li>Duis nec quam quis nulla</Li>
-        </Ul>
-      </Alert>
+
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec quam
         quis nulla dignissim finibus. Morbi aliquam quam ut efficitur feugiat.

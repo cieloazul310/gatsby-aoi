@@ -3,18 +3,13 @@
   "display": "React Library",
   "extends": "./base.json",
   "compilerOptions": {
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "skipLibCheck": true,
     "strictBindCallApply": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "noFallthroughCasesInSwitch": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
     "jsx": "react",
     "declaration": true
   }

@@ -43,7 +43,7 @@ function FullWidthLayout() {
               sagittis augue. Quisque feugiat ac diam et laoreet. Curabitur a
               tempus arcu. Vivamus vulputate posuere vehicula.
             </Paragraph>
-            <AppLinkButton to="/">Back to Top</AppLinkButton>
+            <AppLinkButton href="/">Back to Top</AppLinkButton>
           </Article>
         </Section>
       </article>

@@ -18,6 +18,7 @@ function BottomNav() {
           value={path}
           label={title}
           icon={icon}
+          href={path}
         />
       ))}
     </BottomNavigation>

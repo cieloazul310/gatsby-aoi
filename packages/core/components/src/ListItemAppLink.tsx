@@ -1,72 +1,72 @@
-/* eslint react/jsx-props-no-spreading: "warn" */
 import * as React from 'react';
-import { Link as GatsbyLink, type GatsbyLinkProps } from 'gatsby';
-import ListItem, { type ListItemProps } from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton, {
+  type ListItemButtonProps,
+} from '@mui/material/ListItemButton';
+import LinkIcon from '@mui/icons-material/Link';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import MaiOutlineIcon from '@mui/icons-material/MailOutline';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import { useLinkType } from '@cieloazul310/gatsby-theme-aoi-utils';
+import GatsbyLinkComposed, {
+  type GatsbyLinkComposedProps,
+} from './mdxComponents/GatsbyLinkComposed';
 
-type GatsbyLinkComposedProps<T = Record<string, unknown>> = Omit<
-  GatsbyLinkProps<T>,
-  'ref'
->;
+export type ListItemAppLinkProps<
+  TState extends object = Record<string, unknown>
+> = Omit<GatsbyLinkComposedProps<TState>, 'to'> &
+  Omit<
+    ListItemButtonProps<
+      any,
+      {
+        href: string;
+      }
+    >,
+    'ref'
+  >;
 
-const GatsbyLinkComposed = React.forwardRef<any, GatsbyLinkComposedProps>(
-  (props, ref) => {
-    // eslint-disable-next-line react/prop-types
-    const { to, state, ...other } = props;
-    return <GatsbyLink to={to} state={state} ref={ref} {...other} />;
-  }
-);
-
-interface ListItemAppLinkPropsBase {
-  innerRef?: React.Ref<unknown>;
-  button?: boolean;
-  naked?: boolean;
-}
-
-export type ListItemAppLinkProps = ListItemAppLinkPropsBase &
-  GatsbyLinkComposedProps &
-  Omit<ListItemProps, 'ref'>;
-
-function ListItemAppLink(props: ListItemAppLinkProps) {
-  const { className, innerRef, naked, to, button, ...other } = props;
-
-  if (naked) {
-    return (
-      <GatsbyLinkComposed
-        className={className}
-        ref={innerRef}
-        to={to}
-        {...other}
-      />
-    );
-  }
-  if (button) {
+export const ListItemAppLink: (
+  props: Omit<ListItemAppLinkProps, 'ref'>
+) => JSX.Element | null = React.forwardRef<
+  HTMLAnchorElement,
+  ListItemAppLinkProps
+>(({ href, download, ...props }, ref) => {
+  const linkType = useLinkType(href);
+  const linkIcon = React.useMemo(() => {
+    if (download) return <FileDownloadIcon fontSize="inherit" />;
+    if (linkType === 'external') return <OpenInNewIcon fontSize="inherit" />;
+    if (linkType === 'mail') return <MaiOutlineIcon fontSize="inherit" />;
+    if (linkType === 'section') return <LinkIcon fontSize="inherit" />;
+    return null;
+  }, [linkType, download]);
+  const button = React.useMemo(() => {
+    if (href && linkType === 'internal') {
+      return (
+        <ListItemButton
+          ref={ref}
+          component={GatsbyLinkComposed}
+          to={href}
+          {...props}
+        />
+      );
+    }
     return (
       <ListItemButton
-        component={GatsbyLinkComposed}
-        className={className}
-        to={to}
-        ref={innerRef}
-        {...other}
+        ref={ref}
+        component="a"
+        href={href}
+        target={linkType === 'external' ? '_blank' : undefined}
+        rel={linkType === 'external' ? 'noopener noreferrer' : undefined}
+        {...props}
       />
     );
-  }
+  }, [href, ref, props]);
 
   return (
-    <ListItem
-      component={GatsbyLinkComposed}
-      className={className}
-      to={to}
-      ref={innerRef}
-      {...other}
-    />
+    <ListItem disablePadding secondaryAction={linkIcon}>
+      {button}
+    </ListItem>
   );
-}
-
-ListItemAppLink.defaultProps = {
-  innerRef: undefined,
-  button: undefined,
-  naked: undefined,
-};
+});
 
 export default ListItemAppLink;

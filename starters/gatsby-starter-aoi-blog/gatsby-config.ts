@@ -61,7 +61,7 @@ module.exports = {
         // excerptLength: 140,
         imageMaxWidth: 800,
         gatsbyRemarkPlugins: [
-          `gatsby-remark-embed-snippet`,
+          // `gatsby-remark-embed-snippet`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {

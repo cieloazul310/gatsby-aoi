@@ -22,11 +22,11 @@
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.9",
     "@mui/material": "^5.11.10",
-    "gatsby": "^4.24.6",
-    "gatsby-plugin-image": "^2.24.0",
-    "gatsby-plugin-twitter": "^4.24.0",
-    "gatsby-remark-embed-snippet": "^7.24.0",
-    "gatsby-remark-prismjs": "^6.24.0",
+    "gatsby": "^5.7.0",
+    "gatsby-plugin-image": "^3.7.0",
+    "gatsby-plugin-twitter": "^5.7.0",
+    "gatsby-remark-embed-snippet": "^8.7.0",
+    "gatsby-remark-prismjs": "^7.7.0",
     "prism-themes": "^1.9.0",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
@@ -35,6 +35,7 @@
   "devDependencies": {
     "eslint": "^8.34.0",
     "eslint-config-custom": "^2.11.0",
+    "eslint-plugin-mdx": "^2.0.5",
     "tsconfig": "^2.11.0",
     "typescript": "^4.9.5"
   }

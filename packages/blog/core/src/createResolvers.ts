@@ -1,16 +1,29 @@
 import type { CreateResolversArgs } from 'gatsby';
 import {
   withDefaults,
-  fieldValueToSlug,
   createSlug,
-  type MdxPost,
-  type MdxPostMonth,
-  type ThemeOptions,
-  type GatsbyGraphQLContext,
 } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import {
+  MdxPostMonth,
+  ThemeOptions,
+  GatsbyGraphQLContext,
+  MdxPost,
+  Terminology,
+} from '@cieloazul310/gatsby-theme-aoi-blog-types';
+
+function createTerminology(basePath: string, items: string[]): Terminology[] {
+  const values = new Set(items);
+  return Array.from(values, (name) => ({
+    slug: createSlug(basePath, name),
+    name,
+    totalCount: items.filter((v) => v === name).length,
+  })).sort(
+    (a, b) => b.totalCount - a.totalCount || a.name.localeCompare(b.name)
+  );
+}
 
 function mdxPostToMonths(
-  posts: MdxPost[],
+  posts: MdxPost<'node'>[],
   basePaths: ThemeOptions['basePaths']
 ): MdxPostMonth[] {
   const months = posts
@@ -56,6 +69,12 @@ function mdxPostToMonths(
   });
 }
 
+/**
+ * gatsbyCreateResolvers で何をするか
+ *
+ * 1. 月別の MdxPost を返す Graph クエリを作成
+ * 2. 全てのカテゴリー、タグを返すクエリを作成
+ */
 export default function gatsbyCreateResolvers(
   { createResolvers }: CreateResolversArgs,
   themeOptions: ThemeOptions
@@ -72,50 +91,61 @@ export default function gatsbyCreateResolvers(
           context: GatsbyGraphQLContext,
           info: any
         ) => {
-          const { entries } = await context.nodeModel.findAll<MdxPost>({
+          const { entries } = await context.nodeModel.findAll<MdxPost<'node'>>({
             type: `MdxPost`,
           });
           return mdxPostToMonths(Array.from(entries), basePaths);
         },
       },
-    },
-    MdxPostGroupConnection: {
-      slug: {
-        type: `String!`,
+      allCategories: {
+        type: `[Terminology]!`,
         resolve: async (
-          source: { field: string; fieldValue: string },
+          source: unknown,
           args: any,
           context: GatsbyGraphQLContext,
           info: any
-        ) => fieldValueToSlug(source, basePaths),
+        ) => {
+          const { entries } = await context.nodeModel.findAll<MdxPost<'node'>>({
+            type: `MdxPost`,
+            query: {
+              filter: {
+                categories: {
+                  ne: null,
+                },
+              },
+            },
+          });
+          const hoge = Array.from(entries).reduce<string[]>(
+            (accum, { categories }) => [...accum, ...(categories ?? [])],
+            []
+          );
+          return createTerminology(basePaths.category, hoge);
+        },
       },
-    },
-    MdxPost: {
-      categoriesSlug: {
-        type: `[WithSlug]`,
+      allTags: {
+        type: `[Terminology]!`,
         resolve: async (
-          source: MdxPost,
+          source: unknown,
           args: any,
           context: GatsbyGraphQLContext,
           info: any
-        ) =>
-          source.categories?.map((name) => ({
-            name,
-            slug: createSlug(basePaths.category, name),
-          })) ?? [],
-      },
-      tagsSlug: {
-        type: `[WithSlug]`,
-        resolve: async (
-          source: MdxPost,
-          args: any,
-          context: GatsbyGraphQLContext,
-          info: any
-        ) =>
-          source.tags?.map((name) => ({
-            name,
-            slug: createSlug(basePaths.tag, name),
-          })) ?? [],
+        ) => {
+          const { entries } = await context.nodeModel.findAll<MdxPost<'node'>>({
+            type: `MdxPost`,
+            query: {
+              filter: {
+                tags: {
+                  ne: null,
+                },
+              },
+            },
+          });
+          const hoge = Array.from(entries).reduce<string[]>(
+            (accum, { tags }) => [...accum, ...(tags ?? [])],
+            []
+          );
+          return createTerminology(basePaths.tag, hoge);
+        },
       },
     },
   };

@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 /**
+ * @deprecated
  * usage:
  * `<div key={isClient}>`
  */

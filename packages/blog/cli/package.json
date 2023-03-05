@@ -28,7 +28,7 @@
   },
   "scripts": {
     "build": "tsc -b .",
-    "dev": "tsc --watch",
+    "dev": "tsc -b . --watch",
     "build:blog": "yarn run build",
     "clean": "rimraf lib && tsc -b . --clean",
     "eslint": "eslint src/",
@@ -53,7 +53,7 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^2.9.0"
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.0.0"
   },
   "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"
 }

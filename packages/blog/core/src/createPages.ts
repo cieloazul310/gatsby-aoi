@@ -1,93 +1,79 @@
+import * as path from 'path';
 import type { CreatePagesArgs } from 'gatsby';
-import {
-  withDefaults,
-  type MdxPost,
-  type MdxPostMonth,
-  type ThemeOptions,
-} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import { withDefaults } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type {
+  MdxPost,
+  Author,
+  MdxPostMonth,
+  Terminology,
+  ThemeOptions,
+} from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 type Data = {
   allMdxPost: {
-    posts: {
-      node: Pick<MdxPost, 'id' | 'title' | 'slug'> & {
-        year: string;
-        month: string;
-      };
-    }[];
-    categories: {
-      totalCount: number;
-      fieldValue: string;
-      field: string;
-      slug: string;
-    }[];
-    tags: {
-      totalCount: number;
-      fieldValue: string;
-      field: string;
-      slug: string;
-    }[];
+    posts: (Pick<MdxPost, 'id' | 'slug' | 'title'> & {
+      internal: Pick<MdxPost['internal'], 'contentFilePath'>;
+    })[];
     totalCount: number;
   };
   allAuthor: {
-    authors: {
-      node: {
-        name: string;
-        slug: string;
-        posts: {
-          totalCount: number;
-        };
-      };
-    }[];
+    authors: (Pick<Author, 'name' | 'slug'> & {
+      posts: Pick<Author['posts'], 'totalCount'>;
+    })[];
   };
-  months: MdxPostMonth[];
+  allCategories: Terminology[];
+  allTags: Terminology[];
+  allMdxPostMonths: MdxPostMonth[];
 };
 
-export default async function createPagesasync(
+/**
+ * createPagesAsync で何をするか
+ * 1. MdxPost ノードごとにページを作成する (Post)
+ * 2. Author ノードごとにページを作成する (Author)
+ * 3. MdxPost の新着順の一覧ページを作成する (AllPosts)
+ * 4. MdxPost の月別の一覧ページを作成する (Archive)
+ * 5. MdxPost のカテゴリー別のページを作成する (Categories)
+ * 6. MdxPost のタグ別のページを作成する (Tags)
+ */
+export default async function createPagesAsync(
   { graphql, actions, reporter }: CreatePagesArgs,
   themeOptions: Partial<ThemeOptions>
 ) {
   const { basePaths, postsPerPage } = withDefaults(themeOptions);
   const { createPage } = actions;
   const result = await graphql<Data>(`
-    query {
-      allMdxPost(sort: { fields: date, order: DESC }) {
-        posts: edges {
-          node {
-            id
-            title
-            year: date(formatString: "YYYY")
-            month: date(formatString: "MM")
-            slug
+    {
+      allMdxPost(sort: { date: DESC }) {
+        posts: nodes {
+          id
+          slug
+          title
+          internal {
+            contentFilePath
           }
-        }
-        categories: group(field: categories) {
-          totalCount
-          fieldValue
-          field
-          slug
-        }
-        tags: group(field: tags) {
-          totalCount
-          fieldValue
-          field
-          slug
         }
         totalCount
       }
-      allAuthor(
-        sort: { fields: [posts___totalCount, name], order: [DESC, ASC] }
-      ) {
-        authors: edges {
-          node {
-            name
-            slug
-            posts {
-              totalCount
-            }
+      allAuthor(sort: [{ posts: { totalCount: DESC } }, { name: ASC }]) {
+        authors: nodes {
+          name
+          slug
+          posts {
+            totalCount
           }
         }
       }
-      months: allMdxPostMonths {
+      allCategories {
+        name
+        slug
+        totalCount
+      }
+      allTags {
+        name
+        slug
+        totalCount
+      }
+      allMdxPostMonths {
         basePath
         gte
         id
@@ -103,30 +89,34 @@ export default async function createPagesasync(
   }
   if (!result.data) throw new Error('There are no posts');
 
-  const { posts, categories, tags } = result.data.allMdxPost;
+  const { allMdxPost, allAuthor, allCategories, allTags, allMdxPostMonths } =
+    result.data;
+  const { posts } = allMdxPost;
 
-  // generate Each post pages
-  posts.forEach(({ node }, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
+  // 1. MdxPost ノードごとにページを作成する (Post)
+  const postTemplate = require.resolve(
+    '@cieloazul310/gatsby-theme-aoi-blog-templates/src/posts.tsx'
+  );
+  posts.forEach(({ id, slug, internal }, index) => {
+    const newer = index === 0 ? null : posts[index - 1].id;
+    const older = index === posts.length - 1 ? null : posts[index + 1].id;
 
     createPage({
-      path: node.slug,
-      component: require.resolve(
-        '@cieloazul310/gatsby-theme-aoi-blog-templates/src/posts.tsx'
-      ),
-      context: { previous, next, id: node.id },
+      path: slug,
+      component: `${postTemplate}?__contentFilePath=${internal.contentFilePath}`,
+      context: { newer, older, id },
     });
   });
 
-  // generate All posts pages
+  // 3. MdxPost の新着順の一覧ページを作成する (AllPosts)
   const numPages = Math.ceil(posts.length / postsPerPage);
+  const allPostsTemplate = require.resolve(
+    '@cieloazul310/gatsby-theme-aoi-blog-templates/src/all-posts.tsx'
+  );
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? basePaths.posts : `${basePaths.posts}/${i + 1}`,
-      component: require.resolve(
-        '@cieloazul310/gatsby-theme-aoi-blog-templates/src/all-posts.tsx'
-      ),
+      component: allPostsTemplate,
       context: {
         title: 'All Posts',
         limit: postsPerPage,
@@ -134,76 +124,79 @@ export default async function createPagesasync(
         numPages,
         currentPage: i + 1,
         basePath: basePaths.posts,
-        totalCount: result.data?.allMdxPost.totalCount,
+        totalCount: allMdxPost.totalCount,
       },
     });
   });
 
-  // create category pages
-  categories
-    .sort((a, b) => b.totalCount - a.totalCount)
-    .forEach((category, index, arr) => {
-      const next = index === arr.length - 1 ? null : arr[index + 1];
-      const previous = index === 0 ? null : arr[index - 1];
-      // eslint-disable-next-line @typescript-eslint/no-shadow
-      const numPages = Math.ceil(category.totalCount / postsPerPage);
+  // 5. MdxPost のカテゴリー別のページを作成する (Categories)
+  const categoriesTemplate = require.resolve(
+    '@cieloazul310/gatsby-theme-aoi-blog-templates/src/category.tsx'
+  );
+  allCategories.forEach(({ name, slug, totalCount }, index, arr) => {
+    const previous = index === 0 ? null : arr[index - 1];
+    const next = index === arr.length - 1 ? null : arr[index + 1];
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    const numPages = Math.ceil(totalCount / postsPerPage);
 
-      Array.from({ length: numPages }).forEach((_, i) => {
-        createPage({
-          path: i === 0 ? `${category.slug}` : `${category.slug}/${i + 1}`,
-          component: require.resolve(
-            '@cieloazul310/gatsby-theme-aoi-blog-templates/src/category.tsx'
-          ),
-          context: {
-            previous,
-            next,
-            type: 'Category',
-            fieldValue: category.fieldValue,
-            limit: postsPerPage,
-            skip: i * postsPerPage,
-            numPages,
-            currentPage: i + 1,
-            basePath: category.slug,
-            totalCount: category.totalCount,
-          },
-        });
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? slug : path.join(slug, (i + 1).toString()),
+        component: categoriesTemplate,
+        context: {
+          previous,
+          next,
+          type: 'Category',
+          name,
+          slug,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+          basePath: slug,
+          totalCount,
+        },
       });
     });
+  });
 
-  // create tag pages
-  tags
-    .sort((a, b) => b.totalCount - a.totalCount)
-    .forEach((tag, index, arr) => {
-      const next = index === arr.length - 1 ? null : arr[index + 1];
-      const previous = index === 0 ? null : arr[index - 1];
-      // eslint-disable-next-line @typescript-eslint/no-shadow
-      const numPages = Math.ceil(tag.totalCount / postsPerPage);
+  // 6. MdxPost のタグ別のページを作成する (Tags)
+  const tagsTemplate = require.resolve(
+    '@cieloazul310/gatsby-theme-aoi-blog-templates/src/tag.tsx'
+  );
+  allTags.forEach(({ name, slug, totalCount }, index, arr) => {
+    const next = index === arr.length - 1 ? null : arr[index + 1];
+    const previous = index === 0 ? null : arr[index - 1];
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    const numPages = Math.ceil(totalCount / postsPerPage);
 
-      Array.from({ length: numPages }).forEach((_, i) => {
-        createPage({
-          path: i === 0 ? `${tag.slug}` : `${tag.slug}/${i + 1}`,
-          component: require.resolve(
-            '@cieloazul310/gatsby-theme-aoi-blog-templates/src/tag.tsx'
-          ),
-          context: {
-            previous,
-            next,
-            type: 'Tag',
-            fieldValue: tag.fieldValue,
-            limit: postsPerPage,
-            skip: i * postsPerPage,
-            numPages,
-            currentPage: i + 1,
-            basePath: tag.slug,
-            totalCount: tag.totalCount,
-          },
-        });
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? slug : path.join(slug, (i + 1).toString()),
+        component: tagsTemplate,
+        context: {
+          previous,
+          next,
+          type: 'Tag',
+          name,
+          slug,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+          basePath: slug,
+          totalCount,
+        },
       });
     });
+  });
 
-  // create author pages
-  const { authors } = result.data.allAuthor;
-  authors.forEach(({ node }, index, arr) => {
+  // 2. Author ノードごとにページを作成する (Author)
+  const { authors } = allAuthor;
+  const authorTemplate = require.resolve(
+    '@cieloazul310/gatsby-theme-aoi-blog-templates/src/author.tsx'
+  );
+  authors.forEach((node, index, arr) => {
     const next = index === arr.length - 1 ? null : arr[index + 1];
     const previous = index === 0 ? null : arr[index - 1];
     // eslint-disable-next-line @typescript-eslint/no-shadow
@@ -212,12 +205,10 @@ export default async function createPagesasync(
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `${node.slug}` : `${node.slug}/${i + 1}`,
-        component: require.resolve(
-          '@cieloazul310/gatsby-theme-aoi-blog-templates/src/author.tsx'
-        ),
+        component: authorTemplate,
         context: {
-          previous: previous?.node.name ?? null,
-          next: next?.node.name ?? null,
+          previous: previous?.name ?? null,
+          next: next?.name ?? null,
           type: 'Author',
           fieldValue: node.name,
           limit: postsPerPage,
@@ -231,34 +222,40 @@ export default async function createPagesasync(
     });
   });
 
-  const { months } = result.data;
-  months.forEach(({ year, month, basePath, totalCount, lt, gte }, index) => {
-    const next = index === 0 ? null : months[index - 1];
-    const previous = index === months.length - 1 ? null : months[index + 1];
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    const numPages = Math.ceil(totalCount / postsPerPage);
-    Array.from({ length: numPages }).forEach((_, i) => {
-      createPage({
-        path: i === 0 ? basePath : `${basePath}/${i + 1}`,
-        component: require.resolve(
-          '@cieloazul310/gatsby-theme-aoi-blog-templates/src/archive.tsx'
-        ),
-        context: {
-          previous,
-          next,
-          type: 'Archive',
-          year,
-          month,
-          gte,
-          lt,
-          totalCount,
-          limit: postsPerPage,
-          skip: i * postsPerPage,
-          numPages,
-          currentPage: i + 1,
-          basePath,
-        },
+  // 4. MdxPost の月別の一覧ページを作成する (Archive)
+  allMdxPostMonths.forEach(
+    ({ year, month, basePath, totalCount, lt, gte }, index) => {
+      const next = index === 0 ? null : allMdxPostMonths[index - 1];
+      const previous =
+        index === allMdxPostMonths.length - 1
+          ? null
+          : allMdxPostMonths[index + 1];
+      // eslint-disable-next-line @typescript-eslint/no-shadow
+      const numPages = Math.ceil(totalCount / postsPerPage);
+      Array.from({ length: numPages }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? basePath : `${basePath}/${i + 1}`,
+          component: require.resolve(
+            '@cieloazul310/gatsby-theme-aoi-blog-templates/src/archive.tsx'
+          ),
+          context: {
+            previous,
+            next,
+            type: 'Archive',
+            year,
+            month,
+            gte,
+            lt,
+            glob: `${basePath}/*`,
+            totalCount,
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            numPages,
+            currentPage: i + 1,
+            basePath,
+          },
+        });
       });
-    });
-  });
+    }
+  );
 }

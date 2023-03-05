@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    ".eslintrc.js",
+    "loadershim.js",
+    "jest.config.ts",
+    "jest-preprocess.js",
+    "packages/eslint-config-custom/*"
+  ]
+}

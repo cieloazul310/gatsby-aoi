@@ -14,13 +14,11 @@ Gatsby Theme Aoi には Gatsby サイト全体で保持されるグローバル�
 
 App State は Redux でお馴染みの reducer (リデューサ) によって実装されています。リデューサについての基礎知識が必要になります。以下の記事を参照してください。
 
-<PanelLink to="https://ja.reactjs.org/docs/hooks-reference.html#usereducer">
-  useReducer - フック API リファレンス
-</PanelLink>
+<PanelLink href="https://ja.reactjs.org/docs/hooks-reference.html#usereducer">useReducer - フック API リファレンス</PanelLink>
 
-### App State ファイルと App State Context ファイルを作成
+## App State ファイルと App State Context ファイルを作成
 
-#### AppState.ts
+## AppState.ts
 
 ```ts
 // ./src/@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppState.ts
@@ -57,7 +55,7 @@ export default function reducer(state: AppState, action: Action): AppState {
 
 `AppState.ts` では Gatsby サイトで使う App State の型定義、初期値、リデューサ、リデューサに渡すアクションの型定義を行います。
 
-#### AppStateContext.tsx
+## AppStateContext.tsx
 
 ```tsx
 // ./src/@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext.tsx
@@ -102,7 +100,7 @@ export function useDispatch() {
 
 `AppStateContext.tsx` が元のファイルと同じ内容なのであれば、Shadowing する必要はないのではと思われるかもしれませんが、`AppState` や `dispatch` の型の不一致を引き起こします。実はそれでも動作面では問題はないのですが、ESLint に怒られてしまうので素直に `AppStateContext.tsx` をコピペしましょう。
 
-### App State を使う
+## App State を使う
 
 App State はフックを使うことで全てのページ、全てのコンポーネントから利用できます。作成した `AppStateContext.tsx` から `useAppState` フックをインポートしてください。
 
@@ -126,7 +124,7 @@ export default IndexPage;
 
 App State は各ページよりも上位のコンポーネントで管理されているので、ページを移動しても値が保持されます。
 
-### App State を更新する
+## App State を更新する
 
 App State を更新したい場合は、`useDispatch` フックをインポートして `dispatch` メソッドを使用します。`useDispatch` も全てのページ、全てのコンポーネントで利用できます。
 

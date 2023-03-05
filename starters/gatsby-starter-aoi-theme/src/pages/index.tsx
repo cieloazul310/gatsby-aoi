@@ -38,16 +38,16 @@ function IndexPage() {
             <Ul>
               <Li>Simple with Drawer</Li>
               <Li>
-                Tab Layout <AppLink to="/tab-page/">Example</AppLink>
+                Tab Layout <AppLink href="/tab-page/">Example</AppLink>
               </Li>
               <Li>
-                Jumbotron <AppLink to="/jumbotron/">Example</AppLink>
+                Jumbotron <AppLink href="/jumbotron/">Example</AppLink>
               </Li>
               <Li>
-                Full Width <AppLink to="/without-drawer/">Example</AppLink>
+                Full Width <AppLink href="/without-drawer/">Example</AppLink>
               </Li>
             </Ul>
-            <PanelLink to="/catalogue/">Browse Catalogue</PanelLink>
+            <PanelLink href="/catalogue/">Browse Catalogue</PanelLink>
           </Article>
         </Section>
       </article>

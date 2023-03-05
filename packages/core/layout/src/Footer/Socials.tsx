@@ -1,4 +1,3 @@
-/* eslint react/jsx-props-no-spreading: warn */
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import { useSiteMetadata } from '@cieloazul310/gatsby-theme-aoi-utils';

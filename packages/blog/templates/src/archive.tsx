@@ -14,10 +14,10 @@ import {
   PageNavigationContainer,
   PageNavigationItem,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type { MdxPostListFragment } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 import Layout from './layout';
-import MdxPostEdgesList from './components/MdxPostList';
+import MdxPostList from './components/MdxPostList';
 
 function createTitleString(year: string, month: string) {
   return `${new Date(`${year}-${month}`).toLocaleString('en-us', {
@@ -28,9 +28,7 @@ function createTitleString(year: string, month: string) {
 
 type PageData = {
   allMdxPost: {
-    edges: {
-      node: Pick<MdxPostBrowser, 'id' | 'title' | 'slug' | 'date' | 'author'>;
-    }[];
+    nodes: MdxPostListFragment[];
   };
 };
 
@@ -54,6 +52,7 @@ type PageContext = {
   month: string;
   gte: string;
   lt: string;
+  glob: string;
   limit: number;
   skip: number;
   numPages: number;
@@ -88,15 +87,15 @@ function ArchiveTemplate({
       title={title}
       drawerContents={
         <DrawerPageNavigation
-          previous={
+          left={
             previous
               ? {
-                  to: previous.basePath,
+                  href: previous.basePath,
                   title: previousTitle,
                 }
               : null
           }
-          next={next ? { to: next.basePath, title: nextTitle } : null}
+          right={next ? { href: next.basePath, title: nextTitle } : null}
         />
       }
     >
@@ -113,7 +112,7 @@ function ArchiveTemplate({
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            <MdxPostEdgesList edges={allMdxPost.edges} />
+            <MdxPostList posts={allMdxPost.nodes} />
             <Pagination
               numPages={numPages}
               currentPage={currentPage}
@@ -126,14 +125,14 @@ function ArchiveTemplate({
           <Section>
             <PageNavigationContainer>
               <PageNavigationItem
-                to={previous?.basePath ?? '#'}
+                href={previous?.basePath ?? '#'}
                 disabled={!previous}
               >
                 <Typography variant="body2">{previousTitle}</Typography>
               </PageNavigationItem>
               <PageNavigationItem
-                to={next?.basePath ?? '#'}
-                next
+                href={next?.basePath ?? '#'}
+                right
                 disabled={!next}
               >
                 <Typography variant="body2">{nextTitle}</Typography>
@@ -155,23 +154,15 @@ export function Head({ pageContext }: HeadProps<PageData, PageContext>) {
 }
 
 export const query = graphql`
-  query Archive($gte: Date!, $lt: Date!, $skip: Int!, $limit: Int!) {
+  query Archive($glob: String!, $skip: Int!, $limit: Int!) {
     allMdxPost(
-      filter: { date: { gte: $gte, lt: $lt } }
-      sort: { fields: date, order: DESC }
+      filter: { slug: { glob: $glob } }
+      sort: { date: DESC }
       limit: $limit
       skip: $skip
     ) {
-      edges {
-        node {
-          id
-          title
-          slug
-          date(formatString: "YYYY-MM-DD")
-          author {
-            name
-          }
-        }
+      nodes {
+        ...MdxPostList
       }
     }
   }

@@ -18,7 +18,7 @@ function ShareButtons({ title, color = 'default' }: ShareButtonsProps) {
   const { lang, social } = useSiteMetadata();
   const twitterUrl = useSocialShare('twitter', title);
   const fbUrl = useSocialShare('facebook');
-  const github: typeof social[number] | undefined =
+  const github: (typeof social)[number] | undefined =
     social[social.map(({ name }) => name).indexOf('github')];
   return (
     <div>

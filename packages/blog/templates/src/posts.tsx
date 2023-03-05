@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { graphql, type PageProps, type HeadProps } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Typography from '@mui/material/Typography';
 import {
   Jumbotron,
@@ -15,44 +14,46 @@ import {
   DrawerPageNavigation,
   PageNavigationContainer,
   PageNavigationItem,
-  muiComponents,
 } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import type { MdxPostBrowser } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import type { MdxPost } from '@cieloazul310/gatsby-theme-aoi-blog-types';
 
 import Layout from './layout';
 import AuthorBox from './components/AuthorBox';
+import mdxComponents from './mdxComponents';
 import shortcodes from './shortcodes';
+import { useCategoryToSlug, useTagToSlug } from './utils';
 
 type PageData = {
-  mdxPost: MdxPostBrowser;
+  mdxPost: MdxPost;
+  newer: Pick<MdxPost, 'id' | 'slug' | 'title' | 'date'>;
+  older: Pick<MdxPost, 'id' | 'slug' | 'title' | 'date'>;
 };
 
 type PageContext = {
   id: string;
-  next: { id: string; slug: string; title: string } | null;
-  previous: { id: string; slug: string; title: string } | null;
+  newer: string | null;
+  older: string | null;
 };
 
 function BlogPostTemplate({
   data,
-  pageContext,
+  children,
 }: PageProps<PageData, PageContext>) {
-  const { mdxPost } = data;
-  if (!mdxPost) return null;
-  const { title, date, author, categoriesSlug, tagsSlug, image } = mdxPost;
-  const { previous, next } = pageContext;
+  const { mdxPost, newer, older } = data;
+  const { title, date, author, image, categories, tags } = mdxPost;
   const staticImage =
     image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
   const bgcolor = image?.childImageSharp?.gatsbyImageData?.backgroundColor;
+  const categoryToSlug = useCategoryToSlug();
+  const tagToSlug = useTagToSlug();
+
   return (
     <Layout
       title={title ?? 'Title'}
       drawerContents={
         <DrawerPageNavigation
-          previous={
-            previous ? { to: previous.slug, title: previous.title } : null
-          }
-          next={next ? { to: next.slug, title: next.title } : null}
+          right={older ? { href: older.slug, title: older.title } : null}
+          left={newer ? { href: newer.slug, title: newer.title } : null}
         />
       }
     >
@@ -63,14 +64,14 @@ function BlogPostTemplate({
             <Typography variant="h4" component="h2" gutterBottom>
               {title}
             </Typography>
-            <Typography>post by {author.name}</Typography>
+            <Typography>post by {author?.name}</Typography>
           </Jumbotron>
         </header>
         <SectionDivider />
         <Section>
           <Article maxWidth="md">
-            <MDXProvider components={{ ...muiComponents, ...shortcodes }}>
-              <MDXRenderer>{mdxPost.body}</MDXRenderer>
+            <MDXProvider components={{ ...mdxComponents, ...shortcodes }}>
+              {children}
             </MDXProvider>
           </Article>
         </Section>
@@ -82,20 +83,24 @@ function BlogPostTemplate({
                 {title}
               </Typography>
               <Typography>Date: {date}</Typography>
-              <Typography>Post by {author.name}</Typography>
+              <Typography>Post by {author?.name}</Typography>
               <Typography>
                 Categories:{' '}
-                {categoriesSlug.map((category) => (
-                  <AppLink key={category.name} to={category.slug} mr={1}>
-                    {category.name}
+                {categories.map((category) => (
+                  <AppLink
+                    key={category}
+                    href={categoryToSlug(category)}
+                    mr={1}
+                  >
+                    {category}
                   </AppLink>
                 ))}
               </Typography>
-              {tagsSlug.length ? (
+              {tags.length ? (
                 <Typography>
-                  {tagsSlug.map((tag) => (
-                    <AppLink key={tag.name} to={tag.slug} mr={1}>
-                      #{tag.name}
+                  {tags.map((tag) => (
+                    <AppLink key={tag} href={tagToSlug(tag)} mr={1}>
+                      #{tag}
                     </AppLink>
                   ))}
                 </Typography>
@@ -105,7 +110,7 @@ function BlogPostTemplate({
           <SectionDivider />
           <Section>
             <Article maxWidth="md">
-              <AuthorBox author={author} />
+              {author ? <AuthorBox author={author} /> : null}
             </Article>
           </Section>
         </footer>
@@ -113,19 +118,20 @@ function BlogPostTemplate({
         <nav>
           <Section>
             <PageNavigationContainer>
-              <PageNavigationItem
-                to={previous?.slug ?? '#'}
-                disabled={!previous}
-              >
-                <Typography variant="body2">{previous?.title}</Typography>
+              <PageNavigationItem href={newer?.slug ?? '#'} disabled={!newer}>
+                <Typography variant="body2">{newer?.title}</Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Previous
+                  Newer post
                 </Typography>
               </PageNavigationItem>
-              <PageNavigationItem to={next?.slug ?? '#'} next disabled={!next}>
-                <Typography variant="body2">{next?.title}</Typography>
+              <PageNavigationItem
+                href={older?.slug ?? '#'}
+                right
+                disabled={!older}
+              >
+                <Typography variant="body2">{older?.title}</Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Next
+                  Older post
                 </Typography>
               </PageNavigationItem>
             </PageNavigationContainer>
@@ -140,12 +146,68 @@ export default BlogPostTemplate;
 
 export function Head({ data }: HeadProps<PageData, PageContext>) {
   const { mdxPost } = data;
-  const { title, image, excerpt } = mdxPost;
+  const { excerpt, title, image } = mdxPost;
   const staticImage =
     image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
   return <Seo title={title} description={excerpt} image={staticImage} />;
 }
 
+export const pageQuery = graphql`
+  query PostQuery($id: String!, $newer: String, $older: String) {
+    mdxPost(id: { eq: $id }) {
+      id
+      slug
+      title
+      date(formatString: "YYYY-MM-DD")
+      categories
+      tags
+      tableOfContents(maxDepth: 2)
+      excerpt(pruneLength: 140)
+      author {
+        ...AuthorBox
+      }
+      image {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+      imageAlt
+    }
+    newer: mdxPost(id: { eq: $newer }) {
+      id
+      slug
+      title
+      date(formatString: "YYYY-MM-DD")
+    }
+    older: mdxPost(id: { eq: $older }) {
+      id
+      slug
+      title
+      date(formatString: "YYYY-MM-DD")
+    }
+  }
+  fragment AuthorBox on Author {
+    name
+    slug
+    description
+    website
+    websiteURL
+    avatar {
+      childImageSharp {
+        gatsbyImageData(width: 200)
+      }
+    }
+    socials {
+      name
+      url
+    }
+    posts {
+      totalCount
+    }
+  }
+`;
+
+/*
 export const pageQuery = graphql`
   query PostsQuery($id: String) {
     mdxPost(id: { eq: $id }) {
@@ -189,3 +251,4 @@ export const pageQuery = graphql`
     }
   }
 `;
+*/

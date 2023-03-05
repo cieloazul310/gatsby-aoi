@@ -6,13 +6,13 @@
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
   "main": "index.js",
-  "types": "index.d.ts",
+  "types": "types.d.ts",
   "bin": {
     "gatsby-aoi-blog": "./cli.js"
   },
   "files": [
     "index.js",
-    "index.d.ts",
+    "types.d.ts",
     "gatsby-config.js",
     "cli.js"
   ],
@@ -35,6 +35,7 @@
     "@cieloazul310/gatsby-theme-aoi-blog-components": "^2.11.0",
     "@cieloazul310/gatsby-theme-aoi-blog-core": "^2.11.0",
     "@cieloazul310/gatsby-theme-aoi-blog-templates": "^2.11.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-types": "^2.11.0",
     "@cieloazul310/gatsby-theme-aoi-blog-utils": "^2.11.0"
   },
   "devDependencies": {
@@ -44,12 +45,14 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "^2.9.3",
+    "@cieloazul310/gatsby-theme-aoi": "^3.0.0",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
     "@mui/icons-material": "^5.0.0",
     "@mui/material": "^5.0.0",
-    "gatsby": "^4.19.0",
-    "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
+    "gatsby": "^5.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"
 }
