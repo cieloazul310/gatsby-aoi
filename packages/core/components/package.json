@@ -33,7 +33,8 @@
     "build:core": "yarn run build",
     "clean": "rimraf lib && tsc -b . --clean",
     "eslint": "eslint src/",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepack": "yarn run build"
   },
   "devDependencies": {
     "@cieloazul310/gatsby-theme-aoi-top-layout": "^3.0.0",

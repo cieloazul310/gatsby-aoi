@@ -28,7 +28,8 @@
     "build:blog": "yarn run build",
     "clean": "rimraf lib && tsc -b . --clean && tsc -b ./tsconfig.cjs.json --clean",
     "eslint": "eslint src/",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepack": "yarn run build"
   },
   "bugs": {
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"

@@ -23,6 +23,7 @@
     "commit-version": "git add . && git commit -m \"chore(release): v`node -p 'require(\"./lerna.json\").version'`\"",
     "release": "lerna publish from-git",
     "ci:release": "lerna publish from-package --yes",
+    "lerna": "lerna",
     "prepare": "husky install",
     "test": "jest",
     "typecheck": "nx run-many --target=typecheck",
