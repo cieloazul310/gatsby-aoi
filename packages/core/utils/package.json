@@ -34,7 +34,8 @@
     "build:core": "yarn run build",
     "clean": "rimraf lib && tsc -b . --clean",
     "eslint": "eslint src/",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepack": "yarn run build"
   },
   "devDependencies": {
     "@gatsbyjs/reach-router": "^2.0.1",

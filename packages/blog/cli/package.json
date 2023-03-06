@@ -33,7 +33,8 @@
     "clean": "rimraf lib && tsc -b . --clean",
     "eslint": "eslint src/",
     "test": "node lib/index.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepack": "yarn run build"
   },
   "bugs": {
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
@@ -53,7 +54,7 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.0.0"
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.0.1"
   },
   "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"
 }
