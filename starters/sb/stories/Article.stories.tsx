@@ -1,10 +1,20 @@
 import * as React from 'react';
-import { Article, Section } from '@cieloazul310/gatsby-theme-aoi-components';
+import {
+  Article,
+  Section,
+  SectionWrapper,
+} from '@cieloazul310/gatsby-theme-aoi-components';
+import type { ComponentMeta } from '@storybook/react';
 import { LoremIpsum, LoremIpsumJa } from '../components/LoremIpsum';
 
 export default {
   title: 'Article',
-};
+  component: Article,
+  subcomponents: {
+    Section,
+    SectionWrapper,
+  },
+} as ComponentMeta<typeof Article>;
 
 export function WithArticle() {
   return (
@@ -39,5 +49,27 @@ export function WithSectionJa() {
         <LoremIpsumJa />
       </Article>
     </Section>
+  );
+}
+
+export function WithWrapper() {
+  return (
+    <SectionWrapper>
+      <Section>
+        <Article>
+          <LoremIpsumJa />
+        </Article>
+      </Section>
+      <Section>
+        <Article>
+          <LoremIpsumJa />
+        </Article>
+      </Section>
+      <Section>
+        <Article>
+          <LoremIpsumJa />
+        </Article>
+      </Section>
+    </SectionWrapper>
   );
 }

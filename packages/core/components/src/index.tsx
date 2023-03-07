@@ -25,6 +25,8 @@ export {
   default as Section,
   SectionDivider,
   type SectionProps,
+  SectionWrapper,
+  type SectionWrapperProps,
 } from './Section';
 export { default as Seo, type SeoProps } from './Seo';
 export * from './Shortcodes';

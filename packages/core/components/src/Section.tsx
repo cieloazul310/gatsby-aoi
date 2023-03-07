@@ -1,16 +1,20 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
+import Stack, { StackProps } from '@mui/material/Stack';
+import Box, { BoxProps } from '@mui/material/Box';
 
-export type SectionProps = {
-  children: React.ReactNode;
-};
+export type SectionProps = Omit<BoxProps, 'ref'>;
 
-function Section({ children }: SectionProps) {
-  return <Box bgcolor="background.paper">{children}</Box>;
-}
+const Section = React.forwardRef<HTMLElement, SectionProps>(
+  ({ bgcolor = 'background.paper', ...props }, ref) => (
+    <Box ref={ref} bgcolor={bgcolor} {...props} />
+  )
+);
 
 export default Section;
 
+/**
+ * @deprecated
+ */
 export function SectionDivider() {
   return (
     <Box
@@ -21,3 +25,20 @@ export function SectionDivider() {
     />
   );
 }
+
+export type SectionWrapperProps = Omit<StackProps, 'ref'>;
+
+export const SectionWrapper = React.forwardRef<
+  HTMLElement,
+  SectionWrapperProps
+>(
+  (
+    {
+      spacing = 2,
+      bgcolor = ({ palette }) =>
+        palette.mode === 'light' ? '#fafafa' : 'background.default',
+      ...props
+    },
+    ref
+  ) => <Stack ref={ref} spacing={spacing} bgcolor={bgcolor} {...props} />
+);
