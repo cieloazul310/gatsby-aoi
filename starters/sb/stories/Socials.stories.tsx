@@ -6,11 +6,12 @@ import {
   SocialIcon,
   SocialLink,
 } from '@cieloazul310/gatsby-theme-aoi-components';
+import type { ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'Socials',
   component: SocialIcon,
-};
+} as ComponentMeta<typeof SocialIcon>;
 
 const data = [
   {

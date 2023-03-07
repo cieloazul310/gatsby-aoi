@@ -4,11 +4,12 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeIcon from '@mui/icons-material/Home';
 import { ListItemAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
+import type { ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'ListItemAppLink',
   component: ListItemAppLink,
-};
+} as ComponentMeta<typeof ListItemAppLink>;
 
 export function Basic() {
   return (

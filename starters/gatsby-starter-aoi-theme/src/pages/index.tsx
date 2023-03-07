@@ -4,7 +4,7 @@ import {
   Article,
   Jumbotron,
   Section,
-  SectionDivider,
+  SectionWrapper,
   H3,
   Ul,
   Li,
@@ -18,11 +18,10 @@ function IndexPage() {
   const { count } = useAppState();
   return (
     <Layout>
-      <article>
+      <SectionWrapper>
         <header>
           <Jumbotron title="Gatsby Theme Aoi" />
         </header>
-        <SectionDivider />
         <Section>
           <Article>
             <H3>Features</H3>
@@ -50,7 +49,7 @@ function IndexPage() {
             <PanelLink href="/catalogue/">Browse Catalogue</PanelLink>
           </Article>
         </Section>
-      </article>
+      </SectionWrapper>
     </Layout>
   );
 }

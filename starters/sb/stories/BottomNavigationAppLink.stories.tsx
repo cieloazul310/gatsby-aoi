@@ -6,11 +6,12 @@ import { BottomNavigationAppLink } from '@cieloazul310/gatsby-theme-aoi-componen
 import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import type { ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'BottomNavigationAppLink',
   component: BottomNavigationAppLink,
-};
+} as ComponentMeta<typeof BottomNavigationAppLink>;
 
 export function Basic() {
   const [value, setValue] = React.useState(0);
@@ -27,7 +28,7 @@ export function Basic() {
         <BottomNavigationAction label="Default 2" icon={<FavoriteIcon />} />
         <BottomNavigationAppLink
           label="Link"
-          to="/"
+          href="/"
           icon={<LocationOnIcon />}
         />
       </BottomNavigation>

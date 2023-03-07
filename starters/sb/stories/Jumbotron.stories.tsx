@@ -7,11 +7,12 @@ import {
   Jumbotron,
   SectionWrapper,
 } from '@cieloazul310/gatsby-theme-aoi-components';
+import type { ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'Jumbotron',
   component: Jumbotron,
-};
+} as ComponentMeta<typeof Jumbotron>;
 
 function Header() {
   return (

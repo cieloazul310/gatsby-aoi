@@ -1,11 +1,12 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import { AppLink, Paragraph } from '@cieloazul310/gatsby-theme-aoi-components';
+import type { ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'AppLink',
   component: AppLink,
-};
+} as ComponentMeta<typeof AppLink>;
 
 export function Basic() {
   return (

@@ -12,10 +12,16 @@ import {
   Alert,
   Blockquote,
 } from '@cieloazul310/gatsby-theme-aoi-components';
+import type { ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'Shortcodes',
-};
+  component: Blockquote,
+  subcomponents: {
+    SubParagraph,
+    Alert,
+  },
+} as ComponentMeta<typeof Blockquote>;
 
 export function Alerts() {
   return (
