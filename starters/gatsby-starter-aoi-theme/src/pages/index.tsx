@@ -18,7 +18,7 @@ function IndexPage() {
   return (
     <Layout>
       <Jumbotron component="header" title="Gatsby Theme Aoi" />
-      <Section>
+      <Section component="main">
         <Article>
           <H2>Features</H2>
           <Ul>

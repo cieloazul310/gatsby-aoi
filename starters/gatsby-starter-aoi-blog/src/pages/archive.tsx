@@ -20,7 +20,7 @@ function ArchivePage({ data }: PageProps<PageData>) {
   return (
     <Layout title="Archive" componentViewports={{ bottomNav: false }}>
       <Jumbotron component="header" title="Archive" maxWidth="md" />
-      <Section>
+      <Section component="main">
         <Article maxWidth="md">
           <List>
             {months.map(({ basePath, year, month, totalCount }, index) => (

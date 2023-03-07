@@ -39,7 +39,7 @@ function TabPage() {
         <TabPane index={0} currentTab={tab}>
           <SectionWrapper component="article">
             <Jumbotron component="header" title="Tab Layout Page" />
-            <Section>
+            <Section component="main">
               <Article>
                 <Paragraph>
                   It works great with react-swipeable-views.
@@ -55,7 +55,7 @@ function TabPage() {
         <TabPane index={1} currentTab={tab}>
           <SectionWrapper component="article">
             <Jumbotron component="header" title="Tab 2" />
-            <Section>
+            <Section component="main">
               <Article>
                 <Paragraph>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
@@ -85,7 +85,7 @@ function TabPage() {
         <TabPane index={2} currentTab={tab}>
           <SectionWrapper component="article">
             <Jumbotron component="header" title="Tab 3" />
-            <Section>
+            <Section component="main">
               <Article>
                 <Paragraph>
                   Lorem Ipsum，也称乱数假文或者哑元文本，

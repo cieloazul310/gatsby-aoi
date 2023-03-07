@@ -10,7 +10,7 @@ import {
 function NotFoundPage() {
   return (
     <Layout title="404 not found">
-      <Section>
+      <Section component="main">
         <Article>
           <H2>404 not found</H2>
           <Paragraph>This is Gatsby Aoi Theme Demo Page.</Paragraph>

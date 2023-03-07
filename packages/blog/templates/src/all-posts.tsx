@@ -44,7 +44,7 @@ function AllPostsTemplate({
         </Typography>
         <Typography>{`Total ${totalCount ?? 0} posts`}</Typography>
       </Jumbotron>
-      <Section>
+      <Section component="main">
         <Article maxWidth="md">
           <MdxPostList posts={allMdxPost.nodes} />
           <Pagination

@@ -27,7 +27,7 @@ function DefaultTemplate({ children, pageContext }: Props) {
         maxWidth="md"
         title={pageContext.frontmatter?.title ?? 'Title'}
       />
-      <Section component="article">
+      <Section component="main">
         <Article maxWidth="md">
           <MDXProvider
             components={{

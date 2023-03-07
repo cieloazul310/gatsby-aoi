@@ -35,7 +35,7 @@ function Catalogue() {
   return (
     <Layout title="Catalogue">
       <Jumbotron component="header" title="Catalogue" />
-      <Section component="section">
+      <Section component="article">
         <Article>
           <H2>Layouts</H2>
           <H3>Default Layout</H3>
@@ -62,7 +62,7 @@ function Catalogue() {
           </Paragraph>
         </Article>
       </Section>
-      <Section component="section">
+      <Section component="article">
         <Article>
           <H2>Components</H2>
           <H3>AppLink</H3>
@@ -99,7 +99,7 @@ function Catalogue() {
           </Stack>
         </Article>
       </Section>
-      <Section component="section">
+      <Section component="article">
         <Article>
           <H2>Custom Hooks</H2>
           <H3>useSiteMetadata</H3>

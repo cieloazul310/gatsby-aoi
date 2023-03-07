@@ -20,7 +20,7 @@ function FullWidthLayout() {
       }}
     >
       <Jumbotron component="header" title="Full Width Layout" maxWidth="md" />
-      <Section>
+      <Section component="main">
         <Article maxWidth="md">
           <Paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec

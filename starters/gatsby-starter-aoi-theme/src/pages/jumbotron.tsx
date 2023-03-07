@@ -17,7 +17,7 @@ function JumbotronPage() {
         title="Jumbotron Page"
         bgImage="https://pbs.twimg.com/profile_banners/106113980/1417608307/1500x500"
       />
-      <Section>
+      <Section component="main">
         <Article>
           <Paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec

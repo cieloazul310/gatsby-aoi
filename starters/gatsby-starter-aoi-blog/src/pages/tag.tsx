@@ -25,7 +25,7 @@ function TagPage({ data }: PageProps<PageData>) {
   return (
     <Layout title="Tags" componentViewports={{ bottomNav: false }}>
       <Jumbotron component="header" title="Tags" maxWidth="md" />
-      <Section component="nav">
+      <Section component="main">
         <Article maxWidth="md">
           {group
             .sort(

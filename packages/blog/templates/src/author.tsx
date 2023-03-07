@@ -118,7 +118,7 @@ function AuthorTemplate({
           </Box>
         </Box>
       </Jumbotron>
-      <Section>
+      <Section component="main">
         <Article maxWidth="md">
           <Paragraph>
             {author.description}

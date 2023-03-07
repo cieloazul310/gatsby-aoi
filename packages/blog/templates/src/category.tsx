@@ -66,7 +66,7 @@ function CategoryTemplate({
         </Typography>
         <Typography>{totalCount} posts</Typography>
       </Jumbotron>
-      <Section>
+      <Section component="main">
         <Article maxWidth="md">
           <MdxPostList posts={allMdxPost.nodes} />
           <Pagination

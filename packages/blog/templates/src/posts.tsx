@@ -68,7 +68,7 @@ function BlogPostTemplate({
         </Typography>
         <Typography>post by {author?.name}</Typography>
       </Jumbotron>
-      <Section>
+      <Section component="main">
         <Article maxWidth="md">
           <MDXProvider components={{ ...mdxComponents, ...shortcodes }}>
             {children}

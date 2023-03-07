@@ -63,7 +63,7 @@ function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
         </Typography>
         <Typography>{totalCount} posts</Typography>
       </Jumbotron>
-      <Section>
+      <Section component="main">
         <Article maxWidth="md">
           <List>
             <MdxPostList posts={allMdxPost.nodes} />
