@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import {
   Layout,
   Section,
-  SectionDivider,
+  SectionWrapper,
   Jumbotron,
   Article,
   AppLink,
@@ -34,55 +34,49 @@ function CategoryPage({ data }: PageProps<PageData>) {
   const categoryToSlug = useCategoryToSlug();
   return (
     <Layout title="Categories" componentViewports={{ bottomNav: false }}>
-      <article>
-        <header>
-          <Jumbotron title="Categories" maxWidth="md" />
-        </header>
-        <SectionDivider />
+      <Jumbotron component="header" title="Categories" maxWidth="md" />
+      <SectionWrapper>
         {group
           .sort(
             (a, b) =>
               b.totalCount - a.totalCount ||
               a.fieldValue.localeCompare(b.fieldValue)
           )
-          .map(({ totalCount, fieldValue, nodes }, index) => (
-            <React.Fragment key={fieldValue}>
-              <Section>
-                <Article maxWidth="md">
-                  <List>
-                    <ListItem>
-                      <ListItemText
-                        primary={
-                          <AppLink
-                            href={categoryToSlug(fieldValue)}
-                            color="inherit"
-                            fontSize="large"
-                            fontWeight="bold"
-                          >
-                            {fieldValue}
-                          </AppLink>
-                        }
-                        secondary={`${totalCount} posts`}
-                      />
-                    </ListItem>
-                    <MdxPostList posts={nodes} />
-                    <List>
-                      {totalCount > 2 ? (
-                        <ListItemLink
-                          sx={{ textAlign: { xs: undefined, sm: 'right' } }}
-                          primaryText="More"
+          .map(({ totalCount, fieldValue, nodes }) => (
+            <Section component="article" key={fieldValue}>
+              <Article maxWidth="md">
+                <List>
+                  <ListItem>
+                    <ListItemText
+                      primary={
+                        <AppLink
                           href={categoryToSlug(fieldValue)}
-                          color="secondary"
-                        />
-                      ) : null}
-                    </List>
+                          color="inherit"
+                          fontSize="large"
+                          fontWeight="bold"
+                        >
+                          {fieldValue}
+                        </AppLink>
+                      }
+                      secondary={`${totalCount} posts`}
+                    />
+                  </ListItem>
+                  <MdxPostList posts={nodes} />
+                  <List>
+                    {totalCount > 2 ? (
+                      <ListItemLink
+                        sx={{ textAlign: { xs: undefined, sm: 'right' } }}
+                        primaryText="More"
+                        href={categoryToSlug(fieldValue)}
+                        color="secondary"
+                      />
+                    ) : null}
                   </List>
-                </Article>
-              </Section>
-              {index !== group.length - 1 ? <SectionDivider /> : null}
-            </React.Fragment>
+                </List>
+              </Article>
+            </Section>
           ))}
-      </article>
+      </SectionWrapper>
     </Layout>
   );
 }

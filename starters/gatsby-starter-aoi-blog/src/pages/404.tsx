@@ -11,7 +11,7 @@ import {
 function NotFoundPage() {
   return (
     <Layout title="404 Page">
-      <Section>
+      <Section component="main">
         <Article>
           <H2>404 page</H2>
           <Paragraph>This is Gatsby Aoi Theme Demo Page.</Paragraph>

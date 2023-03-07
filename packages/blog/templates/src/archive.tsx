@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import {
   Jumbotron,
   Section,
-  SectionDivider,
   Article,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
@@ -99,48 +98,40 @@ function ArchiveTemplate({
         />
       }
     >
-      <article>
-        <header>
-          <Jumbotron maxWidth="md">
-            <Typography>Archive</Typography>
-            <Typography variant="h4" component="h2" gutterBottom>
-              {title}
-            </Typography>
-            <Typography>{totalCount} posts</Typography>
-          </Jumbotron>
-        </header>
-        <SectionDivider />
-        <Section>
-          <Article maxWidth="md">
-            <MdxPostList posts={allMdxPost.nodes} />
-            <Pagination
-              numPages={numPages}
-              currentPage={currentPage}
-              basePath={basePath}
-            />
-          </Article>
-        </Section>
-        <SectionDivider />
-        <nav>
-          <Section>
-            <PageNavigationContainer>
-              <PageNavigationItem
-                href={previous?.basePath ?? '#'}
-                disabled={!previous}
-              >
-                <Typography variant="body2">{previousTitle}</Typography>
-              </PageNavigationItem>
-              <PageNavigationItem
-                href={next?.basePath ?? '#'}
-                right
-                disabled={!next}
-              >
-                <Typography variant="body2">{nextTitle}</Typography>
-              </PageNavigationItem>
-            </PageNavigationContainer>
-          </Section>
-        </nav>
-      </article>
+      <Jumbotron component="header" maxWidth="md">
+        <Typography>Archive</Typography>
+        <Typography variant="h4" component="h2" gutterBottom>
+          {title}
+        </Typography>
+        <Typography>{totalCount} posts</Typography>
+      </Jumbotron>
+      <Section component="main">
+        <Article maxWidth="md">
+          <MdxPostList posts={allMdxPost.nodes} />
+          <Pagination
+            numPages={numPages}
+            currentPage={currentPage}
+            basePath={basePath}
+          />
+        </Article>
+      </Section>
+      <Section component="nav">
+        <PageNavigationContainer>
+          <PageNavigationItem
+            href={previous?.basePath ?? '#'}
+            disabled={!previous}
+          >
+            <Typography variant="body2">{previousTitle}</Typography>
+          </PageNavigationItem>
+          <PageNavigationItem
+            href={next?.basePath ?? '#'}
+            right
+            disabled={!next}
+          >
+            <Typography variant="body2">{nextTitle}</Typography>
+          </PageNavigationItem>
+        </PageNavigationContainer>
+      </Section>
     </Layout>
   );
 }

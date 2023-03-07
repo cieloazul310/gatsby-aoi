@@ -3,7 +3,6 @@ import { graphql, type PageProps } from 'gatsby';
 import {
   Layout,
   Section,
-  SectionDivider,
   Jumbotron,
   Article,
   AppLink,
@@ -25,29 +24,24 @@ function TagPage({ data }: PageProps<PageData>) {
   const tagToSlug = useTagToSlug();
   return (
     <Layout title="Tags" componentViewports={{ bottomNav: false }}>
-      <article>
-        <header>
-          <Jumbotron title="Tags" maxWidth="md" />
-        </header>
-        <SectionDivider />
-        <Section>
-          <Article maxWidth="md">
-            {group
-              .sort(
-                (a, b) =>
-                  b.totalCount - a.totalCount ||
-                  a.fieldValue.localeCompare(b.fieldValue)
-              )
-              .map((tag) => (
-                <AppLink
-                  key={tag.fieldValue}
-                  href={tagToSlug(tag.fieldValue)}
-                  mr={1}
-                >{`#${tag.fieldValue}`}</AppLink>
-              ))}
-          </Article>
-        </Section>
-      </article>
+      <Jumbotron component="header" title="Tags" maxWidth="md" />
+      <Section component="main">
+        <Article maxWidth="md">
+          {group
+            .sort(
+              (a, b) =>
+                b.totalCount - a.totalCount ||
+                a.fieldValue.localeCompare(b.fieldValue)
+            )
+            .map((tag) => (
+              <AppLink
+                key={tag.fieldValue}
+                href={tagToSlug(tag.fieldValue)}
+                mr={1}
+              >{`#${tag.fieldValue}`}</AppLink>
+            ))}
+        </Article>
+      </Section>
     </Layout>
   );
 }

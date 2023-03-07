@@ -4,8 +4,7 @@ import {
   Article,
   Jumbotron,
   Section,
-  SectionDivider,
-  H3,
+  H2,
   Ul,
   Li,
   AppLink,
@@ -18,39 +17,34 @@ function IndexPage() {
   const { count } = useAppState();
   return (
     <Layout>
-      <article>
-        <header>
-          <Jumbotron title="Gatsby Theme Aoi" />
-        </header>
-        <SectionDivider />
-        <Section>
-          <Article>
-            <H3>Features</H3>
-            <Ul>
-              <Li>TypeScript</Li>
-              <Li>MUI</Li>
-              <Li>Mobile friendlly responsive UI layout</Li>
-              <Li>MUI components composed with Gatsby routing</Li>
-              <Li>Holding global app state / Count: {count}</Li>
-              <Li>Dark mode</Li>
-            </Ul>
-            <H3>Layouts</H3>
-            <Ul>
-              <Li>Simple with Drawer</Li>
-              <Li>
-                Tab Layout <AppLink href="/tab-page/">Example</AppLink>
-              </Li>
-              <Li>
-                Jumbotron <AppLink href="/jumbotron/">Example</AppLink>
-              </Li>
-              <Li>
-                Full Width <AppLink href="/without-drawer/">Example</AppLink>
-              </Li>
-            </Ul>
-            <PanelLink href="/catalogue/">Browse Catalogue</PanelLink>
-          </Article>
-        </Section>
-      </article>
+      <Jumbotron component="header" title="Gatsby Theme Aoi" />
+      <Section component="main">
+        <Article>
+          <H2>Features</H2>
+          <Ul>
+            <Li>TypeScript</Li>
+            <Li>MUI</Li>
+            <Li>Mobile friendlly responsive UI layout</Li>
+            <Li>MUI components composed with Gatsby routing</Li>
+            <Li>Holding global app state / Count: {count}</Li>
+            <Li>Dark mode</Li>
+          </Ul>
+          <H2>Layouts</H2>
+          <Ul>
+            <Li>Simple with Drawer</Li>
+            <Li>
+              Tab Layout <AppLink href="/tab-page/">Example</AppLink>
+            </Li>
+            <Li>
+              Jumbotron <AppLink href="/jumbotron/">Example</AppLink>
+            </Li>
+            <Li>
+              Full Width <AppLink href="/without-drawer/">Example</AppLink>
+            </Li>
+          </Ul>
+          <PanelLink href="/catalogue/">Browse Catalogue</PanelLink>
+        </Article>
+      </Section>
     </Layout>
   );
 }

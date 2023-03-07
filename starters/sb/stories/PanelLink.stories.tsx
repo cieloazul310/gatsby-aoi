@@ -1,11 +1,12 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import { PanelLink } from '@cieloazul310/gatsby-theme-aoi-components';
+import type { ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'PanelLink',
   component: PanelLink,
-};
+} as ComponentMeta<typeof PanelLink>;
 
 export function Basic() {
   return (

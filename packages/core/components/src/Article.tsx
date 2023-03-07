@@ -11,7 +11,7 @@ export type ArticleProps = ContainerProps & Pick<TypographyProps, 'variant'>;
  * `maxWidth` is default to `'sm'`
  */
 const Article = React.forwardRef<any, ArticleProps>(
-  ({ variant, maxWidth, ...props }, ref) => (
+  ({ variant = 'body1', maxWidth = 'sm', ...props }, ref) => (
     <Typography
       sx={{ py: 4, wordWrap: 'break-word' }}
       component="div"
@@ -19,7 +19,7 @@ const Article = React.forwardRef<any, ArticleProps>(
     >
       <Container
         ref={ref}
-        maxWidth={maxWidth ?? 'sm'}
+        maxWidth={maxWidth}
         sx={{
           // equivalent to first-child
           '& > *:not(:is(*:not(style) ~ *))': {

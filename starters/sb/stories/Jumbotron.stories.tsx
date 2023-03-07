@@ -3,12 +3,16 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { Jumbotron } from '@cieloazul310/gatsby-theme-aoi-components';
+import {
+  Jumbotron,
+  SectionWrapper,
+} from '@cieloazul310/gatsby-theme-aoi-components';
+import type { ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'Jumbotron',
   component: Jumbotron,
-};
+} as ComponentMeta<typeof Jumbotron>;
 
 function Header() {
   return (
@@ -92,4 +96,24 @@ export function withFlexBox() {
 
 export function bgcolor() {
   return <Jumbotron title="bgcolor" bgcolor="#f71" />;
+}
+
+export function ColorSchema() {
+  return (
+    <SectionWrapper>
+      <Jumbotron title="Primary" colorSchema="primary" />
+      <Jumbotron title="Secondary" colorSchema="secondary" />
+      <Jumbotron title="Error" colorSchema="error" />
+      <Jumbotron title="Success" colorSchema="success" />
+    </SectionWrapper>
+  );
+}
+
+export function DisableGradient() {
+  return (
+    <SectionWrapper>
+      <Jumbotron title="Info" colorSchema="info" disableGradient />
+      <Jumbotron title="Success" colorSchema="success" disableGradient />
+    </SectionWrapper>
+  );
 }

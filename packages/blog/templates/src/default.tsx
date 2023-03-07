@@ -3,7 +3,6 @@ import type { PageProps, HeadProps } from 'gatsby';
 import {
   Article,
   Section,
-  SectionDivider,
   Jumbotron,
   Seo,
   mdxComponents,
@@ -23,27 +22,23 @@ type Props = PageProps<null, PageContext>;
 function DefaultTemplate({ children, pageContext }: Props) {
   return (
     <Layout title={pageContext.frontmatter?.title ?? 'Title'}>
-      <article>
-        <header>
-          <Jumbotron
-            maxWidth="md"
-            title={pageContext.frontmatter?.title ?? 'Title'}
-          />
-        </header>
-        <SectionDivider />
-        <Section>
-          <Article maxWidth="md">
-            <MDXProvider
-              components={{
-                ...mdxComponents,
-                ...shortcodes,
-              }}
-            >
-              {children}
-            </MDXProvider>
-          </Article>
-        </Section>
-      </article>
+      <Jumbotron
+        component="header"
+        maxWidth="md"
+        title={pageContext.frontmatter?.title ?? 'Title'}
+      />
+      <Section component="main">
+        <Article maxWidth="md">
+          <MDXProvider
+            components={{
+              ...mdxComponents,
+              ...shortcodes,
+            }}
+          >
+            {children}
+          </MDXProvider>
+        </Article>
+      </Section>
     </Layout>
   );
 }

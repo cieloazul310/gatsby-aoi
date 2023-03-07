@@ -1,11 +1,12 @@
 import * as React from 'react';
 import List from '@mui/material/List';
 import { ListItemLink } from '@cieloazul310/gatsby-theme-aoi-components';
+import type { ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'ListItemLink',
   component: ListItemLink,
-};
+} as ComponentMeta<typeof ListItemLink>;
 
 export function Basic() {
   return (

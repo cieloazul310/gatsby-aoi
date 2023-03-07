@@ -1,4 +1,12 @@
 {
   "extends": "../../../tsconfig.json",
-  "include": ["src", ".eslintrc.js"]
+  "compilerOptions": {
+    "rootDir": "src"
+  },
+  "include": ["src", ".eslintrc.js"],
+  "references": [
+    {
+      "path": "../components"
+    }
+  ]
 }

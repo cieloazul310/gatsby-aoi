@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import {
   Jumbotron,
   Section,
-  SectionDivider,
   Article,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
@@ -60,48 +59,33 @@ function CategoryTemplate({
         />
       }
     >
-      <article>
-        <header>
-          <Jumbotron maxWidth="md">
-            <Typography>Category</Typography>
-            <Typography variant="h4" component="h2" gutterBottom>
-              {name}
-            </Typography>
-            <Typography>{totalCount} posts</Typography>
-          </Jumbotron>
-        </header>
-        <SectionDivider />
-        <Section>
-          <Article maxWidth="md">
-            <MdxPostList posts={allMdxPost.nodes} />
-            <Pagination
-              numPages={numPages}
-              currentPage={currentPage}
-              basePath={basePath}
-            />
-          </Article>
-        </Section>
-        <SectionDivider />
-        <nav>
-          <Section>
-            <PageNavigationContainer>
-              <PageNavigationItem
-                href={previous?.slug ?? '#'}
-                disabled={!previous}
-              >
-                <Typography variant="body2">{previous?.name}</Typography>
-              </PageNavigationItem>
-              <PageNavigationItem
-                href={next?.slug ?? '#'}
-                right
-                disabled={!next}
-              >
-                <Typography variant="body2">{next?.name}</Typography>
-              </PageNavigationItem>
-            </PageNavigationContainer>
-          </Section>
-        </nav>
-      </article>
+      <Jumbotron component="header" maxWidth="md">
+        <Typography>Category</Typography>
+        <Typography variant="h4" component="h2" gutterBottom>
+          {name}
+        </Typography>
+        <Typography>{totalCount} posts</Typography>
+      </Jumbotron>
+      <Section component="main">
+        <Article maxWidth="md">
+          <MdxPostList posts={allMdxPost.nodes} />
+          <Pagination
+            numPages={numPages}
+            currentPage={currentPage}
+            basePath={basePath}
+          />
+        </Article>
+      </Section>
+      <Section component="nav">
+        <PageNavigationContainer>
+          <PageNavigationItem href={previous?.slug ?? '#'} disabled={!previous}>
+            <Typography variant="body2">{previous?.name}</Typography>
+          </PageNavigationItem>
+          <PageNavigationItem href={next?.slug ?? '#'} right disabled={!next}>
+            <Typography variant="body2">{next?.name}</Typography>
+          </PageNavigationItem>
+        </PageNavigationContainer>
+      </Section>
     </Layout>
   );
 }
