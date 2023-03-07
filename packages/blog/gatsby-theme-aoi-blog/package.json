@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Gatsby Blog Theme built with Gatsby Theme Aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -31,17 +31,17 @@
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-cli": "^3.0.1",
-    "@cieloazul310/gatsby-theme-aoi-blog-components": "^3.0.1",
-    "@cieloazul310/gatsby-theme-aoi-blog-core": "^3.0.1",
-    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^3.0.1",
-    "@cieloazul310/gatsby-theme-aoi-blog-types": "^3.0.1",
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.0.1"
+    "@cieloazul310/gatsby-theme-aoi-blog-cli": "^3.1.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "^3.1.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-core": "^3.1.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^3.1.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-types": "^3.1.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.1.0"
   },
   "devDependencies": {
     "eslint": "^8.34.0",
-    "eslint-config-custom": "^3.0.1",
-    "tsconfig": "^3.0.1",
+    "eslint-config-custom": "^3.1.0",
+    "tsconfig": "^3.1.0",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
