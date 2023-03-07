@@ -107,3 +107,12 @@ export function ColorSchema() {
     </SectionWrapper>
   );
 }
+
+export function DisableGradient() {
+  return (
+    <SectionWrapper>
+      <Jumbotron title="Info" colorSchema="info" disableGradient />
+      <Jumbotron title="Success" colorSchema="success" disableGradient />
+    </SectionWrapper>
+  );
+}

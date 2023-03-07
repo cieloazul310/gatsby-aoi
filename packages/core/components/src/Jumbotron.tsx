@@ -29,12 +29,7 @@ const Jumbotron = React.forwardRef<any, JumbotronProps>(
       bgImage,
       children,
       colorSchema = 'primary',
-      bgcolor = ({ palette }: Theme) => {
-        if (bgImage) return palette.grey[600];
-        return palette.mode === 'light'
-          ? `${colorSchema}.dark`
-          : palette.grey[800];
-      },
+      bgcolor,
       maxWidth = 'sm',
       display = 'flex',
       justifyContent = 'center',
@@ -60,8 +55,19 @@ const Jumbotron = React.forwardRef<any, JumbotronProps>(
     },
     ref
   ) => {
+    const jumbotronBgColor = React.useCallback(
+      ({ palette }: Theme) => {
+        if (bgcolor) return bgcolor;
+        if (bgImage) return palette.grey[600];
+        return palette.mode === 'light'
+          ? `${colorSchema}.dark`
+          : palette.grey[800];
+      },
+      [bgImage, bgcolor]
+    );
     const jumbotronBgImage = React.useCallback(
       ({ palette }: Theme) => {
+        if (bgcolor) return undefined;
         if (bgImage) return undefined;
         if (disableGradient) return undefined;
         const isDark = palette.mode === 'dark';
@@ -89,7 +95,7 @@ const Jumbotron = React.forwardRef<any, JumbotronProps>(
         position={position}
         overflow={overflow}
         height={height}
-        bgcolor={bgcolor}
+        bgcolor={jumbotronBgColor}
         sx={{
           ...props.sx,
           backgroundImage: jumbotronBgImage,
