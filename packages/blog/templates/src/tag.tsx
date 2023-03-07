@@ -5,7 +5,6 @@ import List from '@mui/material/List';
 import {
   Jumbotron,
   Section,
-  SectionDivider,
   Article,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
@@ -57,50 +56,35 @@ function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
         />
       }
     >
-      <article>
-        <header>
-          <Jumbotron maxWidth="md">
-            <Typography>Tag</Typography>
-            <Typography variant="h4" component="h2" gutterBottom>
-              {`#${name}`}
-            </Typography>
-            <Typography>{totalCount} posts</Typography>
-          </Jumbotron>
-        </header>
-        <SectionDivider />
-        <Section>
-          <Article maxWidth="md">
-            <List>
-              <MdxPostList posts={allMdxPost.nodes} />
-            </List>
-            <Pagination
-              numPages={numPages}
-              currentPage={currentPage}
-              basePath={basePath}
-            />
-          </Article>
-        </Section>
-        <SectionDivider />
-        <nav>
-          <Section>
-            <PageNavigationContainer>
-              <PageNavigationItem
-                href={previous?.slug ?? '#'}
-                disabled={!previous}
-              >
-                <Typography variant="body2">{previous?.name}</Typography>
-              </PageNavigationItem>
-              <PageNavigationItem
-                href={next?.slug ?? '#'}
-                right
-                disabled={!next}
-              >
-                <Typography variant="body2">{next?.name}</Typography>
-              </PageNavigationItem>
-            </PageNavigationContainer>
-          </Section>
-        </nav>
-      </article>
+      <Jumbotron component="header" maxWidth="md">
+        <Typography>Tag</Typography>
+        <Typography variant="h4" component="h2" gutterBottom>
+          {`#${name}`}
+        </Typography>
+        <Typography>{totalCount} posts</Typography>
+      </Jumbotron>
+      <Section>
+        <Article maxWidth="md">
+          <List>
+            <MdxPostList posts={allMdxPost.nodes} />
+          </List>
+          <Pagination
+            numPages={numPages}
+            currentPage={currentPage}
+            basePath={basePath}
+          />
+        </Article>
+      </Section>
+      <Section component="nav">
+        <PageNavigationContainer>
+          <PageNavigationItem href={previous?.slug ?? '#'} disabled={!previous}>
+            <Typography variant="body2">{previous?.name}</Typography>
+          </PageNavigationItem>
+          <PageNavigationItem href={next?.slug ?? '#'} right disabled={!next}>
+            <Typography variant="body2">{next?.name}</Typography>
+          </PageNavigationItem>
+        </PageNavigationContainer>
+      </Section>
     </Layout>
   );
 }

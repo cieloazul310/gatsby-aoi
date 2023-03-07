@@ -7,7 +7,6 @@ import Avatar from '@mui/material/Avatar';
 import {
   Jumbotron,
   Section,
-  SectionDivider,
   Article,
   AppLink,
   Paragraph,
@@ -80,139 +79,124 @@ function AuthorTemplate({
         />
       }
     >
-      <article>
-        <header>
-          <Jumbotron maxWidth="md" bgImage={bgImage} bgcolor={bgcolor}>
+      <Jumbotron
+        component="header"
+        maxWidth="md"
+        bgImage={bgImage}
+        bgcolor={bgcolor}
+      >
+        <Box display="flex" flexDirection="row" alignItems="center">
+          <Box pr={{ xs: 2, sm: 4 }}>
+            <Avatar
+              sx={{
+                width: { xs: 112, sm: 144 },
+                height: { xs: 112, sm: 144 },
+              }}
+              src={
+                author.avatar?.childImageSharp.gatsbyImageData.images.fallback
+                  ?.src
+              }
+              srcSet={
+                author.avatar?.childImageSharp.gatsbyImageData.images.fallback
+                  ?.srcSet
+              }
+              sizes={
+                author.avatar?.childImageSharp.gatsbyImageData.images.fallback
+                  ?.sizes
+              }
+              alt={author.name}
+            >
+              <AuthorIcon sx={{ fontSize: { xs: 100, sm: 132 } }} />
+            </Avatar>
+          </Box>
+          <Box>
+            <Typography>Author</Typography>
+            <Typography variant="h4" component="h2" gutterBottom>
+              {author.name}
+            </Typography>
+            <Typography>{totalCount} posts</Typography>
+          </Box>
+        </Box>
+      </Jumbotron>
+      <Section>
+        <Article maxWidth="md">
+          <Paragraph>
+            {author.description}
+            <br />
+            {author.websiteURL ? (
+              <>
+                Website:{' '}
+                <AppLink href={author.websiteURL}>{author.website}</AppLink>
+              </>
+            ) : null}
+          </Paragraph>
+          <Stack spacing={1} direction="row">
+            {author.socials?.map(({ name, url }) => (
+              <SocialLink key={name} name={name} url={url} fontSize="large" />
+            ))}
+          </Stack>
+        </Article>
+      </Section>
+      <Section component="nav">
+        <Article maxWidth="md">
+          <MdxPostList posts={allMdxPost.nodes} />
+          <Pagination
+            numPages={numPages}
+            currentPage={currentPage}
+            basePath={basePath}
+          />
+        </Article>
+      </Section>
+      <Section component="nav">
+        <PageNavigationContainer>
+          <PageNavigationItem href={previous?.slug ?? '#'} disabled={!previous}>
             <Box display="flex" flexDirection="row" alignItems="center">
-              <Box pr={{ xs: 2, sm: 4 }}>
-                <Avatar
-                  sx={{
-                    width: { xs: 112, sm: 144 },
-                    height: { xs: 112, sm: 144 },
-                  }}
-                  src={
-                    author.avatar?.childImageSharp.gatsbyImageData.images
-                      .fallback?.src
-                  }
-                  srcSet={
-                    author.avatar?.childImageSharp.gatsbyImageData.images
-                      .fallback?.srcSet
-                  }
-                  sizes={
-                    author.avatar?.childImageSharp.gatsbyImageData.images
-                      .fallback?.sizes
-                  }
-                  alt={author.name}
-                >
-                  <AuthorIcon sx={{ fontSize: { xs: 100, sm: 132 } }} />
-                </Avatar>
-              </Box>
-              <Box>
-                <Typography>Author</Typography>
-                <Typography variant="h4" component="h2" gutterBottom>
-                  {author.name}
-                </Typography>
-                <Typography>{totalCount} posts</Typography>
-              </Box>
+              <Avatar
+                sx={{ mr: 2 }}
+                src={
+                  previous?.avatar?.childImageSharp.gatsbyImageData.images
+                    .fallback?.src
+                }
+                srcSet={
+                  previous?.avatar?.childImageSharp.gatsbyImageData.images
+                    .fallback?.srcSet
+                }
+                sizes={
+                  previous?.avatar?.childImageSharp.gatsbyImageData.images
+                    .fallback?.sizes
+                }
+                alt={previous?.name}
+              >
+                <AuthorIcon />
+              </Avatar>
+              <Typography variant="body2">{previous?.name}</Typography>
             </Box>
-          </Jumbotron>
-        </header>
-        <SectionDivider />
-        <Section>
-          <Article maxWidth="md">
-            <Paragraph>
-              {author.description}
-              <br />
-              {author.websiteURL ? (
-                <>
-                  Website:{' '}
-                  <AppLink href={author.websiteURL}>{author.website}</AppLink>
-                </>
-              ) : null}
-            </Paragraph>
-            <Stack spacing={1} direction="row">
-              {author.socials?.map(({ name, url }) => (
-                <SocialLink key={name} name={name} url={url} fontSize="large" />
-              ))}
-            </Stack>
-          </Article>
-        </Section>
-        <SectionDivider />
-        <Section>
-          <Article maxWidth="md">
-            <MdxPostList posts={allMdxPost.nodes} />
-            <Pagination
-              numPages={numPages}
-              currentPage={currentPage}
-              basePath={basePath}
-            />
-          </Article>
-        </Section>
-        <SectionDivider />
-        <nav>
-          <Section>
-            <PageNavigationContainer>
-              <PageNavigationItem
-                href={previous?.slug ?? '#'}
-                disabled={!previous}
+          </PageNavigationItem>
+          <PageNavigationItem href={next?.slug ?? '#'} right disabled={!next}>
+            <Box display="flex" flexDirection="row-reverse" alignItems="center">
+              <Avatar
+                sx={{ ml: 2 }}
+                src={
+                  next?.avatar?.childImageSharp.gatsbyImageData.images.fallback
+                    ?.src
+                }
+                srcSet={
+                  next?.avatar?.childImageSharp.gatsbyImageData.images.fallback
+                    ?.srcSet
+                }
+                sizes={
+                  next?.avatar?.childImageSharp.gatsbyImageData.images.fallback
+                    ?.sizes
+                }
+                alt={next?.name}
               >
-                <Box display="flex" flexDirection="row" alignItems="center">
-                  <Avatar
-                    sx={{ mr: 2 }}
-                    src={
-                      previous?.avatar?.childImageSharp.gatsbyImageData.images
-                        .fallback?.src
-                    }
-                    srcSet={
-                      previous?.avatar?.childImageSharp.gatsbyImageData.images
-                        .fallback?.srcSet
-                    }
-                    sizes={
-                      previous?.avatar?.childImageSharp.gatsbyImageData.images
-                        .fallback?.sizes
-                    }
-                    alt={previous?.name}
-                  >
-                    <AuthorIcon />
-                  </Avatar>
-                  <Typography variant="body2">{previous?.name}</Typography>
-                </Box>
-              </PageNavigationItem>
-              <PageNavigationItem
-                href={next?.slug ?? '#'}
-                right
-                disabled={!next}
-              >
-                <Box
-                  display="flex"
-                  flexDirection="row-reverse"
-                  alignItems="center"
-                >
-                  <Avatar
-                    sx={{ ml: 2 }}
-                    src={
-                      next?.avatar?.childImageSharp.gatsbyImageData.images
-                        .fallback?.src
-                    }
-                    srcSet={
-                      next?.avatar?.childImageSharp.gatsbyImageData.images
-                        .fallback?.srcSet
-                    }
-                    sizes={
-                      next?.avatar?.childImageSharp.gatsbyImageData.images
-                        .fallback?.sizes
-                    }
-                    alt={next?.name}
-                  >
-                    <AuthorIcon />
-                  </Avatar>
-                  <Typography variant="body2">{next?.name}</Typography>
-                </Box>
-              </PageNavigationItem>
-            </PageNavigationContainer>
-          </Section>
-        </nav>
-      </article>
+                <AuthorIcon />
+              </Avatar>
+              <Typography variant="body2">{next?.name}</Typography>
+            </Box>
+          </PageNavigationItem>
+        </PageNavigationContainer>
+      </Section>
     </Layout>
   );
 }

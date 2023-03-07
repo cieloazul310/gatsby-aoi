@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import {
   Jumbotron,
   Section,
-  SectionDivider,
   Article,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi-components';
@@ -39,27 +38,22 @@ function AllPostsTemplate({
 
   return (
     <Layout title="All Posts">
-      <article>
-        <header>
-          <Jumbotron maxWidth="md">
-            <Typography variant="h4" component="h2" gutterBottom>
-              All Posts
-            </Typography>
-            <Typography>{`Total ${totalCount ?? 0} posts`}</Typography>
-          </Jumbotron>
-        </header>
-        <SectionDivider />
-        <Section>
-          <Article maxWidth="md">
-            <MdxPostList posts={allMdxPost.nodes} />
-            <Pagination
-              numPages={numPages}
-              currentPage={currentPage}
-              basePath={basePath}
-            />
-          </Article>
-        </Section>
-      </article>
+      <Jumbotron component="header" maxWidth="md">
+        <Typography variant="h4" component="h2" gutterBottom>
+          All Posts
+        </Typography>
+        <Typography>{`Total ${totalCount ?? 0} posts`}</Typography>
+      </Jumbotron>
+      <Section>
+        <Article maxWidth="md">
+          <MdxPostList posts={allMdxPost.nodes} />
+          <Pagination
+            numPages={numPages}
+            currentPage={currentPage}
+            basePath={basePath}
+          />
+        </Article>
+      </Section>
     </Layout>
   );
 }

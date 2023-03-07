@@ -4,7 +4,7 @@ import {
   Layout,
   Jumbotron,
   Section,
-  SectionDivider,
+  SectionWrapper,
   Article,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
@@ -30,24 +30,16 @@ function AuthorPage({ data }: PageProps<PageData>) {
   const { nodes } = data.allAuthor;
   return (
     <Layout title="Authors" componentViewports={{ bottomNav: false }}>
-      <article>
-        <header>
-          <Jumbotron title="Authors" maxWidth="md" />
-        </header>
-        <SectionDivider />
-        {nodes.map((node, index) => (
-          <React.Fragment key={node.name}>
-            <Section>
-              <article>
-                <Article maxWidth="md">
-                  <AuthorBox author={node} />
-                </Article>
-              </article>
-            </Section>
-            {index !== nodes.length - 1 ? <SectionDivider /> : null}
-          </React.Fragment>
+      <Jumbotron component="header" title="Authors" maxWidth="md" />
+      <SectionWrapper>
+        {nodes.map((node) => (
+          <Section key={node.name} component="article">
+            <Article maxWidth="md">
+              <AuthorBox author={node} />
+            </Article>
+          </Section>
         ))}
-      </article>
+      </SectionWrapper>
     </Layout>
   );
 }

@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import {
   Jumbotron,
   Section,
-  SectionDivider,
   Article,
   AppLink,
   Seo,
@@ -57,87 +56,72 @@ function BlogPostTemplate({
         />
       }
     >
-      <article>
-        <header>
-          <Jumbotron maxWidth="md" bgImage={staticImage} bgcolor={bgcolor}>
-            <Typography>{date}</Typography>
-            <Typography variant="h4" component="h2" gutterBottom>
-              {title}
+      <Jumbotron
+        component="header"
+        maxWidth="md"
+        bgImage={staticImage}
+        bgcolor={bgcolor}
+      >
+        <Typography>{date}</Typography>
+        <Typography variant="h4" component="h2" gutterBottom>
+          {title}
+        </Typography>
+        <Typography>post by {author?.name}</Typography>
+      </Jumbotron>
+      <Section>
+        <Article maxWidth="md">
+          <MDXProvider components={{ ...mdxComponents, ...shortcodes }}>
+            {children}
+          </MDXProvider>
+        </Article>
+      </Section>
+      <Section component="footer">
+        <Article maxWidth="md">
+          <Typography variant="h6" gutterBottom>
+            {title}
+          </Typography>
+          <Typography>Date: {date}</Typography>
+          <Typography>Post by {author?.name}</Typography>
+          <Typography>
+            Categories:{' '}
+            {categories.map((category) => (
+              <AppLink key={category} href={categoryToSlug(category)} mr={1}>
+                {category}
+              </AppLink>
+            ))}
+          </Typography>
+          {tags.length ? (
+            <Typography>
+              {tags.map((tag) => (
+                <AppLink key={tag} href={tagToSlug(tag)} mr={1}>
+                  #{tag}
+                </AppLink>
+              ))}
             </Typography>
-            <Typography>post by {author?.name}</Typography>
-          </Jumbotron>
-        </header>
-        <SectionDivider />
-        <Section>
-          <Article maxWidth="md">
-            <MDXProvider components={{ ...mdxComponents, ...shortcodes }}>
-              {children}
-            </MDXProvider>
-          </Article>
-        </Section>
-        <SectionDivider />
-        <footer>
-          <Section>
-            <Article maxWidth="md">
-              <Typography variant="h6" gutterBottom>
-                {title}
-              </Typography>
-              <Typography>Date: {date}</Typography>
-              <Typography>Post by {author?.name}</Typography>
-              <Typography>
-                Categories:{' '}
-                {categories.map((category) => (
-                  <AppLink
-                    key={category}
-                    href={categoryToSlug(category)}
-                    mr={1}
-                  >
-                    {category}
-                  </AppLink>
-                ))}
-              </Typography>
-              {tags.length ? (
-                <Typography>
-                  {tags.map((tag) => (
-                    <AppLink key={tag} href={tagToSlug(tag)} mr={1}>
-                      #{tag}
-                    </AppLink>
-                  ))}
-                </Typography>
-              ) : null}
-            </Article>
-          </Section>
-          <SectionDivider />
-          <Section>
-            <Article maxWidth="md">
-              {author ? <AuthorBox author={author} /> : null}
-            </Article>
-          </Section>
-        </footer>
-        <SectionDivider />
-        <nav>
-          <Section>
-            <PageNavigationContainer>
-              <PageNavigationItem href={newer?.slug ?? '#'} disabled={!newer}>
-                <Typography variant="body2">{newer?.title}</Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Newer post
-                </Typography>
-              </PageNavigationItem>
-              <PageNavigationItem
-                href={older?.slug ?? '#'}
-                right
-                disabled={!older}
-              >
-                <Typography variant="body2">{older?.title}</Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Older post
-                </Typography>
-              </PageNavigationItem>
-            </PageNavigationContainer>
-          </Section>
-        </nav>
-      </article>
+          ) : null}
+        </Article>
+      </Section>
+      <Section component="footer">
+        <Article maxWidth="md">
+          {author ? <AuthorBox author={author} /> : null}
+        </Article>
+      </Section>
+      <Section component="nav">
+        <PageNavigationContainer>
+          <PageNavigationItem href={newer?.slug ?? '#'} disabled={!newer}>
+            <Typography variant="body2">{newer?.title}</Typography>
+            <Typography variant="body2" color="text.secondary">
+              Newer post
+            </Typography>
+          </PageNavigationItem>
+          <PageNavigationItem href={older?.slug ?? '#'} right disabled={!older}>
+            <Typography variant="body2">{older?.title}</Typography>
+            <Typography variant="body2" color="text.secondary">
+              Older post
+            </Typography>
+          </PageNavigationItem>
+        </PageNavigationContainer>
+      </Section>
     </Layout>
   );
 }

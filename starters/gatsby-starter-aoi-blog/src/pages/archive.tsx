@@ -5,7 +5,6 @@ import {
   Layout,
   Jumbotron,
   Section,
-  SectionDivider,
   Article,
   ListItemLink,
   Seo,
@@ -20,27 +19,22 @@ function ArchivePage({ data }: PageProps<PageData>) {
   const { months } = data;
   return (
     <Layout title="Archive" componentViewports={{ bottomNav: false }}>
-      <article>
-        <header>
-          <Jumbotron title="Archive" maxWidth="md" />
-        </header>
-        <SectionDivider />
-        <Section>
-          <Article maxWidth="md">
-            <List>
-              {months.map(({ basePath, year, month, totalCount }, index) => (
-                <ListItemLink
-                  key={basePath}
-                  href={basePath}
-                  primaryText={`${year}年${month}月`}
-                  secondaryText={`${totalCount} posts`}
-                  divider={index !== months.length - 1}
-                />
-              ))}
-            </List>
-          </Article>
-        </Section>
-      </article>
+      <Jumbotron component="header" title="Archive" maxWidth="md" />
+      <Section>
+        <Article maxWidth="md">
+          <List>
+            {months.map(({ basePath, year, month, totalCount }, index) => (
+              <ListItemLink
+                key={basePath}
+                href={basePath}
+                primaryText={`${year}年${month}月`}
+                secondaryText={`${totalCount} posts`}
+                divider={index !== months.length - 1}
+              />
+            ))}
+          </List>
+        </Article>
+      </Section>
     </Layout>
   );
 }
