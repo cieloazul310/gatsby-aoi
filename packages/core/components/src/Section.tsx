@@ -2,7 +2,7 @@ import * as React from 'react';
 import Stack, { StackProps } from '@mui/material/Stack';
 import Box, { BoxProps } from '@mui/material/Box';
 
-export type SectionProps = Omit<BoxProps, 'ref'>;
+export type SectionProps = BoxProps;
 
 const Section = React.forwardRef<HTMLElement, SectionProps>(
   ({ bgcolor = 'background.paper', ...props }, ref) => (
@@ -26,12 +26,11 @@ export function SectionDivider() {
   );
 }
 
-export type SectionWrapperProps = Omit<StackProps, 'ref'>;
+export type SectionWrapperProps = StackProps<React.ElementType<any>>;
 
-export const SectionWrapper = React.forwardRef<
-  HTMLElement,
-  SectionWrapperProps
->(
+export const SectionWrapper: (
+  props: SectionWrapperProps
+) => JSX.Element | null = React.forwardRef<any, SectionWrapperProps>(
   (
     {
       spacing = 2,

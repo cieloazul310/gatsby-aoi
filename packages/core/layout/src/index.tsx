@@ -7,7 +7,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import { useTheme } from '@mui/material/styles';
 import {
   Section,
-  SectionDivider,
+  SectionWrapper,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import {
   mergeViewports,
@@ -43,6 +43,7 @@ export interface LayoutProps {
   children: React.ReactNode;
   title?: string;
   loading?: boolean;
+  contentSpacing?: number;
   componentViewports?: Partial<ComponentViewports>;
   drawerWidth?: number;
   tabSticky?: boolean;
@@ -60,6 +61,7 @@ export function Layout({
   bottomNavigation,
   fab,
   componentViewports,
+  contentSpacing = 2,
   tabSticky = false,
   loading = false,
   drawerWidth = 280,
@@ -173,15 +175,15 @@ export function Layout({
         {tabs ? (
           <TabContainer tabSticky={tabSticky}>{tabs}</TabContainer>
         ) : null}
-        <main>{children}</main>
-        <SectionDivider />
-        <Section>
-          <FooterMenu />
-        </Section>
-        <SectionDivider />
-        <Section>
-          <Footer />
-        </Section>
+        <SectionWrapper component="main" spacing={contentSpacing}>
+          {children}
+          <Section>
+            <FooterMenu />
+          </Section>
+          <Section>
+            <Footer />
+          </Section>
+        </SectionWrapper>
       </Box>
       {viewports.fab !== false ? (
         <Box
@@ -222,6 +224,7 @@ Layout.defaultProps = {
   bottomNavigation: undefined,
   fab: undefined,
   componentViewports: undefined,
+  contentSpacing: 2,
   tabSticky: false,
   loading: false,
   drawerWidth: 280,

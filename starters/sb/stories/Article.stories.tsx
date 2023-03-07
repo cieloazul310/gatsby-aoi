@@ -54,7 +54,7 @@ export function WithSectionJa() {
 
 export function WithWrapper() {
   return (
-    <SectionWrapper>
+    <SectionWrapper component="article">
       <Section>
         <Article>
           <LoremIpsumJa />
