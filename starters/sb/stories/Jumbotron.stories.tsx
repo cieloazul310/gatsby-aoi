@@ -3,7 +3,10 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { Jumbotron } from '@cieloazul310/gatsby-theme-aoi-components';
+import {
+  Jumbotron,
+  SectionWrapper,
+} from '@cieloazul310/gatsby-theme-aoi-components';
 
 export default {
   title: 'Jumbotron',
@@ -92,4 +95,15 @@ export function withFlexBox() {
 
 export function bgcolor() {
   return <Jumbotron title="bgcolor" bgcolor="#f71" />;
+}
+
+export function ColorSchema() {
+  return (
+    <SectionWrapper>
+      <Jumbotron title="Primary" colorSchema="primary" />
+      <Jumbotron title="Secondary" colorSchema="secondary" />
+      <Jumbotron title="Error" colorSchema="error" />
+      <Jumbotron title="Success" colorSchema="success" />
+    </SectionWrapper>
+  );
 }

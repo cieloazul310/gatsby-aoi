@@ -5,17 +5,20 @@ import Typography from '@mui/material/Typography';
 import type { Theme } from '@mui/material/styles';
 
 export type JumbotronProps = Omit<
-  BoxProps<
-    React.ElementType<any>,
-    {
-      title?: string;
-      bgImage?: string;
-      disableGradient?: boolean;
-      containerProps?: ContainerProps;
-    }
-  >,
+  BoxProps<React.ElementType<any>>,
   'maxWidth' | 'ref'
 > & {
+  title?: string;
+  bgImage?: string;
+  disableGradient?: boolean;
+  containerProps?: ContainerProps;
+  colorSchema?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'error'
+    | 'info'
+    | 'warning';
   maxWidth?: ContainerProps['maxWidth'];
 };
 
@@ -25,9 +28,12 @@ const Jumbotron = React.forwardRef<any, JumbotronProps>(
       title,
       bgImage,
       children,
+      colorSchema = 'primary',
       bgcolor = ({ palette }: Theme) => {
         if (bgImage) return palette.grey[600];
-        return palette.mode === 'light' ? 'primary.dark' : palette.grey[800];
+        return palette.mode === 'light'
+          ? `${colorSchema}.dark`
+          : palette.grey[800];
       },
       maxWidth = 'sm',
       display = 'flex',
@@ -60,12 +66,12 @@ const Jumbotron = React.forwardRef<any, JumbotronProps>(
         if (disableGradient) return undefined;
         const isDark = palette.mode === 'dark';
         const { grey } = palette;
-        const { light, dark } = palette.primary;
+        const { light, dark } = palette[colorSchema];
         return `radial-gradient(ellipse at top left, ${
           isDark ? dark : light
         } 0%, ${isDark ? grey[800] : dark} 100%)`;
       },
-      [bgImage, disableGradient]
+      [bgImage, disableGradient, colorSchema]
     );
     const color = React.useCallback(
       ({ palette }: Theme) =>
@@ -128,6 +134,23 @@ const Jumbotron = React.forwardRef<any, JumbotronProps>(
 
 Jumbotron.defaultProps = {
   maxWidth: 'sm',
+  title: undefined,
+  bgImage: undefined,
+  disableGradient: false,
+  containerProps: {
+    maxWidth: undefined,
+    sx: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: {
+        xs: 'center',
+        sm: 'start',
+      },
+      zIndex: 1,
+    },
+  },
+  colorSchema: 'primary',
 };
 
 export default Jumbotron;
