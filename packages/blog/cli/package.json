@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-cli",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "CLI package for Gatsby Theme Aoi Blog",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -43,14 +43,14 @@
     "commander": "^10.0.0"
   },
   "devDependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.1.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.1.1",
     "@types/node": "^18.14.1",
     "eslint": "^8.34.0",
-    "eslint-config-custom": "^3.1.0",
+    "eslint-config-custom": "^3.1.1",
     "rimraf": "^4.1.2",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
-    "tsconfig": "^3.1.0",
+    "tsconfig": "^3.1.1",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {

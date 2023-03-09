@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-types",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Utils and types for Gatsby Theme Aoi Blog",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
@@ -23,11 +23,11 @@
   },
   "devDependencies": {
     "eslint": "^8.34.0",
-    "eslint-config-custom": "^3.1.0",
+    "eslint-config-custom": "^3.1.1",
     "gatsby": "^5.7.0",
     "gatsby-plugin-image": "^3.7.0",
     "gatsby-source-filesystem": "^5.7.0",
-    "tsconfig": "^3.1.0"
+    "tsconfig": "^3.1.1"
   },
   "peerDependencies": {
     "gatsby": "^5.0.0",
