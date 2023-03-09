@@ -4,10 +4,7 @@ import Container, { type ContainerProps } from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import type { Theme } from '@mui/material/styles';
 
-export type JumbotronProps = Omit<
-  BoxProps<React.ElementType<any>>,
-  'maxWidth' | 'ref'
-> & {
+export type JumbotronProps = Omit<BoxProps, 'maxWidth' | 'ref'> & {
   title?: string;
   bgImage?: string;
   disableGradient?: boolean;
@@ -55,16 +52,12 @@ const Jumbotron = React.forwardRef<any, JumbotronProps>(
     },
     ref
   ) => {
-    const jumbotronBgColor = React.useCallback(
-      ({ palette }: Theme) => {
-        if (bgcolor) return bgcolor;
-        if (bgImage) return palette.grey[600];
-        return palette.mode === 'light'
-          ? `${colorSchema}.dark`
-          : palette.grey[800];
-      },
-      [bgImage, bgcolor]
-    );
+    const jumbotronBgColor = React.useMemo(() => {
+      if (bgcolor) return bgcolor;
+      if (bgImage) return 'grey.600';
+      return ({ palette }: Theme) =>
+        palette.mode === 'light' ? `${colorSchema}.dark` : 'grey.800';
+    }, [bgImage, bgcolor]);
     const jumbotronBgImage = React.useCallback(
       ({ palette }: Theme) => {
         if (bgcolor) return undefined;

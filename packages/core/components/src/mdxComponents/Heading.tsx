@@ -47,8 +47,9 @@ export const H3: (
 >((props, ref) => (
   <Typography
     ref={ref}
-    variant="h5"
+    variant="h6"
     component="h3"
+    fontWeight="bold"
     color="inherit"
     mt={4}
     mb={2}
@@ -83,6 +84,7 @@ export const H5: (
     ref={ref}
     variant="body1"
     component="h5"
+    fontWeight="bold"
     color="inherit"
     mt={4}
     mb={2}
@@ -100,7 +102,6 @@ export const H6: (
     ref={ref}
     variant="body1"
     component="h6"
-    color="text.secondary"
     mt={4}
     mb={2}
     {...props}

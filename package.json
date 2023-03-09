@@ -20,7 +20,7 @@
     "ci:versionup:minor": "lerna version minor --no-push --no-git-tag-version --yes && yarn run update-lockfile && yarn run commit-version",
     "ci:versionup:major": "lerna version major --no-push --no-git-tag-version --yes && yarn run update-lockfile && yarn run commit-version",
     "update-lockfile": "yarn install --mode=update-lockfile",
-    "commit-version": "git add . && git commit -m \"chore(release): v`node -p 'require(\"./lerna.json\").version'`\"",
+    "commit-version": "git add . && git commit -m \"chore(release): v$(node -p 'require(\"./lerna.json\").version')\"",
     "release": "lerna publish from-git",
     "ci:release": "lerna publish from-package --yes",
     "lerna": "lerna",

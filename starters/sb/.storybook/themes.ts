@@ -1,6 +1,13 @@
 import { createTheme } from '@mui/material/styles';
-import initialMuiTheme from '@cieloazul310/gatsby-theme-aoi-top-layout/src/theme';
+import { blue, red } from '@mui/material/colors';
 import { useGetDesignTokens } from '@cieloazul310/gatsby-theme-aoi-top-layout';
+
+const initialMuiTheme = createTheme({
+  palette: {
+    primary: blue,
+    secondary: red,
+  },
+});
 
 const getDesignTokens = useGetDesignTokens(initialMuiTheme);
 

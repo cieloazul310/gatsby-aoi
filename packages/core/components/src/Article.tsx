@@ -1,8 +1,11 @@
 import * as React from 'react';
 import Container, { type ContainerProps } from '@mui/material/Container';
 import Typography, { type TypographyProps } from '@mui/material/Typography';
+import type { BoxProps } from '@mui/material/Box';
 
-export type ArticleProps = ContainerProps & Pick<TypographyProps, 'variant'>;
+export type ArticleProps = Omit<ContainerProps, 'py'> &
+  Pick<TypographyProps, 'variant'> &
+  Pick<BoxProps, 'py'>;
 
 /**
  * `<Article>`
@@ -11,19 +14,23 @@ export type ArticleProps = ContainerProps & Pick<TypographyProps, 'variant'>;
  * `maxWidth` is default to `'sm'`
  */
 const Article = React.forwardRef<any, ArticleProps>(
-  ({ variant = 'body1', maxWidth = 'sm', ...props }, ref) => (
+  ({ variant = 'body1', maxWidth = 'sm', py = 4, ...props }, ref) => (
     <Typography
-      sx={{ py: 4, wordWrap: 'break-word' }}
+      sx={{ py, wordWrap: 'break-word' }}
       component="div"
-      variant={variant ?? 'body1'}
+      variant={variant}
     >
       <Container
         ref={ref}
         maxWidth={maxWidth}
         sx={{
+          ...props.sx,
           // equivalent to first-child
           '& > *:not(:is(*:not(style) ~ *))': {
             mt: 0,
+          },
+          '& > p:last-of-type': {
+            mb: 0,
           },
         }}
         {...props}
