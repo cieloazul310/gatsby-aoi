@@ -3,6 +3,7 @@ import {
   Article,
   Section,
   SectionWrapper,
+  Paragraph,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import type { ComponentMeta } from '@storybook/react';
 import { LoremIpsum, LoremIpsumJa } from '../components/LoremIpsum';
@@ -57,17 +58,30 @@ export function WithWrapper() {
     <SectionWrapper component="article">
       <Section>
         <Article>
-          <LoremIpsumJa />
+          <Paragraph>
+            茶は薬用として始まり後飲料となる。シナにおいては八世紀に高雅な遊びの一つとして詩歌の域に達した。十五世紀に至り日本はこれを高めて一種の審美的宗教、すなわち茶道にまで進めた。
+          </Paragraph>
+        </Article>
+      </Section>
+      <Section>
+        <Article py={2}>
+          <Paragraph>
+            茶は薬用として始まり後飲料となる。シナにおいては八世紀に高雅な遊びの一つとして詩歌の域に達した。十五世紀に至り日本はこれを高めて一種の審美的宗教、すなわち茶道にまで進めた。
+          </Paragraph>
+        </Article>
+      </Section>
+      <Section>
+        <Article py={8}>
+          <Paragraph>
+            茶は薬用として始まり後飲料となる。シナにおいては八世紀に高雅な遊びの一つとして詩歌の域に達した。十五世紀に至り日本はこれを高めて一種の審美的宗教、すなわち茶道にまで進めた。
+          </Paragraph>
         </Article>
       </Section>
       <Section>
         <Article>
-          <LoremIpsumJa />
-        </Article>
-      </Section>
-      <Section>
-        <Article>
-          <LoremIpsumJa />
+          <Paragraph>
+            茶は薬用として始まり後飲料となる。シナにおいては八世紀に高雅な遊びの一つとして詩歌の域に達した。十五世紀に至り日本はこれを高めて一種の審美的宗教、すなわち茶道にまで進めた。
+          </Paragraph>
         </Article>
       </Section>
     </SectionWrapper>

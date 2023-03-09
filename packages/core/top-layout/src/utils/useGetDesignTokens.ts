@@ -15,11 +15,11 @@ function useGetDesignTokens(initialTheme: Theme) {
         mode: 'dark',
         primary: {
           ...initialTheme.palette.primary,
-          light: lighten(initialTheme.palette.primary.light, 0.6),
+          light: lighten(initialTheme.palette.primary.light, 0.5),
           main: lighten(initialTheme.palette.primary.main, 0.4),
         },
         secondary: {
-          light: lighten(initialTheme.palette.secondary.light, 0.6),
+          light: lighten(initialTheme.palette.secondary.light, 0.5),
           main: lighten(initialTheme.palette.secondary.main, 0.4),
         },
         background: {
