@@ -1,6 +1,6 @@
 {
   "name": "gatsby-starter-aoi-theme",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "private": true,
   "description": "Gatsby starter built with @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
@@ -15,7 +15,7 @@
     "eslint": "eslint src/"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "^3.1.0",
+    "@cieloazul310/gatsby-theme-aoi": "^3.1.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.9",
@@ -26,8 +26,8 @@
   },
   "devDependencies": {
     "eslint": "^8.34.0",
-    "eslint-config-custom": "^3.1.0",
-    "tsconfig": "^3.1.0",
+    "eslint-config-custom": "^3.1.1",
+    "tsconfig": "^3.1.1",
     "typescript": "^4.9.5"
   }
 }
