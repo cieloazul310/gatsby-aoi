@@ -8,15 +8,21 @@ import {
   AppLinkButton,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
+import { useAppState } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
 
 function FullWidthLayout() {
+  const { appBarPosition } = useAppState();
   return (
     <Layout
       title="Full Width Layout"
+      appBarPosition={appBarPosition}
       componentViewports={{
         permanentDrawer: false,
         swipeableDrawer: true,
         fab: true,
+      }}
+      onRightButtonClick={() => {
+        console.log('onRightButtonClick');
       }}
     >
       <Jumbotron component="header" title="Full Width Layout" maxWidth="md" />

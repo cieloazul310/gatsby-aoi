@@ -6,7 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import type { ComponentViewports } from '@cieloazul310/gatsby-theme-aoi-utils';
 
-type ButtonLeftProps = {
+export type ButtonLeftProps = {
   componentViewports: ComponentViewports;
   toggleDrawer: () => void;
 };

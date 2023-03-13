@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Toolbar from '@mui/material/Toolbar';
 import Divider from '@mui/material/Divider';
 // Drawer Contents
 import Contents from './Contents';
@@ -6,30 +7,39 @@ import DrawerSharer from './DrawerSharer';
 import StateHandler from './StateHandler';
 import DrawerFooter from './DrawerFooter';
 
-type DrawerInnerProps = {
+export type DrawerInnerProps = {
   contents?: React.ReactNode;
   title?: string;
+  appBarFixed?: boolean;
 };
 
-function DrawerInner({ contents, title }: DrawerInnerProps) {
+function DrawerInner({
+  contents,
+  title,
+  appBarFixed,
+  ...props
+}: DrawerInnerProps) {
   return (
-    <div>
+    <>
+      {!appBarFixed ? <Toolbar /> : null}
+      <Divider />
       {contents}
       {contents ? <Divider /> : null}
-      <Contents />
+      <Contents {...props} />
       <Divider />
-      <StateHandler />
+      <StateHandler {...props} />
       <Divider />
-      <DrawerSharer title={title} />
+      <DrawerSharer title={title} {...props} />
       <Divider />
-      <DrawerFooter />
-    </div>
+      <DrawerFooter {...props} />
+    </>
   );
 }
 
 DrawerInner.defaultProps = {
   contents: undefined,
   title: undefined,
+  appBarFixed: undefined,
 };
 
 export default DrawerInner;

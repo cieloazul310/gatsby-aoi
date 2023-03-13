@@ -1,16 +1,24 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import ShareButtons from './ShareButtons';
+import IconButton from '@mui/material/IconButton';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import type { HeaderButtonRightProps } from '@cieloazul310/gatsby-theme-aoi';
 
-export type ButtonRightProps = {
-  title?: string;
+type ButtonRightProps = HeaderButtonRightProps & {
+  onRightButtonClick?: () => void;
 };
 
-function ButtonRight({ title }: ButtonRightProps) {
+function ButtonRight({
+  onRightButtonClick = () => {
+    // noop
+  },
+}: ButtonRightProps) {
   return (
     <>
       <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-        <ShareButtons color="inherit" title={title} />
+        <IconButton onClick={onRightButtonClick}>
+          <ArrowRightIcon />
+        </IconButton>
       </Box>
       <Box
         sx={{
@@ -32,7 +40,7 @@ function ButtonRight({ title }: ButtonRightProps) {
 }
 
 ButtonRight.defaultProps = {
-  title: undefined,
+  onRightButtonClick: () => {},
 };
 
 export default ButtonRight;

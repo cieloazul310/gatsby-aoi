@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import {
   Layout,
   Jumbotron,
@@ -8,6 +9,8 @@ import {
   Article,
   H2,
   H3,
+  Ul,
+  Li,
   Paragraph,
   AppLink,
   AppLinkButton,
@@ -22,9 +25,10 @@ import {
   useAppState,
   useDispatch,
 } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
+import type { AppState } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppState';
 
 function Catalogue() {
-  const { count } = useAppState();
+  const { count, appBarPosition } = useAppState();
   const dispatch = useDispatch();
   const { darkMode, useSystemTheme } = useThemeContextState();
   const toggleDark = useToggleDark();
@@ -32,8 +36,11 @@ function Catalogue() {
   const increment = () => {
     dispatch({ type: 'INCREMENT' });
   };
+  const onButtonClick = (newValue: AppState['appBarPosition']) => () => {
+    dispatch({ type: 'SET_APPBAR_POSITION', appBarPosition: newValue });
+  };
   return (
-    <Layout title="Catalogue">
+    <Layout title="Catalogue" appBarPosition={appBarPosition}>
       <Jumbotron component="header" title="Catalogue" />
       <Section component="article">
         <Article>
@@ -43,23 +50,14 @@ function Catalogue() {
             Gatsby Theme Aoi Basic Layout. Easy to customize.
           </Paragraph>
           <H3>Tab Page Layout</H3>
-          <Paragraph>
-            Gatsby Theme Aoi Tab Page Layout
-            <br />
-            <PanelLink href="/tab-page/">Example</PanelLink>
-          </Paragraph>
+          <Paragraph>Gatsby Theme Aoi Tab Page Layout</Paragraph>
+          <PanelLink href="/tab-page/">Example</PanelLink>
           <H3>Jumbotron Layout</H3>
-          <Paragraph>
-            Gatsby Theme Aoi Jumbotron Layout
-            <br />
-            <PanelLink href="/jumbotron/">Example</PanelLink>
-          </Paragraph>
+          <Paragraph>Gatsby Theme Aoi Jumbotron Layout</Paragraph>
+          <PanelLink href="/jumbotron/">Example</PanelLink>
           <H3>Full Width Layout</H3>
-          <Paragraph>
-            Gatsby Theme Aoi Full Width Layout
-            <br />
-            <PanelLink href="/without-drawer/">Example</PanelLink>
-          </Paragraph>
+          <Paragraph>Gatsby Theme Aoi Full Width Layout</Paragraph>
+          <PanelLink href="/without-drawer/">Example</PanelLink>
         </Article>
       </Section>
       <Section component="article">
@@ -109,16 +107,32 @@ function Catalogue() {
             Easy to use Social Share Url for Twitter, Facebook and Line.
           </Paragraph>
           <H3>useAppState</H3>
-          <Paragraph>
-            Returns current App State.
-            <br />
-            Count: {count}
-          </Paragraph>
+          <Paragraph>Returns current App State.</Paragraph>
+          <Ul>
+            <Li>Count: {count}</Li>
+            <Li>AppBar position: {appBarPosition}</Li>
+          </Ul>
           <H3>useDispatch</H3>
           <Paragraph>Returns dispatch of App State.</Paragraph>
-          <Button variant="contained" onClick={increment}>
-            Increment
-          </Button>
+          <Stack spacing={2}>
+            <Button variant="contained" onClick={increment}>
+              Increment
+            </Button>
+            <ButtonGroup>
+              {(
+                [
+                  'sticky',
+                  'fixed',
+                  'relative',
+                  'static',
+                ] as AppState['appBarPosition'][]
+              ).map((value) => (
+                <Button key={value} onClick={onButtonClick(value)}>
+                  {value}
+                </Button>
+              ))}
+            </ButtonGroup>
+          </Stack>
           <H3>useThemeContextState</H3>
           <Paragraph>Returns theme Context State.</Paragraph>
           <Paragraph>

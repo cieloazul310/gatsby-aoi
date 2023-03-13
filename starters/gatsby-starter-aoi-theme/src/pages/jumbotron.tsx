@@ -8,10 +8,12 @@ import {
   AppLinkButton,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
+import { useAppState } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
 
 function JumbotronPage() {
+  const { appBarPosition } = useAppState();
   return (
-    <Layout title="JumbotronPage">
+    <Layout title="JumbotronPage" appBarPosition={appBarPosition}>
       <Jumbotron
         component="header"
         title="Jumbotron Page"

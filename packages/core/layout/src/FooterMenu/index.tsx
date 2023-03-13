@@ -1,37 +1,27 @@
 import * as React from 'react';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import {
-  Section,
-  ListItemAppLink,
-} from '@cieloazul310/gatsby-theme-aoi-components';
-import menu, { type Menu } from '../menu';
+import { Section } from '@cieloazul310/gatsby-theme-aoi-components';
+import menu from '../menu';
+import FooterMenuContainer from './Container';
+import FooterMenuItem from './Item';
 
-type FooterMenuItemProps = Menu;
+export type FooterMenuProps<T extends object = Record<string, unknown>> = T;
 
-function FooterMenuItem({ title, path, icon }: FooterMenuItemProps) {
-  return (
-    <Grid item xs={12} sm={6} md={3} xl={2}>
-      <ListItemAppLink href={path}>
-        <ListItemIcon>{icon}</ListItemIcon>
-        <ListItemText primary={title} />
-      </ListItemAppLink>
-    </Grid>
-  );
-}
-
-function FooterMenu() {
+function FooterMenu<T extends object = Record<string, unknown>>(
+  props: FooterMenuProps<T>
+) {
   return (
     <Section component="nav">
-      <Container maxWidth="md" disableGutters>
-        <Grid container alignItems="center">
-          {menu.map(({ title, path, icon }) => (
-            <FooterMenuItem key={title} path={path} title={title} icon={icon} />
-          ))}
-        </Grid>
-      </Container>
+      <FooterMenuContainer {...props}>
+        {menu.map(({ title, path, icon }) => (
+          <FooterMenuItem
+            key={title}
+            path={path}
+            title={title}
+            icon={icon}
+            {...props}
+          />
+        ))}
+      </FooterMenuContainer>
     </Section>
   );
 }

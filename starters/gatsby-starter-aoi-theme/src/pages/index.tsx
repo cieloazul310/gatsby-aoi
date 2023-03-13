@@ -14,9 +14,10 @@ import {
 import { useAppState } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
 
 function IndexPage() {
-  const { count } = useAppState();
+  const { count, appBarPosition } = useAppState();
+
   return (
-    <Layout>
+    <Layout appBarPosition={appBarPosition}>
       <Jumbotron component="header" title="Gatsby Theme Aoi" />
       <Section component="main">
         <Article>

@@ -1,51 +1,44 @@
 import * as React from 'react';
+import type { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import {
   type ComponentViewports,
   useSiteMetadata,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
+import AppBar from './AppBar';
+import Title from './Title';
 import ButtonLeft from './ButtonLeft';
 import ButtonRight from './ButtonRight';
 
-type HeaderProps = {
+export type HeaderProps = {
   title?: string;
   componentViewports: ComponentViewports;
   toggleDrawer?: () => void;
+  appBarPosition?: MuiAppBarProps['position'];
 };
 
 function Header({
   title,
   componentViewports,
+  appBarPosition,
   toggleDrawer = () => {
     // do nothing
   },
+  ...props
 }: HeaderProps) {
   const siteMetadata = useSiteMetadata();
   return (
-    <Toolbar>
-      <ButtonLeft
-        componentViewports={componentViewports}
-        toggleDrawer={toggleDrawer}
-      />
-      <Typography
-        sx={{
-          flexGrow: 1,
-          py: 0,
-          px: 1,
-          lineHeight: 1.2,
-          display: 'flex',
-          justifyContent: { xs: 'center', md: 'start' },
-        }}
-        variant="h6"
-        component="h1"
-        color="inherit"
-        fontSize={{ xs: 'body1.fontSize', sm: 'h6.fontSize' }}
-      >
-        {title ?? siteMetadata.title}
-      </Typography>
-      <ButtonRight title={title} />
-    </Toolbar>
+    <AppBar appBarPosition={appBarPosition} {...props}>
+      <Toolbar>
+        <ButtonLeft
+          componentViewports={componentViewports}
+          toggleDrawer={toggleDrawer}
+          {...props}
+        />
+        <Title {...props}>{title ?? siteMetadata.title}</Title>
+        <ButtonRight title={title} {...props} />
+      </Toolbar>
+    </AppBar>
   );
 }
 
@@ -54,6 +47,7 @@ Header.defaultProps = {
   toggleDrawer: () => {
     // do nothing
   },
+  appBarPosition: undefined,
 };
 
 export default Header;
