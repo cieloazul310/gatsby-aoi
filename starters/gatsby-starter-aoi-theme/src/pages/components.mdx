@@ -1,0 +1,153 @@
+---
+title: Components
+---
+
+import {
+  AppLink,
+  AppLinkButton,
+  PanelLink,
+  Seo,
+} from '@cieloazul310/gatsby-theme-aoi';
+import Layout from '../layout';
+
+## Links
+
+### AppLink
+
+Gatsby Link composed to MuiLink.
+
+#### Example
+
+[AppLink example](/)
+
+[External AppLink example](https://github.com/cieloazul310/gatsby-aoi)
+
+#### Code
+
+```tsx
+import { AppLink } from '@cieloazul310/gatsby-theme-aoi';
+
+<AppLink href="/">
+  AppLink example
+</AppLink>
+
+<AppLink href="https://github.com/cieloazul310/gatsby-aoi">
+  External AppLink example
+</AppLink>
+```
+
+### AppLinkButton
+
+Gatsby Link composed to MuiButton.
+
+#### Example
+
+<AppLinkButton href="/" variant="contained">AppLink example</AppLinkButton>
+
+<AppLinkButton href="https://github.com/cieloazul310/gatsby-aoi" color="secondary">External example</AppLinkButton>
+
+#### Code
+
+```tsx
+import { AppLinkButton } from '@cieloazul310/gatsby-theme-aoi';
+
+<AppLinkButton href="/" variant="contained">
+  AppLink example
+</AppLinkButton>
+
+<AppLinkButton
+  href="https://github.com/cieloazul310/gatsby-aoi"
+  color="secondary"
+>
+  External example
+</AppLinkButton>
+```
+
+### PanelLink
+
+Gatsby Link and external link component styled with Panel Button.
+
+#### Example
+
+<PanelLink href="/">Top page</PanelLink>
+
+<PanelLink href="https://github.com/cieloazul310/gatsby-aoi">External example</PanelLink>
+
+<PanelLink href="https://www.mito-hollyhock.net" disableBorder>Disable Border</PanelLink>
+
+#### Code
+
+```tsx
+import { PanelLink } from '@cieloazul310/gatsby-theme-aoi';
+
+<PanelLink href="/">
+  Top page
+</PanelLink>
+
+<PanelLink href="https://github.com/cieloazul310/gatsby-aoi">
+  External example
+</PanelLink>
+
+<PanelLink href="https://www.mito-hollyhock.net" disableBorder>
+  Disable Border
+</PanelLink>
+```
+
+## Layout component
+
+### SectionWrapper and Section
+
+SectionWrapper is wrapper component for adding margin to each child component, which extends MUI Stack component.
+
+Section is simple section component with bgcolor.
+
+#### Code
+
+```tsx
+import { SectionWrapper, Section } from '@cieloazul310/gatsby-theme-aoi';
+
+function MyLayout({ children }) {
+  return (
+    <SectionWrapper>
+      <Section component="main">
+        {children}
+      </Section>
+      <Section component="footer">
+        <p>Built with Gatsby</p>
+      </Section>
+    </SectionWrapper>
+  )
+}
+```
+
+### Article
+
+with `maxWidth` props.
+
+### Jumbotron
+
+## Others
+
+### Seo
+
+Component for Gatsby Head API.
+
+#### Code
+
+```tsx
+import { Seo } from '@cieloazul310/gatsby-theme-aoi';
+
+export function Head() {
+  return <Seo title="Catalogue" />;
+}
+```
+
+## Next
+
+<PanelLink href="/mdx-components">MDX Components</PanelLink>
+
+export default Layout;
+
+export function Head() {
+  return <Seo title="Catalogue" />;
+}

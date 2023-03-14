@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import ShareButtons from './ShareButtons';
 
-type ButtonRightProps = {
+export type ButtonRightProps = {
   title?: string;
 };
 

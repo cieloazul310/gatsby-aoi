@@ -14,8 +14,10 @@ import {
   Alert,
   Seo,
 } from '@cieloazul310/gatsby-theme-aoi';
+import { useAppState } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
 
 function TabPage() {
+  const { appBarPosition } = useAppState();
   const [tab, setTab] = React.useState(0);
   const handleTab = (event: React.SyntheticEvent, newValue: number) => {
     setTab(newValue);
@@ -23,17 +25,19 @@ function TabPage() {
   const handleTabIndex = (index: number) => () => {
     setTab(index);
   };
+  const tabs = (
+    <Tabs value={tab} onChange={handleTab}>
+      <Tab label="Tab1" />
+      <Tab label="Tab2" />
+      <Tab label="Tab3" />
+    </Tabs>
+  );
   return (
     <Layout
       title="Tab Layout"
+      appBarPosition={appBarPosition}
       tabSticky
-      tabs={
-        <Tabs value={tab} onChange={handleTab}>
-          <Tab label="Tab1" />
-          <Tab label="Tab2" />
-          <Tab label="Tab3" />
-        </Tabs>
-      }
+      tabs={tabs}
     >
       <div>
         <TabPane index={0} currentTab={tab}>

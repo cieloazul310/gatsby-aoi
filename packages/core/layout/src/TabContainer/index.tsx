@@ -1,29 +1,42 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
+import type { AppBarProps } from '@mui/material/AppBar';
 
-type TabsProps = {
-  children: React.ReactNode;
+export type TabContainerProps = React.PropsWithChildren<{
   tabSticky?: boolean;
-};
+  appBarPosition: AppBarProps['position'];
+}>;
 
-function Tabs({ children, tabSticky = false }: TabsProps) {
+function TabContainer({
+  children,
+  appBarPosition,
+  tabSticky = false,
+}: TabContainerProps) {
+  const isHeaderTop = appBarPosition === 'fixed' || appBarPosition === 'sticky';
+  const top = React.useMemo(() => {
+    if (!tabSticky) return undefined;
+    if (!isHeaderTop) return 0;
+    return { xs: 56, sm: 64 };
+  }, [tabSticky, isHeaderTop]);
+
   return (
     <Box
+      component="nav"
       sx={{
         position: tabSticky ? 'sticky' : undefined,
-        top: { xs: tabSticky ? 56 : undefined, sm: tabSticky ? 64 : undefined },
+        top,
         backgroundColor: tabSticky ? 'background.default' : undefined,
         zIndex: tabSticky ? 'mobileStepper' : undefined,
         boxShadow: tabSticky ? 1 : undefined,
       }}
     >
-      <nav>{children}</nav>
+      {children}
     </Box>
   );
 }
 
-Tabs.defaultProps = {
+TabContainer.defaultProps = {
   tabSticky: false,
 };
 
-export default Tabs;
+export default TabContainer;

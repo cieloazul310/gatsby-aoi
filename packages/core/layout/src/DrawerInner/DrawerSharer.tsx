@@ -11,7 +11,7 @@ import {
   useSocialShare,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
 
-type DrawerSharerProps = {
+export type DrawerSharerProps = {
   title?: string;
 };
 

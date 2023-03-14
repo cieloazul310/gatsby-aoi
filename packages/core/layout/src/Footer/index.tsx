@@ -3,12 +3,14 @@ import { Section, Article } from '@cieloazul310/gatsby-theme-aoi-components';
 import Socials from './Socials';
 import Copyrights from './Copyrights';
 
-function Footer() {
+type FooterProps = Record<string, unknown>;
+
+function Footer(props: FooterProps) {
   return (
     <Section component="footer">
       <Article>
-        <Socials />
-        <Copyrights />
+        <Socials {...props} />
+        <Copyrights {...props} />
       </Article>
     </Section>
   );

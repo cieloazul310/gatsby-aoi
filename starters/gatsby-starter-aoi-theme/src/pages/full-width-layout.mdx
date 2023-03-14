@@ -1,0 +1,49 @@
+---
+title: Full Width Layout
+---
+
+import { Seo } from '@cieloazul310/gatsby-theme-aoi';
+import Layout from '../layout';
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis necquam quis nulla dignissim finibus. Morbi aliquam quam ut efficiturfeugiat. Duis viverra elit eu diam tincidunt lobortis. Proin loremjusto, faucibus et mollis ut, lobortis nec nisi. Ut nisi mauris,varius nec metus id, rhoncus scelerisque nisl. Morbi leo urna,pretium quis maximus ut, suscipit at arcu. Maecenas ultrices, risusac mattis malesuada, risus risus aliquet ex, ac condimentum ex enimeget libero. Sed fermentum rutrum urna, vitae suscipit nunc tempuseget. Orci varius natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Suspendisse luctus mattis dui, quis eleifendenim convallis eget. Phasellus nec luctus leo. Proin condimentumfelis nec luctus egestas. In in sagittis augue. Quisque feugiat acdiam et laoreet. Curabitur a tempus arcu. Vivamus vulputate posuerevehicula.
+
+## Example Code
+
+```tsx
+import { Layout } from '@cieloazul310/gatsby-theme-aoi';
+
+function FullWidthPage() {
+  return (
+    <Layout 
+      componentViewports={{
+        permanentDrawer: false,
+        swipeableDrawer: true,
+        fab: true,
+      }}
+    >
+      {children}
+    </Layout>
+  );
+}
+```
+
+[Back to Top](/)
+
+export default function FullWidthLayout({ children, ...props }) {
+  return (
+    <Layout 
+      componentViewports={{
+        permanentDrawer: false,
+        swipeableDrawer: true,
+        fab: true,
+      }}
+      {...props}
+    >
+      {children}
+    </Layout>
+  );
+}
+
+export function Head() {
+  return <Seo title="Full Width Layout" />;
+}

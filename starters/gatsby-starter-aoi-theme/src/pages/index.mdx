@@ -1,0 +1,64 @@
+---
+title: Gatsby Theme Aoi
+---
+
+import { PanelLink, Seo } from '@cieloazul310/gatsby-theme-aoi';
+import Layout from '../layout';
+
+TypeScript based [Gatsby theme][Gatsby Themes] for [MUI] (Material-UI)
+
+## Features
+
+- TypeScript
+- MUI
+- Mobile friendlly responsive UI
+- MUI components composed with Gatsby routing
+- Holding global app state
+- Dark mode
+
+<PanelLink href="/components/">Browse components</PanelLink>
+
+## Getting started
+
+### 1. Install
+
+```sh
+npm install @cieloazul310/gatsby-theme-aoi
+```
+
+and install following peer dependencies:  
+[@mui/material](https://www.npmjs.com/package/@mui/material) [@mui/icons-material](https://www.npmjs.com/package/@mui/icons-material) [@emotion/react](https://www.npmjs.com/package/@emotion/react) [@emotion/styled](https://www.npmjs.com/package/@emotion/styled)
+
+```shell
+yarn add @mui/material @mui/icons-material @emotion/react @emotion/styled
+```
+
+### 2. Configuration
+
+```javascript
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: `@cieloazul310/gatsby-theme-aoi`,
+      options: {
+        siteId: `your-site-id`,
+      },
+    },
+  ],
+}
+```
+
+export default Layout;
+
+export function Head() {
+  return <Seo />;
+}
+
+[Gatsby]: https://www.gatsbyjs.com/ "Gatsby"
+[MUI]: https://mui.org/ "MUI"
+
+[Gatsby Themes]: https://gatsbyjs.com/docs/themes/ "Themes"
+[Gatsby Starters]: https://www.gatsbyjs.com/docs/starters/ "Gatsby Starters"
+[Shadowing]: https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/ "Shadowing in Gatsby Themes"
+[Gatsby Link]: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/ "Gatsby Link API"

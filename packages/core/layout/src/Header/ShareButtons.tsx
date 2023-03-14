@@ -10,7 +10,7 @@ import {
   useSocialShare,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
 
-type ShareButtonsProps = {
+export type ShareButtonsProps = {
   title?: string;
 } & Partial<Pick<IconButtonProps, 'color'>>;
 
