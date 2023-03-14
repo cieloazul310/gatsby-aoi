@@ -28,7 +28,7 @@ function Header({
 }: HeaderProps) {
   const siteMetadata = useSiteMetadata();
   return (
-    <AppBar appBarPosition={appBarPosition} {...props}>
+    <AppBar {...props} appBarPosition={appBarPosition}>
       <Toolbar>
         <ButtonLeft
           componentViewports={componentViewports}
@@ -36,7 +36,7 @@ function Header({
           {...props}
         />
         <Title {...props}>{title ?? siteMetadata.title}</Title>
-        <ButtonRight title={title} {...props} />
+        <ButtonRight {...props} title={title} />
       </Toolbar>
     </AppBar>
   );

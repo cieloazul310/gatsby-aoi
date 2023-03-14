@@ -1,0 +1,140 @@
+---
+title: Tips
+---
+
+import { Seo } from '@cieloazul310/gatsby-theme-aoi';
+import Layout from '../layout';
+
+## Theming
+
+### 1. Add theme.ts
+
+```sh
+mkdir -p src/@cieloazul310/gatsby-theme-aoi-top-layout
+touch src/@cieloazul310/gatsby-theme-aoi-top-layout/theme.ts
+```
+
+### 2. Configure your MUI theme
+
+#### src/@cieloazul310/gatsby-theme-aoi-top-layout/theme.\{js,ts\}
+
+```ts
+import { blue, red } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: blue,
+    secondary: red,
+  },
+  ...yourMuiThemeConfig
+});
+
+export default theme;
+```
+
+## Customizing global AppState
+
+### 1. Add AppState.ts and AppStateContext.tsx
+
+```sh
+mkdir -p src/@cieloazul310/gatsby-theme-aoi-top-layout/utils
+touch src/@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppState.ts
+touch src/@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext.tsx
+```
+
+### 2. Configure your global AppState
+
+#### src/@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppState.ts
+
+Define `intiialAppState`, `reducer`, `useInitialAppState`, `type AppState` and `type Action`.
+
+```ts
+import * as React from 'react';
+import type { AppBarProps } from '@mui/material/AppBar';
+
+export type AppState = {
+  count: number;
+  appBarPosition: AppBarProps['position'];
+};
+
+export const initialAppState: AppState = {
+  count: 0,
+  appBarPosition: 'fixed',
+};
+
+export type Action =
+  | { type: 'RESET' }
+  | { type: 'INCREMENT' }
+  | { type: 'SET_APPBAR_POSITION'; appBarPosition: AppState['appBarPosition'] };
+
+export default function reducer(state: AppState, action: Action): AppState {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { ...state, count: state.count + 1 };
+    case 'SET_APPBAR_POSITION':
+      return { ...state, appBarPosition: action.appBarPosition };
+    case 'RESET':
+      return initialAppState;
+    default:
+      throw new Error("Reducer don't match the action type.");
+  }
+}
+
+export const useInitialAppState = (
+  dispatch: React.Dispatch<Action>,
+  isMobile?: boolean
+) => {
+  React.useEffect(() => {
+    if (isMobile) {
+      dispatch({ type: 'INCREMENT' });
+    }
+  }, []);
+};
+```
+
+### 3. Clone AppStateContext.tsx
+
+Clone below file to src/@cieloazul310/gatsby-theme-aoi-top-layout/src/utils/AppStateContext.tsx
+
+https://github.com/cieloazul310/gatsby-aoi/blob/main/packages/core/top-layout/src/utils/AppStateContext.tsx
+
+#### Why?
+
+```tsx
+// src/@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppState.ts
+
+// customized global `AppState`
+type AppState = {
+  count: number;
+};
+```
+
+##### Import from theme (not type-safety)
+
+```tsx
+// src/pages/*.tsx
+import { useAppState } from '@cieloazul310/gatsby-theme-aoi';
+
+function Page() {
+  const { count } = useAppState();
+  // => Property 'count' does not exist on type 'AppState'. (ts 2339)
+}
+```
+
+##### Import from cloned theme (type-safety)
+
+```tsx
+import { useAppState } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
+
+function Page() {
+  const { count } = useAppState();
+  // => type safe
+}
+```
+
+export default Layout;
+
+export function Head() {
+  return <Seo title="Tips" />
+}

@@ -1,0 +1,205 @@
+---
+title: Hooks
+---
+
+import {
+  AppLink,
+  AppLinkButton,
+  PanelLink,
+  Seo,
+  useThemeContextState,
+  useToggleDark,
+  useToggleUseSystem,
+} from '@cieloazul310/gatsby-theme-aoi';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import { useAppState, useDispatch } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
+import Layout from '../layout';
+
+## Hooks
+
+Hooks for using global AppState and color mode theme state.
+
+### useSiteMetadata
+
+Easy to use site metadata.
+
+```tsx
+import { useSiteMetadata } from '@cieloazul310/gatsby-theme-aoi';
+
+function Example() {
+  const { title, description } = useSiteMetadata();
+}
+```
+
+### useAppState
+
+Returns current global AppState.
+
+export const StateViewer = () => {
+  const { count, appBarPosition } = useAppState();
+  return (
+    <ul>
+      <li>count: {count}</li>
+      <li>appBarPosition: {appBarPosition}</li>
+    </ul>
+  );
+}
+
+<StateViewer />
+
+```tsx
+import { useAppState } from '@cieloazul310/gatsby-theme-aoi';
+
+// for safe typing
+// import { useAppState } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
+
+const { count, appBarPosition } = useAppState();
+```
+
+### useDispatch
+
+Returns dispatch of global AppState.
+
+export const DispatchViewer = () => {
+  const dispatch = useDispatch();
+  const increment = () => {
+    dispatch({ type: 'INCREMENT' });
+  };
+  const onButtonClick = (newValue) => () => {
+    dispatch({ type: 'SET_APPBAR_POSITION', appBarPosition: newValue });
+  };
+  return (
+    <Stack spacing={2}>
+      <Button variant="contained" onClick={increment}>
+        Increment
+      </Button>
+      <ButtonGroup>
+        {['sticky', 'fixed', 'relative', 'static'].map(
+          (value) => (
+            <Button key={value} onClick={onButtonClick(value)}>
+              {value}
+            </Button>
+          )
+        )}
+      </ButtonGroup>
+    </Stack>
+  )
+}
+
+<DispatchViewer />
+
+```tsx
+import { useDispatch } from '@cieloazul310/gatsby-theme-aoi';
+
+// or shadowing appState
+// import { useDispatch } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
+
+const increment = () => {
+  dispatch({ type: 'INCREMENT' });
+};
+const onButtonClick = (newValue: AppState['appBarPosition']) => () => {
+  dispatch({ type: 'SET_APPBAR_POSITION', appBarPosition: newValue });
+};
+
+<Stack spacing={2}>
+  <Button variant="contained" onClick={increment}>
+    Increment
+  </Button>
+  <ButtonGroup>
+    {(
+      [
+        'sticky',
+        'fixed',
+        'relative',
+        'static',
+      ] as AppState['appBarPosition'][]
+    ).map((value) => (
+      <Button key={value} onClick={onButtonClick(value)}>
+        {value}
+      </Button>
+    ))}
+  </ButtonGroup>
+</Stack>
+```
+
+### useThemeContextState
+
+Returns theme Context State.
+
+export const ThemeStateViewer = () => {
+  const { darkMode, useSystemTheme } = useThemeContextState();
+  return (
+    <ul>
+      <li>darkMode: {darkMode.toString()}</li>
+      <li>useSystemTheme: {useSystemTheme.toString()}</li>
+    </ul>
+  );
+}
+
+<ThemeStateViewer />
+
+```tsx
+import { useThemeContextState } from '@cieloazul310/gatsby-theme-aoi';
+
+const { darkMode, useSystemTheme } = useThemeContextState();
+```
+
+### useToggleDark
+
+Returns callback to toggle lightmode / darkmode state.
+
+export const ToggleDarkViewer = () => {
+  const toggleDark = useToggleDark();
+
+  return (
+    <Button variant="contained" onClick={toggleDark}>
+      Toggle Color mode
+    </Button>
+  );
+}
+
+<ToggleDarkViewer />
+
+```tsx
+import { useToggleDark } from '@cieloazul310/gatsby-theme-aoi';
+
+const toggleDark = useToggleDark();
+
+<Button variant="contained" onClick={toggleDark}>
+  Toggle Dark
+</Button>
+```
+
+### useToggleUseSystem
+
+Returns callback to toggle useSystemTheme (enable auto dark mode) state.
+
+export const ToggleUseSystemViewer = () => {
+  const toggleUseSystem = useToggleUseSystem();
+
+  return (
+    <Button variant="contained" onClick={toggleUseSystem}>
+      Toggle Use System Theme
+    </Button>
+  );
+}
+
+<ToggleUseSystemViewer />
+
+```tsx
+import { useToggleUseSystem } from '@cieloazul310/gatsby-theme-aoi';
+
+const toggleUseSystem = useToggleUseSystem();
+
+<Button variant="contained" onClick={toggleUseSystem}>
+  Toggle Use System Theme
+</Button>
+```
+
+export default Layout;
+
+export function Head() {
+  return <Seo title="Hooks" />;
+}

@@ -1,0 +1,34 @@
+---
+title: Layout
+---
+
+import { PanelLink, Seo } from '@cieloazul310/gatsby-theme-aoi';
+import Layout from '../layout';
+
+Gatsby Theme Aoi Layout is a simple layout built with MUI including `<AppBar>`, `<Drawer>`, `<BottomNavigation>`, `<Fab>`.
+
+```typescript
+import { Layout } from '@cieloazul310/gatsby-theme-aoi';
+
+function Page() {
+  return (
+    <Layout title="Page Title">
+      {children}
+    </Layout>
+  );
+}
+
+export default Page;
+```
+
+## Layout examples
+
+<PanelLink href="/tab-layout/">Tab layout</PanelLink>
+
+<PanelLink href="/full-width-layout/">Full width layout</PanelLink>
+
+export default Layout;
+
+export function Head() {
+  return <Seo title="Layout" />
+}

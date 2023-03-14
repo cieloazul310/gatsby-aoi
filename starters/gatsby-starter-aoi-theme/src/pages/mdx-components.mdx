@@ -1,0 +1,54 @@
+---
+title: Components for MDX
+---
+
+import { PanelLink, Seo } from '@cieloazul310/gatsby-theme-aoi';
+import Layout from '../layout';
+
+MUI based components for MDX.
+
+## Basic usage
+
+### Directly
+
+```tsx
+import Readme from '../contents/readme.mdx';
+import { mdxComponents } from '@cieloazul310/gatsby-theme-aoi';
+
+const yourShortcodes = {};
+
+function Page() {
+  return <Readme components={{ ...mdxComponents, ...yourShortcodes }} />;
+}
+```
+
+### With layout
+
+```tsx
+import { MDXProvider } from '@mdx-js/react';
+import { mdxComponents } from '@cieloazul310/gatsby-theme-aoi';
+
+const yourShortcodes = {};
+
+function MdxLayout({ children }) {
+  return (
+    <MDXProvider components={{ ...mdxComponents, ...yourShortcodes }}>
+      {children}
+    </MDXProvider>
+  )
+}
+```
+
+## Reference
+
+<PanelLink href="https://mdxjs.com/table-of-components/">Components</PanelLink>
+
+## Next
+
+<PanelLink href="/hooks/">Hooks</PanelLink>
+
+export default Layout;
+
+export function Head() {
+  return <Seo title="MDX Components" />;
+}

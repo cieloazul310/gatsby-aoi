@@ -15,10 +15,10 @@ function FooterMenu<T extends object = Record<string, unknown>>(
         {menu.map(({ title, path, icon }) => (
           <FooterMenuItem
             key={title}
-            path={path}
+            {...props}
             title={title}
             icon={icon}
-            {...props}
+            path={path}
           />
         ))}
       </FooterMenuContainer>

@@ -1,3 +1,4 @@
+/* eslint global-require: warn */
 import type { GatsbyConfig } from 'gatsby';
 
 const baseUrl = 'https://cieloazul310.github.io';
@@ -49,6 +50,21 @@ const config: GatsbyConfig = {
       resolve: `@cieloazul310/gatsby-theme-aoi`,
       options: {
         siteId: `gatsby-starter-aoi-theme`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `./src/pages`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        mdxOptions: {
+          remarkPlugins: [require(`remark-gfm`)],
+        },
       },
     },
   ],
