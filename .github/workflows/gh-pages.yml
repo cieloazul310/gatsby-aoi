@@ -33,6 +33,16 @@ jobs:
         id: pages
         uses: actions/configure-pages@v2
 
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            starters/gatsby-starter-aoi-theme/public
+            starters/gatsby-starter-aoi-theme/.cache
+          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('starters/gatsby-starter-aoi-theme/public') }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-build-
+
       - name: Install dependencies
         run: yarn install --immutable
 
