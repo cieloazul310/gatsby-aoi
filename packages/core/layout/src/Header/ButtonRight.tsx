@@ -1,17 +1,12 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import ShareButtons from './ShareButtons';
 
-export type ButtonRightProps = {
-  title?: string;
-};
+export type ButtonRightProps = React.PropsWithChildren<Record<string, unknown>>;
 
-function ButtonRight({ title }: ButtonRightProps) {
+function ButtonRight({ children }: ButtonRightProps) {
   return (
     <>
-      <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-        <ShareButtons color="inherit" title={title} />
-      </Box>
+      <Box sx={{ display: { xs: 'none', md: 'block' } }}>{children}</Box>
       <Box
         sx={{
           padding: 1.5,
@@ -30,9 +25,5 @@ function ButtonRight({ title }: ButtonRightProps) {
     </>
   );
 }
-
-ButtonRight.defaultProps = {
-  title: undefined,
-};
 
 export default ButtonRight;

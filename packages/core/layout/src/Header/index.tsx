@@ -9,6 +9,7 @@ import AppBar from './AppBar';
 import Title from './Title';
 import ButtonLeft from './ButtonLeft';
 import ButtonRight from './ButtonRight';
+import ButtonRightInner from './ButtonRightInner';
 
 export type HeaderProps = {
   title?: string;
@@ -36,7 +37,9 @@ function Header({
           {...props}
         />
         <Title {...props}>{title ?? siteMetadata.title}</Title>
-        <ButtonRight {...props} title={title} />
+        <ButtonRight {...props}>
+          <ButtonRightInner {...props} title={title} />
+        </ButtonRight>
       </Toolbar>
     </AppBar>
   );

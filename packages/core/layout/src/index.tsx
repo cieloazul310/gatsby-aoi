@@ -15,7 +15,7 @@ export type { HeaderProps } from './Header';
 export type { AppBarProps as HeaderAppBarProps } from './Header/AppBar';
 export type { ButtonLeftProps as HeaderButtonLeftProps } from './Header/ButtonLeft';
 export type { ButtonRightProps as HeaderButtonRightProps } from './Header/ButtonRight';
-export type { ShareButtonsProps } from './Header/ShareButtons';
+export type { ButtonRightInnerProps } from './Header/ButtonRightInner';
 export type { HeaderTitleProps } from './Header/Title';
 
 export type { TabContainerProps } from './TabContainer';
