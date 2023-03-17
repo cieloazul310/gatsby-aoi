@@ -4,7 +4,10 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import type { ComponentViewports } from '@cieloazul310/gatsby-theme-aoi-utils';
+import {
+  useHeaderMenuButtonDisplay,
+  type ComponentViewports,
+} from '@cieloazul310/gatsby-theme-aoi-utils';
 
 export type ButtonLeftProps = {
   componentViewports: ComponentViewports;
@@ -15,14 +18,18 @@ function ButtonLeft({
   toggleDrawer,
   componentViewports: { swipeableDrawer, permanentDrawer },
 }: ButtonLeftProps) {
-  const showMenuButton = swipeableDrawer !== false && permanentDrawer === false;
+  const showMenuButton = swipeableDrawer !== false;
+  const menuButtonDisplay = useHeaderMenuButtonDisplay({
+    swipeableDrawer,
+    permanentDrawer,
+  });
   const onBackButtonClick = (event: React.MouseEvent) => {
     event.preventDefault();
     if (typeof window === 'object') window.history.back();
   };
   return (
     <>
-      <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+      <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
         <Tooltip title="Back">
           <IconButton
             color="inherit"
@@ -34,7 +41,7 @@ function ButtonLeft({
           </IconButton>
         </Tooltip>
       </Box>
-      <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+      <Box sx={{ display: menuButtonDisplay }}>
         {showMenuButton ? (
           <Tooltip title="Menu">
             <IconButton
