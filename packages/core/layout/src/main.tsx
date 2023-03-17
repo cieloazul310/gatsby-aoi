@@ -4,17 +4,16 @@ import { type AppBarProps } from '@mui/material/AppBar';
 import Drawer from '@mui/material/Drawer';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import LinearProgress from '@mui/material/LinearProgress';
-import { useTheme } from '@mui/material/styles';
 import {
   SectionWrapper,
   type SectionWrapperProps,
 } from '@cieloazul310/gatsby-theme-aoi-components';
 import {
-  mergeViewports,
-  mainStyles,
-  permanentDrawerStyles,
-  fabStyles,
-  viewportsToSxDisplay,
+  useMainStyles,
+  usePermanentDrawerStyles,
+  useFabStyles,
+  useLayoutDisplay,
+  useViewports,
   type ComponentViewports,
 } from '@cieloazul310/gatsby-theme-aoi-utils';
 
@@ -50,6 +49,14 @@ export type LayoutProps<T extends object = Record<string, unknown>> = {
   loading?: boolean;
   /** @experimental */
   appBarPosition?: AppBarProps['position'];
+  /** @experimental */
+  disableSwipeableDrawer?: boolean;
+  /** @experimental */
+  disablePermanentDrawer?: boolean;
+  /** @experimental */
+  disableBottomNav?: boolean;
+  /** @experimental */
+  disableFab?: boolean;
   wrapperComponent?: SectionWrapperProps['component'];
   drawerWidth?: number;
   contentSpacing?: SectionWrapperProps['spacing'];
@@ -70,13 +77,28 @@ function Layout<T extends object = Record<string, unknown>>({
   drawerWidth = 280,
   contentSpacing = 2,
   tabSticky = false,
+  disableSwipeableDrawer = false,
+  disablePermanentDrawer = false,
+  disableBottomNav = false,
+  disableFab = false,
   ...props
 }: LayoutProps<T>) {
-  const theme = useTheme();
-  const viewports = mergeViewports(componentViewports);
+  const viewports = useViewports(componentViewports, {
+    disableSwipeableDrawer,
+    disablePermanentDrawer,
+    disableBottomNav,
+    disableFab,
+  });
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const appBarFixed = appBarPosition === 'fixed';
   const paddingTop = appBarFixed ? { xs: '56px', sm: '64px' } : undefined;
+  const permanentDrawerStyles = usePermanentDrawerStyles(
+    viewports.permanentDrawer,
+    drawerWidth
+  );
+  const mainStyles = useMainStyles(viewports.bottomNav);
+  const fabStyles = useFabStyles(viewports.bottomNav);
+  const display = useLayoutDisplay(viewports);
 
   const toggleDrawer = React.useCallback(() => {
     setDrawerOpen(!drawerOpen);
@@ -85,19 +107,20 @@ function Layout<T extends object = Record<string, unknown>>({
     setDrawerOpen(open);
   };
 
-  const drawer = React.useMemo(
-    () => (
+  const drawer = React.useMemo(() => {
+    if (!viewports.swipeableDrawer && !viewports.permanentDrawer) return null;
+    return (
       <Box
         component="nav"
         sx={{
-          ...permanentDrawerStyles(viewports.permanentDrawer, drawerWidth),
+          ...permanentDrawerStyles,
           flexShrink: 0,
         }}
       >
         {viewports.swipeableDrawer !== false ? (
           <SwipeableDrawer
             sx={{
-              display: viewportsToSxDisplay(viewports.swipeableDrawer),
+              display: display.swipeableDrawer,
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',
                 width: drawerWidth,
@@ -124,7 +147,7 @@ function Layout<T extends object = Record<string, unknown>>({
         {viewports.permanentDrawer !== false ? (
           <Drawer
             sx={{
-              display: viewportsToSxDisplay(viewports.permanentDrawer),
+              display: display.permanentDrawer,
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',
                 width: drawerWidth,
@@ -143,17 +166,67 @@ function Layout<T extends object = Record<string, unknown>>({
           </Drawer>
         ) : null}
       </Box>
-    ),
-    [
-      drawerOpen,
-      drawerContents,
-      title,
-      viewports,
-      drawerWidth,
-      appBarFixed,
-      paddingTop,
-    ]
-  );
+    );
+  }, [
+    drawerOpen,
+    drawerContents,
+    title,
+    viewports,
+    permanentDrawerStyles,
+    drawerWidth,
+    appBarFixed,
+    paddingTop,
+    props,
+  ]);
+
+  const layoutTabs = React.useMemo(() => {
+    if (!tabs) return null;
+    return (
+      <TabContainer
+        tabSticky={tabSticky}
+        appBarPosition={appBarPosition}
+        {...props}
+      >
+        {tabs}
+      </TabContainer>
+    );
+  }, [tabs, tabSticky, appBarPosition, props]);
+
+  const layoutFab = React.useMemo(() => {
+    if (viewports.fab === false) return null;
+    return (
+      <Box
+        sx={{
+          ...fabStyles,
+          zIndex: 'fab',
+          display: display.fab,
+          position: 'fixed',
+          right: ({ spacing }) => spacing(2),
+          transition: ({ transitions }) => transitions.create('bottom'),
+        }}
+      >
+        {fab || <Fab onClick={toggleDrawer} {...props} />}
+      </Box>
+    );
+  }, [viewports, fabStyles, fab, display, toggleDrawer, props]);
+
+  const layoutBottomNav = React.useMemo(() => {
+    if (viewports.bottomNav === false) return null;
+    return (
+      <Box
+        sx={{
+          display: display.bottomNav,
+          position: 'fixed',
+          left: 0,
+          bottom: 0,
+          width: '100%',
+          zIndex: 'appBar',
+        }}
+      >
+        {bottomNavigation || <BottomNav {...props} />}
+      </Box>
+    );
+  }, [viewports, display, bottomNavigation, props]);
 
   return (
     <Box
@@ -170,19 +243,19 @@ function Layout<T extends object = Record<string, unknown>>({
             top: 0,
             left: 0,
             width: '100%',
-            zIndex: theme.zIndex.drawer + 3,
+            zIndex: ({ zIndex }) => zIndex.drawer + 3,
           }}
           color="secondary"
         />
       ) : null}
-      {viewports.swipeableDrawer || viewports.permanentDrawer ? drawer : null}
+      {drawer}
       <Box
         sx={{
-          ...mainStyles(viewports.bottomNav),
+          ...mainStyles,
+          paddingTop,
           flexGrow: 1,
           maxWidth: '100%',
           minWidth: 0,
-          paddingTop,
         }}
       >
         <Header
@@ -192,49 +265,15 @@ function Layout<T extends object = Record<string, unknown>>({
           componentViewports={viewports}
           {...props}
         />
-        {tabs ? (
-          <TabContainer
-            tabSticky={tabSticky}
-            appBarPosition={appBarPosition}
-            {...props}
-          >
-            {tabs}
-          </TabContainer>
-        ) : null}
+        {layoutTabs}
         <SectionWrapper component={wrapperComponent} spacing={contentSpacing}>
           {children}
           <FooterMenu {...props} />
           <Footer {...props} />
         </SectionWrapper>
       </Box>
-      {viewports.fab !== false ? (
-        <Box
-          sx={{
-            ...fabStyles(viewports.bottomNav, theme),
-            zIndex: 'fab',
-            display: viewportsToSxDisplay(viewports.fab),
-            position: 'fixed',
-            right: theme.spacing(2),
-            transition: theme.transitions.create('bottom'),
-          }}
-        >
-          {fab || <Fab onClick={toggleDrawer} {...props} />}
-        </Box>
-      ) : null}
-      {viewports.bottomNav !== false ? (
-        <Box
-          sx={{
-            display: viewportsToSxDisplay(viewports.bottomNav),
-            position: 'fixed',
-            left: 0,
-            bottom: 0,
-            width: '100%',
-            zIndex: 'appBar',
-          }}
-        >
-          {bottomNavigation || <BottomNav {...props} />}
-        </Box>
-      ) : null}
+      {layoutFab}
+      {layoutBottomNav}
     </Box>
   );
 }
@@ -251,6 +290,10 @@ Layout.defaultProps = {
   contentSpacing: 2,
   tabSticky: false,
   loading: false,
+  disableSwipeableDrawer: false,
+  disablePermanentDrawer: false,
+  disableBottomNav: false,
+  disableFab: false,
   drawerWidth: 280,
 };
 

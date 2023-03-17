@@ -3,6 +3,7 @@ import { expect } from '@jest/globals';
 import { createTheme } from '@mui/material/styles';
 import {
   mergeViewports,
+  revertViewports,
   viewportsToSxDisplay,
   permanentDrawerStyles,
   mainStyles,
@@ -152,5 +153,32 @@ describe('fabStyles', () => {
     expect(style).toMatchObject({
       bottom: `calc(${theme.spacing(2)} + 56px)`,
     });
+  });
+});
+
+describe('revertViewports', () => {
+  it('boolean: false', () => {
+    expect(revertViewports(false)).toBe(true);
+  });
+  it('boolean: false', () => {
+    expect(revertViewports(true)).toBe(false);
+  });
+  it('xsUp', () => {
+    expect(revertViewports('xsUp')).toBe(false);
+  });
+  it('xlDown', () => {
+    expect(revertViewports('xlDown')).toBe(false);
+  });
+  it('up to down', () => {
+    expect(revertViewports('smUp')).toBe('xsDown');
+    expect(revertViewports('mdUp')).toBe('smDown');
+    expect(revertViewports('lgUp')).toBe('mdDown');
+    expect(revertViewports('xlUp')).toBe('lgDown');
+  });
+  it('down to up', () => {
+    expect(revertViewports('xsDown')).toBe('smUp');
+    expect(revertViewports('smDown')).toBe('mdUp');
+    expect(revertViewports('mdDown')).toBe('lgUp');
+    expect(revertViewports('lgDown')).toBe('xlUp');
   });
 });

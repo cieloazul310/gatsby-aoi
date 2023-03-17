@@ -5,13 +5,9 @@ import {
   type LayoutProps,
 } from '@cieloazul310/gatsby-theme-aoi-layout';
 
-function Layout({
-  children,
-  componentViewports = { bottomNav: false },
-  ...props
-}: LayoutProps) {
+function Layout({ children, disableBottomNav = true, ...props }: LayoutProps) {
   return (
-    <AoiLayout componentViewports={componentViewports} {...props}>
+    <AoiLayout disableBottomNav={disableBottomNav} {...props}>
       {children}
     </AoiLayout>
   );
