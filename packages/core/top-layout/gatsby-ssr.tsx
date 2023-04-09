@@ -6,7 +6,11 @@ export const wrapRootElement = (
   { element }: WrapRootElementNodeArgs,
   pluginOptions: { siteId: string | null }
 ) => (
-  <TopLayout siteId={pluginOptions.siteId || 'palette'} storedItem={null}>
+  <TopLayout
+    siteId={pluginOptions.siteId || 'palette'}
+    storedItem={null}
+    isMobile={null}
+  >
     {element}
   </TopLayout>
 );

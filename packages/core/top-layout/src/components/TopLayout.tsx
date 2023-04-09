@@ -14,12 +14,14 @@ type TopLayoutProps = {
     useSystemTheme?: boolean;
   } | null;
   siteId: string;
+  isMobile: boolean | null;
 };
 
 export default function TopLayout({
   children,
   storedItem,
   siteId,
+  isMobile = false,
 }: TopLayoutProps) {
   const defaultPaletteType = initialTheme.palette.mode;
   const storedPaletteType = storedItem?.paletteType ?? defaultPaletteType;
@@ -70,7 +72,9 @@ export default function TopLayout({
         // eslint-disable-next-line react/jsx-no-constructed-context-values
         value={{ state: themeState, dispatch: themeDispatch }}
       >
-        <AppStateProvider>{children}</AppStateProvider>
+        <AppStateProvider isMobile={isMobile ?? false}>
+          {children}
+        </AppStateProvider>
       </ThemeDispatchContext.Provider>
     </ThemeStateProvider>
   );

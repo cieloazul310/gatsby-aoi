@@ -9,8 +9,14 @@ export const wrapRootElement = (
   const { siteId = 'palette' } = pluginOptions;
   const stored = localStorage.getItem(siteId);
   const storedItem = stored ? JSON.parse(stored) : null;
+  const isMobile = !window.matchMedia('(min-width: 600px)').matches;
+
   return (
-    <TopLayout siteId={siteId} storedItem={storedItem ?? null}>
+    <TopLayout
+      siteId={siteId}
+      storedItem={storedItem ?? null}
+      isMobile={isMobile}
+    >
       {element}
     </TopLayout>
   );
