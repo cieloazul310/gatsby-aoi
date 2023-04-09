@@ -39,9 +39,7 @@ export const useInitialAppState = (
   dispatch: React.Dispatch<Action>,
   isMobile?: boolean
 ) => {
-  console.log('useInitialAppState', isMobile);
   React.useEffect(() => {
-    console.log('useInitialAppStateEffect', isMobile);
     if (isMobile) {
       dispatch({ type: 'INCREMENT' });
     }
