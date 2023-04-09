@@ -1,19 +1,18 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import AppStateContext from '../utils/AppStateContext';
 import reducer, {
   initialAppState,
   useInitialAppState,
 } from '../utils/AppState';
 
-type AppStateProviderProps = {
-  children: React.ReactNode;
-};
+type AppStateProviderProps = React.PropsWithChildren<{
+  isMobile: boolean;
+}>;
 
-export default function AppStateProvider({ children }: AppStateProviderProps) {
-  const { breakpoints } = useTheme();
-  const isMobile = useMediaQuery(breakpoints.only('xs'));
+export default function AppStateProvider({
+  children,
+  isMobile,
+}: AppStateProviderProps) {
   const [state, dispatch] = React.useReducer(reducer, initialAppState);
 
   useInitialAppState(dispatch, isMobile);

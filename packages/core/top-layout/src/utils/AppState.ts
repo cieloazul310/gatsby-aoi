@@ -35,10 +35,3 @@ export const useInitialAppState = (
     }
   }, []);
 };
-/*
-export function setInitialAppState(dispatch: React.Dispatch<Action>, isMobile: boolean) {
-  if (isMobile) {
-    dispatch({ type: 'ECHO' })
-  }
-}
-*/
