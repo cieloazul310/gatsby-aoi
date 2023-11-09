@@ -5,7 +5,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['custom'],
+  extends: ['@cieloazul310/eslint-config-custom'],
   parserOptions: {
     project: './tsconfig.eslint.json',
     tsconfigRootDir: __dirname,

@@ -22,12 +22,12 @@
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
   "devDependencies": {
-    "eslint": "^8.34.0",
-    "eslint-config-custom": "^3.2.3",
-    "gatsby": "^5.7.0",
-    "gatsby-plugin-image": "^3.7.0",
-    "gatsby-source-filesystem": "^5.7.0",
-    "tsconfig": "^3.2.3"
+    "@cieloazul310/eslint-config-custom": "^3.2.3",
+    "@cieloazul310/tsconfig": "^3.2.3",
+    "eslint": "^8.53.0",
+    "gatsby": "^5.12.9",
+    "gatsby-plugin-image": "^3.12.3",
+    "gatsby-source-filesystem": "^5.12.1"
   },
   "peerDependencies": {
     "gatsby": "^5.0.0",

@@ -137,3 +137,5 @@ packages/**/*/module
 packages/**/*/cjs
 starters/*/public
 starters/*/storybook-static
+
+.nx

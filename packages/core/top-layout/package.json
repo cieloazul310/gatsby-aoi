@@ -31,21 +31,21 @@
     "typecheck": "tsc --noEmit",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
+  "dependencies": {
+    "gatsby-plugin-webfonts": "^2.3.2"
+  },
   "devDependencies": {
-    "@mui/material": "^5.11.10",
-    "eslint": "^8.34.0",
-    "eslint-config-custom": "^3.2.3",
-    "gatsby": "^5.7.0",
+    "@cieloazul310/eslint-config-custom": "^3.2.3",
+    "@cieloazul310/tsconfig": "^3.2.3",
+    "@mui/material": "^5.14.17",
+    "eslint": "^8.53.0",
+    "gatsby": "^5.12.9",
     "react": "^18.2.0",
-    "tsconfig": "^3.2.3",
-    "typescript": "^4.9.5"
+    "typescript": "^5.2.2"
   },
   "peerDependencies": {
     "@mui/material": "^5.0.0",
     "gatsby": "^5.0.0",
     "react": "^16.8.6 || ^17.0.0 || ^18.0.0"
-  },
-  "dependencies": {
-    "gatsby-plugin-webfonts": "^2.3.2"
   }
 }
