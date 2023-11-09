@@ -30,11 +30,11 @@
   "scripts": {
     "build": "tsc -b .",
     "dev": "tsc -b . --watch",
-    "build:blog": "yarn run build",
+    "build:blog": "npm run build",
     "clean": "rimraf lib && tsc -b . --clean",
     "eslint": "eslint src/",
     "typecheck": "tsc --noEmit",
-    "prepack": "yarn run build"
+    "prepack": "npm run build"
   },
   "bugs": {
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"

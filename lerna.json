@@ -1,15 +1,12 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
-  "npmClient": "yarn",
+  "npmClient": "npm",
   "useNx": true,
-  "useWorkspaces": true,
   "packages": [
     "packages/**/*",
     "starters/*"
   ],
   "ignoreChanges": [
-    ".yarn",
-    ".yarnrc.yml",
     "**/__tests__/**",
     "**/*.md",
     ".eslintrc.js",

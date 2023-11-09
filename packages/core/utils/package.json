@@ -31,11 +31,11 @@
   "scripts": {
     "build": "tsc -b .",
     "dev": "tsc -b . --watch",
-    "build:core": "yarn run build",
+    "build:core": "npm run build",
     "clean": "rimraf lib && tsc -b . --clean",
     "eslint": "eslint src/",
     "typecheck": "tsc --noEmit",
-    "prepack": "yarn run build"
+    "prepack": "npm run build"
   },
   "devDependencies": {
     "@cieloazul310/eslint-config-custom": "^3.2.3",
