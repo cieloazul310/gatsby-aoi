@@ -1,11 +1,11 @@
-import * as React from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import * as React from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
-import ThemeStateProvider from './ThemeStateProvider';
-import AppStateProvider from './AppStateProvider';
-import ThemeDispatchContext from '../utils/ThemeStateContext';
-import themeReducer from '../utils/ThemeState';
-import initialTheme from '../theme';
+import ThemeStateProvider from "./ThemeStateProvider";
+import AppStateProvider from "./AppStateProvider";
+import ThemeDispatchContext from "../utils/ThemeStateContext";
+import themeReducer from "../utils/ThemeState";
+import initialTheme from "../theme";
 
 type TopLayoutProps = {
   children: React.ReactNode;
@@ -26,26 +26,26 @@ export default function TopLayout({
   const defaultPaletteType = initialTheme.palette.mode;
   const storedPaletteType = storedItem?.paletteType ?? defaultPaletteType;
 
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [themeState, themeDispatch] = React.useReducer(themeReducer, {
     darkMode: false,
     useSystemTheme: false,
   });
 
   React.useEffect(() => {
-    if (storedPaletteType === 'dark') {
-      themeDispatch({ type: 'TOGGLE_DARKMODE' });
+    if (storedPaletteType === "dark") {
+      themeDispatch({ type: "TOGGLE_DARKMODE" });
     }
     if (storedItem?.useSystemTheme) {
-      themeDispatch({ type: 'TOGGLE_USE_SYSTEM_THEME' });
+      themeDispatch({ type: "TOGGLE_USE_SYSTEM_THEME" });
     }
   }, []);
   const { darkMode, useSystemTheme } = themeState;
   const paletteType = React.useMemo(() => {
     if (useSystemTheme) {
-      return prefersDarkMode ? 'dark' : 'light';
+      return prefersDarkMode ? "dark" : "light";
     }
-    return darkMode ? 'dark' : 'light';
+    return darkMode ? "dark" : "light";
   }, [prefersDarkMode, useSystemTheme, darkMode]);
 
   // persist paletteType
@@ -53,17 +53,17 @@ export default function TopLayout({
     localStorage.setItem(
       siteId,
       JSON.stringify({
-        paletteType: darkMode ? 'dark' : 'light',
+        paletteType: darkMode ? "dark" : "light",
         useSystemTheme,
-      })
+      }),
     );
   }, [siteId, darkMode, useSystemTheme]);
   /**
    * once and deprecated old storage
    */
   React.useEffect(() => {
-    localStorage.removeItem('paletteType');
-    localStorage.removeItem('useSystemTheme');
+    localStorage.removeItem("paletteType");
+    localStorage.removeItem("useSystemTheme");
   });
 
   return (

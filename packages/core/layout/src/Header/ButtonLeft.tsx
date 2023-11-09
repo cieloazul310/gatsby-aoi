@@ -1,13 +1,13 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Tooltip from "@mui/material/Tooltip";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import {
   useHeaderMenuButtonDisplay,
   type ComponentViewports,
-} from '@cieloazul310/gatsby-theme-aoi-utils';
+} from "@cieloazul310/gatsby-theme-aoi-utils";
 
 export type ButtonLeftProps = {
   componentViewports: ComponentViewports;
@@ -25,11 +25,11 @@ function ButtonLeft({
   });
   const onBackButtonClick = (event: React.MouseEvent) => {
     event.preventDefault();
-    if (typeof window === 'object') window.history.back();
+    if (typeof window === "object") window.history.back();
   };
   return (
     <>
-      <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
+      <Box sx={{ display: { xs: "block", sm: "none" } }}>
         <Tooltip title="Back">
           <IconButton
             color="inherit"

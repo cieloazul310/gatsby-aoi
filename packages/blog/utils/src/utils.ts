@@ -1,24 +1,24 @@
-import * as path from 'path';
+import * as path from "path";
 // import slugify from '@sindresorhus/slugify';
 // import type { ThemeOptions } from './types';
-import type { ThemeOptions } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+import type { ThemeOptions } from "@cieloazul310/gatsby-theme-aoi-blog-types";
 
 export function strToSlug(str: string) {
   // return slugify(str);
 
   return str
     .toLowerCase()
-    .replace(/&/g, 'and')
-    .replace(/ /g, '-')
-    .replace(/[&/\\#,+()$~%.'":*?<>{}]/g, '');
+    .replace(/&/g, "and")
+    .replace(/ /g, "-")
+    .replace(/[&/\\#,+()$~%.'":*?<>{}]/g, "");
 }
 
 export function isString(str: unknown): str is string {
-  return typeof str === 'string';
+  return typeof str === "string";
 }
 
 export function isBoolean(bool: unknown): bool is boolean {
-  return typeof bool === 'boolean';
+  return typeof bool === "boolean";
 }
 
 export function validURL(str: string) {
@@ -41,14 +41,14 @@ type FieldValues = {
 
 export function fieldValueToSlug(
   { field, fieldValue }: FieldValues,
-  basePaths: ThemeOptions['basePaths']
+  basePaths: ThemeOptions["basePaths"],
 ) {
   const slug = strToSlug(fieldValue);
-  if (field === 'categories') return path.join(basePaths.category, slug);
+  if (field === "categories") return path.join(basePaths.category, slug);
   // `${basePaths.category}/${strToSlug(fieldValue)}`;
-  if (field === 'tags') return path.join(basePaths.tag, slug);
+  if (field === "tags") return path.join(basePaths.tag, slug);
   // `${basePaths.tag}/${strToSlug(fieldValue)}`;
-  if (field === 'author.name') return path.join(basePaths.author, slug);
+  if (field === "author.name") return path.join(basePaths.author, slug);
   // return `${basePaths.author}/${strToSlug(fieldValue)}`;
   return slug;
 }

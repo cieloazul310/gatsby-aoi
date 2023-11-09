@@ -1,7 +1,7 @@
-import { Link as GatsbyLink } from 'gatsby';
-import Box from '@mui/material/Box';
-import MuiPagination from '@mui/material/Pagination';
-import MuiPaginationItem from '@mui/material/PaginationItem';
+import { Link as GatsbyLink } from "gatsby";
+import Box from "@mui/material/Box";
+import MuiPagination from "@mui/material/Pagination";
+import MuiPaginationItem from "@mui/material/PaginationItem";
 
 type PaginationProps = {
   numPages: number;

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 export type AppState = {
   // noop
@@ -6,7 +6,7 @@ export type AppState = {
 
 export const initialAppState: AppState = {};
 
-export type Action = { type: 'RESET' } | { type: 'ECHO' };
+export type Action = { type: "RESET" } | { type: "ECHO" };
 
 /**
  * The global reducer wrapping whole app for `AppState`.
@@ -16,9 +16,9 @@ export type Action = { type: 'RESET' } | { type: 'ECHO' };
  */
 export default function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
-    case 'RESET':
+    case "RESET":
       return initialAppState;
-    case 'ECHO':
+    case "ECHO":
       return state;
     default:
       throw new Error("Reducer don't match the action type.");
@@ -27,11 +27,11 @@ export default function reducer(state: AppState, action: Action): AppState {
 
 export const useInitialAppState = (
   dispatch: React.Dispatch<Action>,
-  isMobile?: boolean
+  isMobile?: boolean,
 ) => {
   React.useEffect(() => {
     if (isMobile) {
-      dispatch({ type: 'ECHO' });
+      dispatch({ type: "ECHO" });
     }
   }, []);
 };

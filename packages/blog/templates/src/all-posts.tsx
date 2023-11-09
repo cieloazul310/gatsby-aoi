@@ -1,17 +1,17 @@
-import * as React from 'react';
-import { graphql, type PageProps, type HeadProps } from 'gatsby';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import { graphql, type PageProps, type HeadProps } from "gatsby";
+import Typography from "@mui/material/Typography";
 import {
   Jumbotron,
   Section,
   Article,
   Seo,
-} from '@cieloazul310/gatsby-theme-aoi-components';
-import { Pagination } from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import type { MdxPostListFragment } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+} from "@cieloazul310/gatsby-theme-aoi-components";
+import { Pagination } from "@cieloazul310/gatsby-theme-aoi-blog-components";
+import type { MdxPostListFragment } from "@cieloazul310/gatsby-theme-aoi-blog-types";
 
-import Layout from './layout';
-import MdxPostList from './components/MdxPostList';
+import Layout from "./layout";
+import MdxPostList from "./components/MdxPostList";
 
 type PageData = {
   allMdxPost: {
@@ -63,7 +63,7 @@ export default AllPostsTemplate;
 export function Head({ pageContext }: HeadProps<PageData, PageContext>) {
   const { currentPage, numPages } = pageContext;
   const title =
-    numPages === 1 ? 'All Posts' : `All Posts (${currentPage}/${numPages})`;
+    numPages === 1 ? "All Posts" : `All Posts (${currentPage}/${numPages})`;
   return <Seo title={title} />;
 }
 

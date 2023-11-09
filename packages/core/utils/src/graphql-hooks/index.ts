@@ -1,1 +1,1 @@
-export * from './useSiteMetadata';
+export * from "./useSiteMetadata";

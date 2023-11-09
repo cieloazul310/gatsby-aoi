@@ -1,21 +1,21 @@
-import * as path from 'path';
-import type { CreateSchemaCustomizationArgs } from 'gatsby';
-import { slash } from 'gatsby-core-utils';
-import type { FileSystemNode } from 'gatsby-source-filesystem';
-import { isString } from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+import * as path from "path";
+import type { CreateSchemaCustomizationArgs } from "gatsby";
+import { slash } from "gatsby-core-utils";
+import type { FileSystemNode } from "gatsby-source-filesystem";
+import { isString } from "@cieloazul310/gatsby-theme-aoi-blog-utils";
 import type {
   Author,
   MdxPost,
   GatsbyGraphQLContext,
-} from '@cieloazul310/gatsby-theme-aoi-blog-types';
+} from "@cieloazul310/gatsby-theme-aoi-blog-types";
 
 async function processAuthorRelativeImage(
-  source: Author<'bare'> & { dir: string },
+  source: Author<"bare"> & { dir: string },
   context: GatsbyGraphQLContext,
-  type: keyof Author<'bare'>
+  type: keyof Author<"bare">,
 ) {
   const { dir } = source;
-  const imagePath = slash(path.join(dir, (source[type] ?? '') as string));
+  const imagePath = slash(path.join(dir, (source[type] ?? "") as string));
   const fileNode = await context.nodeModel.findOne<FileSystemNode>({
     type: `File`,
     query: {
@@ -71,10 +71,10 @@ export default function createAuthorSchemaCustomization({
         avatar: {
           type: `File`,
           resolve: async (
-            source: Author<'bare'> & { image___NODE?: string; dir: string },
+            source: Author<"bare"> & { image___NODE?: string; dir: string },
             args,
             context: GatsbyGraphQLContext,
-            info
+            info,
           ) => {
             if (!source.avatar) return null;
             if (source.image___NODE && isString(source.image___NODE)) {
@@ -87,10 +87,10 @@ export default function createAuthorSchemaCustomization({
         posts: {
           type: `AuthorMdxPost`,
           resolve: async (
-            source: Author<'bare'>,
+            source: Author<"bare">,
             args,
             context: GatsbyGraphQLContext,
-            info
+            info,
           ) => {
             const { entries, totalCount } =
               await context.nodeModel.findAll<MdxPost>({
@@ -106,6 +106,6 @@ export default function createAuthorSchemaCustomization({
           },
         },
       },
-    })
+    }),
   );
 }

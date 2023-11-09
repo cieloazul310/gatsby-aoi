@@ -1,5 +1,5 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import type { Terminology } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+import { graphql, useStaticQuery } from "gatsby";
+import type { Terminology } from "@cieloazul310/gatsby-theme-aoi-blog-types";
 
 type UseCategoriesQueryData = {
   allCategories: Terminology[];
@@ -24,7 +24,7 @@ export function useCategoryToSlug() {
   const categories = useCategories();
   return (categoryName: string) => {
     const terminology = categories.find(({ name }) => name === categoryName);
-    if (!terminology) return '#';
+    if (!terminology) return "#";
     return terminology.slug;
   };
 }

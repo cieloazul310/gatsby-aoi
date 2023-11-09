@@ -1,10 +1,10 @@
-import * as React from 'react';
+import * as React from "react";
 import MuiAppBar, {
   type AppBarProps as MuiAppBarProps,
-} from '@mui/material/AppBar';
+} from "@mui/material/AppBar";
 
 export type AppBarProps = React.PropsWithChildren<{
-  appBarPosition: MuiAppBarProps['position'];
+  appBarPosition: MuiAppBarProps["position"];
 }>;
 
 function AppBar({ children, appBarPosition }: AppBarProps) {

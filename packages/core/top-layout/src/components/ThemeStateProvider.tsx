@@ -1,15 +1,15 @@
-import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
+import * as React from "react";
+import CssBaseline from "@mui/material/CssBaseline";
 import {
   ThemeProvider,
   StyledEngineProvider,
   createTheme,
   responsiveFontSizes,
-} from '@mui/material/styles';
-import initialMuiTheme from '../theme';
-import inputGlobalStyles from './GlobalStyles';
-import useGetDesignTokens from '../utils/useGetDesignTokens';
-import type { PaletteType } from '../utils/ThemeState';
+} from "@mui/material/styles";
+import initialMuiTheme from "../theme";
+import inputGlobalStyles from "./GlobalStyles";
+import useGetDesignTokens from "../utils/useGetDesignTokens";
+import type { PaletteType } from "../utils/ThemeState";
 
 type TopThemeProviderProps = {
   children: React.ReactNode;
@@ -20,7 +20,7 @@ function TopThemeProvider({ children, paletteType }: TopThemeProviderProps) {
   const getDesignTokens = useGetDesignTokens(initialMuiTheme);
   const theme = React.useMemo(
     () => responsiveFontSizes(createTheme(getDesignTokens(paletteType))),
-    [paletteType]
+    [paletteType],
   );
 
   return (

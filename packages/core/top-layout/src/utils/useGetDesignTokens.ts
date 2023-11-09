@@ -3,16 +3,16 @@ import {
   darken,
   type Theme,
   type ThemeOptions,
-} from '@mui/material/styles';
-import { type PaletteType } from './ThemeState';
+} from "@mui/material/styles";
+import { type PaletteType } from "./ThemeState";
 
 function useGetDesignTokens(initialTheme: Theme) {
   return (mode: PaletteType): ThemeOptions => {
-    if (mode === 'light') return initialTheme;
+    if (mode === "light") return initialTheme;
     return {
       ...initialTheme,
       palette: {
-        mode: 'dark',
+        mode: "dark",
         primary: {
           ...initialTheme.palette.primary,
           light: lighten(initialTheme.palette.primary.light, 0.5),

@@ -1,7 +1,7 @@
 /* eslint react/jsx-props-no-spreading: warn */
-import * as React from 'react';
-import type { PageProps } from 'gatsby';
-import { MDXProvider } from '@mdx-js/react';
+import * as React from "react";
+import type { PageProps } from "gatsby";
+import { MDXProvider } from "@mdx-js/react";
 import {
   Layout as AoiLayout,
   Jumbotron,
@@ -9,8 +9,8 @@ import {
   Article,
   mdxComponents,
   type LayoutProps as AoiLayoutProps,
-} from '@cieloazul310/gatsby-theme-aoi';
-import { useAppState } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
+} from "@cieloazul310/gatsby-theme-aoi";
+import { useAppState } from "../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext";
 
 type LayoutProps = AoiLayoutProps<{ bgImage?: string }> &
   PageProps<
@@ -20,7 +20,7 @@ type LayoutProps = AoiLayoutProps<{ bgImage?: string }> &
 
 function Layout({ children, bgImage, pageContext, ...props }: LayoutProps) {
   const { appBarPosition } = useAppState();
-  const title = pageContext.frontmatter?.title ?? 'Gatsby Theme Aoi';
+  const title = pageContext.frontmatter?.title ?? "Gatsby Theme Aoi";
   return (
     <AoiLayout
       title={title}

@@ -1,4 +1,4 @@
-import { useSiteMetadata } from './graphql-hooks';
+import { useSiteMetadata } from "./graphql-hooks";
 
 export default function useAbsoluteUrl(path?: string) {
   const { siteUrl } = useSiteMetadata();

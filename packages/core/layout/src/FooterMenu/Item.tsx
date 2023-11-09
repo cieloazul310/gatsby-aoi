@@ -1,9 +1,9 @@
-import * as React from 'react';
-import Grid from '@mui/material/Grid';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import { ListItemAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
-import type { Menu } from '../menu';
+import * as React from "react";
+import Grid from "@mui/material/Grid";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import { ListItemAppLink } from "@cieloazul310/gatsby-theme-aoi-components";
+import type { Menu } from "../menu";
 
 export type FooterMenuItemProps = Menu;
 

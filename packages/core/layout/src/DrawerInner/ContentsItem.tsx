@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { withPrefix } from 'gatsby';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import { ListItemAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
+import * as React from "react";
+import { withPrefix } from "gatsby";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import { ListItemAppLink } from "@cieloazul310/gatsby-theme-aoi-components";
 
-import { Menu } from '../menu';
+import { Menu } from "../menu";
 
 export type ContentsItemProps = Menu & {
   currentPathname: string;

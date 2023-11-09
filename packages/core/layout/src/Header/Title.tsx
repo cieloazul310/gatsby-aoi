@@ -1,5 +1,5 @@
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import Typography from "@mui/material/Typography";
 
 export type HeaderTitleProps = React.PropsWithChildren;
 
@@ -11,13 +11,13 @@ function HeaderTitle({ children }: HeaderTitleProps) {
         py: 0,
         px: 1,
         lineHeight: 1.2,
-        display: 'flex',
-        justifyContent: { xs: 'center', md: 'start' },
+        display: "flex",
+        justifyContent: { xs: "center", md: "start" },
       }}
       variant="h6"
       component="h1"
       color="inherit"
-      fontSize={{ xs: 'body1.fontSize', sm: 'h6.fontSize' }}
+      fontSize={{ xs: "body1.fontSize", sm: "h6.fontSize" }}
     >
       {children}
     </Typography>

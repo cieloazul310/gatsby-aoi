@@ -1,8 +1,8 @@
 /* eslint import/no-extraneous-dependencies: warn */
 /* eslint global-require: warn */
 
-const path = require('path');
-const { withDefaults } = require('@cieloazul310/gatsby-theme-aoi-blog-utils');
+const path = require("path");
+const { withDefaults } = require("@cieloazul310/gatsby-theme-aoi-blog-utils");
 
 module.exports = (themeOptions) => {
   const options = withDefaults(themeOptions);
@@ -38,7 +38,7 @@ module.exports = (themeOptions) => {
         options: {
           extensions: [`.mdx`, `.md`],
           mdxOptions: {
-            remarkPlugins: [require('remark-gfm')],
+            remarkPlugins: [require("remark-gfm")],
           },
           gatsbyRemarkPlugins: [
             {

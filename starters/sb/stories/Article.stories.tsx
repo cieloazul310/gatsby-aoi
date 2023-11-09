@@ -1,15 +1,15 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   Article,
   Section,
   SectionWrapper,
   Paragraph,
-} from '@cieloazul310/gatsby-theme-aoi-components';
-import type { ComponentMeta } from '@storybook/react';
-import { LoremIpsum, LoremIpsumJa } from '../components/LoremIpsum';
+} from "@cieloazul310/gatsby-theme-aoi-components";
+import type { ComponentMeta } from "@storybook/react";
+import { LoremIpsum, LoremIpsumJa } from "../components/LoremIpsum";
 
 export default {
-  title: 'Article',
+  title: "Article",
   component: Article,
   subcomponents: {
     Section,

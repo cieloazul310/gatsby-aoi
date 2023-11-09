@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { graphql, type PageProps } from 'gatsby';
-import List from '@mui/material/List';
+import * as React from "react";
+import { graphql, type PageProps } from "gatsby";
+import List from "@mui/material/List";
 import {
   Layout,
   Jumbotron,
@@ -8,8 +8,8 @@ import {
   Article,
   ListItemLink,
   Seo,
-} from '@cieloazul310/gatsby-theme-aoi';
-import type { MdxPostMonth } from '@cieloazul310/gatsby-theme-aoi-blog';
+} from "@cieloazul310/gatsby-theme-aoi";
+import type { MdxPostMonth } from "@cieloazul310/gatsby-theme-aoi-blog";
 
 type PageData = {
   months: MdxPostMonth[];

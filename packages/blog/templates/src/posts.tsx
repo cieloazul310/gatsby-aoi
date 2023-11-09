@@ -1,31 +1,31 @@
-import * as React from 'react';
-import { graphql, type PageProps, type HeadProps } from 'gatsby';
-import { MDXProvider } from '@mdx-js/react';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import { graphql, type PageProps, type HeadProps } from "gatsby";
+import { MDXProvider } from "@mdx-js/react";
+import Typography from "@mui/material/Typography";
 import {
   Jumbotron,
   Section,
   Article,
   AppLink,
   Seo,
-} from '@cieloazul310/gatsby-theme-aoi-components';
+} from "@cieloazul310/gatsby-theme-aoi-components";
 import {
   DrawerPageNavigation,
   PageNavigationContainer,
   PageNavigationItem,
-} from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import type { MdxPost } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+} from "@cieloazul310/gatsby-theme-aoi-blog-components";
+import type { MdxPost } from "@cieloazul310/gatsby-theme-aoi-blog-types";
 
-import Layout from './layout';
-import AuthorBox from './components/AuthorBox';
-import mdxComponents from './mdxComponents';
-import shortcodes from './shortcodes';
-import { useCategoryToSlug, useTagToSlug } from './utils';
+import Layout from "./layout";
+import AuthorBox from "./components/AuthorBox";
+import mdxComponents from "./mdxComponents";
+import shortcodes from "./shortcodes";
+import { useCategoryToSlug, useTagToSlug } from "./utils";
 
 type PageData = {
   mdxPost: MdxPost;
-  newer: Pick<MdxPost, 'id' | 'slug' | 'title' | 'date'>;
-  older: Pick<MdxPost, 'id' | 'slug' | 'title' | 'date'>;
+  newer: Pick<MdxPost, "id" | "slug" | "title" | "date">;
+  older: Pick<MdxPost, "id" | "slug" | "title" | "date">;
 };
 
 type PageContext = {
@@ -48,7 +48,7 @@ function BlogPostTemplate({
 
   return (
     <Layout
-      title={title ?? 'Title'}
+      title={title ?? "Title"}
       drawerContents={
         <DrawerPageNavigation
           right={older ? { href: older.slug, title: older.title } : null}
@@ -83,7 +83,7 @@ function BlogPostTemplate({
           <Typography>Date: {date}</Typography>
           <Typography>Post by {author?.name}</Typography>
           <Typography>
-            Categories:{' '}
+            Categories:{" "}
             {categories.map((category) => (
               <AppLink key={category} href={categoryToSlug(category)} mr={1}>
                 {category}
@@ -108,13 +108,13 @@ function BlogPostTemplate({
       </Section>
       <Section component="nav">
         <PageNavigationContainer>
-          <PageNavigationItem href={newer?.slug ?? '#'} disabled={!newer}>
+          <PageNavigationItem href={newer?.slug ?? "#"} disabled={!newer}>
             <Typography variant="body2">{newer?.title}</Typography>
             <Typography variant="body2" color="text.secondary">
               Newer post
             </Typography>
           </PageNavigationItem>
-          <PageNavigationItem href={older?.slug ?? '#'} right disabled={!older}>
+          <PageNavigationItem href={older?.slug ?? "#"} right disabled={!older}>
             <Typography variant="body2">{older?.title}</Typography>
             <Typography variant="body2" color="text.secondary">
               Older post

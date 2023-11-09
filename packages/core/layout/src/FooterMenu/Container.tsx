@@ -1,6 +1,6 @@
-import * as React from 'react';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
+import * as React from "react";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 
 export type FooterMenuContainerProps = React.PropsWithChildren;
 

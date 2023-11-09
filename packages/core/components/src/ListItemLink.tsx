@@ -1,22 +1,22 @@
-import * as React from 'react';
-import ListItem, { type ListItemProps } from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
-import type { Theme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { AppLink, type AppLinkProps } from './mdxComponents/Link';
+import * as React from "react";
+import ListItem, { type ListItemProps } from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
+import type { Theme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { AppLink, type AppLinkProps } from "./mdxComponents/Link";
 
 export type ListItemLinkProps<T extends object = Record<string, unknown>> =
-  Omit<ListItemProps, 'ref'> & {
+  Omit<ListItemProps, "ref"> & {
     href: string;
     primaryText: string;
     secondaryText?: string;
     inset?: boolean;
     avatar?: JSX.Element;
     secondaryAction?: JSX.Element;
-  } & Omit<AppLinkProps<T>, 'ref'>;
+  } & Omit<AppLinkProps<T>, "ref">;
 
 const ListItemLink = React.forwardRef<HTMLLIElement, ListItemLinkProps>(
   (
@@ -26,14 +26,14 @@ const ListItemLink = React.forwardRef<HTMLLIElement, ListItemLinkProps>(
       secondaryText,
       secondaryAction,
       avatar,
-      color = 'inherit',
+      color = "inherit",
       inset = false,
       ...props
     },
-    ref
+    ref,
   ) => {
     const isMobile = useMediaQuery((theme: Theme) =>
-      theme.breakpoints.only('xs')
+      theme.breakpoints.only("xs"),
     );
     const primary = React.useMemo(() => {
       if (isMobile) return primaryText;
@@ -57,7 +57,7 @@ const ListItemLink = React.forwardRef<HTMLLIElement, ListItemLinkProps>(
           ) : null}
         </>
       ),
-      [avatar, primary, secondaryText, inset, secondaryAction, isMobile]
+      [avatar, primary, secondaryText, inset, secondaryAction, isMobile],
     );
     const inside = React.useMemo(() => {
       if (!isMobile) return content;
@@ -72,7 +72,7 @@ const ListItemLink = React.forwardRef<HTMLLIElement, ListItemLinkProps>(
         {inside}
       </ListItem>
     );
-  }
+  },
 );
 
 ListItemLink.defaultProps = {

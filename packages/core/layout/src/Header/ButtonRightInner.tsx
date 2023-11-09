@@ -1,13 +1,13 @@
-import * as React from 'react';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import * as React from "react";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import {
   useSiteMetadata,
   useSocialShare,
-} from '@cieloazul310/gatsby-theme-aoi-utils';
+} from "@cieloazul310/gatsby-theme-aoi-utils";
 
 export type ButtonRightInnerProps = {
   title?: string;
@@ -15,13 +15,13 @@ export type ButtonRightInnerProps = {
 
 function ButtonRightInner({ title }: ButtonRightInnerProps) {
   const { lang, social } = useSiteMetadata();
-  const twitterUrl = useSocialShare('twitter', title);
-  const fbUrl = useSocialShare('facebook');
+  const twitterUrl = useSocialShare("twitter", title);
+  const fbUrl = useSocialShare("facebook");
   const github: (typeof social)[number] | undefined =
-    social[social.map(({ name }) => name).indexOf('github')];
+    social[social.map(({ name }) => name).indexOf("github")];
   return (
     <>
-      <Tooltip title={lang === 'ja' ? 'Twitterでシェア' : 'Share On Twitter'}>
+      <Tooltip title={lang === "ja" ? "Twitterでシェア" : "Share On Twitter"}>
         <IconButton
           color="inherit"
           href={twitterUrl}
@@ -32,7 +32,7 @@ function ButtonRightInner({ title }: ButtonRightInnerProps) {
           <TwitterIcon />
         </IconButton>
       </Tooltip>
-      <Tooltip title={lang === 'ja' ? 'Facebookで共有' : 'Share on Facebook'}>
+      <Tooltip title={lang === "ja" ? "Facebookで共有" : "Share on Facebook"}>
         <IconButton
           color="inherit"
           href={fbUrl}

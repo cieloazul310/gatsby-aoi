@@ -1,12 +1,12 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from "fs";
+import * as path from "path";
 import {
   isString,
   isBoolean,
   strToSlug,
-} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
-import findArchetypes from './findArchetypes';
-import archetypesToMd from './archetypeToMd';
+} from "@cieloazul310/gatsby-theme-aoi-blog-utils";
+import findArchetypes from "./findArchetypes";
+import archetypesToMd from "./archetypeToMd";
 
 function parseDate(dateString?: string | unknown) {
   if (!dateString || !isString(dateString)) return new Date();
@@ -15,7 +15,7 @@ function parseDate(dateString?: string | unknown) {
 function dateToDirname(date: Date) {
   const year = date.getFullYear();
   const month = date.getMonth();
-  return `/${year}/${(month + 1).toString().padStart(2, '0')}`;
+  return `/${year}/${(month + 1).toString().padStart(2, "0")}`;
 }
 
 type NewPostOptions = {
@@ -31,7 +31,7 @@ export default function newPost(title: string, options: NewPostOptions) {
    * @todo
    * contentDir should be configured in the root gatsby project.
    */
-  const baseDir = '/content/posts/';
+  const baseDir = "/content/posts/";
   const datetime = parseDate(date);
   const dateDir = dateToDirname(datetime);
   const titleSlug = strToSlug(title);
@@ -55,8 +55,8 @@ export default function newPost(title: string, options: NewPostOptions) {
   if (isCanonical) {
     fs.mkdirSync(slugDir);
   }
-  const name = isCanonical ? 'index' : titleSlug;
-  const extension = isBoolean(mdx) && mdx ? 'mdx' : 'md';
+  const name = isCanonical ? "index" : titleSlug;
+  const extension = isBoolean(mdx) && mdx ? "mdx" : "md";
   const filename = `${name}.${extension}`;
   const filePath = path.resolve(isCanonical ? slugDir : dir, filename);
 
@@ -67,7 +67,7 @@ export default function newPost(title: string, options: NewPostOptions) {
   const md = archetypesToMd(archetypePath, {
     title,
     date: datetime,
-    author: isString(author) ? author : 'Unknown author',
+    author: isString(author) ? author : "Unknown author",
   });
 
   fs.writeFileSync(filePath, md);

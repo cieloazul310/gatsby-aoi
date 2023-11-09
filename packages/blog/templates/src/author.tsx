@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { graphql, type PageProps, type HeadProps } from 'gatsby';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
-import Avatar from '@mui/material/Avatar';
+import * as React from "react";
+import { graphql, type PageProps, type HeadProps } from "gatsby";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+import Avatar from "@mui/material/Avatar";
 import {
   Jumbotron,
   Section,
@@ -12,36 +12,36 @@ import {
   Paragraph,
   SocialLink,
   Seo,
-} from '@cieloazul310/gatsby-theme-aoi-components';
+} from "@cieloazul310/gatsby-theme-aoi-components";
 import {
   Pagination,
   DrawerPageNavigation,
   PageNavigationContainer,
   PageNavigationItem,
-} from '@cieloazul310/gatsby-theme-aoi-blog-components';
+} from "@cieloazul310/gatsby-theme-aoi-blog-components";
 import type {
   Author,
   MdxPostListFragment,
-} from '@cieloazul310/gatsby-theme-aoi-blog-types';
+} from "@cieloazul310/gatsby-theme-aoi-blog-types";
 
-import Layout from './layout';
-import MdxPostList from './components/MdxPostList';
-import { AuthorIcon } from './icons';
+import Layout from "./layout";
+import MdxPostList from "./components/MdxPostList";
+import { AuthorIcon } from "./icons";
 
 type PageData = {
   author: Pick<
     Author,
-    'name' | 'avatar' | 'description' | 'website' | 'websiteURL' | 'socials'
+    "name" | "avatar" | "description" | "website" | "websiteURL" | "socials"
   > &
-    Required<Pick<Author, 'slug'>>;
+    Required<Pick<Author, "slug">>;
   allMdxPost: {
     nodes: MdxPostListFragment[];
   };
   previous:
-    | (Pick<Author, 'name' | 'avatar'> & Required<Pick<Author, 'slug'>>)
+    | (Pick<Author, "name" | "avatar"> & Required<Pick<Author, "slug">>)
     | null;
   next:
-    | (Pick<Author, 'name' | 'avatar'> & Required<Pick<Author, 'slug'>>)
+    | (Pick<Author, "name" | "avatar"> & Required<Pick<Author, "slug">>)
     | null;
 };
 
@@ -125,7 +125,7 @@ function AuthorTemplate({
             <br />
             {author.websiteURL ? (
               <>
-                Website:{' '}
+                Website:{" "}
                 <AppLink href={author.websiteURL}>{author.website}</AppLink>
               </>
             ) : null}
@@ -149,7 +149,7 @@ function AuthorTemplate({
       </Section>
       <Section component="nav">
         <PageNavigationContainer>
-          <PageNavigationItem href={previous?.slug ?? '#'} disabled={!previous}>
+          <PageNavigationItem href={previous?.slug ?? "#"} disabled={!previous}>
             <Box display="flex" flexDirection="row" alignItems="center">
               <Avatar
                 sx={{ mr: 2 }}
@@ -172,7 +172,7 @@ function AuthorTemplate({
               <Typography variant="body2">{previous?.name}</Typography>
             </Box>
           </PageNavigationItem>
-          <PageNavigationItem href={next?.slug ?? '#'} right disabled={!next}>
+          <PageNavigationItem href={next?.slug ?? "#"} right disabled={!next}>
             <Box display="flex" flexDirection="row-reverse" alignItems="center">
               <Avatar
                 sx={{ ml: 2 }}

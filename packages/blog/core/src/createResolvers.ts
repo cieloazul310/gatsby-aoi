@@ -1,15 +1,15 @@
-import type { CreateResolversArgs } from 'gatsby';
+import type { CreateResolversArgs } from "gatsby";
 import {
   withDefaults,
   createSlug,
-} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+} from "@cieloazul310/gatsby-theme-aoi-blog-utils";
 import {
   MdxPostMonth,
   ThemeOptions,
   GatsbyGraphQLContext,
   MdxPost,
   Terminology,
-} from '@cieloazul310/gatsby-theme-aoi-blog-types';
+} from "@cieloazul310/gatsby-theme-aoi-blog-types";
 
 function createTerminology(basePath: string, items: string[]): Terminology[] {
   const values = new Set(items);
@@ -18,19 +18,19 @@ function createTerminology(basePath: string, items: string[]): Terminology[] {
     name,
     totalCount: items.filter((v) => v === name).length,
   })).sort(
-    (a, b) => b.totalCount - a.totalCount || a.name.localeCompare(b.name)
+    (a, b) => b.totalCount - a.totalCount || a.name.localeCompare(b.name),
   );
 }
 
 function mdxPostToMonths(
-  posts: MdxPost<'node'>[],
-  basePaths: ThemeOptions['basePaths']
+  posts: MdxPost<"node">[],
+  basePaths: ThemeOptions["basePaths"],
 ): MdxPostMonth[] {
   const months = posts
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .reduce<Omit<MdxPostMonth, 'gte' | 'lt'>[]>((accum, { date }) => {
+    .reduce<Omit<MdxPostMonth, "gte" | "lt">[]>((accum, { date }) => {
       const year = new Date(date).getFullYear().toString();
-      const month = (new Date(date).getMonth() + 1).toString().padStart(2, '0');
+      const month = (new Date(date).getMonth() + 1).toString().padStart(2, "0");
       const monthId = `${year}/${month}`;
       const indexInAccum = accum.map((d) => d.id).indexOf(monthId);
       if (indexInAccum < 0) {
@@ -46,7 +46,7 @@ function mdxPostToMonths(
                 new Date(post.date).getFullYear().toString() === year &&
                 (new Date(post.date).getMonth() + 1)
                   .toString()
-                  .padStart(2, '0') === month
+                  .padStart(2, "0") === month,
             ).length,
           },
         ];
@@ -56,8 +56,8 @@ function mdxPostToMonths(
   return months.map(({ year, month, ...props }) => {
     const gte = `${year}-${month}`;
     const lt =
-      month !== '12'
-        ? `${year}-${(parseInt(month, 10) + 1).toString().padStart(2, '0')}`
+      month !== "12"
+        ? `${year}-${(parseInt(month, 10) + 1).toString().padStart(2, "0")}`
         : `${(parseInt(year, 10) + 1).toString()}-01`;
     return {
       ...props,
@@ -77,7 +77,7 @@ function mdxPostToMonths(
  */
 export default function gatsbyCreateResolvers(
   { createResolvers }: CreateResolversArgs,
-  themeOptions: ThemeOptions
+  themeOptions: ThemeOptions,
 ) {
   const { basePaths } = withDefaults(themeOptions);
 
@@ -89,9 +89,9 @@ export default function gatsbyCreateResolvers(
           source: Record<string, unknown>,
           args: any,
           context: GatsbyGraphQLContext,
-          info: any
+          info: any,
         ) => {
-          const { entries } = await context.nodeModel.findAll<MdxPost<'node'>>({
+          const { entries } = await context.nodeModel.findAll<MdxPost<"node">>({
             type: `MdxPost`,
           });
           return mdxPostToMonths(Array.from(entries), basePaths);
@@ -103,9 +103,9 @@ export default function gatsbyCreateResolvers(
           source: unknown,
           args: any,
           context: GatsbyGraphQLContext,
-          info: any
+          info: any,
         ) => {
-          const { entries } = await context.nodeModel.findAll<MdxPost<'node'>>({
+          const { entries } = await context.nodeModel.findAll<MdxPost<"node">>({
             type: `MdxPost`,
             query: {
               filter: {
@@ -117,7 +117,7 @@ export default function gatsbyCreateResolvers(
           });
           const hoge = Array.from(entries).reduce<string[]>(
             (accum, { categories }) => [...accum, ...(categories ?? [])],
-            []
+            [],
           );
           return createTerminology(basePaths.category, hoge);
         },
@@ -128,9 +128,9 @@ export default function gatsbyCreateResolvers(
           source: unknown,
           args: any,
           context: GatsbyGraphQLContext,
-          info: any
+          info: any,
         ) => {
-          const { entries } = await context.nodeModel.findAll<MdxPost<'node'>>({
+          const { entries } = await context.nodeModel.findAll<MdxPost<"node">>({
             type: `MdxPost`,
             query: {
               filter: {
@@ -142,7 +142,7 @@ export default function gatsbyCreateResolvers(
           });
           const hoge = Array.from(entries).reduce<string[]>(
             (accum, { tags }) => [...accum, ...(tags ?? [])],
-            []
+            [],
           );
           return createTerminology(basePaths.tag, hoge);
         },

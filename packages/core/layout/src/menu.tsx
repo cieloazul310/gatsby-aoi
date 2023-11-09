@@ -1,6 +1,6 @@
-import * as React from 'react';
-import HomeIcon from '@mui/icons-material/Home';
-import SportsHandballIcon from '@mui/icons-material/SportsHandball';
+import * as React from "react";
+import HomeIcon from "@mui/icons-material/Home";
+import SportsHandballIcon from "@mui/icons-material/SportsHandball";
 
 export type Menu = {
   title: string;
@@ -9,8 +9,8 @@ export type Menu = {
 };
 
 const menu: Menu[] = [
-  { title: 'Top', path: '/', icon: <HomeIcon /> },
-  { title: 'Page 2', path: '/page-2/', icon: <SportsHandballIcon /> },
+  { title: "Top", path: "/", icon: <HomeIcon /> },
+  { title: "Page 2", path: "/page-2/", icon: <SportsHandballIcon /> },
 ];
 
 export default menu;

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   Layout,
   Article,
@@ -6,7 +6,7 @@ import {
   H2,
   Paragraph,
   Seo,
-} from '@cieloazul310/gatsby-theme-aoi';
+} from "@cieloazul310/gatsby-theme-aoi";
 
 function NotFoundPage() {
   return (

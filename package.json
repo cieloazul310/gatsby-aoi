@@ -27,6 +27,7 @@
     "test": "jest",
     "typecheck": "nx run-many --target=typecheck",
     "eslint": "nx run-many --target=eslint",
+    "format": "prettier \"{packages,starters}/**/*/src/**/*.{cjs,mjs,js,jsx,ts,tsx}\" --parser typescript --write",
     "lint-staged": "lint-staged",
     "bootstrap": "lerna bootstrap"
   },

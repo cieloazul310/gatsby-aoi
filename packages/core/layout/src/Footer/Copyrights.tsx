@@ -1,16 +1,16 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import { AppLink } from '@cieloazul310/gatsby-theme-aoi-components';
-import { useSiteMetadata } from '@cieloazul310/gatsby-theme-aoi-utils';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import { AppLink } from "@cieloazul310/gatsby-theme-aoi-components";
+import { useSiteMetadata } from "@cieloazul310/gatsby-theme-aoi-utils";
 
 function CopyrightsContent({ children }: { children: React.ReactNode }) {
   return (
     <Box
       sx={{
         padding: 1,
-        display: 'flex',
-        justifyContent: 'center',
+        display: "flex",
+        justifyContent: "center",
       }}
     >
       {children}

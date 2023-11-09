@@ -1,8 +1,5 @@
-/* eslint import/no-extraneous-dependencies: warn */
-/* eslint @typescript-eslint/no-var-requires: warn */
-
 const babelOptions = {
-  presets: ['babel-preset-gatsby', '@babel/preset-typescript'],
+  presets: ["babel-preset-gatsby", "@babel/preset-typescript"],
 };
 
-module.exports = require('babel-jest').default.createTransformer(babelOptions);
+module.exports = require("babel-jest").default.createTransformer(babelOptions);

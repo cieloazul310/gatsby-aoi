@@ -1,27 +1,27 @@
-import * as React from 'react';
-import { graphql, type PageProps, type HeadProps } from 'gatsby';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import { graphql, type PageProps, type HeadProps } from "gatsby";
+import Typography from "@mui/material/Typography";
 import {
   Jumbotron,
   Section,
   Article,
   Seo,
-} from '@cieloazul310/gatsby-theme-aoi-components';
+} from "@cieloazul310/gatsby-theme-aoi-components";
 import {
   Pagination,
   DrawerPageNavigation,
   PageNavigationContainer,
   PageNavigationItem,
-} from '@cieloazul310/gatsby-theme-aoi-blog-components';
-import type { MdxPostListFragment } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+} from "@cieloazul310/gatsby-theme-aoi-blog-components";
+import type { MdxPostListFragment } from "@cieloazul310/gatsby-theme-aoi-blog-types";
 
-import Layout from './layout';
-import MdxPostList from './components/MdxPostList';
+import Layout from "./layout";
+import MdxPostList from "./components/MdxPostList";
 
 function createTitleString(year: string, month: string) {
-  return `${new Date(`${year}-${month}`).toLocaleString('en-us', {
-    year: 'numeric',
-    month: 'short',
+  return `${new Date(`${year}-${month}`).toLocaleString("en-us", {
+    year: "numeric",
+    month: "short",
   })}`;
 }
 
@@ -78,8 +78,8 @@ function ArchiveTemplate({
   const title = createTitleString(year, month);
   const previousTitle = previous
     ? createTitleString(previous.year, previous.month)
-    : '';
-  const nextTitle = next ? createTitleString(next.year, next.month) : '';
+    : "";
+  const nextTitle = next ? createTitleString(next.year, next.month) : "";
 
   return (
     <Layout
@@ -118,13 +118,13 @@ function ArchiveTemplate({
       <Section component="nav">
         <PageNavigationContainer>
           <PageNavigationItem
-            href={previous?.basePath ?? '#'}
+            href={previous?.basePath ?? "#"}
             disabled={!previous}
           >
             <Typography variant="body2">{previousTitle}</Typography>
           </PageNavigationItem>
           <PageNavigationItem
-            href={next?.basePath ?? '#'}
+            href={next?.basePath ?? "#"}
             right
             disabled={!next}
           >

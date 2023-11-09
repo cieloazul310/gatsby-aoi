@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { graphql, type PageProps } from 'gatsby';
+import * as React from "react";
+import { graphql, type PageProps } from "gatsby";
 import {
   Layout,
   Jumbotron,
@@ -7,21 +7,21 @@ import {
   SectionWrapper,
   Article,
   Seo,
-} from '@cieloazul310/gatsby-theme-aoi';
-import { AuthorBox, type Author } from '@cieloazul310/gatsby-theme-aoi-blog';
+} from "@cieloazul310/gatsby-theme-aoi";
+import { AuthorBox, type Author } from "@cieloazul310/gatsby-theme-aoi-blog";
 
 type PageData = {
   allAuthor: {
     nodes: Pick<
       Author,
-      | 'name'
-      | 'slug'
-      | 'description'
-      | 'website'
-      | 'websiteURL'
-      | 'avatar'
-      | 'socials'
-      | 'posts'
+      | "name"
+      | "slug"
+      | "description"
+      | "website"
+      | "websiteURL"
+      | "avatar"
+      | "socials"
+      | "posts"
     >[];
   };
 };

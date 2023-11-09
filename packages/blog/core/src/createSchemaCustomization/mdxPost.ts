@@ -1,27 +1,27 @@
-import * as path from 'path';
-import type { CreateSchemaCustomizationArgs } from 'gatsby';
-import { slash } from 'gatsby-core-utils';
-import type { FileSystemNode } from 'gatsby-source-filesystem';
+import * as path from "path";
+import type { CreateSchemaCustomizationArgs } from "gatsby";
+import { slash } from "gatsby-core-utils";
+import type { FileSystemNode } from "gatsby-source-filesystem";
 import type {
   GraphQLFieldResolver,
   GraphQLResolveInfo,
   GraphQLObjectType,
-} from 'gatsby/graphql';
+} from "gatsby/graphql";
 import {
   withDefaults,
   isString,
-} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+} from "@cieloazul310/gatsby-theme-aoi-blog-utils";
 import type {
   Author,
   Mdx,
   MdxPost,
   ThemeOptions,
   GatsbyGraphQLContext,
-} from '@cieloazul310/gatsby-theme-aoi-blog-types';
+} from "@cieloazul310/gatsby-theme-aoi-blog-types";
 
 function mdxResolverPassthrough(
-  fieldName: string
-): GraphQLFieldResolver<MdxPost<'node'>, GatsbyGraphQLContext> {
+  fieldName: string,
+): GraphQLFieldResolver<MdxPost<"node">, GatsbyGraphQLContext> {
   return async (source, args, context, info) => {
     const type = info.schema.getType(`Mdx`) as GraphQLObjectType<
       Mdx,
@@ -41,20 +41,20 @@ function mdxResolverPassthrough(
 }
 
 async function processMdxPostRelativeImage(
-  source: MdxPost<'node'>,
+  source: MdxPost<"node">,
   context: GatsbyGraphQLContext,
-  type: keyof Mdx
+  type: keyof Mdx,
 ): Promise<FileSystemNode | undefined> {
   // Image is a relative path - find a corresponding file
   const mdxFileNode = context.nodeModel.findRootNodeAncestor<FileSystemNode>(
     source,
-    (node) => node.internal && node.internal.type === `File`
+    (node) => node.internal && node.internal.type === `File`,
   );
   if (!mdxFileNode) {
     return undefined;
   }
   const imagePath = slash(
-    path.join(mdxFileNode.dir, (source[type] ?? '') as string)
+    path.join(mdxFileNode.dir, (source[type] ?? "") as string),
   );
 
   const fileNode = await context.nodeModel.findOne<FileSystemNode>({
@@ -84,7 +84,7 @@ async function processMdxPostRelativeImage(
  */
 export default function createMdxPostSchemaCustomization(
   { actions, schema }: CreateSchemaCustomizationArgs,
-  themeOptions: ThemeOptions
+  themeOptions: ThemeOptions,
 ) {
   const options = withDefaults(themeOptions);
   const { createTypes } = actions;
@@ -116,20 +116,20 @@ export default function createMdxPostSchemaCustomization(
         author: {
           type: `Author!`,
           resolve: async (
-            source: MdxPost<'node'>,
+            source: MdxPost<"node">,
             args,
             context: GatsbyGraphQLContext,
-            info
+            info,
           ) => {
-            const author = await context.nodeModel.findOne<Author<'bare'>>({
-              type: 'Author',
+            const author = await context.nodeModel.findOne<Author<"bare">>({
+              type: "Author",
               query: {
                 filter: { name: { eq: source.author } },
               },
             });
             return (
               author ?? {
-                name: source.author ?? 'Unknown author',
+                name: source.author ?? "Unknown author",
               }
             );
           },
@@ -144,10 +144,10 @@ export default function createMdxPostSchemaCustomization(
         image: {
           type: `File`,
           resolve: async (
-            source: MdxPost<'node'> & { image___NODE?: string },
+            source: MdxPost<"node"> & { image___NODE?: string },
             args,
             context: GatsbyGraphQLContext,
-            info
+            info,
           ) => {
             if (source.image___NODE && isString(source.image___NODE)) {
               return context.nodeModel.getNodeById({ id: source.image___NODE });
@@ -181,6 +181,6 @@ export default function createMdxPostSchemaCustomization(
       extensions: {
         infer: false,
       },
-    })
+    }),
   );
 }

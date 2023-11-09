@@ -1,14 +1,14 @@
-import * as React from 'react';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import { BottomNavigationAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
-import { usePathnameWithoutPrefix } from '@cieloazul310/gatsby-theme-aoi-utils';
-import bottomNavMenu from '../bottomnav-menu';
+import * as React from "react";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import { BottomNavigationAppLink } from "@cieloazul310/gatsby-theme-aoi-components";
+import { usePathnameWithoutPrefix } from "@cieloazul310/gatsby-theme-aoi-utils";
+import bottomNavMenu from "../bottomnav-menu";
 
 function BottomNav() {
   const pathname = usePathnameWithoutPrefix();
   return (
     <BottomNavigation
-      sx={{ borderTop: 1, borderColor: 'divider' }}
+      sx={{ borderTop: 1, borderColor: "divider" }}
       value={pathname}
       showLabels
     >
