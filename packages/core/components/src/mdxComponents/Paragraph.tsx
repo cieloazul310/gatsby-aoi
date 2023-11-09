@@ -1,15 +1,15 @@
-import * as React from 'react';
-import Typography, { type TypographyProps } from '@mui/material/Typography';
-import MuiLink from '@mui/material/Link';
-import Divider, { DividerProps } from '@mui/material/Divider';
-import { alpha } from '@mui/material/styles';
-import type { MDXComponents } from 'mdx/types';
+import * as React from "react";
+import Typography, { type TypographyProps } from "@mui/material/Typography";
+import MuiLink from "@mui/material/Link";
+import Divider, { DividerProps } from "@mui/material/Divider";
+import { alpha } from "@mui/material/styles";
+import type { MDXComponents } from "mdx/types";
 
 export const Paragraph: (
-  props: Omit<TypographyProps<'p'>, 'ref'>
-) => JSX.Element | null = React.forwardRef<
+  props: Omit<TypographyProps<"p">, "ref">,
+) => React.ReactNode = React.forwardRef<
   HTMLParagraphElement,
-  TypographyProps<'p'>
+  TypographyProps<"p">
 >((props, ref) => (
   <Typography
     ref={ref}
@@ -22,16 +22,16 @@ export const Paragraph: (
 
 export type BlockquoteProps = Omit<
   TypographyProps<
-    'blockquote',
+    "blockquote",
     {
       url?: string;
       title?: string;
     }
   >,
-  'ref'
+  "ref"
 >;
 
-export const Blockquote: (props: BlockquoteProps) => JSX.Element | null =
+export const Blockquote: (props: BlockquoteProps) => React.ReactNode =
   React.forwardRef<HTMLQuoteElement, BlockquoteProps>(
     ({ children, title, url, ...props }, ref) => (
       <Typography
@@ -47,7 +47,7 @@ export const Blockquote: (props: BlockquoteProps) => JSX.Element | null =
         }
         sx={{
           // equivalent to first-child
-          '& > *:not(:is(*:not(style) ~ *))': {
+          "& > *:not(:is(*:not(style) ~ *))": {
             mt: 0,
           },
         }}
@@ -71,61 +71,59 @@ export const Blockquote: (props: BlockquoteProps) => JSX.Element | null =
           </Typography>
         ) : null}
       </Typography>
-    )
+    ),
   );
 
-export const Hr: (props: Omit<DividerProps, 'ref'>) => JSX.Element | null =
+export const Hr: (props: Omit<DividerProps, "ref">) => React.ReactNode =
   React.forwardRef<HTMLHRElement, DividerProps>((props, ref) => (
     <Divider ref={ref} sx={{ ...props.sx, my: 8 }} {...props} />
   ));
 
 export const Code: (
-  props: Omit<TypographyProps<'code'>, 'ref'>
-) => JSX.Element | null = React.forwardRef<
-  HTMLElement,
-  TypographyProps<'code'>
->((props, ref) => (
-  <Typography
-    ref={ref}
-    variant="body2"
-    component="code"
-    fontFamily="'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'monospace'"
-    px={0.5}
-    borderRadius={1}
-    fontSize=".875em"
-    bgcolor={({ palette }) =>
-      alpha(palette.secondary.main, palette.action.selectedOpacity)
-    }
-    sx={{ 'pre > &': { background: 'none', color: 'inherit' } }}
-    {...props}
-  />
-));
+  props: Omit<TypographyProps<"code">, "ref">,
+) => React.ReactNode = React.forwardRef<HTMLElement, TypographyProps<"code">>(
+  (props, ref) => (
+    <Typography
+      ref={ref}
+      variant="body2"
+      component="code"
+      fontFamily="'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'monospace'"
+      px={0.5}
+      borderRadius={1}
+      fontSize=".875em"
+      bgcolor={({ palette }) =>
+        alpha(palette.secondary.main, palette.action.selectedOpacity)
+      }
+      sx={{ "pre > &": { background: "none", color: "inherit" } }}
+      {...props}
+    />
+  ),
+);
 
 export const CodeBlock: (
-  props: Omit<TypographyProps<'pre'>, 'ref'>
-) => JSX.Element | null = React.forwardRef<
-  HTMLPreElement,
-  TypographyProps<'pre'>
->((props, ref) => (
-  <Typography
-    ref={ref}
-    variant="body2"
-    component="pre"
-    display="block"
-    whiteSpace="pre"
-    fontFamily="'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'monospace'"
-    py={4}
-    px={2}
-    my={4}
-    borderRadius={1}
-    fontSize=".875em"
-    bgcolor={({ palette }) =>
-      alpha(palette.text.disabled, palette.action.hoverOpacity)
-    }
-    sx={{ overflowX: 'auto' }}
-    {...props}
-  />
-));
+  props: Omit<TypographyProps<"pre">, "ref">,
+) => React.ReactNode = React.forwardRef<HTMLPreElement, TypographyProps<"pre">>(
+  (props, ref) => (
+    <Typography
+      ref={ref}
+      variant="body2"
+      component="pre"
+      display="block"
+      whiteSpace="pre"
+      fontFamily="'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'monospace'"
+      py={4}
+      px={2}
+      my={4}
+      borderRadius={1}
+      fontSize=".875em"
+      bgcolor={({ palette }) =>
+        alpha(palette.text.disabled, palette.action.hoverOpacity)
+      }
+      sx={{ overflowX: "auto" }}
+      {...props}
+    />
+  ),
+);
 
 const paragraph: MDXComponents = {
   p: Paragraph,

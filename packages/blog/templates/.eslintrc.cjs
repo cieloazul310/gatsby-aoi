@@ -1,8 +1,8 @@
 module.exports = {
   root: true,
-  extends: ['@cieloazul310/eslint-config-custom'],
+  extends: ["@cieloazul310/eslint-config-custom"],
   parserOptions: {
-    project: './tsconfig.json',
+    project: "./tsconfig.json",
     tsconfigRootDir: __dirname,
   },
 };

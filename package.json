@@ -61,11 +61,11 @@
     "typescript": "^5.2.2"
   },
   "lint-staged": {
-    "./starters/**/*.{js,jsx,ts,tsx}": [
+    "./starters/**/*.{cjs,mjs,js,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --parser typescript --write"
     ],
-    "./packages/**/*.{js,jsx,ts,tsx}": [
+    "./packages/**/*.{cjs,mjs,js,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --parser typescript --write"
     ]

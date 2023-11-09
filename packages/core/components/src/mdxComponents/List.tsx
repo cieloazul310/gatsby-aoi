@@ -1,12 +1,12 @@
-import * as React from 'react';
-import Typography, { type TypographyProps } from '@mui/material/Typography';
-import type { MDXComponents } from 'mdx/types';
+import * as React from "react";
+import Typography, { type TypographyProps } from "@mui/material/Typography";
+import type { MDXComponents } from "mdx/types";
 
 export const Ul: (
-  props: Omit<TypographyProps<'ul'>, 'ref'>
-) => JSX.Element | null = React.forwardRef<
+  props: Omit<TypographyProps<"ul">, "ref">,
+) => React.ReactNode = React.forwardRef<
   HTMLUListElement,
-  TypographyProps<'ul'>
+  TypographyProps<"ul">
 >((props, ref) => (
   <Typography
     ref={ref}
@@ -15,7 +15,7 @@ export const Ul: (
     mx={0}
     variant="inherit"
     sx={{
-      'li > &': {
+      "li > &": {
         my: 0,
       },
     }}
@@ -24,10 +24,10 @@ export const Ul: (
 ));
 
 export const Ol: (
-  props: Omit<TypographyProps<'ol'>, 'ref'>
-) => JSX.Element | null = React.forwardRef<
+  props: Omit<TypographyProps<"ol">, "ref">,
+) => React.ReactNode = React.forwardRef<
   HTMLOListElement,
-  TypographyProps<'ol'>
+  TypographyProps<"ol">
 >((props, ref) => (
   <Typography
     ref={ref}
@@ -36,7 +36,7 @@ export const Ol: (
     mx={0}
     variant="inherit"
     sx={{
-      'li > &': {
+      "li > &": {
         my: 0,
       },
     }}
@@ -45,19 +45,18 @@ export const Ol: (
 ));
 
 export const Li: (
-  props: Omit<TypographyProps<'li'>, 'ref'>
-) => JSX.Element | null = React.forwardRef<
-  HTMLLIElement,
-  TypographyProps<'li'>
->((props, ref) => (
-  <Typography
-    ref={ref}
-    component="li"
-    variant="inherit"
-    lineHeight={1.8}
-    {...props}
-  />
-));
+  props: Omit<TypographyProps<"li">, "ref">,
+) => React.ReactNode = React.forwardRef<HTMLLIElement, TypographyProps<"li">>(
+  (props, ref) => (
+    <Typography
+      ref={ref}
+      component="li"
+      variant="inherit"
+      lineHeight={1.8}
+      {...props}
+    />
+  ),
+);
 
 const listComponents: MDXComponents = {
   ul: Ul,

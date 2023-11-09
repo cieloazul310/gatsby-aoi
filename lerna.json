@@ -9,7 +9,7 @@
   "ignoreChanges": [
     "**/__tests__/**",
     "**/*.md",
-    ".eslintrc.js",
+    ".eslintrc.cjs",
     "jest.config.ts"
   ],
   "version": "3.2.3"

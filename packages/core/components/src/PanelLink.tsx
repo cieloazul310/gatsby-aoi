@@ -1,17 +1,17 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import ButtonBase, { type ButtonBaseProps } from '@mui/material/ButtonBase';
-import { alpha, type Theme } from '@mui/material/styles';
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRightOutlined';
-import LinkIcon from '@mui/icons-material/Link';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import ButtonBase, { type ButtonBaseProps } from "@mui/material/ButtonBase";
+import { alpha, type Theme } from "@mui/material/styles";
+import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import LinkIcon from "@mui/icons-material/Link";
 // import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import MaiOutlineIcon from '@mui/icons-material/MailOutline';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import { useLinkType } from '@cieloazul310/gatsby-theme-aoi-utils';
+import MaiOutlineIcon from "@mui/icons-material/MailOutline";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import { useLinkType } from "@cieloazul310/gatsby-theme-aoi-utils";
 import GatsbyLinkComposed, {
   type GatsbyLinkComposedProps,
-} from './mdxComponents/GatsbyLinkComposed';
+} from "./mdxComponents/GatsbyLinkComposed";
 
 const ButtonBaseRootStyle = {
   width: 1,
@@ -19,13 +19,13 @@ const ButtonBaseRootStyle = {
   px: 2,
   py: 1,
   flexShrink: 0,
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'start',
-  justifyContent: 'center',
-  bgcolor: 'background.paper',
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "start",
+  justifyContent: "center",
+  bgcolor: "background.paper",
   zIndex: 100,
-  '&:hover': {
+  "&:hover": {
     bgcolor: ({ palette }: Theme) =>
       alpha(palette.primary.main, palette.action.hoverOpacity),
   },
@@ -41,11 +41,11 @@ export type PanelLinkProps = Omit<
       disableMargin?: boolean;
     }
   >,
-  'ref'
+  "ref"
 > &
-  Omit<GatsbyLinkComposedProps, 'to'>;
+  Omit<GatsbyLinkComposedProps, "to">;
 
-const PanelLink: (props: Omit<PanelLinkProps, 'ref'>) => JSX.Element | null =
+const PanelLink: (props: Omit<PanelLinkProps, "ref">) => React.ReactNode =
   React.forwardRef<HTMLAnchorElement, PanelLinkProps>(
     (
       {
@@ -56,20 +56,20 @@ const PanelLink: (props: Omit<PanelLinkProps, 'ref'>) => JSX.Element | null =
         disableMargin = false,
         ...props
       },
-      ref
+      ref,
     ) => {
       const borderStyles = {
         border: disableBorder ? 0 : 1,
         borderRadius: disableBorder ? 0 : 1,
-        borderColor: 'divider',
+        borderColor: "divider",
       } as const;
       const sx = {
         my: disableMargin ? 0 : 4,
-        '&.MuiButtonBase-root': { ...ButtonBaseRootStyle, ...borderStyles },
+        "&.MuiButtonBase-root": { ...ButtonBaseRootStyle, ...borderStyles },
       } as const;
       const linkType = useLinkType(href);
       const host = React.useMemo(() => {
-        if (linkType !== 'external') return null;
+        if (linkType !== "external") return null;
         try {
           const { hostname } = new URL(href);
           return (
@@ -87,8 +87,8 @@ const PanelLink: (props: Omit<PanelLinkProps, 'ref'>) => JSX.Element | null =
       }, [linkType, href]);
       const linkIcon = React.useMemo(() => {
         if (download) return <FileDownloadIcon />;
-        if (linkType === 'mail') return <MaiOutlineIcon />;
-        if (linkType === 'section') return <LinkIcon />;
+        if (linkType === "mail") return <MaiOutlineIcon />;
+        if (linkType === "section") return <LinkIcon />;
         return <ArrowCircleRightIcon />;
       }, [linkType, download]);
 
@@ -104,10 +104,10 @@ const PanelLink: (props: Omit<PanelLinkProps, 'ref'>) => JSX.Element | null =
             </Box>
           </Box>
         ),
-        [host, children]
+        [host, children],
       );
 
-      if (href && linkType === 'internal') {
+      if (href && linkType === "internal") {
         return (
           <ButtonBase
             ref={ref}
@@ -125,15 +125,15 @@ const PanelLink: (props: Omit<PanelLinkProps, 'ref'>) => JSX.Element | null =
           ref={ref}
           component="a"
           href={href}
-          target={linkType === 'external' ? '_blank' : undefined}
-          rel={linkType === 'external' ? 'noopener noreferrer' : undefined}
+          target={linkType === "external" ? "_blank" : undefined}
+          rel={linkType === "external" ? "noopener noreferrer" : undefined}
           sx={sx}
           {...props}
         >
           {inside}
         </ButtonBase>
       );
-    }
+    },
   );
 
 export default PanelLink;
