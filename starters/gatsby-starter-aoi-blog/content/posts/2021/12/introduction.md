@@ -30,7 +30,7 @@ cd gatsby-starter-aoi-theme
 ### 手動でインストールする場合
 
 ```shell
-yarn add @cieloazul310/gatsby-theme-aoi
+npm install @cieloazul310/gatsby-theme-aoi
 ```
 
 ## 使い方

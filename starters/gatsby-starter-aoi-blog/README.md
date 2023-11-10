@@ -11,11 +11,11 @@ cd gatsby-starter-aoi-theme
 
 ```shell
 # install
-yarn install
+npm install
 
 # develop
-yarn run dev
+npm run dev
 
 # build
-yarn run build
+npm run build
 ```

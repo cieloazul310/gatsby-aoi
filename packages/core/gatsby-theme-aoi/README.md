@@ -10,7 +10,7 @@
 - [`@cieloazul310/gatsby-theme-aoi-utils`]
 
 ```shell
-yarn add @cieloazul310/gatsby-theme-aoi
+npm install @cieloazul310/gatsby-theme-aoi
 ```
 
 ```javascript
