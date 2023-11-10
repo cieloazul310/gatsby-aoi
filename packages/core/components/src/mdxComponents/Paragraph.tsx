@@ -43,12 +43,15 @@ export const Blockquote: (props: BlockquoteProps) => React.ReactNode =
         my={4}
         borderRadius={1}
         bgcolor={({ palette }) =>
-          alpha(palette.text.disabled, palette.action.hoverOpacity)
+          alpha(palette.primary.main, palette.action.hoverOpacity)
         }
         sx={{
           // equivalent to first-child
           "& > *:not(:is(*:not(style) ~ *))": {
             mt: 0,
+          },
+          "& > p:last-of-type": {
+            mb: 0,
           },
         }}
         {...props}
@@ -117,7 +120,7 @@ export const CodeBlock: (
       borderRadius={1}
       fontSize=".875em"
       bgcolor={({ palette }) =>
-        alpha(palette.text.disabled, palette.action.hoverOpacity)
+        alpha(palette.primary.main, palette.action.hoverOpacity)
       }
       sx={{ overflowX: "auto" }}
       {...props}
