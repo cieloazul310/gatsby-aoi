@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-core",
-  "version": "3.2.3",
+  "version": "3.3.0",
   "description": "Gatsby Node API for Gatsby Theme Aoi Blog",
   "license": "ISC",
   "main": "gatsby-config.js",
@@ -53,13 +53,13 @@
     "yaml": "^2.3.4"
   },
   "devDependencies": {
-    "@cieloazul310/eslint-config-custom": "^3.2.3",
-    "@cieloazul310/tsconfig": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-blog-components": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-blog-types": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.2.3",
+    "@cieloazul310/eslint-config-custom": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-types": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.3.0",
+    "@cieloazul310/tsconfig": "^3.3.0",
     "eslint": "^8.53.0",
     "gatsby": "^5.12.9",
     "rimraf": "^5.0.5",

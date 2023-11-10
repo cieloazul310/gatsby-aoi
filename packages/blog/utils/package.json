@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-utils",
-  "version": "3.2.3",
+  "version": "3.3.0",
   "description": "Utils and types for Gatsby Theme Aoi Blog",
   "license": "ISC",
   "main": "./lib/index.js",
@@ -39,9 +39,9 @@
     "prepack": "npm run build"
   },
   "devDependencies": {
-    "@cieloazul310/eslint-config-custom": "^3.2.3",
-    "@cieloazul310/tsconfig": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-blog-types": "^3.2.3",
+    "@cieloazul310/eslint-config-custom": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-types": "^3.3.0",
+    "@cieloazul310/tsconfig": "^3.3.0",
     "eslint": "^8.53.0",
     "gatsby": "^5.12.9",
     "gatsby-plugin-image": "^3.12.3",

@@ -1,17 +1,17 @@
 {
   "name": "sb",
   "private": true,
-  "version": "3.2.3",
+  "version": "3.3.0",
   "scripts": {
     "dev": "start-storybook -p 6006",
     "build": "build-storybook",
     "lint": "eslint .storybook components stories"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-components": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-components": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-top-layout": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-utils": "^3.2.3",
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-components": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-top-layout": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-utils": "^3.3.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.16",
@@ -21,8 +21,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@cieloazul310/eslint-config-custom": "^3.2.3",
-    "@cieloazul310/tsconfig": "^3.2.3",
+    "@cieloazul310/eslint-config-custom": "^3.3.0",
+    "@cieloazul310/tsconfig": "^3.3.0",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",

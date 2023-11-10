@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog",
-  "version": "3.2.3",
+  "version": "3.3.0",
   "description": "Gatsby Blog Theme built with Gatsby Theme Aoi",
   "license": "ISC",
   "main": "index.js",
@@ -35,16 +35,16 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi-blog-cli": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-blog-components": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-blog-core": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-blog-types": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.2.3"
+    "@cieloazul310/gatsby-theme-aoi-blog-cli": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-components": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-core": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-templates": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-types": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.3.0"
   },
   "devDependencies": {
-    "@cieloazul310/eslint-config-custom": "^3.2.3",
-    "@cieloazul310/tsconfig": "^3.2.3",
+    "@cieloazul310/eslint-config-custom": "^3.3.0",
+    "@cieloazul310/tsconfig": "^3.3.0",
     "eslint": "^8.53.0",
     "typescript": "^5.2.2"
   },
