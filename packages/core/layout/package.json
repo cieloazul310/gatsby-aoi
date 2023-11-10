@@ -61,7 +61,7 @@
     "@mui/icons-material": "^5.0.0",
     "@mui/material": "^5.0.0",
     "clsx": "^1.0.0 || ^2.0.0",
-    "gatsby": "^5.0.0",
+    "gatsby": "^5.3.0",
     "react": "^18.0.0"
   },
   "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"

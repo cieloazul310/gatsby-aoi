@@ -30,7 +30,7 @@
     "gatsby-source-filesystem": "^5.12.1"
   },
   "peerDependencies": {
-    "gatsby": "^5.0.0",
+    "gatsby": "^5.3.0",
     "gatsby-plugin-image": "^3.0.0",
     "gatsby-source-filesystem": "^5.0.0"
   }

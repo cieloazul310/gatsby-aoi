@@ -51,7 +51,7 @@
     "@gatsbyjs/reach-router": "^2.0.0",
     "@mui/material": "^5.0.0",
     "@mui/system": "^5.0.0",
-    "gatsby": "^5.0.0",
+    "gatsby": "^5.3.0",
     "react": "^18.0.0"
   }
 }
