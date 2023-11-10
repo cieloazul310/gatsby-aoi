@@ -5,7 +5,7 @@
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
-  "main": "gatsby-config.cjs",
+  "main": "gatsby-config.js",
   "files": [
     "lib",
     "gatsby-config.js",
