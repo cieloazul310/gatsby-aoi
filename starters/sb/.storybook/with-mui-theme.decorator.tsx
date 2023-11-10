@@ -9,6 +9,7 @@ export const withMuiTheme = (Story: StoryFn, context: StoryContext) => {
 
   // only recompute the theme if the themeKey changes
   const theme = React.useMemo(
+    // @ts-ignore
     () => themes[themeKey] || themes["light"],
     [themeKey],
   );

@@ -11,11 +11,13 @@ declare global {
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
 // This global object isn't set in storybook context, requiring you to override it to empty functions (no-op),
 // so Gatsby Link doesn't throw errors.
+// @ts-ignore
 global.___loader = {
   enqueue: () => {},
   hovering: () => {},
 };
 // This global variable prevents the "__BASE_PATH__ is not defined" error inside Storybook.
+// @ts-ignore
 global.__BASE_PATH__ = "/";
 
 // Navigating through a gatsby app using gatsby-link or any other gatsby component will use the `___navigate` method.
