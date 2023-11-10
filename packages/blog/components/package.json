@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-blog-components",
-  "version": "3.2.3",
+  "version": "3.3.0",
   "description": "MUI based blog components for @cieloazul310/gatsby-theme-aoi-blog",
   "license": "ISC",
   "main": "./lib/index.js",
@@ -44,9 +44,9 @@
     "prepack": "npm run build"
   },
   "devDependencies": {
-    "@cieloazul310/eslint-config-custom": "^3.2.3",
-    "@cieloazul310/tsconfig": "^3.2.3",
-    "@cieloazul310/gatsby-theme-aoi-components": "^3.2.3",
+    "@cieloazul310/eslint-config-custom": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi-components": "^3.3.0",
+    "@cieloazul310/tsconfig": "^3.3.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.17",
