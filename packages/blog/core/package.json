@@ -8,8 +8,8 @@
   "main": "gatsby-config.cjs",
   "files": [
     "lib",
-    "gatsby-config.cjs",
-    "gatsby-node.cjs"
+    "gatsby-config.js",
+    "gatsby-node.js"
   ],
   "directories": {
     "lib": "lib"
