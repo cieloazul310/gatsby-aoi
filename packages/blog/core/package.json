@@ -5,11 +5,11 @@
   "author": "cieloazul310 <cieloazul310@gmail.com>",
   "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
-  "main": "gatsby-config.js",
+  "main": "gatsby-config.cjs",
   "files": [
     "lib",
-    "gatsby-config.js",
-    "gatsby-node.js"
+    "gatsby-config.cjs",
+    "gatsby-node.cjs"
   ],
   "directories": {
     "lib": "lib"

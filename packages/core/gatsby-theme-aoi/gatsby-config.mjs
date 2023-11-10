@@ -1,4 +1,4 @@
-module.exports = (options) => ({
+const config = (options) => ({
   siteMetadata: {
     title: `Gatsby Theme Aoi`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
@@ -28,3 +28,5 @@ module.exports = (options) => ({
     `gatsby-plugin-emotion`,
   ],
 });
+
+export default config;

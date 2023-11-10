@@ -8,13 +8,13 @@
   "main": "index.js",
   "types": "types.d.ts",
   "bin": {
-    "gatsby-aoi-blog": "./cli.js"
+    "gatsby-aoi-blog": "./cli.cjs"
   },
   "files": [
     "index.js",
     "types.d.ts",
-    "gatsby-config.js",
-    "cli.js"
+    "gatsby-config.mjs",
+    "cli.cjs"
   ],
   "publishConfig": {
     "access": "public"

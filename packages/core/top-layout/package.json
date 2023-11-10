@@ -20,7 +20,6 @@
   "files": [
     "src",
     "gatsby-browser.tsx",
-    "gatsby-config.js",
     "gatsby-ssr.tsx"
   ],
   "publishConfig": {
@@ -30,9 +29,6 @@
     "eslint": "eslint src/",
     "typecheck": "tsc --noEmit",
     "test": "echo \"Error: run tests from root\" && exit 1"
-  },
-  "dependencies": {
-    "gatsby-plugin-webfonts": "^2.3.2"
   },
   "devDependencies": {
     "@cieloazul310/eslint-config-custom": "^3.2.3",

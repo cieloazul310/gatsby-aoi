@@ -1,4 +1,4 @@
-module.exports = (options) => ({
+const config = (options) => ({
   siteMetadata: {
     title: `Gatsby Theme Aoi Blog Core`,
     description: `Gatsby Theme Aoi Blog Core package.`,
@@ -25,3 +25,5 @@ module.exports = (options) => ({
     },
   ],
 });
+
+export default config;
