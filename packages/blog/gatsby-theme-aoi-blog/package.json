@@ -2,8 +2,6 @@
   "name": "@cieloazul310/gatsby-theme-aoi-blog",
   "version": "3.2.3",
   "description": "Gatsby Blog Theme built with Gatsby Theme Aoi",
-  "author": "cieloazul310 <cieloazul310@gmail.com>",
-  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
   "main": "index.js",
   "types": "types.d.ts",
@@ -16,19 +14,25 @@
     "gatsby-config.mjs",
     "cli.cjs"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cieloazul310/gatsby-aoi",
     "directory": "packages/blog/gatsby-theme-aoi-blog"
   },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+  "publishConfig": {
+    "access": "public"
   },
   "bugs": {
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
+  },
+  "author": {
+    "name": "cieloazul310",
+    "email": "cieloazul310@gmail.com",
+    "url": "https://cieloazul310.github.io"
+  },
+  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
     "@cieloazul310/gatsby-theme-aoi-blog-cli": "^3.2.3",

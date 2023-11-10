@@ -2,16 +2,11 @@
   "name": "@cieloazul310/gatsby-theme-aoi-utils",
   "version": "3.2.3",
   "description": "Util library for @cieloazul310/gatsby-theme-aoi",
-  "author": "cieloazul310 <cieloazul310@gmail.com>",
-  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "license": "ISC",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
-  "keywords": [
-    "gatsby",
-    "gatsby-theme",
-    "mui",
-    "material-ui"
+  "files": [
+    "lib"
   ],
   "repository": {
     "type": "git",
@@ -22,12 +17,21 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": [
-    "lib"
-  ],
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "mui",
+    "material-ui"
+  ],
+  "author": {
+    "name": "cieloazul310",
+    "email": "cieloazul310@gmail.com",
+    "url": "https://cieloazul310.github.io"
+  },
+  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "scripts": {
     "build": "tsc -b .",
     "dev": "tsc -b . --watch",

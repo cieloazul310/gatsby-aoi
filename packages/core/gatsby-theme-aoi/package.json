@@ -2,30 +2,34 @@
   "name": "@cieloazul310/gatsby-theme-aoi",
   "version": "3.2.3",
   "description": "Gatsby theme for MUI",
-  "author": "cieloazul310 <cieloazul310@gmail.com>",
-  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "license": "ISC",
   "main": "index.js",
   "types": "types.d.ts",
-  "keywords": [
-    "gatsby",
-    "gatsby-theme",
-    "mui",
-    "material-ui"
+  "files": [
+    "index.js",
+    "types.d.ts",
+    "gatsby-config.mjs"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/cieloazul310/gatsby-aoi",
     "directory": "packages/core/gatsby-theme-aoi"
   },
-  "files": [
-    "index.js",
-    "types.d.ts",
-    "gatsby-config.mjs"
-  ],
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "mui",
+    "material-ui"
+  ],
+  "author": {
+    "name": "cieloazul310",
+    "email": "cieloazul310@gmail.com",
+    "url": "https://cieloazul310.github.io"
+  },
+  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },

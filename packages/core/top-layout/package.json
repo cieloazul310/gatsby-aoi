@@ -2,29 +2,33 @@
   "name": "@cieloazul310/gatsby-theme-aoi-top-layout",
   "version": "3.2.3",
   "description": "Gatsby plugin for @cieloazul310/gatsby-theme-aoi",
-  "author": "cieloazul310 <cieloazul310@gmail.com>",
-  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "license": "ISC",
   "main": "src/index.ts",
-  "keywords": [
-    "gatsby",
-    "gatsby-theme",
-    "mui",
-    "material-ui"
+  "files": [
+    "src",
+    "gatsby-browser.tsx",
+    "gatsby-ssr.tsx"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/cieloazul310/gatsby-aoi",
     "directory": "packages/core/top-layout"
   },
-  "files": [
-    "src",
-    "gatsby-browser.tsx",
-    "gatsby-ssr.tsx"
-  ],
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "mui",
+    "material-ui"
+  ],
+  "author": {
+    "name": "cieloazul310",
+    "email": "cieloazul310@gmail.com",
+    "url": "https://cieloazul310.github.io"
+  },
+  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "scripts": {
     "eslint": "eslint src/",
     "typecheck": "tsc --noEmit",

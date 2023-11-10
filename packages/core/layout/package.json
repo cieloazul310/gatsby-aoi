@@ -2,16 +2,19 @@
   "name": "@cieloazul310/gatsby-theme-aoi-layout",
   "version": "3.2.3",
   "description": "MUI based layout component for @cieloazul310/gatsby-theme-aoi",
-  "author": "cieloazul310 <cieloazul310@gmail.com>",
-  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "license": "ISC",
   "main": "src/index.tsx",
-  "directories": {
-    "test": "__tests__"
-  },
   "files": [
     "src"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/core/layout"
+  },
+  "bugs": {
+    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -21,18 +24,16 @@
     "mui",
     "material-ui"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cieloazul310/gatsby-aoi",
-    "directory": "packages/core/layout"
+  "author": {
+    "name": "cieloazul310",
+    "email": "cieloazul310@gmail.com",
+    "url": "https://cieloazul310.github.io"
   },
+  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "scripts": {
     "eslint": "eslint src/",
     "typecheck": "tsc --noEmit",
     "test": "echo \"Error: run tests from root\" && exit 1"
-  },
-  "bugs": {
-    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
   "devDependencies": {
     "@cieloazul310/eslint-config-custom": "^3.2.3",

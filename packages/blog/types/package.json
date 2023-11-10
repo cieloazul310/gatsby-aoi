@@ -2,25 +2,29 @@
   "name": "@cieloazul310/gatsby-theme-aoi-blog-types",
   "version": "3.2.3",
   "description": "Utils and types for Gatsby Theme Aoi Blog",
-  "author": "cieloazul310 <cieloazul310@gmail.com>",
-  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
   "main": "src/index.ts",
   "types": "src/index.ts",
   "files": [
     "src"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cieloazul310/gatsby-aoi",
     "directory": "packages/blog/types"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
+  "author": {
+    "name": "cieloazul310",
+    "email": "cieloazul310@gmail.com",
+    "url": "https://cieloazul310.github.io"
+  },
+  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "devDependencies": {
     "@cieloazul310/eslint-config-custom": "^3.2.3",
     "@cieloazul310/tsconfig": "^3.2.3",

@@ -2,8 +2,6 @@
   "name": "@cieloazul310/gatsby-theme-aoi-blog-core",
   "version": "3.2.3",
   "description": "Gatsby Node API for Gatsby Theme Aoi Blog",
-  "author": "cieloazul310 <cieloazul310@gmail.com>",
-  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
   "main": "gatsby-config.js",
   "files": [
@@ -11,17 +9,26 @@
     "gatsby-config.js",
     "gatsby-node.js"
   ],
-  "directories": {
-    "lib": "lib"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cieloazul310/gatsby-aoi",
     "directory": "packages/blog/core"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "bugs": {
+    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
+  },
+  "author": {
+    "name": "cieloazul310",
+    "email": "cieloazul310@gmail.com",
+    "url": "https://cieloazul310.github.io"
+  },
+  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "scripts": {
     "build": "tsc -b .",
     "dev": "tsc -b . --watch",
@@ -30,9 +37,6 @@
     "eslint": "eslint src/",
     "test": "echo \"Error: run tests from root\" && exit 1",
     "prepack": "npm run build"
-  },
-  "bugs": {
-    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
