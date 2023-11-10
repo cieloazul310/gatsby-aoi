@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   H1,
   H2,
@@ -13,7 +13,7 @@ import {
   Code,
   CodeBlock,
   Hr,
-} from '@cieloazul310/gatsby-theme-aoi-components';
+} from "@cieloazul310/gatsby-theme-aoi-components";
 
 export function LoremIpsum() {
   return (
@@ -23,13 +23,13 @@ export function LoremIpsum() {
       <Paragraph>
         <AppLink href="/">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </AppLink>{' '}
+        </AppLink>{" "}
         Duis nec quam quis nulla dignissim finibus. Morbi aliquam quam ut
         efficitur feugiat. Duis viverra elit eu diam tincidunt lobortis. Proin
         lorem justo, faucibus et mollis ut, lobortis nec nisi. Ut nisi mauris,
         varius nec metus id, rhoncus scelerisque nisl. Morbi leo urna, pretium
         quis maximus ut, suscipit at arcu. Maecenas ultrices, risus ac mattis
-        malesuada, risus risus aliquet ex, ac condimentum ex enim eget libero.{' '}
+        malesuada, risus risus aliquet ex, ac condimentum ex enim eget libero.{" "}
         <AppLink href="https://cieloazul310.github.io">
           Sed fermentum rutrum urna
         </AppLink>

@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { graphql, type PageProps } from 'gatsby';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
+import * as React from "react";
+import { graphql, type PageProps } from "gatsby";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
 import {
   Layout,
   Section,
@@ -12,12 +12,12 @@ import {
   AppLink,
   ListItemLink,
   Seo,
-} from '@cieloazul310/gatsby-theme-aoi';
+} from "@cieloazul310/gatsby-theme-aoi";
 import {
   MdxPostList,
   useCategoryToSlug,
   type MdxPostListFragment,
-} from '@cieloazul310/gatsby-theme-aoi-blog';
+} from "@cieloazul310/gatsby-theme-aoi-blog";
 
 type PageData = {
   allMdxPost: {
@@ -40,7 +40,7 @@ function CategoryPage({ data }: PageProps<PageData>) {
           .sort(
             (a, b) =>
               b.totalCount - a.totalCount ||
-              a.fieldValue.localeCompare(b.fieldValue)
+              a.fieldValue.localeCompare(b.fieldValue),
           )
           .map(({ totalCount, fieldValue, nodes }) => (
             <Section component="article" key={fieldValue}>
@@ -65,7 +65,7 @@ function CategoryPage({ data }: PageProps<PageData>) {
                   <List>
                     {totalCount > 2 ? (
                       <ListItemLink
-                        sx={{ textAlign: { xs: undefined, sm: 'right' } }}
+                        sx={{ textAlign: { xs: undefined, sm: "right" } }}
                         primaryText="More"
                         href={categoryToSlug(fieldValue)}
                         color="secondary"

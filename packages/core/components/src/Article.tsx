@@ -1,11 +1,11 @@
-import * as React from 'react';
-import Container, { type ContainerProps } from '@mui/material/Container';
-import Typography, { type TypographyProps } from '@mui/material/Typography';
-import type { BoxProps } from '@mui/material/Box';
+import * as React from "react";
+import Container, { type ContainerProps } from "@mui/material/Container";
+import Typography, { type TypographyProps } from "@mui/material/Typography";
+import type { BoxProps } from "@mui/material/Box";
 
-export type ArticleProps = Omit<ContainerProps, 'py'> &
-  Pick<TypographyProps, 'variant'> &
-  Pick<BoxProps, 'py'>;
+export type ArticleProps = Omit<ContainerProps, "py"> &
+  Pick<TypographyProps, "variant"> &
+  Pick<BoxProps, "py">;
 
 /**
  * `<Article>`
@@ -14,9 +14,9 @@ export type ArticleProps = Omit<ContainerProps, 'py'> &
  * `maxWidth` is default to `'sm'`
  */
 const Article = React.forwardRef<any, ArticleProps>(
-  ({ variant = 'body1', maxWidth = 'sm', py = 4, ...props }, ref) => (
+  ({ variant = "body1", maxWidth = "sm", py = 4, ...props }, ref) => (
     <Typography
-      sx={{ py, wordWrap: 'break-word' }}
+      sx={{ py, wordWrap: "break-word" }}
       component="div"
       variant={variant}
     >
@@ -26,17 +26,17 @@ const Article = React.forwardRef<any, ArticleProps>(
         sx={{
           ...props.sx,
           // equivalent to first-child
-          '& > *:not(:is(*:not(style) ~ *))': {
+          "& > *:not(:is(*:not(style) ~ *))": {
             mt: 0,
           },
-          '& > p:last-of-type': {
+          "& > p:last-of-type": {
             mb: 0,
           },
         }}
         {...props}
       />
     </Typography>
-  )
+  ),
 );
 
 export default Article;

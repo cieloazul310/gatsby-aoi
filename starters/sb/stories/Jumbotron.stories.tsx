@@ -1,16 +1,16 @@
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
+import * as React from "react";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
 import {
   Jumbotron,
   SectionWrapper,
-} from '@cieloazul310/gatsby-theme-aoi-components';
-import type { ComponentMeta } from '@storybook/react';
+} from "@cieloazul310/gatsby-theme-aoi-components";
+import type { ComponentMeta } from "@storybook/react";
 
 export default {
-  title: 'Jumbotron',
+  title: "Jumbotron",
   component: Jumbotron,
 } as ComponentMeta<typeof Jumbotron>;
 
@@ -63,28 +63,28 @@ export function withChildren() {
 
 export function withFlexBox() {
   return (
-    <Jumbotron disableGradient containerProps={{ maxWidth: 'md' }}>
+    <Jumbotron disableGradient containerProps={{ maxWidth: "md" }}>
       <Box
         sx={{
           flexGrow: 1,
-          bgcolor: '#aaa',
-          display: 'flex',
-          height: '100%',
-          flexDirection: 'row',
+          bgcolor: "#aaa",
+          display: "flex",
+          height: "100%",
+          flexDirection: "row",
         }}
       >
         <Box
           sx={{
-            maxWidth: '50%',
-            bgcolor: '#ccc',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+            maxWidth: "50%",
+            bgcolor: "#ccc",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <Box sx={{ width: 200, height: 200, bgcolor: '#fff' }} />
+          <Box sx={{ width: 200, height: 200, bgcolor: "#fff" }} />
         </Box>
-        <Box sx={{ bgcolor: '#777', flexGrow: 1, pl: 1, py: 2 }}>
+        <Box sx={{ bgcolor: "#777", flexGrow: 1, pl: 1, py: 2 }}>
           <Typography variant="h6" component="h1">
             スピッツメンバーと漫遊記・2022新春 田村明浩編
           </Typography>

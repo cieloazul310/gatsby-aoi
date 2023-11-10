@@ -1,15 +1,15 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import { BottomNavigationAppLink } from '@cieloazul310/gatsby-theme-aoi-components';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import type { ComponentMeta } from '@storybook/react';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import { BottomNavigationAppLink } from "@cieloazul310/gatsby-theme-aoi-components";
+import RestoreIcon from "@mui/icons-material/Restore";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import type { ComponentMeta } from "@storybook/react";
 
 export default {
-  title: 'BottomNavigationAppLink',
+  title: "BottomNavigationAppLink",
   component: BottomNavigationAppLink,
 } as ComponentMeta<typeof BottomNavigationAppLink>;
 
@@ -17,7 +17,7 @@ export function Basic() {
   const [value, setValue] = React.useState(0);
   const onChange = (
     event: React.SyntheticEvent<Element, Event>,
-    newValue: number
+    newValue: number,
   ) => {
     setValue(newValue);
   };

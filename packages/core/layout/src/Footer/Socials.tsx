@@ -1,7 +1,7 @@
-import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import { useSiteMetadata } from '@cieloazul310/gatsby-theme-aoi-utils';
-import { SocialLink } from '@cieloazul310/gatsby-theme-aoi-components';
+import * as React from "react";
+import Stack from "@mui/material/Stack";
+import { useSiteMetadata } from "@cieloazul310/gatsby-theme-aoi-utils";
+import { SocialLink } from "@cieloazul310/gatsby-theme-aoi-components";
 
 function Socials() {
   const { social } = useSiteMetadata();

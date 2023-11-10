@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Table } from '@cieloazul310/gatsby-theme-aoi-components';
-import type { ComponentMeta } from '@storybook/react';
-import TableExample from '../components/Table';
+import * as React from "react";
+import { Table } from "@cieloazul310/gatsby-theme-aoi-components";
+import type { ComponentMeta } from "@storybook/react";
+import TableExample from "../components/Table";
 
 export default {
-  title: 'Table',
+  title: "Table",
   component: Table,
 } as ComponentMeta<typeof Table>;
 

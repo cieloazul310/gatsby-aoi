@@ -50,13 +50,13 @@ Blog Starter Demo
 
 ```shell
 # install
-yarn install
+npm install
 
 # develop
-yarn run dev
+npm run dev
 
 # build
-yarn run build
+npm run build
 ```
 
 ### Manual install
@@ -64,14 +64,14 @@ yarn run build
 #### 1. Install
 
 ```shell
-yarn add @cieloazul310/gatsby-theme-aoi
+npm install @cieloazul310/gatsby-theme-aoi
 ```
 
 and install following peer dependencies:  
 [`@mui/material`](https://www.npmjs.com/package/@mui/material) [`@mui/icons-material`](https://www.npmjs.com/package/@mui/icons-material) [`@emotion/react`](https://www.npmjs.com/package/@emotion/react) [`@emotion/styled`](https://www.npmjs.com/package/@emotion/styled)
 
 ```shell
-yarn add @mui/material @mui/icons-material @emotion/react @emotion/styled
+npm install @mui/material @mui/icons-material @emotion/react @emotion/styled
 ```
 
 #### 2. Configuration

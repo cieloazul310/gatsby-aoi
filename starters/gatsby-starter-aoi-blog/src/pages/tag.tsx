@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { graphql, type PageProps } from 'gatsby';
+import * as React from "react";
+import { graphql, type PageProps } from "gatsby";
 import {
   Layout,
   Section,
@@ -7,8 +7,8 @@ import {
   Article,
   AppLink,
   Seo,
-} from '@cieloazul310/gatsby-theme-aoi';
-import { useTagToSlug } from '@cieloazul310/gatsby-theme-aoi-blog';
+} from "@cieloazul310/gatsby-theme-aoi";
+import { useTagToSlug } from "@cieloazul310/gatsby-theme-aoi-blog";
 
 type PageData = {
   allMdxPost: {
@@ -31,7 +31,7 @@ function TagPage({ data }: PageProps<PageData>) {
             .sort(
               (a, b) =>
                 b.totalCount - a.totalCount ||
-                a.fieldValue.localeCompare(b.fieldValue)
+                a.fieldValue.localeCompare(b.fieldValue),
             )
             .map((tag) => (
               <AppLink

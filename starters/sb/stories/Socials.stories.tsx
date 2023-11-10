@@ -1,46 +1,46 @@
 /* eslint react/no-array-index-key: warn */
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import {
   SocialIcon,
   SocialLink,
-} from '@cieloazul310/gatsby-theme-aoi-components';
-import type { ComponentMeta } from '@storybook/react';
+} from "@cieloazul310/gatsby-theme-aoi-components";
+import type { ComponentMeta } from "@storybook/react";
 
 export default {
-  title: 'Socials',
+  title: "Socials",
   component: SocialIcon,
 } as ComponentMeta<typeof SocialIcon>;
 
 const data = [
   {
-    name: 'twitter',
-    url: 'https://twitter.com/cieloazul310',
+    name: "twitter",
+    url: "https://twitter.com/cieloazul310",
   },
   {
-    name: 'github',
-    url: 'https://github.com/cieloazul310',
+    name: "github",
+    url: "https://github.com/cieloazul310",
   },
   {
-    name: 'youtube',
-    url: 'https://www.youtube.com/user/hollytube0310',
+    name: "youtube",
+    url: "https://www.youtube.com/user/hollytube0310",
   },
   {
-    name: 'facebook',
-    url: 'https://www.facebook.com/hollyhock.official',
+    name: "facebook",
+    url: "https://www.facebook.com/hollyhock.official",
   },
   {
-    name: 'instagram',
-    url: 'https://www.instagram.com/mito.hollyhock.official/',
+    name: "instagram",
+    url: "https://www.instagram.com/mito.hollyhock.official/",
   },
   {
-    name: 'email',
-    url: 'cieloazul310@gmail.com',
+    name: "email",
+    url: "cieloazul310@gmail.com",
   },
   {
-    name: 'note',
-    url: 'https://note.com/mitohollyhock',
+    name: "note",
+    url: "https://note.com/mitohollyhock",
   },
 ];
 

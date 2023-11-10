@@ -1,26 +1,26 @@
-import * as React from 'react';
-import { graphql, type PageProps, type HeadProps } from 'gatsby';
-import Typography from '@mui/material/Typography';
-import List from '@mui/material/List';
+import * as React from "react";
+import { graphql, type PageProps, type HeadProps } from "gatsby";
+import Typography from "@mui/material/Typography";
+import List from "@mui/material/List";
 import {
   Jumbotron,
   Section,
   Article,
   Seo,
-} from '@cieloazul310/gatsby-theme-aoi-components';
+} from "@cieloazul310/gatsby-theme-aoi-components";
 import {
   Pagination,
   DrawerPageNavigation,
   PageNavigationContainer,
   PageNavigationItem,
-} from '@cieloazul310/gatsby-theme-aoi-blog-components';
+} from "@cieloazul310/gatsby-theme-aoi-blog-components";
 import type {
   MdxPostListFragment,
   Terminology,
-} from '@cieloazul310/gatsby-theme-aoi-blog-types';
+} from "@cieloazul310/gatsby-theme-aoi-blog-types";
 
-import Layout from './layout';
-import MdxPostList from './components/MdxPostList';
+import Layout from "./layout";
+import MdxPostList from "./components/MdxPostList";
 
 type PageData = {
   allMdxPost: {
@@ -77,10 +77,10 @@ function TagTemplate({ data, pageContext }: PageProps<PageData, PageContext>) {
       </Section>
       <Section component="nav">
         <PageNavigationContainer>
-          <PageNavigationItem href={previous?.slug ?? '#'} disabled={!previous}>
+          <PageNavigationItem href={previous?.slug ?? "#"} disabled={!previous}>
             <Typography variant="body2">{previous?.name}</Typography>
           </PageNavigationItem>
-          <PageNavigationItem href={next?.slug ?? '#'} right disabled={!next}>
+          <PageNavigationItem href={next?.slug ?? "#"} right disabled={!next}>
             <Typography variant="body2">{next?.name}</Typography>
           </PageNavigationItem>
         </PageNavigationContainer>

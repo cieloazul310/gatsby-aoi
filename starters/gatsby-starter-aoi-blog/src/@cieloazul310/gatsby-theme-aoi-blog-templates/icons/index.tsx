@@ -1,2 +1,2 @@
 // `AuthorIcon` must be included
-export * from '../../../icons';
+export * from "../../../icons";

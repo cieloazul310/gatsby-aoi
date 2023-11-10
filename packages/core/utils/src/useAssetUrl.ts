@@ -1,4 +1,4 @@
-import useBaseUrl from './useBaseUrl';
+import useBaseUrl from "./useBaseUrl";
 
 /**
  * example usage

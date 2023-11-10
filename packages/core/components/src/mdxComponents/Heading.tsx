@@ -1,12 +1,12 @@
-import * as React from 'react';
-import Typography, { type TypographyProps } from '@mui/material/Typography';
-import type { MDXComponents } from 'mdx/types';
+import * as React from "react";
+import Typography, { type TypographyProps } from "@mui/material/Typography";
+import type { MDXComponents } from "mdx/types";
 
 export const H1: (
-  props: Omit<TypographyProps<'h1'>, 'ref'>
-) => JSX.Element | null = React.forwardRef<
+  props: Omit<TypographyProps<"h1">, "ref">,
+) => React.ReactNode = React.forwardRef<
   HTMLHeadingElement,
-  TypographyProps<'h1'>
+  TypographyProps<"h1">
 >((props, ref) => (
   <Typography
     ref={ref}
@@ -19,10 +19,10 @@ export const H1: (
 ));
 
 export const H2: (
-  props: Omit<TypographyProps<'h2'>, 'ref'>
-) => JSX.Element | null = React.forwardRef<
+  props: Omit<TypographyProps<"h2">, "ref">,
+) => React.ReactNode = React.forwardRef<
   HTMLHeadingElement,
-  Omit<TypographyProps<'h2'>, 'ref'>
+  Omit<TypographyProps<"h2">, "ref">
 >((props, ref) => (
   <Typography
     ref={ref}
@@ -33,17 +33,17 @@ export const H2: (
     mb={2}
     borderBottom={1}
     borderColor={({ palette }) =>
-      palette.mode === 'light' ? 'secondary.dark' : palette.text.primary
+      palette.mode === "light" ? "secondary.dark" : palette.text.primary
     }
     {...props}
   />
 ));
 
 export const H3: (
-  props: Omit<TypographyProps<'h3'>, 'ref'>
-) => JSX.Element | null = React.forwardRef<
+  props: Omit<TypographyProps<"h3">, "ref">,
+) => React.ReactNode = React.forwardRef<
   HTMLHeadingElement,
-  Omit<TypographyProps<'h3'>, 'ref'>
+  Omit<TypographyProps<"h3">, "ref">
 >((props, ref) => (
   <Typography
     ref={ref}
@@ -58,10 +58,10 @@ export const H3: (
 ));
 
 export const H4: (
-  props: Omit<TypographyProps<'h4'>, 'ref'>
-) => JSX.Element | null = React.forwardRef<
+  props: Omit<TypographyProps<"h4">, "ref">,
+) => React.ReactNode = React.forwardRef<
   HTMLHeadingElement,
-  Omit<TypographyProps<'h4'>, 'ref'>
+  Omit<TypographyProps<"h4">, "ref">
 >((props, ref) => (
   <Typography
     ref={ref}
@@ -75,10 +75,10 @@ export const H4: (
 ));
 
 export const H5: (
-  props: Omit<TypographyProps<'h5'>, 'ref'>
-) => JSX.Element | null = React.forwardRef<
+  props: Omit<TypographyProps<"h5">, "ref">,
+) => React.ReactNode = React.forwardRef<
   HTMLHeadingElement,
-  Omit<TypographyProps<'h5'>, 'ref'>
+  Omit<TypographyProps<"h5">, "ref">
 >((props, ref) => (
   <Typography
     ref={ref}
@@ -93,10 +93,10 @@ export const H5: (
 ));
 
 export const H6: (
-  props: Omit<TypographyProps<'h6'>, 'ref'>
-) => JSX.Element | null = React.forwardRef<
+  props: Omit<TypographyProps<"h6">, "ref">,
+) => React.ReactNode = React.forwardRef<
   HTMLHeadingElement,
-  Omit<TypographyProps<'h6'>, 'ref'>
+  Omit<TypographyProps<"h6">, "ref">
 >((props, ref) => (
   <Typography
     ref={ref}

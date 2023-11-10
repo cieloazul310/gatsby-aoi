@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
-import Box from '@mui/material/Box';
-import ButtonBase from '@mui/material/ButtonBase';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import * as React from "react";
+import { Link as GatsbyLink } from "gatsby";
+import Box from "@mui/material/Box";
+import ButtonBase from "@mui/material/ButtonBase";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 type PageNavigationItemProps = {
   href: string;
@@ -21,20 +21,20 @@ function PageNavigationItem({
   return (
     <ButtonBase
       sx={{
-        '&.MuiButtonBase-root': {
-          width: { xs: '100%', sm: '50%' },
+        "&.MuiButtonBase-root": {
+          width: { xs: "100%", sm: "50%" },
           flexShrink: 0,
-          display: 'flex',
-          borderRight: { xs: 'none', sm: undefined },
-          transition: (theme) => theme.transitions.create('background'),
-          '&:hover': {
+          display: "flex",
+          borderRight: { xs: "none", sm: undefined },
+          transition: (theme) => theme.transitions.create("background"),
+          "&:hover": {
             bgcolor: ({ palette }) =>
-              palette.grey[palette.mode === 'light' ? 100 : 900],
+              palette.grey[palette.mode === "light" ? 100 : 900],
           },
         },
-        '&.Mui-disabled': {
+        "&.Mui-disabled": {
           bgcolor: ({ palette }) =>
-            palette.mode === 'light'
+            palette.mode === "light"
               ? palette.grey[100]
               : palette.background.default,
         },
@@ -51,14 +51,14 @@ function PageNavigationItem({
             paddingRight: right ? 1 : 7,
             paddingBottom: 1,
             paddingLeft: right ? 7 : 1,
-            display: 'flex',
-            flexDirection: right ? 'row-reverse' : 'row',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: right ? "row-reverse" : "row",
+            justifyContent: "flex-start",
+            alignItems: "center",
             borderRight: right
-              ? 'none'
+              ? "none"
               : (theme) => ({
-                  xs: 'none',
+                  xs: "none",
                   sm: `1px solid ${theme.palette.divider}`,
                 }),
           }}
@@ -68,9 +68,9 @@ function PageNavigationItem({
           </Box>
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: right ? 'flex-end' : 'flex-start',
+              display: "flex",
+              flexDirection: "column",
+              alignItems: right ? "flex-end" : "flex-start",
             }}
           >
             {children}

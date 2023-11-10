@@ -7,7 +7,7 @@
 ### Install
 
 ```shell
-yarn add @cieloazul310/gatsby-theme-aoi @cieloazul310/gatsby-theme-aoi-blog
+npm install @cieloazul310/gatsby-theme-aoi @cieloazul310/gatsby-theme-aoi-blog
 ```
 
 ### Configuration
@@ -59,9 +59,9 @@ module.exports = {
 ### CLI
 
 ```shell
-npm set-script post "gatsby-aoi-blog new post"
+npm pkg set scripts.post="gatsby-aoi-blog new post"
 
-yarn run post "New page title"
+npm run post "New page title"
 # => Generate "/content/posts/2022/02/new-page-title.md"
 ```
 
@@ -78,14 +78,14 @@ yarn run post "New page title"
 
 ```shell
 # date option
-yarn run post "New page title" --date 2022-01-01
+npm run post "New page title" --date 2022-01-01
 # => Generate "/content/posts/2022/01/new-page-title.md"
 
 # canonical option
-yarn run post "New page title" --canonical
+npm run post "New page title" --canonical
 # => Generate "/content/posts/2022/02/new-page-title/index.md"
 
 # mdx option
-yarn run post "New page title" --mdx
+npm run post "New page title" --mdx
 # => Generate "/content/posts/2022/02/new-page-title.mdx"
 ```

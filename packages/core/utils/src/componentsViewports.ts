@@ -1,16 +1,16 @@
-import * as React from 'react';
-import { useTheme, type Theme, type Breakpoint } from '@mui/material/styles';
+import * as React from "react";
+import { useTheme, type Theme, type Breakpoint } from "@mui/material/styles";
 import type {
   ResponsiveStyleValue,
   AllSystemCSSProperties,
   SxProps,
-} from '@mui/system';
+} from "@mui/system";
 
-const breakpoints: Breakpoint[] = ['xs', 'sm', 'md', 'lg', 'xl'];
-type ViewportUp = 'xsUp' | 'smUp' | 'mdUp' | 'lgUp' | 'xlUp';
-type ViewportDown = 'xsDown' | 'smDown' | 'mdDown' | 'lgDown' | 'xlDown';
+const breakpoints: Breakpoint[] = ["xs", "sm", "md", "lg", "xl"];
+type ViewportUp = "xsUp" | "smUp" | "mdUp" | "lgUp" | "xlUp";
+type ViewportDown = "xsDown" | "smDown" | "mdDown" | "lgDown" | "xlDown";
 export type Viewport = ViewportUp | ViewportDown;
-export type ViewDirection = 'Up' | 'Down';
+export type ViewDirection = "Up" | "Down";
 export type Viewports = Viewport | boolean;
 
 export type ComponentViewports = {
@@ -21,21 +21,21 @@ export type ComponentViewports = {
 };
 
 export const defaultComponentViewports: ComponentViewports = {
-  swipeableDrawer: 'smDown',
-  permanentDrawer: 'mdUp',
-  bottomNav: 'xsDown',
-  fab: 'smDown',
+  swipeableDrawer: "smDown",
+  permanentDrawer: "mdUp",
+  bottomNav: "xsDown",
+  fab: "smDown",
 };
 
 function isBreakpoint(
-  breakpoint: string | Breakpoint
+  breakpoint: string | Breakpoint,
 ): breakpoint is Breakpoint {
   return (
-    breakpoint === 'xs' ||
-    breakpoint === 'sm' ||
-    breakpoint === 'md' ||
-    breakpoint === 'lg' ||
-    breakpoint === 'xl'
+    breakpoint === "xs" ||
+    breakpoint === "sm" ||
+    breakpoint === "md" ||
+    breakpoint === "lg" ||
+    breakpoint === "xl"
   );
 }
 
@@ -46,9 +46,9 @@ function breakpointSlicer(viewports: Viewport): Breakpoint {
 }
 
 function isDirection(
-  direction: string | ViewDirection
+  direction: string | ViewDirection,
 ): direction is ViewDirection {
-  return direction === 'Up' || direction === 'Down';
+  return direction === "Up" || direction === "Down";
 }
 
 function directionSlicer(viewports: Viewport): ViewDirection {
@@ -73,7 +73,7 @@ function isViewport(viewport: string | Viewport): viewport is Viewport {
 }
 */
 export function viewportsHelper(
-  componentViewPorts: Partial<ComponentViewports>
+  componentViewPorts: Partial<ComponentViewports>,
 ): Partial<ComponentViewports> {
   return componentViewPorts;
 }
@@ -85,25 +85,25 @@ export function viewportsHelper(
  * false => true
  */
 export function revertViewports(viewports: Viewports): Viewports {
-  if (typeof viewports === 'boolean') return !viewports;
+  if (typeof viewports === "boolean") return !viewports;
   const breakpoint = breakpointSlicer(viewports);
   const direction = directionSlicer(viewports);
   const index = breakpoints.indexOf(breakpoint);
-  if (direction === 'Up') {
+  if (direction === "Up") {
     // 'xsUp' => false
     if (index === 0) return false;
-    return [breakpoints[index - 1], 'Down'].join('') as ViewportDown;
+    return [breakpoints[index - 1], "Down"].join("") as ViewportDown;
   }
   // 'xlDown' => false
   if (index === breakpoints.length - 1) return false;
-  return [breakpoints[index + 1], 'Up'].join('') as ViewportUp;
+  return [breakpoints[index + 1], "Up"].join("") as ViewportUp;
 }
 
 /**
  * @deprecated
  */
 export function mergeViewports(
-  componentViewports: Partial<ComponentViewports> | undefined = undefined
+  componentViewports: Partial<ComponentViewports> | undefined = undefined,
 ): ComponentViewports {
   return componentViewports
     ? {
@@ -127,7 +127,7 @@ export function useViewports(
     disableSwipeableDrawer: boolean;
     disableFab: boolean;
     disableBottomNav: boolean;
-  }> = {}
+  }> = {},
 ): ComponentViewports {
   return React.useMemo(() => {
     const {
@@ -171,30 +171,30 @@ export function useViewports(
  * </Hidden>
  */
 export function viewportsToSxDisplay(
-  viewports: Viewports
-): ResponsiveStyleValue<AllSystemCSSProperties['display']> {
-  if (viewports === true || viewports === 'xsUp' || viewports === 'xlDown')
-    return 'block';
-  if (viewports === false) return 'none';
+  viewports: Viewports,
+): ResponsiveStyleValue<AllSystemCSSProperties["display"]> {
+  if (viewports === true || viewports === "xsUp" || viewports === "xlDown")
+    return "block";
+  if (viewports === false) return "none";
   const breakpoint: Breakpoint = breakpointSlicer(viewports);
   const direction: ViewDirection = directionSlicer(viewports);
   const index = breakpoints.indexOf(breakpoint);
-  if (direction === 'Up') return { xs: 'none', [breakpoint]: 'block' };
-  return { xs: 'block', [breakpoints[index + 1]]: 'none' };
+  if (direction === "Up") return { xs: "none", [breakpoint]: "block" };
+  return { xs: "block", [breakpoints[index + 1]]: "none" };
 }
 
 export function useSxDisplay(
-  viewports: Viewports
-): ResponsiveStyleValue<AllSystemCSSProperties['display']> {
+  viewports: Viewports,
+): ResponsiveStyleValue<AllSystemCSSProperties["display"]> {
   return React.useMemo(() => {
-    if (viewports === true || viewports === 'xsUp' || viewports === 'xlDown')
-      return 'block';
-    if (viewports === false) return 'none';
+    if (viewports === true || viewports === "xsUp" || viewports === "xlDown")
+      return "block";
+    if (viewports === false) return "none";
     const breakpoint: Breakpoint = breakpointSlicer(viewports);
     const direction: ViewDirection = directionSlicer(viewports);
     const index = breakpoints.indexOf(breakpoint);
-    if (direction === 'Up') return { xs: 'none', [breakpoint]: 'block' };
-    return { xs: 'block', [breakpoints[index + 1]]: 'none' };
+    if (direction === "Up") return { xs: "none", [breakpoint]: "block" };
+    return { xs: "block", [breakpoints[index + 1]]: "none" };
   }, [viewports]);
 }
 
@@ -225,34 +225,34 @@ export function useLayoutDisplay({
  */
 export function contentWidthStyles(
   permanentDrawerViewports: Viewports,
-  drawerWidth: number
+  drawerWidth: number,
 ): SxProps {
   if (
     permanentDrawerViewports === true ||
-    permanentDrawerViewports === 'xlDown' ||
-    permanentDrawerViewports === 'xsUp'
+    permanentDrawerViewports === "xlDown" ||
+    permanentDrawerViewports === "xsUp"
   )
     return {
       width: `calc(100% - ${drawerWidth}px)`,
     };
   if (permanentDrawerViewports === false)
     return {
-      width: '100%',
+      width: "100%",
     };
 
   const breakpoint: Breakpoint = breakpointSlicer(permanentDrawerViewports);
   const direction =
-    directionSlicer(permanentDrawerViewports) === 'Up' ? 'up' : 'down';
+    directionSlicer(permanentDrawerViewports) === "Up" ? "up" : "down";
   const index = breakpoints.indexOf(breakpoint);
-  if (direction === 'down')
+  if (direction === "down")
     return {
       width: {
         xs: `calc(100% - ${drawerWidth}px)`,
-        [breakpoints[index + 1]]: '100%',
+        [breakpoints[index + 1]]: "100%",
       },
     };
   return {
-    width: { xs: '100%', [breakpoint]: `calc(100% - ${drawerWidth}px)` },
+    width: { xs: "100%", [breakpoint]: `calc(100% - ${drawerWidth}px)` },
   };
 }
 
@@ -262,13 +262,13 @@ export function contentWidthStyles(
  */
 export function permanentDrawerStyles(
   permanentDrawerViewports: Viewports,
-  drawerWidth: number
+  drawerWidth: number,
 ): SxProps {
   // ex. "mdUp"
   if (
     permanentDrawerViewports === true ||
-    permanentDrawerViewports === 'xlDown' ||
-    permanentDrawerViewports === 'xsUp'
+    permanentDrawerViewports === "xlDown" ||
+    permanentDrawerViewports === "xsUp"
   )
     return {
       width: drawerWidth,
@@ -280,9 +280,9 @@ export function permanentDrawerStyles(
 
   const breakpoint = breakpointSlicer(permanentDrawerViewports);
   const direction =
-    directionSlicer(permanentDrawerViewports) === 'Up' ? 'up' : 'down';
+    directionSlicer(permanentDrawerViewports) === "Up" ? "up" : "down";
   const index = breakpoints.indexOf(breakpoint);
-  if (direction === 'down')
+  if (direction === "down")
     return { width: { xs: drawerWidth, [breakpoints[index + 1]]: 0 } };
   return {
     width: { xs: 0, [breakpoint]: drawerWidth },
@@ -291,14 +291,14 @@ export function permanentDrawerStyles(
 
 export function usePermanentDrawerStyles(
   permanentDrawerViewports: Viewports,
-  drawerWidth: number
+  drawerWidth: number,
 ): SxProps {
   return React.useMemo(() => {
     // ex. "mdUp"
     if (
       permanentDrawerViewports === true ||
-      permanentDrawerViewports === 'xlDown' ||
-      permanentDrawerViewports === 'xsUp'
+      permanentDrawerViewports === "xlDown" ||
+      permanentDrawerViewports === "xsUp"
     )
       return {
         width: drawerWidth,
@@ -310,9 +310,9 @@ export function usePermanentDrawerStyles(
 
     const breakpoint = breakpointSlicer(permanentDrawerViewports);
     const direction =
-      directionSlicer(permanentDrawerViewports) === 'Up' ? 'up' : 'down';
+      directionSlicer(permanentDrawerViewports) === "Up" ? "up" : "down";
     const index = breakpoints.indexOf(breakpoint);
-    if (direction === 'down')
+    if (direction === "down")
       return { width: { xs: drawerWidth, [breakpoints[index + 1]]: 0 } };
     return {
       width: { xs: 0, [breakpoint]: drawerWidth },
@@ -328,25 +328,25 @@ export function mainStyles(bottomNavViewports: Viewports): SxProps {
   // ex. "xsDown"
   if (
     bottomNavViewports === true ||
-    bottomNavViewports === 'xlDown' ||
-    bottomNavViewports === 'xsUp'
+    bottomNavViewports === "xlDown" ||
+    bottomNavViewports === "xsUp"
   )
     return {
-      paddingBottom: '56px',
+      paddingBottom: "56px",
     };
   if (bottomNavViewports === false) return {};
 
   const breakpoint = breakpointSlicer(bottomNavViewports);
   const direction =
-    directionSlicer(bottomNavViewports) === 'Up' ? 'up' : 'down';
+    directionSlicer(bottomNavViewports) === "Up" ? "up" : "down";
   const index = breakpoints.indexOf(breakpoint);
 
-  if (direction === 'down')
+  if (direction === "down")
     return {
-      paddingBottom: { xs: '56px', [breakpoints[index + 1]]: 0 },
+      paddingBottom: { xs: "56px", [breakpoints[index + 1]]: 0 },
     };
   return {
-    paddingBottom: { xs: 0, [breakpoint]: '56px' },
+    paddingBottom: { xs: 0, [breakpoint]: "56px" },
   };
 }
 
@@ -355,25 +355,25 @@ export function useMainStyles(bottomNavViewports: Viewports): SxProps {
     // ex. "xsDown"
     if (
       bottomNavViewports === true ||
-      bottomNavViewports === 'xlDown' ||
-      bottomNavViewports === 'xsUp'
+      bottomNavViewports === "xlDown" ||
+      bottomNavViewports === "xsUp"
     )
       return {
-        paddingBottom: '56px',
+        paddingBottom: "56px",
       };
     if (bottomNavViewports === false) return {};
 
     const breakpoint = breakpointSlicer(bottomNavViewports);
     const direction =
-      directionSlicer(bottomNavViewports) === 'Up' ? 'up' : 'down';
+      directionSlicer(bottomNavViewports) === "Up" ? "up" : "down";
     const index = breakpoints.indexOf(breakpoint);
 
-    if (direction === 'down')
+    if (direction === "down")
       return {
-        paddingBottom: { xs: '56px', [breakpoints[index + 1]]: 0 },
+        paddingBottom: { xs: "56px", [breakpoints[index + 1]]: 0 },
       };
     return {
-      paddingBottom: { xs: 0, [breakpoint]: '56px' },
+      paddingBottom: { xs: 0, [breakpoint]: "56px" },
     };
   }, [bottomNavViewports]);
 }
@@ -383,13 +383,13 @@ export function useMainStyles(bottomNavViewports: Viewports): SxProps {
  */
 export function fabStyles(
   bottomNavViewports: Viewports,
-  theme: Theme
+  theme: Theme,
 ): SxProps {
   // ex. "xsDown"
   if (
     bottomNavViewports === true ||
-    bottomNavViewports === 'xlDown' ||
-    bottomNavViewports === 'xsUp'
+    bottomNavViewports === "xlDown" ||
+    bottomNavViewports === "xsUp"
   )
     return {
       bottom: `calc(${theme.spacing(2)} + 56px)`,
@@ -401,10 +401,10 @@ export function fabStyles(
 
   const breakpoint = breakpointSlicer(bottomNavViewports);
   const direction =
-    directionSlicer(bottomNavViewports) === 'Up' ? 'up' : 'down';
+    directionSlicer(bottomNavViewports) === "Up" ? "up" : "down";
   const index = breakpoints.indexOf(breakpoint);
 
-  if (direction === 'down')
+  if (direction === "down")
     return {
       bottom: {
         xs: `calc(${theme.spacing(2)} + 56px)`,
@@ -425,8 +425,8 @@ export function useFabStyles(bottomNavViewports: Viewports): SxProps {
     // ex. "xsDown"
     if (
       bottomNavViewports === true ||
-      bottomNavViewports === 'xlDown' ||
-      bottomNavViewports === 'xsUp'
+      bottomNavViewports === "xlDown" ||
+      bottomNavViewports === "xsUp"
     )
       return {
         bottom: `calc(${spacing(2)} + 56px)`,
@@ -438,10 +438,10 @@ export function useFabStyles(bottomNavViewports: Viewports): SxProps {
 
     const breakpoint = breakpointSlicer(bottomNavViewports);
     const direction =
-      directionSlicer(bottomNavViewports) === 'Up' ? 'up' : 'down';
+      directionSlicer(bottomNavViewports) === "Up" ? "up" : "down";
     const index = breakpoints.indexOf(breakpoint);
 
-    if (direction === 'down')
+    if (direction === "down")
       return {
         bottom: {
           xs: `calc(${spacing(2)} + 56px)`,
@@ -469,15 +469,15 @@ export function useHeaderMenuButtonDisplay({
   permanentDrawer,
 }: Pick<
   ComponentViewports,
-  'swipeableDrawer' | 'permanentDrawer'
->): ResponsiveStyleValue<AllSystemCSSProperties['display']> {
-  const defaultDisplay = { xs: 'none', sm: 'block' };
+  "swipeableDrawer" | "permanentDrawer"
+>): ResponsiveStyleValue<AllSystemCSSProperties["display"]> {
+  const defaultDisplay = { xs: "none", sm: "block" };
   return React.useMemo(() => {
-    if (swipeableDrawer === false) return 'none';
-    if (permanentDrawer === true) return 'none';
-    if (permanentDrawer === 'xsUp' || permanentDrawer === 'smUp') return 'none';
+    if (swipeableDrawer === false) return "none";
+    if (permanentDrawer === true) return "none";
+    if (permanentDrawer === "xsUp" || permanentDrawer === "smUp") return "none";
     if (permanentDrawer === false) return defaultDisplay;
     const breakpoint = breakpointSlicer(permanentDrawer);
-    return { ...defaultDisplay, [breakpoint]: 'none' };
+    return { ...defaultDisplay, [breakpoint]: "none" };
   }, [swipeableDrawer, permanentDrawer]);
 }

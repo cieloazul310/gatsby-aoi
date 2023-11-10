@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 import {
   HomeIcon,
@@ -7,37 +7,37 @@ import {
   TagIcon,
   AuthorIcon,
   ArchiveIcon,
-} from '../../icons';
+} from "../../icons";
 
 const menu = [
   {
-    title: 'Top',
-    path: '/',
+    title: "Top",
+    path: "/",
     icon: <HomeIcon />,
   },
   {
-    title: 'All Posts',
-    path: '/posts/',
+    title: "All Posts",
+    path: "/posts/",
     icon: <AllPostsIcon />,
   },
   {
-    title: 'Archive',
-    path: '/archive/',
+    title: "Archive",
+    path: "/archive/",
     icon: <ArchiveIcon />,
   },
   {
-    title: 'Categories',
-    path: '/category/',
+    title: "Categories",
+    path: "/category/",
     icon: <CategoryIcon />,
   },
   {
-    title: 'Tags',
-    path: '/tag/',
+    title: "Tags",
+    path: "/tag/",
     icon: <TagIcon />,
   },
   {
-    title: 'Authors',
-    path: '/author/',
+    title: "Authors",
+    path: "/author/",
     icon: <AuthorIcon />,
   },
 ];

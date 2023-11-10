@@ -1,14 +1,14 @@
-import * as React from 'react';
+import * as React from "react";
 import BottomNavigationAction, {
   type BottomNavigationActionProps,
-} from '@mui/material/BottomNavigationAction';
+} from "@mui/material/BottomNavigationAction";
 import GatsbyLinkComposed, {
   type GatsbyLinkComposedProps,
-} from './mdxComponents/GatsbyLinkComposed';
+} from "./mdxComponents/GatsbyLinkComposed";
 
 export type BottomNavigationAppLinkProps<
-  T extends object = Record<string, unknown>
-> = Omit<GatsbyLinkComposedProps<T>, 'to'> &
+  T extends object = Record<string, unknown>,
+> = Omit<GatsbyLinkComposedProps<T>, "to"> &
   BottomNavigationActionProps & {
     href: string;
   };

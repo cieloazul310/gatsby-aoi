@@ -56,13 +56,13 @@ Gatsby Starter Aoi Blog のデモサイト
 
 ```shell
 # install
-yarn install
+npm install
 
 # develop
-yarn run dev
+npm run dev
 
 # build
-yarn run build
+npm run build
 ```
 
 ### マニュアルインストール
@@ -70,14 +70,14 @@ yarn run build
 #### 1. インストール
 
 ```shell
-yarn add @cieloazul310/gatsby-theme-aoi
+npm install @cieloazul310/gatsby-theme-aoi
 ```
 
 以下の peerDependencies パッケージが必要です。  
 [`@mui/material`](https://www.npmjs.com/package/@mui/material) [`@mui/icons-material`](https://www.npmjs.com/package/@mui/icons-material) [`@emotion/react`](https://www.npmjs.com/package/@emotion/react) [`@emotion/styled`](https://www.npmjs.com/package/@emotion/styled)
 
 ```shell
-yarn add @mui/material @mui/icons-material @emotion/react @emotion/styled
+npm install @mui/material @mui/icons-material @emotion/react @emotion/styled
 ```
 
 #### 2. 設定

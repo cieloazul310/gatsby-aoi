@@ -1,9 +1,9 @@
-import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
+import * as React from "react";
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
 
 export default {
-  title: 'Palette',
+  title: "Palette",
 };
 
 export function Palette() {

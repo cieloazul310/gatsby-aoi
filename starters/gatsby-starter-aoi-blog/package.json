@@ -18,25 +18,25 @@
   "dependencies": {
     "@cieloazul310/gatsby-theme-aoi": "^3.2.3",
     "@cieloazul310/gatsby-theme-aoi-blog": "^3.2.3",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@mui/icons-material": "^5.11.9",
-    "@mui/material": "^5.11.10",
-    "gatsby": "^5.7.0",
-    "gatsby-plugin-image": "^3.7.0",
-    "gatsby-plugin-twitter": "^5.7.0",
-    "gatsby-remark-embed-snippet": "^8.7.0",
-    "gatsby-remark-prismjs": "^7.7.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.16",
+    "@mui/material": "^5.14.17",
+    "gatsby": "^5.12.9",
+    "gatsby-plugin-image": "^3.12.3",
+    "gatsby-plugin-twitter": "^5.12.3",
+    "gatsby-remark-embed-snippet": "^8.12.0",
+    "gatsby-remark-prismjs": "^7.12.0",
     "prism-themes": "^1.9.0",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "eslint": "^8.34.0",
-    "eslint-config-custom": "^3.2.3",
-    "eslint-plugin-mdx": "^2.0.5",
-    "tsconfig": "^3.2.3",
-    "typescript": "^4.9.5"
+    "@cieloazul310/eslint-config-custom": "^3.2.3",
+    "@cieloazul310/tsconfig": "^3.2.3",
+    "eslint": "^8.53.0",
+    "eslint-plugin-mdx": "^2.2.0",
+    "typescript": "^5.2.2"
   }
 }

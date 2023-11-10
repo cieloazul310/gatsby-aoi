@@ -1,13 +1,13 @@
-import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
-import { useSiteMetadata } from '@cieloazul310/gatsby-theme-aoi-utils';
+import { useSiteMetadata } from "@cieloazul310/gatsby-theme-aoi-utils";
 import {
   SocialLink,
   Article,
   SubParagraph,
-} from '@cieloazul310/gatsby-theme-aoi-components';
+} from "@cieloazul310/gatsby-theme-aoi-components";
 
 function DrawerFooter() {
   const { title, description, author, social } = useSiteMetadata();

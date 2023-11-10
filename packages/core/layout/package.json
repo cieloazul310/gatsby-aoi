@@ -2,16 +2,19 @@
   "name": "@cieloazul310/gatsby-theme-aoi-layout",
   "version": "3.2.3",
   "description": "MUI based layout component for @cieloazul310/gatsby-theme-aoi",
-  "author": "cieloazul310 <cieloazul310@gmail.com>",
-  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "license": "ISC",
   "main": "src/index.tsx",
-  "directories": {
-    "test": "__tests__"
-  },
   "files": [
     "src"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/gatsby-aoi",
+    "directory": "packages/core/layout"
+  },
+  "bugs": {
+    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -21,35 +24,33 @@
     "mui",
     "material-ui"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cieloazul310/gatsby-aoi",
-    "directory": "packages/core/layout"
+  "author": {
+    "name": "cieloazul310",
+    "email": "cieloazul310@gmail.com",
+    "url": "https://cieloazul310.github.io"
   },
+  "homepage": "https://cieloazul310.github.io/gatsby-aoi/",
   "scripts": {
     "eslint": "eslint src/",
     "typecheck": "tsc --noEmit",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "bugs": {
-    "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
-  },
   "devDependencies": {
+    "@cieloazul310/eslint-config-custom": "^3.2.3",
     "@cieloazul310/gatsby-theme-aoi-components": "^3.2.3",
     "@cieloazul310/gatsby-theme-aoi-top-layout": "^3.2.3",
     "@cieloazul310/gatsby-theme-aoi-utils": "^3.2.3",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
+    "@cieloazul310/tsconfig": "^3.2.3",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@gatsbyjs/reach-router": "^2.0.1",
-    "@mui/material": "^5.11.10",
-    "@types/reach__router": "^1.3.11",
-    "clsx": "^1.2.1",
-    "eslint": "^8.34.0",
-    "eslint-config-custom": "^3.2.3",
-    "gatsby": "^5.7.0",
+    "@mui/material": "^5.14.17",
+    "@types/reach__router": "^1.3.14",
+    "clsx": "^2.0.0",
+    "eslint": "^8.53.0",
+    "gatsby": "^5.12.9",
     "react": "^18.2.0",
-    "tsconfig": "^3.2.3",
-    "typescript": "^4.9.5"
+    "typescript": "^5.2.2"
   },
   "peerDependencies": {
     "@cieloazul310/gatsby-theme-aoi-components": "^3.1.0",
@@ -60,8 +61,8 @@
     "@gatsbyjs/reach-router": "^2.0.0",
     "@mui/icons-material": "^5.0.0",
     "@mui/material": "^5.0.0",
-    "clsx": "^1.1.0",
-    "gatsby": "^5.0.0",
+    "clsx": "^1.0.0 || ^2.0.0",
+    "gatsby": "^5.3.0",
     "react": "^18.0.0"
   },
   "gitHead": "b9e4221b9534a8a66391af294913726b8f31ad85"

@@ -1,11 +1,11 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar';
-import { SocialLink, AppLink } from '@cieloazul310/gatsby-theme-aoi-components';
-import type { AuthorBoxFragment } from '@cieloazul310/gatsby-theme-aoi-blog-types';
-import { AuthorIcon } from '../icons';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import Avatar from "@mui/material/Avatar";
+import { SocialLink, AppLink } from "@cieloazul310/gatsby-theme-aoi-components";
+import type { AuthorBoxFragment } from "@cieloazul310/gatsby-theme-aoi-blog-types";
+import { AuthorIcon } from "../icons";
 
 type AuthorBoxProps = {
   author: AuthorBoxFragment;
@@ -51,7 +51,7 @@ function AuthorBox({ author }: AuthorBoxProps) {
           <Typography variant="body2">{author.description}</Typography>
           {author.websiteURL ? (
             <Typography variant="body2">
-              Website:{' '}
+              Website:{" "}
               <AppLink href={author.websiteURL}>{author.website}</AppLink>
             </Typography>
           ) : null}
@@ -62,7 +62,7 @@ function AuthorBox({ author }: AuthorBoxProps) {
               <SocialLink key={name} name={name} url={url} />
             ))}
           </Stack>
-          <Box textAlign={{ xs: 'right', sm: 'left' }}>
+          <Box textAlign={{ xs: "right", sm: "left" }}>
             {author.slug ? (
               <AppLink href={author.slug}>
                 {author.name}の記事一覧 ({author.posts?.totalCount})

@@ -2,56 +2,60 @@
   "name": "@cieloazul310/gatsby-theme-aoi-blog-cli",
   "version": "3.2.3",
   "description": "CLI package for Gatsby Theme Aoi Blog",
-  "author": "cieloazul310 <cieloazul310@gmail.com>",
-  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
   "license": "ISC",
   "main": "lib/index.js",
   "bin": {
     "gatsby-aoi-blog": "bin/gatsby-aoi-blog"
-  },
-  "directories": {
-    "lib": "lib",
-    "bin": "bin"
   },
   "files": [
     "lib",
     "bin",
     "archetypes.md"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cieloazul310/gatsby-aoi",
     "directory": "packages/blog/cli"
   },
-  "scripts": {
-    "build": "tsc -b .",
-    "dev": "tsc -b . --watch",
-    "build:blog": "yarn run build",
-    "clean": "rimraf lib && tsc -b . --clean",
-    "eslint": "eslint src/",
-    "test": "node lib/index.js",
-    "typecheck": "tsc --noEmit",
-    "prepack": "yarn run build"
+  "directories": {
+    "lib": "lib",
+    "bin": "bin"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "bugs": {
     "url": "https://github.com/cieloazul310/gatsby-aoi/issues"
   },
+  "author": {
+    "name": "cieloazul310",
+    "email": "cieloazul310@gmail.com",
+    "url": "https://cieloazul310.github.io"
+  },
+  "homepage": "https://github.com/cieloazul310/gatsby-aoi#readme",
+  "scripts": {
+    "build": "tsc -b .",
+    "dev": "tsc -b . --watch",
+    "build:blog": "npm run build",
+    "clean": "rimraf lib && tsc -b . --clean",
+    "eslint": "eslint src/",
+    "test": "node lib/index.js",
+    "typecheck": "tsc --noEmit",
+    "prepack": "npm run build"
+  },
   "dependencies": {
-    "commander": "^10.0.0"
+    "commander": "^11.1.0"
   },
   "devDependencies": {
+    "@cieloazul310/eslint-config-custom": "^3.2.3",
+    "@cieloazul310/tsconfig": "^3.2.3",
     "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.2.3",
-    "@types/node": "^18.14.1",
-    "eslint": "^8.34.0",
-    "eslint-config-custom": "^3.2.3",
-    "rimraf": "^4.1.2",
+    "@types/node": "^20.9.0",
+    "eslint": "^8.53.0",
+    "rimraf": "^5.0.5",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
-    "tsconfig": "^3.2.3",
-    "typescript": "^4.9.5"
+    "typescript": "^5.2.2"
   },
   "peerDependencies": {
     "@cieloazul310/gatsby-theme-aoi-blog-utils": "^3.0.1"

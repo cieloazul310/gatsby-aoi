@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   initialThemeState,
   type ThemeState,
   type ThemeAction,
-} from './ThemeState';
+} from "./ThemeState";
 
 type Context = { state: ThemeState; dispatch: React.Dispatch<ThemeAction> };
 const ThemeDispatchContext = React.createContext<Context>({
@@ -30,7 +30,7 @@ export function useThemeContextState() {
 export function useToggleDark() {
   const { dispatch } = React.useContext(ThemeDispatchContext);
   return React.useCallback(() => {
-    dispatch({ type: 'TOGGLE_DARKMODE' });
+    dispatch({ type: "TOGGLE_DARKMODE" });
   }, [dispatch]);
 }
 
@@ -41,6 +41,6 @@ export function useToggleDark() {
 export function useToggleUseSystem() {
   const { dispatch } = React.useContext(ThemeDispatchContext);
   return React.useCallback(() => {
-    dispatch({ type: 'TOGGLE_USE_SYSTEM_THEME' });
+    dispatch({ type: "TOGGLE_USE_SYSTEM_THEME" });
   }, [dispatch]);
 }

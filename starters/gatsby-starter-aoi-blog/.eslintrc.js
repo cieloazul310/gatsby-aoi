@@ -8,7 +8,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['plugin:mdx/recommended', 'custom'],
+  extends: ['plugin:mdx/recommended', '@cieloazul310/eslint-config-custom'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,

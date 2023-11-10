@@ -5,7 +5,7 @@ const {
   createSchemaCustomization,
   onCreateNode,
   sourceNodes,
-} = require('./lib');
+} = require("./lib");
 
 exports.createPages = createPages;
 exports.createResolvers = createResolvers;

@@ -1,10 +1,10 @@
 {
-  "extends": "tsconfig/gatsby.json",
+  "extends": "@cieloazul310/tsconfig/gatsby.json",
   "include": [
     "src",
     "gatsby-config.ts",
     "gatsby-browser.tsx",
-    ".eslintrc.js",
+    ".eslintrc.cjs",
     "./content/**/*",
     "./content/**/*"
   ]

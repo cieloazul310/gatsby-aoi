@@ -1,4 +1,4 @@
 {
   "extends": "../../../tsconfig.json",
-  "include": ["index.js", "types.d.ts", "cli.js", "gatsby-config.js", ".eslintrc.js"]
+  "include": ["index.js", "types.d.ts", "cli.cjs", "gatsby-config.mjs", ".eslintrc.cjs"]
 }

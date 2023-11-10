@@ -1,7 +1,7 @@
-import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Button from '@mui/material/Button';
+import * as React from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Button from "@mui/material/Button";
 import {
   Layout,
   Jumbotron,
@@ -13,8 +13,8 @@ import {
   AppLinkButton,
   Alert,
   Seo,
-} from '@cieloazul310/gatsby-theme-aoi';
-import { useAppState } from '../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext';
+} from "@cieloazul310/gatsby-theme-aoi";
+import { useAppState } from "../@cieloazul310/gatsby-theme-aoi-top-layout/utils/AppStateContext";
 
 function TabPage() {
   const { appBarPosition } = useAppState();

@@ -1,20 +1,20 @@
-import * as React from 'react';
-import ListItem from '@mui/material/ListItem';
+import * as React from "react";
+import ListItem from "@mui/material/ListItem";
 import ListItemButton, {
   type ListItemButtonProps,
-} from '@mui/material/ListItemButton';
-import LinkIcon from '@mui/icons-material/Link';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import MaiOutlineIcon from '@mui/icons-material/MailOutline';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import { useLinkType } from '@cieloazul310/gatsby-theme-aoi-utils';
+} from "@mui/material/ListItemButton";
+import LinkIcon from "@mui/icons-material/Link";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import MaiOutlineIcon from "@mui/icons-material/MailOutline";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import { useLinkType } from "@cieloazul310/gatsby-theme-aoi-utils";
 import GatsbyLinkComposed, {
   type GatsbyLinkComposedProps,
-} from './mdxComponents/GatsbyLinkComposed';
+} from "./mdxComponents/GatsbyLinkComposed";
 
 export type ListItemAppLinkProps<
-  TState extends object = Record<string, unknown>
-> = Omit<GatsbyLinkComposedProps<TState>, 'to'> &
+  TState extends object = Record<string, unknown>,
+> = Omit<GatsbyLinkComposedProps<TState>, "to"> &
   Omit<
     ListItemButtonProps<
       any,
@@ -22,25 +22,25 @@ export type ListItemAppLinkProps<
         href: string;
       }
     >,
-    'ref'
+    "ref"
   >;
 
 export const ListItemAppLink: (
-  props: Omit<ListItemAppLinkProps, 'ref'>
-) => JSX.Element | null = React.forwardRef<
+  props: Omit<ListItemAppLinkProps, "ref">,
+) => React.ReactNode = React.forwardRef<
   HTMLAnchorElement,
   ListItemAppLinkProps
 >(({ href, download, ...props }, ref) => {
   const linkType = useLinkType(href);
   const linkIcon = React.useMemo(() => {
     if (download) return <FileDownloadIcon fontSize="inherit" />;
-    if (linkType === 'external') return <OpenInNewIcon fontSize="inherit" />;
-    if (linkType === 'mail') return <MaiOutlineIcon fontSize="inherit" />;
-    if (linkType === 'section') return <LinkIcon fontSize="inherit" />;
+    if (linkType === "external") return <OpenInNewIcon fontSize="inherit" />;
+    if (linkType === "mail") return <MaiOutlineIcon fontSize="inherit" />;
+    if (linkType === "section") return <LinkIcon fontSize="inherit" />;
     return null;
   }, [linkType, download]);
   const button = React.useMemo(() => {
-    if (href && linkType === 'internal') {
+    if (href && linkType === "internal") {
       return (
         <ListItemButton
           ref={ref}
@@ -55,8 +55,8 @@ export const ListItemAppLink: (
         ref={ref}
         component="a"
         href={href}
-        target={linkType === 'external' ? '_blank' : undefined}
-        rel={linkType === 'external' ? 'noopener noreferrer' : undefined}
+        target={linkType === "external" ? "_blank" : undefined}
+        rel={linkType === "external" ? "noopener noreferrer" : undefined}
         {...props}
       />
     );

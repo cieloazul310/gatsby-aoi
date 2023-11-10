@@ -1,17 +1,17 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import * as yaml from 'yaml';
-import type { SourceNodesArgs } from 'gatsby';
-import { createRemoteFileNode } from 'gatsby-source-filesystem';
+import * as fs from "fs";
+import * as path from "path";
+import * as yaml from "yaml";
+import type { SourceNodesArgs } from "gatsby";
+import { createRemoteFileNode } from "gatsby-source-filesystem";
 import {
   withDefaults,
   createSlug,
   validURL,
-} from '@cieloazul310/gatsby-theme-aoi-blog-utils';
+} from "@cieloazul310/gatsby-theme-aoi-blog-utils";
 import type {
   Author,
   ThemeOptions,
-} from '@cieloazul310/gatsby-theme-aoi-blog-types';
+} from "@cieloazul310/gatsby-theme-aoi-blog-types";
 
 /**
  * sourceNodes で何をするか
@@ -21,17 +21,17 @@ import type {
  */
 export default async function sourceNodes(
   { actions, createNodeId, createContentDigest, getCache }: SourceNodesArgs,
-  themeOptions: ThemeOptions
+  themeOptions: ThemeOptions,
 ) {
   const { basePaths, contentPath } = withDefaults(themeOptions);
   const { createNode } = actions;
 
-  const authorsFile = path.resolve(contentPath, 'authors.yml');
+  const authorsFile = path.resolve(contentPath, "authors.yml");
   const dir = path.dirname(authorsFile);
   if (!fs.existsSync(authorsFile)) return;
 
-  const authors: Author<'bare'>[] = yaml.parse(
-    fs.readFileSync(authorsFile, 'utf8')
+  const authors: Author<"bare">[] = yaml.parse(
+    fs.readFileSync(authorsFile, "utf8"),
   );
 
   await Promise.all(
@@ -74,6 +74,6 @@ export default async function sourceNodes(
 
       const node = { ...data, ...nodeMeta };
       createNode(node);
-    })
+    }),
   );
 }

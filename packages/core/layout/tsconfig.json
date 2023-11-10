@@ -3,7 +3,7 @@
   "compilerOptions": {
     "rootDir": "src"
   },
-  "include": ["src", ".eslintrc.js"],
+  "include": ["src", ".eslintrc.cjs"],
   "references": [
     {
       "path": "../components"

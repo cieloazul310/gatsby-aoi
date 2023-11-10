@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   useSiteMetadata,
   useAssetUrl,
-} from '@cieloazul310/gatsby-theme-aoi-utils';
+} from "@cieloazul310/gatsby-theme-aoi-utils";
 
 export type SeoProps = {
   title?: string;

@@ -1,8 +1,8 @@
 /* eslint @typescript-eslint/no-unused-vars: warn */
-import * as React from 'react';
-import List from '@mui/material/List';
-import { ListItemLink } from '@cieloazul310/gatsby-theme-aoi-components';
-import type { MdxPostListFragment } from '@cieloazul310/gatsby-theme-aoi-blog-types';
+import * as React from "react";
+import List from "@mui/material/List";
+import { ListItemLink } from "@cieloazul310/gatsby-theme-aoi-components";
+import type { MdxPostListFragment } from "@cieloazul310/gatsby-theme-aoi-blog-types";
 
 type MdxPostListProps = {
   posts: MdxPostListFragment[];

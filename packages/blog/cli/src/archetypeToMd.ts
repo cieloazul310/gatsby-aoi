@@ -1,10 +1,10 @@
-import * as fs from 'fs';
+import * as fs from "fs";
 
 export default function archetypesToMd(
   archetypesPath: string,
-  { title, date, author }: { title: string; date: Date; author: string }
+  { title, date, author }: { title: string; date: Date; author: string },
 ) {
-  const lines = fs.readFileSync(archetypesPath, 'utf8').split('\n');
+  const lines = fs.readFileSync(archetypesPath, "utf8").split("\n");
   const regTitle = /title:/;
   const regDate = /date:/;
   const regAuthor = /author:/;
@@ -22,5 +22,5 @@ export default function archetypesToMd(
       }
       return line;
     })
-    .join('\n');
+    .join("\n");
 }

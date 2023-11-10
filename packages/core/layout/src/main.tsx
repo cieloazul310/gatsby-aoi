@@ -1,13 +1,13 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import { type AppBarProps } from '@mui/material/AppBar';
-import Drawer from '@mui/material/Drawer';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import LinearProgress from '@mui/material/LinearProgress';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import { type AppBarProps } from "@mui/material/AppBar";
+import Drawer from "@mui/material/Drawer";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import LinearProgress from "@mui/material/LinearProgress";
 import {
   SectionWrapper,
   type SectionWrapperProps,
-} from '@cieloazul310/gatsby-theme-aoi-components';
+} from "@cieloazul310/gatsby-theme-aoi-components";
 import {
   useMainStyles,
   usePermanentDrawerStyles,
@@ -15,17 +15,17 @@ import {
   useLayoutDisplay,
   useViewports,
   type ComponentViewports,
-} from '@cieloazul310/gatsby-theme-aoi-utils';
+} from "@cieloazul310/gatsby-theme-aoi-utils";
 
 // layout components are enable to override from your project
 // https://www.gatsbyjs.org/docs/themes/shadowing/
-import Header from './Header';
-import TabContainer from './TabContainer';
-import DrawerInner from './DrawerInner';
-import FooterMenu from './FooterMenu';
-import Footer from './Footer';
-import Fab from './Fab';
-import BottomNav from './BottomNav';
+import Header from "./Header";
+import TabContainer from "./TabContainer";
+import DrawerInner from "./DrawerInner";
+import FooterMenu from "./FooterMenu";
+import Footer from "./Footer";
+import Fab from "./Fab";
+import BottomNav from "./BottomNav";
 
 /**
  * TODO: enable to change breakpoints via props
@@ -48,7 +48,7 @@ export type LayoutProps<T extends object = Record<string, unknown>> = {
   componentViewports?: Partial<ComponentViewports>;
   loading?: boolean;
   /** @experimental */
-  appBarPosition?: AppBarProps['position'];
+  appBarPosition?: AppBarProps["position"];
   /** @experimental */
   disableSwipeableDrawer?: boolean;
   /** @experimental */
@@ -57,9 +57,9 @@ export type LayoutProps<T extends object = Record<string, unknown>> = {
   disableBottomNav?: boolean;
   /** @experimental */
   disableFab?: boolean;
-  wrapperComponent?: SectionWrapperProps['component'];
+  wrapperComponent?: SectionWrapperProps["component"];
   drawerWidth?: number;
-  contentSpacing?: SectionWrapperProps['spacing'];
+  contentSpacing?: SectionWrapperProps["spacing"];
   tabSticky?: boolean;
 } & T;
 
@@ -72,8 +72,8 @@ function Layout<T extends object = Record<string, unknown>>({
   fab,
   componentViewports,
   loading = false,
-  appBarPosition = 'fixed',
-  wrapperComponent = 'article',
+  appBarPosition = "fixed",
+  wrapperComponent = "article",
   drawerWidth = 280,
   contentSpacing = 2,
   tabSticky = false,
@@ -90,11 +90,11 @@ function Layout<T extends object = Record<string, unknown>>({
     disableFab,
   });
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const appBarFixed = appBarPosition === 'fixed';
-  const paddingTop = appBarFixed ? { xs: '56px', sm: '64px' } : undefined;
+  const appBarFixed = appBarPosition === "fixed";
+  const paddingTop = appBarFixed ? { xs: "56px", sm: "64px" } : undefined;
   const permanentDrawerStyles = usePermanentDrawerStyles(
     viewports.permanentDrawer,
-    drawerWidth
+    drawerWidth,
   );
   const mainStyles = useMainStyles(viewports.bottomNav);
   const fabStyles = useFabStyles(viewports.bottomNav);
@@ -121,10 +121,10 @@ function Layout<T extends object = Record<string, unknown>>({
           <SwipeableDrawer
             sx={{
               display: display.swipeableDrawer,
-              '& .MuiDrawer-paper': {
-                boxSizing: 'border-box',
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
                 width: drawerWidth,
-                backgroundImage: 'none',
+                backgroundImage: "none",
                 paddingTop,
               },
             }}
@@ -148,8 +148,8 @@ function Layout<T extends object = Record<string, unknown>>({
           <Drawer
             sx={{
               display: display.permanentDrawer,
-              '& .MuiDrawer-paper': {
-                boxSizing: 'border-box',
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
                 width: drawerWidth,
                 paddingTop,
               },
@@ -198,11 +198,11 @@ function Layout<T extends object = Record<string, unknown>>({
       <Box
         sx={{
           ...fabStyles,
-          zIndex: 'fab',
+          zIndex: "fab",
           display: display.fab,
-          position: 'fixed',
+          position: "fixed",
           right: ({ spacing }) => spacing(2),
-          transition: ({ transitions }) => transitions.create('bottom'),
+          transition: ({ transitions }) => transitions.create("bottom"),
         }}
       >
         {fab || <Fab onClick={toggleDrawer} {...props} />}
@@ -216,11 +216,11 @@ function Layout<T extends object = Record<string, unknown>>({
       <Box
         sx={{
           display: display.bottomNav,
-          position: 'fixed',
+          position: "fixed",
           left: 0,
           bottom: 0,
-          width: '100%',
-          zIndex: 'appBar',
+          width: "100%",
+          zIndex: "appBar",
         }}
       >
         {bottomNavigation || <BottomNav {...props} />}
@@ -231,18 +231,18 @@ function Layout<T extends object = Record<string, unknown>>({
   return (
     <Box
       sx={{
-        display: 'flex',
+        display: "flex",
         flexGrow: 1,
-        minHeight: '100vh',
+        minHeight: "100vh",
       }}
     >
       {loading ? (
         <LinearProgress
           sx={{
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             left: 0,
-            width: '100%',
+            width: "100%",
             zIndex: ({ zIndex }) => zIndex.drawer + 3,
           }}
           color="secondary"
@@ -254,7 +254,7 @@ function Layout<T extends object = Record<string, unknown>>({
           ...mainStyles,
           paddingTop,
           flexGrow: 1,
-          maxWidth: '100%',
+          maxWidth: "100%",
           minWidth: 0,
         }}
       >
@@ -285,8 +285,8 @@ Layout.defaultProps = {
   bottomNavigation: undefined,
   fab: undefined,
   componentViewports: undefined,
-  appBarPosition: 'fixed',
-  wrapperComponent: 'article',
+  appBarPosition: "fixed",
+  wrapperComponent: "article",
   contentSpacing: 2,
   tabSticky: false,
   loading: false,

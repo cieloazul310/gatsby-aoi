@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 export type AppState = {
   count: number;
@@ -8,7 +8,7 @@ export const initialAppState: AppState = {
   count: 0,
 };
 
-export type Action = { type: 'RESET' } | { type: 'INCREMENT' };
+export type Action = { type: "RESET" } | { type: "INCREMENT" };
 
 /**
  * The global reducer wrapping whole app for `AppState`.
@@ -18,9 +18,9 @@ export type Action = { type: 'RESET' } | { type: 'INCREMENT' };
  */
 export default function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
-    case 'INCREMENT':
+    case "INCREMENT":
       return { ...state, count: state.count + 1 };
-    case 'RESET':
+    case "RESET":
       return initialAppState;
     default:
       throw new Error("Reducer don't match the action type.");
@@ -29,11 +29,11 @@ export default function reducer(state: AppState, action: Action): AppState {
 
 export const useInitialAppState = (
   dispatch: React.Dispatch<Action>,
-  isMobile?: boolean
+  isMobile?: boolean,
 ) => {
   React.useEffect(() => {
     if (isMobile) {
-      dispatch({ type: 'INCREMENT' });
+      dispatch({ type: "INCREMENT" });
     }
   }, []);
 };

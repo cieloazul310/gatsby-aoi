@@ -1,9 +1,9 @@
-import * as React from 'react';
-import AppStateContext from '../utils/AppStateContext';
+import * as React from "react";
+import AppStateContext from "../utils/AppStateContext";
 import reducer, {
   initialAppState,
   useInitialAppState,
-} from '../utils/AppState';
+} from "../utils/AppState";
 
 type AppStateProviderProps = React.PropsWithChildren<{
   isMobile: boolean;

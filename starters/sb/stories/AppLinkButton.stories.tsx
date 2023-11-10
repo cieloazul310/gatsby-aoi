@@ -1,10 +1,10 @@
-import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import { AppLinkButton } from '@cieloazul310/gatsby-theme-aoi-components';
-import type { ComponentMeta } from '@storybook/react';
+import * as React from "react";
+import Stack from "@mui/material/Stack";
+import { AppLinkButton } from "@cieloazul310/gatsby-theme-aoi-components";
+import type { ComponentMeta } from "@storybook/react";
 
 export default {
-  title: 'AppLinkButton',
+  title: "AppLinkButton",
   component: AppLinkButton,
 } as ComponentMeta<typeof AppLinkButton>;
 
