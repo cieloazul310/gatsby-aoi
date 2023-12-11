@@ -43,7 +43,7 @@ export const Blockquote: (props: BlockquoteProps) => React.ReactNode =
         my={4}
         borderRadius={1}
         bgcolor={({ palette }) =>
-          alpha(palette.primary.main, palette.action.hoverOpacity)
+          alpha(palette.primary.main, palette.action.selectedOpacity)
         }
         sx={{
           // equivalent to first-child
@@ -57,7 +57,7 @@ export const Blockquote: (props: BlockquoteProps) => React.ReactNode =
         {...props}
       >
         {children}
-        {title ? (
+        {title && (
           <Typography textAlign="right" variant="body2">
             {url ? (
               <MuiLink
@@ -72,7 +72,7 @@ export const Blockquote: (props: BlockquoteProps) => React.ReactNode =
               title
             )}
           </Typography>
-        ) : null}
+        )}
       </Typography>
     ),
   );

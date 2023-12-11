@@ -94,7 +94,7 @@ const Jumbotron = React.forwardRef<any, JumbotronProps>(
           backgroundImage: jumbotronBgImage,
         }}
       >
-        {bgImage ? (
+        {bgImage && (
           <Box
             sx={{
               position: "absolute",
@@ -110,7 +110,7 @@ const Jumbotron = React.forwardRef<any, JumbotronProps>(
               transform: "scale(1.2)",
             }}
           />
-        ) : null}
+        )}
         <Container
           {...containerProps}
           sx={{

@@ -51,8 +51,8 @@ function BlogPostTemplate({
       title={title ?? "Title"}
       drawerContents={
         <DrawerPageNavigation
-          right={older ? { href: older.slug, title: older.title } : null}
-          left={newer ? { href: newer.slug, title: newer.title } : null}
+          right={older && { href: older.slug, title: older.title }}
+          left={newer && { href: newer.slug, title: newer.title }}
         />
       }
     >
@@ -90,7 +90,7 @@ function BlogPostTemplate({
               </AppLink>
             ))}
           </Typography>
-          {tags.length ? (
+          {tags.length && (
             <Typography>
               {tags.map((tag) => (
                 <AppLink key={tag} href={tagToSlug(tag)} mr={1}>
@@ -98,12 +98,12 @@ function BlogPostTemplate({
                 </AppLink>
               ))}
             </Typography>
-          ) : null}
+          )}
         </Article>
       </Section>
       <Section component="footer">
         <Article maxWidth="md">
-          {author ? <AuthorBox author={author} /> : null}
+          {author && <AuthorBox author={author} />}
         </Article>
       </Section>
       <Section component="nav">

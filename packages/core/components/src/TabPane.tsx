@@ -23,7 +23,7 @@ function TabPane({
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
     >
-      {current || (renderNeighbor && isNeighbor) ? children : null}
+      {(current || (renderNeighbor && isNeighbor)) && children}
     </div>
   );
 }

@@ -43,7 +43,7 @@ function ButtonRightInner({ title }: ButtonRightInnerProps) {
           <FacebookIcon />
         </IconButton>
       </Tooltip>
-      {github ? (
+      {github && (
         <Tooltip title="GitHub">
           <IconButton
             color="inherit"
@@ -55,7 +55,7 @@ function ButtonRightInner({ title }: ButtonRightInnerProps) {
             <GitHubIcon />
           </IconButton>
         </Tooltip>
-      ) : null}
+      )}
     </>
   );
 }

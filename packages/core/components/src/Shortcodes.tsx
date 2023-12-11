@@ -16,7 +16,7 @@ export const Alert: (props: Omit<AlertProps, "ref">) => React.ReactNode =
   React.forwardRef<HTMLDivElement, AlertProps>(
     ({ children, title, ...props }, ref) => (
       <MuiAlert ref={ref} {...props} sx={{ ...props.sx, my: 4 }}>
-        {title ? <AlertTitle>{title}</AlertTitle> : null}
+        {title && <AlertTitle>{title}</AlertTitle>}
         {children}
       </MuiAlert>
     ),

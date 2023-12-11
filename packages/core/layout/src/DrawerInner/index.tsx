@@ -21,10 +21,10 @@ function DrawerInner({
 }: DrawerInnerProps) {
   return (
     <>
-      {!appBarFixed ? <Toolbar /> : null}
+      {!appBarFixed && <Toolbar />}
       <Divider />
       {contents}
-      {contents ? <Divider /> : null}
+      {contents && <Divider />}
       <Contents {...props} />
       <Divider />
       <StateHandler {...props} />

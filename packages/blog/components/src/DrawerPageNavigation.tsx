@@ -33,7 +33,7 @@ function DrawerPageNavigation({
 }: DrawerPageNavigationProps) {
   return (
     <List subheader={<ListSubheader>{title ?? "Navigation"}</ListSubheader>}>
-      {left ? (
+      {left && (
         // eslint-disable-next-line react/jsx-props-no-spreading
         <ListItemAppLink href={left.href} {...linkProps}>
           <ListItemIcon>
@@ -44,8 +44,8 @@ function DrawerPageNavigation({
             secondary={left.secondaryText ?? "Newer post"}
           />
         </ListItemAppLink>
-      ) : null}
-      {right ? (
+      )}
+      {right && (
         // eslint-disable-next-line react/jsx-props-no-spreading
         <ListItemAppLink href={right.href} {...linkProps}>
           <ListItemIcon>
@@ -56,7 +56,7 @@ function DrawerPageNavigation({
             secondary={right.secondaryText ?? "Older post"}
           />
         </ListItemAppLink>
-      ) : null}
+      )}
     </List>
   );
 }

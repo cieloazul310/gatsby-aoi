@@ -7,6 +7,7 @@ export {
   default as BottomNavigationAppLink,
   type BottomNavigationAppLinkProps,
 } from "./BottomNavigationAppLink";
+export { default as Details, type DetailsProps } from "./Details";
 export { default as Jumbotron, type JumbotronProps } from "./Jumbotron";
 export {
   default as ListItemAppLink,

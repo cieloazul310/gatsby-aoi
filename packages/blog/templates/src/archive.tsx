@@ -87,14 +87,12 @@ function ArchiveTemplate({
       drawerContents={
         <DrawerPageNavigation
           left={
-            previous
-              ? {
-                  href: previous.basePath,
-                  title: previousTitle,
-                }
-              : null
+            previous && {
+              href: previous.basePath,
+              title: previousTitle,
+            }
           }
-          right={next ? { href: next.basePath, title: nextTitle } : null}
+          right={next && { href: next.basePath, title: nextTitle }}
         />
       }
     >

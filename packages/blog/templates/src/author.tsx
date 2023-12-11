@@ -74,8 +74,8 @@ function AuthorTemplate({
       title={author.name}
       drawerContents={
         <DrawerPageNavigation
-          left={previous ? { href: previous.slug, title: previous.name } : null}
-          right={next ? { href: next.slug, title: next.name } : null}
+          left={previous && { href: previous.slug, title: previous.name }}
+          right={next && { href: next.slug, title: next.name }}
         />
       }
     >
@@ -123,12 +123,12 @@ function AuthorTemplate({
           <Paragraph>
             {author.description}
             <br />
-            {author.websiteURL ? (
+            {author.websiteURL && (
               <>
                 Website:{" "}
                 <AppLink href={author.websiteURL}>{author.website}</AppLink>
               </>
-            ) : null}
+            )}
           </Paragraph>
           <Stack spacing={1} direction="row">
             {author.socials?.map(({ name, url }) => (

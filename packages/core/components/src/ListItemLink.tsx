@@ -46,15 +46,15 @@ const ListItemLink = React.forwardRef<HTMLLIElement, ListItemLinkProps>(
     const content = React.useMemo(
       () => (
         <>
-          {avatar ? <ListItemAvatar>{avatar}</ListItemAvatar> : null}
+          {avatar && <ListItemAvatar>{avatar}</ListItemAvatar>}
           <ListItemText
             primary={primary}
             secondary={secondaryText}
             inset={inset}
           />
-          {secondaryAction ? (
+          {secondaryAction && (
             <ListItemSecondaryAction>{secondaryAction}</ListItemSecondaryAction>
-          ) : null}
+          )}
         </>
       ),
       [avatar, primary, secondaryText, inset, secondaryAction, isMobile],

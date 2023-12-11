@@ -49,12 +49,12 @@ function AuthorBox({ author }: AuthorBoxProps) {
             {author.name}
           </Typography>
           <Typography variant="body2">{author.description}</Typography>
-          {author.websiteURL ? (
+          {author.websiteURL && (
             <Typography variant="body2">
               Website:{" "}
               <AppLink href={author.websiteURL}>{author.website}</AppLink>
             </Typography>
-          ) : null}
+          )}
         </Box>
         <Box py={1}>
           <Stack spacing={1} direction="row">
@@ -63,11 +63,11 @@ function AuthorBox({ author }: AuthorBoxProps) {
             ))}
           </Stack>
           <Box textAlign={{ xs: "right", sm: "left" }}>
-            {author.slug ? (
+            {author.slug && (
               <AppLink href={author.slug}>
                 {author.name}の記事一覧 ({author.posts?.totalCount})
               </AppLink>
-            ) : null}
+            )}
           </Box>
         </Box>
       </Box>
