@@ -8,17 +8,17 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['@cieloazul310/eslint-config-custom'],
+  extends: ["plugin:mdx/recommended", "@cieloazul310/eslint-config-custom"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: './tsconfig.json',
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: "./tsconfig.json",
     tsconfigRootDir: __dirname,
   },
   rules: {
-    '@typescript-eslint/no-unused-vars': 'warn',
+    "@typescript-eslint/no-unused-vars": "warn",
   },
 };
