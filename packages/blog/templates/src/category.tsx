@@ -54,8 +54,8 @@ function CategoryTemplate({
       title={name}
       drawerContents={
         <DrawerPageNavigation
-          left={previous ? { href: previous.slug, title: previous.name } : null}
-          right={next ? { href: next.slug, title: next.name } : null}
+          left={previous && { href: previous.slug, title: previous.name }}
+          right={next && { href: next.slug, title: next.name }}
         />
       }
     >

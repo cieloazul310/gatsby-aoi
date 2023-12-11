@@ -42,13 +42,13 @@ function Seo({ title, description, image, children = null }: SeoProps) {
         name="twitter:description"
         content={description ?? siteMetadata.description}
       />
-      {imageUrl ? (
+      {imageUrl && (
         <>
           <meta name="image" content={imageUrl} />
           <meta name="og:image" content={imageUrl} />
           <meta name="twitter:image" content={imageUrl} />
         </>
-      ) : null}
+      )}
       {children}
     </>
   );

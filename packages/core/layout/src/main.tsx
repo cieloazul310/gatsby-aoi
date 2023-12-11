@@ -117,7 +117,7 @@ function Layout<T extends object = Record<string, unknown>>({
           flexShrink: 0,
         }}
       >
-        {viewports.swipeableDrawer !== false ? (
+        {viewports.swipeableDrawer !== false && (
           <SwipeableDrawer
             sx={{
               display: display.swipeableDrawer,
@@ -143,8 +143,8 @@ function Layout<T extends object = Record<string, unknown>>({
               {...props}
             />
           </SwipeableDrawer>
-        ) : null}
-        {viewports.permanentDrawer !== false ? (
+        )}
+        {viewports.permanentDrawer !== false && (
           <Drawer
             sx={{
               display: display.permanentDrawer,
@@ -164,7 +164,7 @@ function Layout<T extends object = Record<string, unknown>>({
               {...props}
             />
           </Drawer>
-        ) : null}
+        )}
       </Box>
     );
   }, [
@@ -236,7 +236,7 @@ function Layout<T extends object = Record<string, unknown>>({
         minHeight: "100vh",
       }}
     >
-      {loading ? (
+      {loading && (
         <LinearProgress
           sx={{
             position: "fixed",
@@ -247,7 +247,7 @@ function Layout<T extends object = Record<string, unknown>>({
           }}
           color="secondary"
         />
-      ) : null}
+      )}
       {drawer}
       <Box
         sx={{

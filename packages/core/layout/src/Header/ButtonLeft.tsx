@@ -42,7 +42,7 @@ function ButtonLeft({
         </Tooltip>
       </Box>
       <Box sx={{ display: menuButtonDisplay }}>
-        {showMenuButton ? (
+        {showMenuButton && (
           <Tooltip title="Menu">
             <IconButton
               color="inherit"
@@ -53,7 +53,7 @@ function ButtonLeft({
               <MenuIcon />
             </IconButton>
           </Tooltip>
-        ) : null}
+        )}
       </Box>
     </>
   );

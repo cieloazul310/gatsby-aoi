@@ -43,7 +43,7 @@ function PageNavigationItem({
       component={GatsbyLink}
       to={href}
     >
-      {!disabled ? (
+      {!disabled && (
         <Box
           sx={{
             flexGrow: 1,
@@ -76,7 +76,7 @@ function PageNavigationItem({
             {children}
           </Box>
         </Box>
-      ) : null}
+      )}
     </ButtonBase>
   );
 }
