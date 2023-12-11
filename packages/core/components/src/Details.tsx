@@ -9,16 +9,24 @@ export type DetailsProps = BoxProps &
     summary: React.ReactNode;
     url?: string;
     title?: string;
+    disableMargin?: boolean;
   }>;
 
-function Details({ children, summary, url, title, ...props }: DetailsProps) {
+function Details({
+  children,
+  summary,
+  url,
+  title,
+  disableMargin = false,
+  ...props
+}: DetailsProps) {
   return (
     <Box
       component="details"
       {...props}
       sx={{
         ...props.sx,
-        my: 4,
+        my: disableMargin ? 0 : 4,
         borderRadius: 1,
         bgcolor: ({ palette }) =>
           alpha(palette.primary.main, palette.action.selectedOpacity),
@@ -28,13 +36,11 @@ function Details({ children, summary, url, title, ...props }: DetailsProps) {
         component="summary"
         py={2}
         px={2}
-        color={({ palette }) =>
-          palette.mode === "light" ? "primary.dark" : "primary.light"
-        }
         fontWeight="bold"
         bgcolor={({ palette }) =>
           alpha(palette.primary.main, palette.action.selectedOpacity)
         }
+        sx={{ cursor: "pointer" }}
       >
         {summary}
       </Typography>
@@ -82,6 +88,7 @@ function Details({ children, summary, url, title, ...props }: DetailsProps) {
 Details.defaultProps = {
   url: undefined,
   title: undefined,
+  disableMargin: false,
 };
 
 export default Details;
