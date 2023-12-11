@@ -1,6 +1,6 @@
 {
   "name": "gatsby-starter-aoi-blog",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "private": true,
   "description": "Gatsby blog theme starter built with @cieloazul310/gatsby-theme-aoi",
   "author": "cieloazul310 <cieloazul310@gmail.com>",
@@ -16,8 +16,8 @@
     "eslint": "eslint src/"
   },
   "dependencies": {
-    "@cieloazul310/gatsby-theme-aoi": "^3.3.0",
-    "@cieloazul310/gatsby-theme-aoi-blog": "^3.3.0",
+    "@cieloazul310/gatsby-theme-aoi": "^3.4.0",
+    "@cieloazul310/gatsby-theme-aoi-blog": "^3.4.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.16",
@@ -33,8 +33,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@cieloazul310/eslint-config-custom": "^3.3.0",
-    "@cieloazul310/tsconfig": "^3.3.0",
+    "@cieloazul310/eslint-config-custom": "^3.4.0",
+    "@cieloazul310/tsconfig": "^3.4.0",
     "eslint": "^8.53.0",
     "eslint-plugin-mdx": "^2.2.0",
     "typescript": "^5.2.2"

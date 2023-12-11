@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/gatsby-theme-aoi-layout",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "MUI based layout component for @cieloazul310/gatsby-theme-aoi",
   "license": "ISC",
   "main": "src/index.tsx",
@@ -36,11 +36,11 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {
-    "@cieloazul310/eslint-config-custom": "^3.3.0",
-    "@cieloazul310/gatsby-theme-aoi-components": "^3.3.0",
-    "@cieloazul310/gatsby-theme-aoi-top-layout": "^3.3.0",
-    "@cieloazul310/gatsby-theme-aoi-utils": "^3.3.0",
-    "@cieloazul310/tsconfig": "^3.3.0",
+    "@cieloazul310/eslint-config-custom": "^3.4.0",
+    "@cieloazul310/gatsby-theme-aoi-components": "^3.4.0",
+    "@cieloazul310/gatsby-theme-aoi-top-layout": "^3.4.0",
+    "@cieloazul310/gatsby-theme-aoi-utils": "^3.4.0",
+    "@cieloazul310/tsconfig": "^3.4.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@gatsbyjs/reach-router": "^2.0.1",
